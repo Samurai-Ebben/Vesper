@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
             coyoteTimeCounter = 0;
         }
 
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0 && devBut.amGhost)
         {
             rb.gravityScale = 5.7f;
         }
