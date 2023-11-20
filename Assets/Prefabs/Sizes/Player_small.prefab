@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 2001940146935406576}
   - component: {fileID: 4013039832353530487}
   - component: {fileID: 8462916738579366574}
-  - component: {fileID: 5820721754400875693}
   - component: {fileID: -1635159767709495092}
   m_Layer: 0
   m_Name: Player_small
@@ -142,6 +141,7 @@ MonoBehaviour:
   jumpBufferTime: 0.1
   jumpForce: 6
   jumpCutOff: 0.1
+  InJumpBuffer: 0
   airAcceleration: 0
   airBrake: 0
   airControl: 0
@@ -219,7 +219,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d587329d9f7305c429f9290ace9cc0a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -230,27 +230,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &5820721754400875693
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2317494879089971283}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-1635159767709495092
 MonoBehaviour:
   m_ObjectHideFlags: 0
