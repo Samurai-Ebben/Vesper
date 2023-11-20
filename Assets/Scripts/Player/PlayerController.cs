@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale = 5.7f;
         }
-        else
+        else if(!devBut.amGhost)
             rb.gravityScale = 1;
     }
 
