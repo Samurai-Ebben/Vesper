@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DevButtons : MonoBehaviour
 {
@@ -10,19 +11,19 @@ public class DevButtons : MonoBehaviour
         // Restart Level
         if (Input.GetKeyUp(KeyCode.R))
         {
-            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         // Next Level
         if (Input.GetKeyUp(KeyCode.N))
         {
-
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         // Previous Level
         if (Input.GetKeyUp(KeyCode.P))
         {
-
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
         // Set Development Checkpoint
@@ -68,7 +69,7 @@ public class DevButtons : MonoBehaviour
         }
 
         // timeScale up
-        if (Input.GetKeyUp(KeyCode.Alpha4))
+        if (Input.GetKeyUp(KeyCode.Alpha5))
         {
             Time.timeScale += 0.25f;
         }
