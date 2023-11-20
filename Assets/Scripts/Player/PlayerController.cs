@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxSpeed = 4;
     [SerializeField] float acceleration = 20;
     [SerializeField] float deacceleration = 4;
-
+    bool isFacingRight = true;
     [Header("|Jumping Controls|")]
     [SerializeField] float jumpBufferTime = 0.1f;
     [SerializeField] float jumpForce = 6.0f;
@@ -19,18 +19,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpCutOff = 0.1f;
     [SerializeField] bool InJumpBuffer;
     bool isJumping;
+    float jumpBufferCounter;
 
     [Header("|Air Controls|")]
     [SerializeField] float airAcceleration;
     [SerializeField] float airBrake;
     [SerializeField] float airControl;
 
-    [Header("|Wall Controls|")]
-    [SerializeField] float wallJumpingDuration = 0.4f;
-    [SerializeField] float wallJumpingTime = 0.2f;
-    [SerializeField] Vector2 wallJumpPower = new Vector2(8, 16);
-    [SerializeField] float wallslidingSpeed = 1f;
-    [SerializeField] float wallCheckRadius = .15f;
 
     //Controls
     float velocityX;
@@ -41,28 +36,26 @@ public class PlayerController : MonoBehaviour
     float coyoteTime = 0.2f;
 
 
-    float groundCheckRad = .15f;
+    [SerializeField]Vector2 groundCheckRad;
 
-    float jumpBufferCounter;
-    bool isFacingRight = true;
+ 
 
     [Header("||LAYERS||")]
     [SerializeField] private LayerMask isGround;
-    [SerializeField] private LayerMask isWall;
 
     [Header("||REFRENCES||")]
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform wallCheck;
-    private InputActionAsset actions;
-    private DevButtons devBut;
     public GameObject groundHolderRight;
     public GameObject groundHolderLeft;
+
+    private InputActionAsset actions;
+    private DevButtons devBut;
 
     //Players refrences
     private Rigidbody2D rb;
 
     #region EventHandlar
-    public void OnMove(InputAction.CallbackContext ctx)
+    public void Move(InputAction.CallbackContext ctx)
     {
         moveInput = ctx.ReadValue<Vector2>().x;
     }
@@ -85,13 +78,13 @@ public class PlayerController : MonoBehaviour
     {
         actions = GetComponent<PlayerInput>().actions;
 
-        actions["Move"].performed += OnMove;
-        actions["Move"].canceled += OnMove;
+        actions["Move"].performed += Move;
+        actions["Move"].canceled += Move;
 
         actions["Jump"].started += OnJump;
         actions["Jump"].canceled += OnJumpCancel;
 
-        actions.Disable();
+        actions.Enable();
     }
 
     void Start()
@@ -106,11 +99,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
-        print(moveInput);
-        MoveX(moveInput);
+        MoveX();
         Jumping();
 
+        //Edge standing
+        if (IsGrounded())
+        {
+            groundHolderLeft.SetActive(true);
+            groundHolderRight.SetActive(true);
+        }
+        else
+        {
+            groundHolderLeft.SetActive(false);
+            groundHolderRight.SetActive(false);
+        }
     }
 
     private void Jumping()
@@ -124,14 +126,14 @@ public class PlayerController : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (InJumpBuffer)
         {
             jumpBufferCounter = jumpBufferTime;
         }
         else
             jumpBufferCounter -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump"))
+        if (InJumpBuffer && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
@@ -142,7 +144,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter = 0;
             
         }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
+        if (!InJumpBuffer && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
 
@@ -151,18 +153,27 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.y < 0 && !devBut.amGhost)
         {
-            rb.gravityScale = 4f;
+            rb.gravityScale = 3.5f;
         }
         else if(!devBut.amGhost)
             rb.gravityScale = 1;
     }
 
-    private void MoveX(float x)
+    private void MoveX()
     {
-        velocityX += x * acceleration * Time.deltaTime;
+        velocityX += moveInput * acceleration * Time.deltaTime;
 
+        if(!isFacingRight && moveInput > 0)
+        {
+            Flip();
+        }
+        else if (isFacingRight && moveInput < 0)
+        {
+            Flip();
+        }
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
-        if (x == 0 || (x < 0 == velocityX > 0))
+
+        if (moveInput == 0 || (moveInput < 0 == velocityX > 0))
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
          rb.velocity = new Vector2(velocityX, rb.velocity.y);
@@ -171,7 +182,8 @@ public class PlayerController : MonoBehaviour
 
     bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRad, isGround);
+        return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, isGround);
+        //return Physics2D.OverlapCircle(groundCheck.position, groundCheckRad, isGround);
     }
 
 
@@ -185,8 +197,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        actions["Move"].performed -= OnMove;
-        actions["Move"].canceled -= OnMove;
+        actions["Move"].performed -= Move;
+        actions["Move"].canceled -= Move;
 
         actions["Jump"].started -= OnJump;
         actions["Jump"].canceled -= OnJumpCancel;
@@ -197,8 +209,9 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRad);
-        Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadius);
+        //Gizmos.DrawWireSphere(groundCheck.position, groundCheckRad);
+
+        Gizmos.DrawWireCube(groundCheck.position, groundCheckRad);
 
         //Gizmos.DrawLine(transform.position)
     }
