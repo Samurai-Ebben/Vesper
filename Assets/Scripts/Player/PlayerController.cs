@@ -33,9 +33,7 @@ public class PlayerController : MonoBehaviour
 
     //Controls
     float velocityX;
-    float velocityWater;
     float moveInput;
-    float inputY = 0;
 
     //Features
     float coyoteTimeCounter;
@@ -60,9 +58,10 @@ public class PlayerController : MonoBehaviour
     [Header("||REFRENCES||")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
+    private InputActionAsset actions;
+
 
     //Players refrences
-    Animator anim;
     private Rigidbody2D rb;
 
     #region EventHandlar
@@ -85,13 +84,26 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
     }
     #endregion
+
+    private void OnEnable()
+    {
+        actions = GetComponent<PlayerInput>().actions;
+
+        actions["Move"].performed += OnMove;
+        actions["Move"].canceled += OnMove;
+
+        actions["Jump"].started += OnJump;
+        actions["Jump"].canceled += OnJumpCancel;
+
+
+        actions.Disable();
+
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         jumpBufferCounter = 0;
-
-        anim = GetComponent<Animator>();
 
         speed = maxSpeed;
     }
@@ -99,18 +111,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-        anim.SetBool("isMoving", moveInput != 0);
-
 
         speed = maxSpeed;
 
         Jumping();
-        WallSlide();
-        WallJump();
+        MoveX(moveInput);
 
-        if (!isWallJumping)
-            if (isFacingRight && moveInput < 0f || !isFacingRight && moveInput > 0f)
-                Flip();
     }
 
     private void Jumping()
@@ -159,34 +165,23 @@ public class PlayerController : MonoBehaviour
         }
         else
             rb.gravityScale = 1;
-        MoveX(moveInput);
     }
 
     private void MoveX(float x)
     {
-        anim.SetBool("isMoving", x != 0);
 
-
-        //add our input to our velocity
-        //This provides accelleration +10m/s/s
         velocityX += x * acceleration * Time.deltaTime;
 
         velocityX = Mathf.Clamp(velocityX, -speed, speed);
         //Check our max speed, if our magnitude is faster them max speed
 
-
         //If we have zero input from the player
         if (x == 0 || (x < 0 == velocityX > 0))
         {
-            //Reduce our speed based on how fast we are going
-            //A value of 0.9 would remove 10% or our speed
+
             velocityX *= 1 - deacceleration * Time.deltaTime;
         }
-
-
-        //Now we can move with the rigidbody and we get propper collisions
-        if (!isWallJumping)
-            rb.velocity = new Vector2(velocityX, rb.velocity.y);
+         rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }
 
 
@@ -195,71 +190,6 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRad, isGround);
     }
 
-    bool IsWalled()
-    {
-        return Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, isWall);
-    }
-
-    void WallSlide()
-    {
-        if (IsWalled() && !IsGrounded() && moveInput != 0)
-        {
-            isWallSliding = true;
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallslidingSpeed, float.MaxValue));
-        }
-        else
-            isWallSliding = false;
-    }
-
-    void WallJump()
-    {
-        if (isWallSliding)
-        {
-            isWallJumping = false;
-            currJumps = maxJumps;
-            wallJumpingDirection = -transform.localScale.x;
-            wallJumpingTimer = wallJumpingTime;
-            CancelInvoke(nameof(StopWallJumping));
-        }
-        else
-        {
-            wallJumpingTimer -= Time.deltaTime;
-        }
-
-        if (Input.GetButtonDown("Jump") && isWallSliding/*wallJumpingTimer > 0*/)
-        {
-            isWallJumping = true;
-            rb.velocity = new Vector2(wallJumpingDirection * wallJumpPower.x, wallJumpPower.y);
-            wallJumpingTimer = 0;
-
-            if (transform.localScale.x != wallJumpingDirection)
-            {
-                Flip();
-            }
-            Invoke(nameof(StopWallJumping), wallJumpingDuration);
-
-        }
-    }
-
-    void StopWallJumping()
-    {
-        isWallJumping = false;
-    }
-
-    void UnderWaterControlls(float y)
-    {
-        if (y == 0 || (y < 0 == velocityWater > 0))
-        {
-            //Reduce our speed based on how fast we are going
-            //A value of 0.9 would remove 10% or our speed
-            velocityWater *= 1 - deacceleration * Time.deltaTime;
-        }
-        velocityWater = Mathf.Clamp(velocityWater, -speed, speed);
-
-        velocityWater += y * acceleration * Time.deltaTime;
-
-        rb.velocity = new Vector2(rb.velocity.x, velocityWater);
-    }
 
     void Flip()
     {
@@ -269,6 +199,17 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
 
+    private void OnDisable()
+    {
+        actions["Move"].performed -= OnMove;
+        actions["Move"].canceled -= OnMove;
+
+        actions["Jump"].started -= OnJump;
+        actions["Jump"].canceled -= OnJumpCancel;
+
+
+        actions.Disable();
+    }
 
     private void OnDrawGizmosSelected()
     {
@@ -278,4 +219,6 @@ public class PlayerController : MonoBehaviour
 
         //Gizmos.DrawLine(transform.position)
     }
+
+    
 }
