@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 6.0f;
     [Range(0f, 1f)]
     [SerializeField] float jumpCutOff = 0.1f;
+    [SerializeField] bool InJumpBuffer;
 
     [Header("|Air Controls|")]
     [SerializeField] float airAcceleration;
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
     //Controls
     float velocityX;
     float velocityWater;
-    float inputX;
+    float moveInput;
     float inputY = 0;
 
     //Features
@@ -63,6 +65,26 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     private Rigidbody2D rb;
 
+    #region EventHandlar
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        moveInput = ctx.ReadValue<Vector2>().x;
+    }
+
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        InJumpBuffer = true;
+    }
+
+    public void OnJumpCancel(InputAction.CallbackContext ctx)
+    {
+        InJumpBuffer = false;
+
+        if (rb.velocity.y < 0) return;
+
+        rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
+    }
+    #endregion
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -76,8 +98,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        inputX = Input.GetAxisRaw("Horizontal");
-        anim.SetBool("isMoving", inputX != 0);
+        moveInput = Input.GetAxisRaw("Horizontal");
+        anim.SetBool("isMoving", moveInput != 0);
 
 
         speed = maxSpeed;
@@ -87,7 +109,7 @@ public class PlayerController : MonoBehaviour
         WallJump();
 
         if (!isWallJumping)
-            if (isFacingRight && inputX < 0f || !isFacingRight && inputX > 0f)
+            if (isFacingRight && moveInput < 0f || !isFacingRight && moveInput > 0f)
                 Flip();
     }
 
@@ -137,7 +159,7 @@ public class PlayerController : MonoBehaviour
         }
         else
             rb.gravityScale = 1;
-        MoveX(inputX);
+        MoveX(moveInput);
     }
 
     private void MoveX(float x)
@@ -180,7 +202,7 @@ public class PlayerController : MonoBehaviour
 
     void WallSlide()
     {
-        if (IsWalled() && !IsGrounded() && inputX != 0)
+        if (IsWalled() && !IsGrounded() && moveInput != 0)
         {
             isWallSliding = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallslidingSpeed, float.MaxValue));
