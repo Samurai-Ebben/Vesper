@@ -70,7 +70,7 @@ public class DevButtons : MonoBehaviour
         // NoClip (fly, go through walls)
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
-            if(amGhost != false)
+            if(amGhost != true)
             {
                 playerCollider2D.enabled = true;
                 playerRB2D.gravityScale = defaultGravity;
