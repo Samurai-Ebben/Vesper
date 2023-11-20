@@ -12,6 +12,7 @@ public class DevButtons : MonoBehaviour
     Rigidbody2D playerRB2D;
     float defaultGravity;
 
+    public bool amImmortal = false;
     public bool amGhost = false;
 
     void Start()
@@ -55,16 +56,23 @@ public class DevButtons : MonoBehaviour
             player.transform.position = checkpoint;
         }
 
-        // Show/Hide UI (turn on/off renderer components)
-        if (Input.GetKeyUp(KeyCode.U))
-        {
+        //// Show/Hide UI (turn on/off renderer components)
+        //if (Input.GetKeyUp(KeyCode.U))
+        //{
 
-        }
+        //}
 
         // Toggle Immortal Player
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
-
+            if(amImmortal != true)
+            {
+                amImmortal = true;
+            }
+            else
+            {
+                amImmortal = false;
+            }
         }
 
         // NoClip (fly, go through walls)
@@ -84,11 +92,11 @@ public class DevButtons : MonoBehaviour
             }
         }
 
-        // Kill all enemies
-        if (Input.GetKeyUp(KeyCode.Alpha3))
-        {
+        //// Kill all enemies
+        //if (Input.GetKeyUp(KeyCode.Alpha3))
+        //{
 
-        }
+        //}
 
         // timeScale down
         if (Input.GetKeyUp(KeyCode.Alpha4))
