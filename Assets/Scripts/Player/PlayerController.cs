@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     private InputActionAsset actions;
-
+    private DevButtons devBut;
 
     //Players refrences
     private Rigidbody2D rb;
@@ -96,13 +96,14 @@ public class PlayerController : MonoBehaviour
         actions["Jump"].canceled += OnJumpCancel;
 
 
-        actions.Disable();
+        actions.Enable();
 
     }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
+        devBut = Camera.main.GetComponent<DevButtons>();
         jumpBufferCounter = 0;
 
         speed = maxSpeed;
@@ -110,12 +111,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
-
         speed = maxSpeed;
 
-        Jumping();
         MoveX(moveInput);
+        Jumping();
 
     }
 
@@ -169,18 +168,13 @@ public class PlayerController : MonoBehaviour
 
     private void MoveX(float x)
     {
-
         velocityX += x * acceleration * Time.deltaTime;
 
         velocityX = Mathf.Clamp(velocityX, -speed, speed);
-        //Check our max speed, if our magnitude is faster them max speed
 
-        //If we have zero input from the player
         if (x == 0 || (x < 0 == velocityX > 0))
-        {
-
             velocityX *= 1 - deacceleration * Time.deltaTime;
-        }
+
          rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }
 
