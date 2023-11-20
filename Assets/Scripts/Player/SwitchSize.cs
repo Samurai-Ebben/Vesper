@@ -25,26 +25,34 @@ public class SwitchSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentGameObject);
 
         if (isBig) 
         {
             bigSize.gameObject.SetActive(true);
-            transform.position = bigSize.transform.position;
-            Debug.Log("Changing..." + currentGameObject);
+            smallSize.gameObject.SetActive(false);
+            mediumSize.gameObject.SetActive(false);
+
         }
        
 
         if (isSmall)
         {
+            bigSize.gameObject.SetActive(false);
             smallSize.gameObject.SetActive(true);
-            Debug.Log("Changing..." + currentGameObject);
+            mediumSize.gameObject.SetActive(false);
+
+
+
+
         }
 
         if (isMedium)
         {
+            bigSize.gameObject.SetActive(false);
+            smallSize.gameObject.SetActive(false);
             mediumSize.gameObject.SetActive(true);
-            Debug.Log("Changing..." + currentGameObject);
+
+
         }
     }
 
