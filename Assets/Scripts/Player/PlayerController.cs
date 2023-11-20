@@ -12,12 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float deacceleration = 4;
 
     [Header("|Jumping Controls|")]
-    [SerializeField] float maxJumps = 1;
     [SerializeField] float jumpBufferTime = 0.1f;
     [SerializeField] float jumpForce = 6.0f;
+    [SerializeField] float jumpHeight = 3.0f;
     [Range(0f, 1f)]
     [SerializeField] float jumpCutOff = 0.1f;
     [SerializeField] bool InJumpBuffer;
+    bool isJumping;
 
     [Header("|Air Controls|")]
     [SerializeField] float airAcceleration;
@@ -39,16 +40,10 @@ public class PlayerController : MonoBehaviour
     float coyoteTimeCounter;
     float coyoteTime = 0.2f;
 
-    //wallJumping
-    float wallJumpingTimer;
-    float wallJumpingDirection;
-    bool isWallSliding = false;
-    bool isWallJumping;
 
     float groundCheckRad = .15f;
 
     float jumpBufferCounter;
-    float currJumps = 0;
     bool isFacingRight = true;
 
     [Header("||LAYERS||")]
@@ -60,6 +55,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     private InputActionAsset actions;
     private DevButtons devBut;
+    public GameObject groundHolderRight;
+    public GameObject groundHolderLeft;
 
     //Players refrences
     private Rigidbody2D rb;
@@ -84,8 +81,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
     }
     #endregion
-
-    private void OnEnable()
+    private void Awake()
     {
         actions = GetComponent<PlayerInput>().actions;
 
@@ -95,10 +91,9 @@ public class PlayerController : MonoBehaviour
         actions["Jump"].started += OnJump;
         actions["Jump"].canceled += OnJumpCancel;
 
-
-        actions.Enable();
-
+        actions.Disable();
     }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -111,8 +106,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        speed = maxSpeed;
-
+        moveInput = Input.GetAxisRaw("Horizontal");
+        print(moveInput);
         MoveX(moveInput);
         Jumping();
 
@@ -123,7 +118,6 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
         {
             coyoteTimeCounter = coyoteTime;
-            currJumps = 0;
         }
         else
         {
@@ -137,20 +131,17 @@ public class PlayerController : MonoBehaviour
         else
             jumpBufferCounter -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && currJumps < maxJumps)
+        if (Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            currJumps++;
         }
 
-        if (coyoteTimeCounter > 0 && jumpBufferCounter > 0 /*&& !isJumping*/ )
+        if (coyoteTimeCounter > 0 && jumpBufferCounter > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpBufferCounter = 0;
-            currJumps = 0;
-            //StartCoroutine(JumpCooldown());
+            
         }
-
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
@@ -160,7 +151,7 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.y < 0 && !devBut.amGhost)
         {
-            rb.gravityScale = 5.7f;
+            rb.gravityScale = 4f;
         }
         else if(!devBut.amGhost)
             rb.gravityScale = 1;
@@ -170,8 +161,7 @@ public class PlayerController : MonoBehaviour
     {
         velocityX += x * acceleration * Time.deltaTime;
 
-        velocityX = Mathf.Clamp(velocityX, -speed, speed);
-
+        velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
         if (x == 0 || (x < 0 == velocityX > 0))
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
@@ -200,7 +190,6 @@ public class PlayerController : MonoBehaviour
 
         actions["Jump"].started -= OnJump;
         actions["Jump"].canceled -= OnJumpCancel;
-
 
         actions.Disable();
     }
