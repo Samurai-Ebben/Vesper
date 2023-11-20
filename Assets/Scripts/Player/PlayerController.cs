@@ -7,18 +7,21 @@ public class PlayerController : MonoBehaviour
     [Header("||PLAYER CONTROLS||")]
     [SerializeField] float speed;
     [SerializeField] float maxSpeed = 4;
-    [SerializeField] float acceleration = 20; //How fast we accelerate
+    [SerializeField] float acceleration = 20;
     [SerializeField] float deacceleration = 4;
+
     [Header("|Jumping Controls|")]
     [SerializeField] float maxJumps = 1;
     [SerializeField] float jumpBufferTime = 0.1f;
     [SerializeField] float jumpForce = 6.0f;
     [Range(0f, 1f)]
     [SerializeField] float jumpCutOff = 0.1f;
+
     [Header("|Air Controls|")]
     [SerializeField] float airAcceleration;
     [SerializeField] float airBrake;
     [SerializeField] float airControl;
+
     [Header("|Wall Controls|")]
     [SerializeField] float wallJumpingDuration = 0.4f;
     [SerializeField] float wallJumpingTime = 0.2f;
