@@ -72,14 +72,14 @@ public class DevButtons : MonoBehaviour
         {
             if(amGhost != true)
             {
-                playerCollider2D.enabled = true;
-                playerRB2D.gravityScale = defaultGravity;
+                playerCollider2D.enabled = false;
+                playerRB2D.gravityScale = 0;
                 amGhost = true;
             }
             else
             {
-                playerCollider2D.enabled = false;
-                playerRB2D.gravityScale = 0;
+                playerCollider2D.enabled = true;
+                playerRB2D.gravityScale = defaultGravity;
                 amGhost = false;
             }
         }
