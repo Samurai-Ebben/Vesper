@@ -120,6 +120,8 @@ public class PlayerController : MonoBehaviour
 
     private void Jumping()
     {
+        //if (BesideGround() && IsGrounded()) return;
+
         if (IsGrounded())
         {
             coyoteTimeCounter = coyoteTime;
@@ -174,13 +176,10 @@ public class PlayerController : MonoBehaviour
         }
 
         if (!isFacingRight && moveInput.x > 0)
-        {
             Flip();
-        }
         else if (isFacingRight && moveInput.x < 0)
-        {
             Flip();
-        }
+
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
 
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
