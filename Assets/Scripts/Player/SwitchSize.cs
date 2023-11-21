@@ -35,8 +35,7 @@ public class SwitchSize : MonoBehaviour
             smallSize.gameObject.SetActive(false);
             mediumSize.gameObject.SetActive(false);
 
-            bigSize.transform.position = currentPos;
-
+            
         }
        
 
