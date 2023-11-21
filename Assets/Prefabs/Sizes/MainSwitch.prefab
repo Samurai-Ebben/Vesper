@@ -334,6 +334,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8462916738579366574, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462916738579366574, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 4505907170274488285, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
