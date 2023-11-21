@@ -15,6 +15,8 @@ public class SwitchSize : MonoBehaviour
     public bool isBig;
     public bool isSmall;
     public bool isMedium;
+
+    Vector2 currentPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +27,15 @@ public class SwitchSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = currentPos;
 
         if (isBig) 
         {
             bigSize.gameObject.SetActive(true);
             smallSize.gameObject.SetActive(false);
             mediumSize.gameObject.SetActive(false);
+
+            bigSize.transform.position = currentPos;
 
         }
        
@@ -41,6 +46,7 @@ public class SwitchSize : MonoBehaviour
             smallSize.gameObject.SetActive(true);
             mediumSize.gameObject.SetActive(false);
 
+            smallSize.transform.position = currentPos;
 
 
 
@@ -52,6 +58,7 @@ public class SwitchSize : MonoBehaviour
             smallSize.gameObject.SetActive(false);
             mediumSize.gameObject.SetActive(true);
 
+            mediumSize.transform.position = currentPos;
 
         }
     }
