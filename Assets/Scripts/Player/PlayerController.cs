@@ -183,7 +183,6 @@ public class PlayerController : MonoBehaviour
     bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, isGround);
-        //return Physics2D.OverlapCircle(groundCheck.position, groundCheckRad, isGround);
     }
 
 
