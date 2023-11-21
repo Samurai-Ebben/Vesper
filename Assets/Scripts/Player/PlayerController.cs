@@ -40,7 +40,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]Vector2 groundCheckRad;
     [SerializeField]Vector2 sideGroundCheckRad;
 
-
+    [Header("||SWICH_CONTROLS||")]
+    bool isSmall;
+    bool isLarge;
 
     [Header("||LAYERS||")]
     [SerializeField] private LayerMask isGround;
@@ -76,6 +78,22 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
     }
+    public void Smaller(InputAction.CallbackContext ctx)
+    {
+        isSmall = true;
+    }
+    public void SmallerCancle(InputAction.CallbackContext ctx)
+    {
+        isSmall = false;
+    }
+    public void Larger(InputAction.CallbackContext ctx)
+    {
+        isLarge = true;
+    }
+    public void LargerCancle(InputAction.CallbackContext ctx)
+    {
+        isLarge = false;
+    }
     #endregion
     private void Awake()
     {
@@ -86,6 +104,11 @@ public class PlayerController : MonoBehaviour
 
         actions["Jump"].started += OnJump;
         actions["Jump"].canceled += OnJumpCancel;
+
+        actions["Samller"].started += Smaller;
+        actions["Samller"].canceled += SmallerCancle;
+        actions["Larger"].started += Larger;
+        actions["Larger"].canceled += LargerCancle;
 
         actions.Enable();
     }
@@ -215,6 +238,10 @@ public class PlayerController : MonoBehaviour
         actions["Jump"].started -= OnJump;
         actions["Jump"].canceled -= OnJumpCancel;
 
+        actions["Samller"].started -= Smaller;
+        actions["Samller"].canceled -= SmallerCancle;
+        actions["Larger"].started -= Larger;
+        actions["Larger"].canceled -= LargerCancle;
         actions.Disable();
     }
 
