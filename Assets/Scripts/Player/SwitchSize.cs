@@ -15,13 +15,13 @@ public class SwitchSize : MonoBehaviour
 
     public bool isBig;
     public bool isSmall;
-    public bool isMedium;
 
     Vector2 currentPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        bigSize.GetComponent<SpriteRenderer>().enabled = false;
+        smallSize.GetComponent<SpriteRenderer>().enabled = false;
 
     }
 
@@ -29,33 +29,60 @@ public class SwitchSize : MonoBehaviour
     void Update()
     {
         currentPos = transform.position;
-        Debug.Log(currentPos);
 
-        if (isBig) 
+
+        
+        if(isBig) 
         {
-            bigSize.gameObject.SetActive(true);
-            smallSize.gameObject.SetActive(false);
-            mediumSize.gameObject.SetActive(false);
-            
+            BigSize();
+            isSmall = false;
         }
-       
-
-        if (isSmall)
+        else if (isSmall)
         {
-            bigSize.gameObject.SetActive(false);
-            smallSize.gameObject.SetActive(true);
-            mediumSize.gameObject.SetActive(false);
+            SmallSize();
+            isBig = false;
 
         }
-
-        if (isMedium)
+        else
         {
-            bigSize.gameObject.SetActive(false);
-            smallSize.gameObject.SetActive(false);
-            mediumSize.gameObject.SetActive(true);
-
+            DisableAll();
         }
+
+        
+      
+
+
+
+
+
+
+      
+        
     }
+
+    void BigSize()
+    {
+        bigSize.GetComponent<SpriteRenderer>().enabled = true;
+        smallSize.GetComponent<SpriteRenderer>().enabled = false;
+        mediumSize.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    void SmallSize()
+    {
+        bigSize.GetComponent<SpriteRenderer>().enabled = false;
+        smallSize.GetComponent<SpriteRenderer>().enabled = true;
+        mediumSize.GetComponent<SpriteRenderer>().enabled= false;
+    }
+
+    void DisableAll()
+    {
+        bigSize.GetComponent<SpriteRenderer>().enabled = false;
+        smallSize.GetComponent<SpriteRenderer>().enabled = false;
+        mediumSize.GetComponent<SpriteRenderer>().enabled = true;
+
+    }
+
+
 
 
 }
