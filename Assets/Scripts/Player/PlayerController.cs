@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     #endregion
     private void Awake()
     {
-        actions = GetComponent<PlayerInput>().actions;
+        actions = GetComponentInParent<PlayerInput>().actions;
 
         actions["Move"].performed += Move;
         actions["Move"].canceled += Move;
