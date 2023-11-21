@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float acceleration = 20;
     [SerializeField] float deacceleration = 4;
     bool isFacingRight = true;
+
     [Header("|Jumping Controls|")]
     [SerializeField] float jumpBufferTime = 0.1f;
     [SerializeField] float jumpForce = 6.0f;
@@ -29,22 +30,24 @@ public class PlayerController : MonoBehaviour
 
     //Controls
     float velocityX;
-    float moveInput;
+    Vector2 moveInput;
 
     //Features
     float coyoteTimeCounter;
-    float coyoteTime = 0.2f;
+    [SerializeField]float coyoteTime = 0.2f;
 
 
     [SerializeField]Vector2 groundCheckRad;
+    [SerializeField]Vector2 sideGroundCheckRad;
 
- 
+
 
     [Header("||LAYERS||")]
     [SerializeField] private LayerMask isGround;
 
     [Header("||REFRENCES||")]
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform sideGroundCheck;
     public GameObject groundHolderRight;
     public GameObject groundHolderLeft;
 
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour
     #region EventHandlar
     public void Move(InputAction.CallbackContext ctx)
     {
-        moveInput = ctx.ReadValue<Vector2>().x;
+        moveInput = ctx.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext ctx)
@@ -103,7 +106,7 @@ public class PlayerController : MonoBehaviour
         Jumping();
 
         //Edge standing
-        if (IsGrounded())
+        if (IsGrounded() && !BesideGround())
         {
             groundHolderLeft.SetActive(true);
             groundHolderRight.SetActive(true);
@@ -142,8 +145,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpBufferCounter = 0;
-            
         }
+
         if (!InJumpBuffer && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
@@ -161,19 +164,26 @@ public class PlayerController : MonoBehaviour
 
     private void MoveX()
     {
-        velocityX += moveInput * acceleration * Time.deltaTime;
+        velocityX += moveInput.x * acceleration * Time.deltaTime;
+        if (devBut.amGhost)
+        {
+            float velocityY = 0;
+            velocityY += moveInput.y * acceleration;
+            rb.velocity = new Vector2(velocityX, velocityY);
 
-        if(!isFacingRight && moveInput > 0)
+        }
+
+        if (!isFacingRight && moveInput.x > 0)
         {
             Flip();
         }
-        else if (isFacingRight && moveInput < 0)
+        else if (isFacingRight && moveInput.x < 0)
         {
             Flip();
         }
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
 
-        if (moveInput == 0 || (moveInput < 0 == velocityX > 0))
+        if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
          rb.velocity = new Vector2(velocityX, rb.velocity.y);
@@ -185,6 +195,10 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, isGround);
     }
 
+    bool BesideGround()
+    {
+        return Physics2D.OverlapBox(sideGroundCheck.position, sideGroundCheckRad, 0, isGround);
+    }
 
     void Flip()
     {
@@ -211,6 +225,7 @@ public class PlayerController : MonoBehaviour
         //Gizmos.DrawWireSphere(groundCheck.position, groundCheckRad);
 
         Gizmos.DrawWireCube(groundCheck.position, groundCheckRad);
+        Gizmos.DrawWireCube(sideGroundCheck.position, sideGroundCheckRad);
 
         //Gizmos.DrawLine(transform.position)
     }
