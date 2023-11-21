@@ -138,27 +138,21 @@ MonoBehaviour:
   maxSpeed: 4
   acceleration: 20
   deacceleration: 4
-  maxJumps: 1
   jumpBufferTime: 0.1
   jumpForce: 6
+  jumpHeight: 3
   jumpCutOff: 0.1
   InJumpBuffer: 0
   airAcceleration: 0
   airBrake: 0
   airControl: 0
-  wallJumpingDuration: 0.4
-  wallJumpingTime: 0.2
-  wallJumpPower: {x: 8, y: 16}
-  wallslidingSpeed: 1
-  wallCheckRadius: 0.15
+  groundCheckRad: {x: 0, y: 0}
   isGround:
     serializedVersion: 2
     m_Bits: 8
-  isWall:
-    serializedVersion: 2
-    m_Bits: 8
   groundCheck: {fileID: 2305958568065673016}
-  wallCheck: {fileID: 8632146107294648704}
+  groundHolderRight: {fileID: 0}
+  groundHolderLeft: {fileID: 0}
 --- !u!61 &4013039832353530487
 BoxCollider2D:
   m_ObjectHideFlags: 0
