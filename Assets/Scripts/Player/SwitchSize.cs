@@ -28,7 +28,7 @@ public class SwitchSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentPos = transform.position;
+        currentPos = mediumSize.transform.position;
 
 
         
@@ -52,12 +52,9 @@ public class SwitchSize : MonoBehaviour
       
 
 
+        bigSize.transform.position = currentPos;
+        smallSize.transform.position = currentPos;
 
-
-
-
-      
-        
     }
 
     void BigSize()
