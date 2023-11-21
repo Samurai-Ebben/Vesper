@@ -11,14 +11,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float acceleration = 20;
     [SerializeField] float deacceleration = 4;
     bool isFacingRight = true;
+    //Controls
+    float velocityX;
+    Vector2 moveInput;
 
     [Header("|Jumping Controls|")]
     [SerializeField] float jumpBufferTime = 0.1f;
     [SerializeField] float jumpForce = 6.0f;
     [SerializeField] float jumpHeight = 3.0f;
-    [Range(0f, 1f)]
-    [SerializeField] float jumpCutOff = 0.1f;
+    [SerializeField, Range(0f, 1f)] float jumpCutOff = 0.1f;
     [SerializeField] bool InJumpBuffer;
+    [SerializeField]float coyoteTime = 0.2f;
+    float coyoteTimeCounter;
     bool isJumping;
     float jumpBufferCounter;
 
@@ -26,16 +30,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float airAcceleration;
     [SerializeField] float airBrake;
     [SerializeField] float airControl;
-
-
-    //Controls
-    float velocityX;
-    Vector2 moveInput;
-
-    //Features
-    float coyoteTimeCounter;
-    [SerializeField]float coyoteTime = 0.2f;
-
 
     [SerializeField]Vector2 groundCheckRad;
     [SerializeField]Vector2 sideGroundCheckRad;
@@ -55,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private InputActionAsset actions;
     private DevButtons devBut;
+    private SwitchSize switchSize;
 
     //Players refrences
     private Rigidbody2D rb;
@@ -98,6 +93,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         actions = GetComponentInParent<PlayerInput>().actions;
+        switchSize = GetComponentInParent<SwitchSize>();
 
         actions["Move"].performed += Move;
         actions["Move"].canceled += Move;
@@ -105,8 +101,8 @@ public class PlayerController : MonoBehaviour
         actions["Jump"].started += OnJump;
         actions["Jump"].canceled += OnJumpCancel;
 
-        actions["Samller"].started += Smaller;
-        actions["Samller"].canceled += SmallerCancle;
+        actions["Smaller"].started += Smaller;
+        actions["Smaller"].canceled += SmallerCancle;
         actions["Larger"].started += Larger;
         actions["Larger"].canceled += LargerCancle;
 
@@ -127,7 +123,8 @@ public class PlayerController : MonoBehaviour
     {
         MoveX();
         Jumping();
-
+        switchSize.isSmall = isSmall;
+        switchSize.isBig = isLarge;
         //Edge standing
         if (IsGrounded() && !BesideGround())
         {
@@ -238,8 +235,8 @@ public class PlayerController : MonoBehaviour
         actions["Jump"].started -= OnJump;
         actions["Jump"].canceled -= OnJumpCancel;
 
-        actions["Samller"].started -= Smaller;
-        actions["Samller"].canceled -= SmallerCancle;
+        actions["Smaller"].started -= Smaller;
+        actions["Smaller"].canceled -= SmallerCancle;
         actions["Larger"].started -= Larger;
         actions["Larger"].canceled -= LargerCancle;
         actions.Disable();

@@ -53,7 +53,6 @@ MonoBehaviour:
   bigSize: {fileID: 8025586607524974070}
   isBig: 0
   isSmall: 0
-  isMedium: 0
 --- !u!114 &8022690927525863462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +126,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0fa4dc8e-0954-404d-8423-c82a4fe23d72
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42be9734-dbc5-47f6-b0b1-6f39d3fcb8b7
+    m_ActionName: Player/Smaller[/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4583c2cf-6b99-43cf-a4f0-072a59f952f2
+    m_ActionName: Player/Larger[/DualShock4GamepadHID/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -140,6 +147,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2048895608921437934}
     m_Modifications:
+    - target: {fileID: 1855044676227335846, guid: b297f90fe19ff2649a6d1bdd1a16a686, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489879168697498093, guid: b297f90fe19ff2649a6d1bdd1a16a686, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744811896272479058, guid: b297f90fe19ff2649a6d1bdd1a16a686, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5703856792661657296, guid: b297f90fe19ff2649a6d1bdd1a16a686, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -185,8 +204,16 @@ PrefabInstance:
       value: Player_small
       objectReference: {fileID: 0}
     - target: {fileID: 7360344889119296042, guid: b297f90fe19ff2649a6d1bdd1a16a686, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360344889119296042, guid: b297f90fe19ff2649a6d1bdd1a16a686, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020002103356929401, guid: b297f90fe19ff2649a6d1bdd1a16a686, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 971986537757594529, guid: b297f90fe19ff2649a6d1bdd1a16a686, type: 3}
@@ -286,6 +313,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2048895608921437934}
     m_Modifications:
+    - target: {fileID: 564254770995329323, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 658788291900644521, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -331,8 +362,20 @@ PrefabInstance:
       value: Player_medium
       objectReference: {fileID: 0}
     - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260734968566460160, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895616532544625887, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8462916738579366574, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Interpolate
@@ -341,6 +384,10 @@ PrefabInstance:
     - target: {fileID: 8462916738579366574, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530624062800487316, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

@@ -415,11 +415,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2048895608921437934, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.346
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 2048895608921437934, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.283
+      value: -3.01
       objectReference: {fileID: 0}
     - target: {fileID: 2048895608921437934, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -456,6 +456,14 @@ PrefabInstance:
     - target: {fileID: 2053482036468403628, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
       propertyPath: m_Name
       value: MainSwitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025586607524974070, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331826855980490446, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

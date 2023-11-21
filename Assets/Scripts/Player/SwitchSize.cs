@@ -22,7 +22,6 @@ public class SwitchSize : MonoBehaviour
     {
         bigSize.GetComponent<SpriteRenderer>().enabled = false;
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
-
     }
 
     // Update is called once per frame
