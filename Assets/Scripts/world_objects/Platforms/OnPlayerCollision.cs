@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DetectionPlayerCollision : MonoBehaviour
+public class OnPlayerCollision : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     Color32 defaultColor;
@@ -19,8 +19,11 @@ public class DetectionPlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        spriteRenderer.color = Color.red;
-        disappearing.Disappear();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            spriteRenderer.color = Color.red;
+            disappearing.Disappear();
+        }
     }
 
     public void SetDefaultColor()

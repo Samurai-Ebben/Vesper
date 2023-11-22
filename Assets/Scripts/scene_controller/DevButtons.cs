@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class DevButtons : MonoBehaviour
 {
-    Vector3 checkpoint;
+    public Vector3 checkpoint;
+    
     GameObject player;
     Collider2D playerCollider2D;
     Rigidbody2D playerRB2D;

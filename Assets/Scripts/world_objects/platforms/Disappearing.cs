@@ -9,13 +9,13 @@ public class Disappearing : MonoBehaviour
 
     public GameObject platform;
 
-    DetectionPlayerCollision detectionPlayerCollision;
+    OnPlayerCollision onPlayerCollision;
 
     bool ongoingCoroutine;
 
     void Start()
     {
-        detectionPlayerCollision = GetComponentInChildren<DetectionPlayerCollision>();
+        onPlayerCollision = GetComponentInChildren<OnPlayerCollision>();
     }
 
     public void Disappear()
@@ -36,7 +36,7 @@ public class Disappearing : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         platform.SetActive(true);
 
-        detectionPlayerCollision.SetDefaultColor();
+        onPlayerCollision.SetDefaultColor();
 
         ongoingCoroutine = false;
     }

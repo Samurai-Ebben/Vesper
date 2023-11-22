@@ -64,6 +64,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8462916738579366574, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462916738579366574, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462916738579366574, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -3787132126455903784, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
     m_RemovedGameObjects: []
