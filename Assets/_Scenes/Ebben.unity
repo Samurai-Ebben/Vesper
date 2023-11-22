@@ -602,11 +602,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainSwitch
       objectReference: {fileID: 0}
-    - target: {fileID: 8025586607524974070, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8331826855980490446, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+    - target: {fileID: 6236881413336371496, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
