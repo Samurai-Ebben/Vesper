@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0f, 1f)] float jumpCutOff = 0.1f;
     [SerializeField] bool InJumpBuffer;
     [SerializeField]float coyoteTime = 0.2f;
+    [HideInInspector] public bool canJump = true;
     float coyoteTimeCounter;
-    bool isJumping;
     float jumpBufferCounter;
 
     [Header("|Air Controls|")]
@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
     }
+
     public void Smaller(InputAction.CallbackContext ctx)
     {
         isSmall = true;
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
         actions["Move"].performed += Move;
         actions["Move"].canceled += Move;
 
-        actions["Jump"].started += OnJump;
+        actions["Jump"].performed += OnJump;
         actions["Jump"].canceled += OnJumpCancel;
 
         actions["Smaller"].started += Smaller;
@@ -122,9 +123,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         MoveX();
-        Jumping();
+        if(canJump) Jumping();
+
         switchSize.isSmall = isSmall;
         switchSize.isBig = isLarge;
+
         //Edge standing
         if (IsGrounded() && !BesideGround())
         {
@@ -232,7 +235,7 @@ public class PlayerController : MonoBehaviour
         actions["Move"].performed -= Move;
         actions["Move"].canceled -= Move;
 
-        actions["Jump"].started -= OnJump;
+        actions["Jump"].performed -= OnJump;
         actions["Jump"].canceled -= OnJumpCancel;
 
         actions["Smaller"].started -= Smaller;

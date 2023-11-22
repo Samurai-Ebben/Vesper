@@ -13,11 +13,25 @@ public class Trampoline : MonoBehaviour
             if (rb2d != null)
             {
                 bounceForce = rb2d.gravityScale * 10;
+                PlayerController player = rb2d.GetComponent<PlayerController>();
+                if (player != null)
+                    player.canJump = false;
                 Vector2 bounceDirection = new Vector2(0f, bounceForce);
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(bounceDirection, ForceMode2D.Impulse);
                 print(rb2d.name);
             }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Rigidbody2D rb2d = other.gameObject.GetComponent<Rigidbody2D>();
+            PlayerController player = rb2d.GetComponent<PlayerController>();
+            if (player != null)
+                player.canJump = true;
         }
     }
 }
