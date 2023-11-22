@@ -602,7 +602,83 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainSwitch
       objectReference: {fileID: 0}
+    - target: {fileID: 3586469695406034465, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.471
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074858975966904588, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.287
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206632606788653421, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: groundCheckRad.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206632606788653421, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: groundCheckRad.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206632606788653421, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: sideGroundCheckRad.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206632606788653421, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: sideGroundCheckRad.y
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051537994650922718, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5013
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089333830487163477, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: groundCheckRad.y
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6236881413336371496, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534020780166713908, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.63146955
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534020780166713908, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.63146955
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534020780166713908, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.63146955
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534020780166713908, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.185
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422884756591846484, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.471
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644340677366297088, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884938995383852683, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: jumpBufferTime
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884938995383852683, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: groundCheckRad.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884938995383852683, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: groundCheckRad.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884938995383852683, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: sideGroundCheckRad.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025586607524974070, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

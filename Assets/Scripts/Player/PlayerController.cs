@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(0f, 1f)] float jumpCutOff = 0.1f;
     [SerializeField] bool InJumpBuffer;
     [SerializeField]float coyoteTime = 0.2f;
-    [HideInInspector] public bool canJump = true;
     float coyoteTimeCounter;
     float jumpBufferCounter;
 
@@ -127,7 +126,7 @@ public class PlayerController : MonoBehaviour
         if(activeMovementScript)
         {
             MoveX();
-            if (canJump) Jumping();
+            Jumping();
 
             switchSize.isSmall = isSmall;
             switchSize.isBig = isLarge;
@@ -184,7 +183,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter = 0;
         }
 
-        //if (!InJumpBuffer && rb.velocity.y > 0)
+        //if (!InJumpBuffer && rb.velocity.y > 0 && canJump)
         //{
         //    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
 
