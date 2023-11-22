@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Ebben.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/_Scenes/Bedirhan.unity
+    guid: 34738ebf6cc12d24dada9862c581c097
+  - enabled: 1
+    path: Assets/_Scenes/Mitch.unity
+    guid: a9a12abea81b1a445a1387a215bafab3
   m_configObjects: {}
