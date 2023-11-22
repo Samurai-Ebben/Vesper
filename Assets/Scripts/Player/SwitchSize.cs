@@ -32,10 +32,12 @@ public class SwitchSize : MonoBehaviour
         
         if(isBig) 
         {
+            isSmall = false;
             BigSize();
         }
         else if (isSmall)
         {
+            isBig = false;
             SmallSize();
 
         }
@@ -52,8 +54,22 @@ public class SwitchSize : MonoBehaviour
 
     }
 
+    //void ActivateTargetObj(GameObject targetToActivate, GameObject obj2, GameObject obj3)
+    //{
+    //    targetToActivate.GetComponent<SpriteRenderer>().enabled = true;
+    //    obj2.GetComponent<SpriteRenderer>().enabled = false;
+    //    obj3.GetComponent<SpriteRenderer>().enabled = false;
+
+    //    currentPos = targetToActivate.transform.position;
+
+    //    obj2.transform.position = currentPos;
+    //    obj3.transform.position = currentPos;
+    //}
+
     void BigSize()
     {
+        //ActivateTargetObj(bigSize, smallSize, mediumSize);
+
         bigSize.GetComponent<SpriteRenderer>().enabled = true;
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = false;
@@ -66,6 +82,8 @@ public class SwitchSize : MonoBehaviour
 
     void SmallSize()
     {
+        //ActivateTargetObj(smallSize, bigSize, mediumSize);
+
         bigSize.GetComponent<SpriteRenderer>().enabled = false;
         smallSize.GetComponent<SpriteRenderer>().enabled = true;
         mediumSize.GetComponent<SpriteRenderer>().enabled= false;
