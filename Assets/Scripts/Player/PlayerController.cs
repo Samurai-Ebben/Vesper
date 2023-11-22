@@ -172,12 +172,12 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter = 0;
         }
 
-        if (!InJumpBuffer && rb.velocity.y > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
+        //if (!InJumpBuffer && rb.velocity.y > 0)
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
 
-            coyoteTimeCounter = 0;
-        }
+        //    coyoteTimeCounter = 0;
+        //}
 
         if (rb.velocity.y < 0 && !devBut.amGhost)
         {
@@ -247,10 +247,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
         //Gizmos.DrawWireSphere(groundCheck.position, groundCheckRad);
 
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(groundCheck.position, groundCheckRad);
+        Gizmos.color = Color.red;
+
         Gizmos.DrawWireCube(sideGroundCheck.position, sideGroundCheckRad);
 
         //Gizmos.DrawLine(transform.position)
