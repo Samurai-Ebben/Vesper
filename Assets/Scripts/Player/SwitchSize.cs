@@ -20,7 +20,8 @@ public class SwitchSize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        bigSize.GetComponent<SpriteRenderer>().enabled = false;
+        smallSize.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -73,11 +74,6 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = false;
 
-        bigSize.GetComponent<PlayerController>().activeMovementScript = true;
-        smallSize.GetComponent<PlayerController>().activeMovementScript = false;
-        mediumSize.GetComponent<PlayerController>().activeMovementScript = false;
-
-
         currentPos = bigSize.transform.position;
 
         smallSize.transform.position = currentPos;
@@ -92,10 +88,6 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<SpriteRenderer>().enabled = true;
         mediumSize.GetComponent<SpriteRenderer>().enabled= false;
 
-        bigSize.GetComponent<PlayerController>().activeMovementScript = false;
-        smallSize.GetComponent<PlayerController>().activeMovementScript = true;
-        mediumSize.GetComponent<PlayerController>().activeMovementScript = false;
-
         currentPos = smallSize.transform.position;
 
         bigSize.transform.position = currentPos;
@@ -107,10 +99,6 @@ public class SwitchSize : MonoBehaviour
         bigSize.GetComponent<SpriteRenderer>().enabled = false;
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = true;
-
-        bigSize.GetComponent<PlayerController>().activeMovementScript = false;
-        smallSize.GetComponent<PlayerController>().activeMovementScript = false;
-        mediumSize.GetComponent<PlayerController>().activeMovementScript = true;
 
         currentPos = mediumSize.transform.position;
 

@@ -54,8 +54,6 @@ public class PlayerController : MonoBehaviour
     //Players refrences
     private Rigidbody2D rb;
 
-    public bool activeMovementScript;
-
     #region EventHandlar
     public void Move(InputAction.CallbackContext ctx)
     {
@@ -124,23 +122,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(activeMovementScript)
-        {
-            MoveX();
-            if (canJump) Jumping();
+        MoveX();
+        if(canJump) Jumping();
 
-            switchSize.isSmall = isSmall;
-            switchSize.isBig = isLarge;
+        switchSize.isSmall = isSmall;
+        switchSize.isBig = isLarge;
 
-            //Edge standing
-             GroundCheckProcessing();
-
-        }
-        
-    }
-
-    private void GroundCheckProcessing()
-    {
+        //Edge standing
         if (IsGrounded() && !BesideGround())
         {
             groundHolderLeft.SetActive(true);
