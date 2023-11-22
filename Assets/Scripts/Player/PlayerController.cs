@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -46,12 +47,12 @@ public class PlayerController : MonoBehaviour
     public GameObject groundHolderRight;
     public GameObject groundHolderLeft;
 
+    //Players refrences
     private InputActionAsset actions;
     private DevButtons devBut;
     private SwitchSize switchSize;
-
-    //Players refrences
     private Rigidbody2D rb;
+    private Transform origiParent;
 
     public bool activeMovementScript;
 
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour
         isLarge = false;
     }
     #endregion
+
     private void Awake()
     {
         actions = GetComponentInParent<PlayerInput>().actions;
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        origiParent = transform.parent;
         devBut = Camera.main.GetComponent<DevButtons>();
         jumpBufferCounter = 0;
 
@@ -222,7 +224,7 @@ public class PlayerController : MonoBehaviour
          rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }
 
-
+    #region Checkers
     bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, isGround);
@@ -232,6 +234,7 @@ public class PlayerController : MonoBehaviour
     {
         return Physics2D.OverlapBox(sideGroundCheck.position, sideGroundCheckRad, 0, isGround);
     }
+    #endregion
 
     void Flip()
     {
@@ -241,6 +244,8 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
 
+    
+
     private void OnDisable()
     {
         actions["Move"].performed -= Move;
@@ -249,10 +254,13 @@ public class PlayerController : MonoBehaviour
         actions["Jump"].performed -= OnJump;
         actions["Jump"].canceled -= OnJumpCancel;
 
+        #region switchControls
         actions["Smaller"].started -= Smaller;
         actions["Smaller"].canceled -= SmallerCancle;
         actions["Larger"].started -= Larger;
         actions["Larger"].canceled -= LargerCancle;
+        #endregion
+
         actions.Disable();
     }
 

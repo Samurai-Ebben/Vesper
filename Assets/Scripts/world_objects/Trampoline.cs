@@ -20,7 +20,6 @@ public class Trampoline : MonoBehaviour
                 Vector2 bounceDirection = new Vector2(0f, bounceForce);
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(bounceDirection, ForceMode2D.Impulse);
-                print(rb2d.name);
             }
         }
     }

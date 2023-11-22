@@ -8,6 +8,7 @@ public class SwitchSize : MonoBehaviour
     public GameObject mediumSize;
     public GameObject bigSize;
 
+    private Transform origiParent;
 
 
 
@@ -20,7 +21,7 @@ public class SwitchSize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        origiParent = transform.parent;
     }
 
     // Update is called once per frame
@@ -77,6 +78,9 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<PlayerController>().activeMovementScript = false;
         mediumSize.GetComponent<PlayerController>().activeMovementScript = false;
 
+        bigSize.GetComponent<Collider2D>().enabled = true;
+        smallSize.GetComponent<Collider2D>().enabled = false;
+        mediumSize.GetComponent<Collider2D>().enabled = false;
 
         currentPos = bigSize.transform.position;
 
@@ -96,6 +100,11 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<PlayerController>().activeMovementScript = true;
         mediumSize.GetComponent<PlayerController>().activeMovementScript = false;
 
+
+        bigSize.GetComponent<Collider2D>().enabled = false;
+        smallSize.GetComponent<Collider2D>().enabled = true;
+        mediumSize.GetComponent<Collider2D>().enabled = false;
+
         currentPos = smallSize.transform.position;
 
         bigSize.transform.position = currentPos;
@@ -112,6 +121,10 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<PlayerController>().activeMovementScript = false;
         mediumSize.GetComponent<PlayerController>().activeMovementScript = true;
 
+        //These helps in soo many things, just looks SHITY.
+        bigSize.GetComponent<Collider2D>().enabled = false;
+        smallSize.GetComponent<Collider2D>().enabled = false;
+        mediumSize.GetComponent<Collider2D>().enabled = true;
         currentPos = mediumSize.transform.position;
 
         bigSize.transform.position = currentPos;
@@ -119,7 +132,17 @@ public class SwitchSize : MonoBehaviour
 
     }
 
+    #region SettingParents
+    public void SetParent(Transform newParent)
+    {
+        origiParent = transform.parent;
+        transform.parent = newParent;
+    }
 
-
-
+    public void ResetParent()
+    {
+        print(origiParent);
+        transform.parent = origiParent;
+    }
+    #endregion
 }
