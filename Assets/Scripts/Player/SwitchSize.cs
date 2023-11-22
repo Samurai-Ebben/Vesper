@@ -27,19 +27,16 @@ public class SwitchSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentPos = mediumSize.transform.position;
 
 
         
         if(isBig) 
         {
             BigSize();
-            isSmall = false;
         }
         else if (isSmall)
         {
             SmallSize();
-            isBig = false;
 
         }
         else
@@ -47,12 +44,11 @@ public class SwitchSize : MonoBehaviour
             DisableAll();
         }
 
+
+
+
+
         
-      
-
-
-        bigSize.transform.position = currentPos;
-        smallSize.transform.position = currentPos;
 
     }
 
@@ -61,6 +57,11 @@ public class SwitchSize : MonoBehaviour
         bigSize.GetComponent<SpriteRenderer>().enabled = true;
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = false;
+
+        currentPos = bigSize.transform.position;
+
+        smallSize.transform.position = currentPos;
+        mediumSize.transform.position = currentPos;
     }
 
     void SmallSize()
@@ -68,6 +69,11 @@ public class SwitchSize : MonoBehaviour
         bigSize.GetComponent<SpriteRenderer>().enabled = false;
         smallSize.GetComponent<SpriteRenderer>().enabled = true;
         mediumSize.GetComponent<SpriteRenderer>().enabled= false;
+
+        currentPos = smallSize.transform.position;
+
+        bigSize.transform.position = currentPos;
+        mediumSize.transform.position= currentPos;
     }
 
     void DisableAll()
@@ -75,6 +81,11 @@ public class SwitchSize : MonoBehaviour
         bigSize.GetComponent<SpriteRenderer>().enabled = false;
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = true;
+
+        currentPos = mediumSize.transform.position;
+
+        bigSize.transform.position = currentPos;
+        smallSize.transform.position = currentPos;
 
     }
 
