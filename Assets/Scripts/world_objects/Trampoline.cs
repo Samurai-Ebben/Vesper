@@ -14,12 +14,12 @@ public class Trampoline : MonoBehaviour
             {
                 
                 bounceForce = rb2d.gravityScale * 10;
-                //PlayerController player = rb2d.GetComponent<PlayerController>();
-
-                //rb2d.velocity= Vector2.up*bounceForce;
                 Vector2 bounceDirection = new Vector2(0f, bounceForce);
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(bounceDirection, ForceMode2D.Impulse);
+
+                //PlayerController player = rb2d.GetComponent<PlayerController>();
+                //rb2d.velocity= Vector2.up*bounceForce;
             }
         }
     }
