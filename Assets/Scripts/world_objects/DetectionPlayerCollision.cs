@@ -1,21 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DetectionPlayerCollision : MonoBehaviour
 {
-    public bool isColliding;
-    
-    private void OnCollisionEnter2D(Collision2D other)
+    SpriteRenderer spriteRenderer;
+    Color32 defaultColor;
+
+    Disappearing disappearing;
+
+    void Start()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            isColliding = true;
-        }
+        disappearing = GetComponentInParent<Disappearing>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultColor = spriteRenderer.color;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        isColliding = false;
+        spriteRenderer.color = Color.red;
+        disappearing.Disappear();
     }
+
+    public void SetDefaultColor()
+    {
+        spriteRenderer.color = defaultColor;
+    }
+
 }
