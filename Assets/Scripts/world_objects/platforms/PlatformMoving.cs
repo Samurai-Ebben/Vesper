@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class PlatformMoving : MonoBehaviour
 {
     //public float waitDuration = 0.5f;
 
