@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d3584019413634aa3bc15a1727400d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {x: 0, y: 0, z: 0}
   amImmortal: 0
   amGhost: 0
 --- !u!1 &619394800
