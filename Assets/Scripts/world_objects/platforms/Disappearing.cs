@@ -11,6 +11,8 @@ public class Disappearing : MonoBehaviour
 
     DetectionPlayerCollision detectionPlayerCollision;
 
+    bool ongoingCoroutine;
+
     void Start()
     {
         detectionPlayerCollision = GetComponentInChildren<DetectionPlayerCollision>();
@@ -18,18 +20,24 @@ public class Disappearing : MonoBehaviour
 
     public void Disappear()
     {
-        StartCoroutine(DisappearAndComeBack());
+        if (!ongoingCoroutine)
+        {
+            StartCoroutine(DisappearAndComeBack());
+        }
     }
 
     IEnumerator DisappearAndComeBack()
     {
-        yield return new WaitForSeconds(sustainTime);
+        ongoingCoroutine = true;
 
+        yield return new WaitForSeconds(sustainTime);
         platform.SetActive(false);
 
         yield return new WaitForSeconds(cooldown);
-
         platform.SetActive(true);
+
         detectionPlayerCollision.SetDefaultColor();
+
+        ongoingCoroutine = false;
     }
 }
