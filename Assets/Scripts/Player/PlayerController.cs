@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
     //private SwitchSize switchSize;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
-    private Transform origiParent;
     public bool activeMovementScript;
 
     #region EventHandler
@@ -120,37 +119,35 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         devBut = Camera.main.GetComponent<DevButtons>();
 
-        origiParent = transform.parent;
+        
         jumpBufferCounter = 0;
 
-        speed = maxSpeed;
+        //speed = maxSpeed;
     }
 
     void FixedUpdate()
     {
-        if(activeMovementScript)
+
+        MoveX();
+        Jumping();
+
+        //switchSize.isSmall = isSmall;
+        //switchSize.isBig = isLarge;
+
+        if (isSmall)
         {
-            MoveX();
-            Jumping();
+            SwitchSize("small");
+        }
+        if (isLarge)
+        {
+            SwitchSize("large");
+        }
+        else
+        {
+            SwitchSize("medium");
+        }
 
-            //switchSize.isSmall = isSmall;
-            //switchSize.isBig = isLarge;
-
-            if (isSmall)
-            {
-                SwitchSize("small");
-            }
-            if (isLarge)
-            {
-                SwitchSize("large");
-            }
-            else
-            {
-                SwitchSize("medium");
-            }
-
-            EdgeCheck();
-        }        
+        EdgeCheck();
     }
 
     private void SwitchSize(string sizeName)
