@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     [Header("||PLAYER CONTROLS||")]
     [SerializeField] float speed;
-    [SerializeField] float maxSpeed = 4;
-    [SerializeField] float acceleration = 20;
-    [SerializeField] float deacceleration = 4;
+    [SerializeField] float maxSpeed         = 4;
+    [SerializeField] float acceleration     = 20;
+    [SerializeField] float deacceleration   = 4;
     bool isFacingRight = true;
     //Controls
     float velocityX;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private SwitchSize switchSize;
     private Rigidbody2D rb;
     private Transform origiParent;
-    private SwitchV2 switchPlayer;
+    private SizeStats stats;
     public bool activeMovementScript;
 
     #region EventHandlar
@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         actions = GetComponentInParent<PlayerInput>().actions;
+        //actions = GetComponent<PlayerInput>().actions;
         switchSize = GetComponentInParent<SwitchSize>();
 
         actions["Move"].performed += Move;
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb                  =  GetComponent<Rigidbody2D>();
-        switchPlayer        =  GetComponent<SwitchV2>();
+        stats        =  GetComponent<SizeStats>();
         devBut = Camera.main.GetComponent<DevButtons>();
 
         origiParent = transform.parent;
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
         speed = maxSpeed;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(activeMovementScript)
         {
@@ -135,11 +136,11 @@ public class PlayerController : MonoBehaviour
             switchSize.isSmall = isSmall;
             switchSize.isBig = isLarge;
 
-             GroundCheckProcessing();
+             EdgeCheck();
         }        
     }
 
-    private void GroundCheckProcessing()
+    private void EdgeCheck()
     {
         //Edge standing
         if (IsGrounded() && !BesideGround())
@@ -159,13 +160,9 @@ public class PlayerController : MonoBehaviour
         //if (BesideGround() && IsGrounded()) return;
 
         if (IsGrounded())
-        {
             coyoteTimeCounter = coyoteTime;
-        }
         else
-        {
             coyoteTimeCounter -= Time.deltaTime;
-        }
 
         if (InJumpBuffer)
         {
@@ -185,12 +182,13 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter = 0;
         }
 
-        //if (!InJumpBuffer && rb.velocity.y > 0 )
-        //{
-        //    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
+        /*if (!InJumpBuffer && rb.velocity.y > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
 
-        //    coyoteTimeCounter = 0;
-        //}
+            coyoteTimeCounter = 0;
+        }
+        */
 
         if (rb.velocity.y < 0 && !devBut.amGhost)
         {
@@ -221,7 +219,7 @@ public class PlayerController : MonoBehaviour
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
-         rb.velocity = new Vector2(velocityX, rb.velocity.y);
+        rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }
 
     #region Checkers

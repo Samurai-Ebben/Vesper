@@ -1,24 +1,26 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Profiling;
 
 namespace TarodevController
 {
-    /// <summary>
-    /// Hey!
-    /// Tarodev here. I built this controller as there was a severe lack of quality & free 2D controllers out there.
-    /// I have a premium version on Patreon, which has every feature you'd expect from a polished controller. Link: https://www.patreon.com/tarodev
-    /// You can play and compete for best times here: https://tarodev.itch.io/extended-ultimate-2d-controller
-    /// If you hve any questions or would like to brag about your score, come to discord: https://discord.gg/tarodev
-    /// </summary>
+    
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [SerializeField] private ScriptableStats _stats;
+        private InputActionAsset actions;
+
         private Rigidbody2D _rb;
         private CapsuleCollider2D _col;
         private FrameInput _frameInput;
         private Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
+
+        bool jumpDown = true;
+        bool jumpHold = true;
+        Vector2 moveInput;
 
         #region Interface
 
@@ -29,13 +31,41 @@ namespace TarodevController
         #endregion
 
         private float _time;
+        public void Move(InputAction.CallbackContext ctx)
+        {
+            moveInput = ctx.ReadValue<Vector2>();
+        }
+
+        public void OnJump(InputAction.CallbackContext ctx)
+        {
+            if(ctx.performed)
+                jumpDown = true;
+            else if(ctx.started)
+                jumpHold = true;
+        }
+        
+        public void OnJumpCancel(InputAction.CallbackContext ctx)
+        {
+            jumpDown = false;
+            jumpHold = false;
+        }
+
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _col = GetComponent<CapsuleCollider2D>();
-
+            actions = GetComponent<PlayerInput>().actions;
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
+
+            actions["Move"].performed += Move;
+            actions["Move"].canceled += Move;
+
+            actions["Jump"].performed += OnJump;
+            actions["Jump"].started += OnJump;
+            actions["Jump"].canceled += OnJumpCancel;
+
+            actions.Enable();
         }
 
         private void Update()
@@ -43,14 +73,25 @@ namespace TarodevController
             _time += Time.deltaTime;
             GatherInput();
         }
+        private void OnDisable()
+        {
+            actions["Move"].performed -= Move;
+            actions["Move"].canceled -= Move;
 
+            actions["Jump"].performed -= OnJump;
+            actions["Jump"].started -= OnJump;
+            actions["Jump"].canceled -= OnJumpCancel;
+
+
+            actions.Disable();
+        }
         private void GatherInput()
         {
             _frameInput = new FrameInput
             {
-                JumpDown = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C),
-                JumpHeld = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.C),
-                Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
+                JumpDown = jumpDown,
+                JumpHeld = jumpHold,
+                Move = new Vector2(moveInput.x, moveInput.y)
             };
 
             if (_stats.SnapInput)
@@ -202,6 +243,8 @@ namespace TarodevController
         public Vector2 Move;
     }
 
+
+    
     public interface IPlayerController
     {
         public event Action<bool, float> GroundedChanged;
