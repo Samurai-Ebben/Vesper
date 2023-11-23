@@ -136,14 +136,18 @@ public class PlayerController : MonoBehaviour
 
         if (isSmall)
         {
+            print("small is: " + isSmall);
             SwitchSize("small");
         }
         if (isLarge)
         {
+            print("large is: " + isLarge);
             SwitchSize("large");
         }
-        else
+
+        if (!isLarge && !isSmall)
         {
+            print("medium");
             SwitchSize("medium");
         }
 
