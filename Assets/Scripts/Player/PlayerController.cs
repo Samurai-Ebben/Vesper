@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]float coyoteTime = 0.2f;
     float coyoteTimeCounter;
     float jumpBufferCounter;
+    [SerializeField] float jumpTime = 0.25f;
+    float jumpTimer;
 
     [Header("|Air Controls|")]
     [SerializeField] float airAcceleration;
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
     //private SwitchSize switchSize;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
+    Transform origiParent;
     public bool activeMovementScript;
 
     #region EventHandler
@@ -118,14 +121,14 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         devBut = Camera.main.GetComponent<DevButtons>();
+        origiParent = transform.parent;
 
-        
         jumpBufferCounter = 0;
 
         //speed = maxSpeed;
     }
 
-    void FixedUpdate()
+    void Update()
     {
 
         MoveX();
@@ -184,7 +187,6 @@ public class PlayerController : MonoBehaviour
     private void Jumping()
     {
         //if (BesideGround() && IsGrounded()) return;
-
         if (IsGrounded())
             coyoteTimeCounter = coyoteTime;
         else
@@ -199,12 +201,13 @@ public class PlayerController : MonoBehaviour
 
         if (InJumpBuffer && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpTimer = jumpTime;
+            rb.velocity = Vector2.up * jumpForce;
         }
 
         if (coyoteTimeCounter > 0 && jumpBufferCounter > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x,jumpForce);
             jumpBufferCounter = 0;
         }
 
@@ -267,7 +270,11 @@ public class PlayerController : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-
+    public void SetParent(Transform newParent)
+    {
+        origiParent = transform.parent;
+        transform.parent = newParent;
+    }
     private void OnDisable()
     {
         actions["Move"].performed -= Move;

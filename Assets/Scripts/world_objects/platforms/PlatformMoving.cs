@@ -47,7 +47,7 @@ public class PlatformMoving : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var player = other.transform.parent.GetComponent<SwitchSize>();
+        var player = other.transform.GetComponent<PlayerController>();
         if (player != null)
         {
             player.SetParent(transform);
@@ -55,7 +55,7 @@ public class PlatformMoving : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        var player = other.transform.parent.GetComponent<SwitchSize>();
+        var player = other.transform.GetComponent<PlayerController>();
         if (player != null)
         {
             player.SetParent(null);

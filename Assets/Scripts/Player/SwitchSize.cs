@@ -133,11 +133,7 @@ public class SwitchSize : MonoBehaviour
     }
 
     #region SettingParents
-    public void SetParent(Transform newParent)
-    {
-        origiParent = transform.parent;
-        transform.parent = newParent;
-    }
+    
 
     #endregion
 }
