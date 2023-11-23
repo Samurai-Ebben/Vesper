@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float acceleration     = 20;
     [SerializeField] float deacceleration   = 4;
     bool isFacingRight = true;
+
     //Controls
     float velocityX;
     Vector2 moveInput;
@@ -19,7 +20,6 @@ public class PlayerController : MonoBehaviour
     [Header("|Jumping Controls|")]
     [SerializeField] float jumpBufferTime = 0.1f;
     [SerializeField] float jumpForce = 6.0f;
-    [SerializeField] float jumpHeight = 3.0f;
     [SerializeField, Range(0f, 1f)] float jumpCutOff = 0.1f;
     [SerializeField] bool InJumpBuffer;
     [SerializeField]float coyoteTime = 0.2f;
@@ -51,12 +51,13 @@ public class PlayerController : MonoBehaviour
     private InputActionAsset actions;
     private DevButtons devBut;
     private SwitchSize switchSize;
+    private SizeStats sizeStats;
     private Rigidbody2D rb;
     private Transform origiParent;
     private SizeStats stats;
     public bool activeMovementScript;
 
-    #region EventHandlar
+    #region EventHandler
     public void Move(InputAction.CallbackContext ctx)
     {
         moveInput = ctx.ReadValue<Vector2>();
@@ -80,7 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         isSmall = true;
     }
-    public void SmallerCancle(InputAction.CallbackContext ctx)
+    public void SmallerCancel(InputAction.CallbackContext ctx)
     {
         isSmall = false;
     }
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
     {
         isLarge = true;
     }
-    public void LargerCancle(InputAction.CallbackContext ctx)
+    public void LargerCancel(InputAction.CallbackContext ctx)
     {
         isLarge = false;
     }
@@ -99,6 +100,7 @@ public class PlayerController : MonoBehaviour
         actions = GetComponentInParent<PlayerInput>().actions;
         //actions = GetComponent<PlayerInput>().actions;
         switchSize = GetComponentInParent<SwitchSize>();
+        sizeStats = GetComponent<SizeStats>();
 
         actions["Move"].performed += Move;
         actions["Move"].canceled += Move;
@@ -107,17 +109,17 @@ public class PlayerController : MonoBehaviour
         actions["Jump"].canceled += OnJumpCancel;
 
         actions["Smaller"].started += Smaller;
-        actions["Smaller"].canceled += SmallerCancle;
+        actions["Smaller"].canceled += SmallerCancel;
         actions["Larger"].started += Larger;
-        actions["Larger"].canceled += LargerCancle;
+        actions["Larger"].canceled += LargerCancel;
 
         actions.Enable();
     }
 
     void Start()
     {
-        rb                  =  GetComponent<Rigidbody2D>();
-        stats        =  GetComponent<SizeStats>();
+        rb = GetComponent<Rigidbody2D>();
+        stats = GetComponent<SizeStats>();
         devBut = Camera.main.GetComponent<DevButtons>();
 
         origiParent = transform.parent;
@@ -133,11 +135,36 @@ public class PlayerController : MonoBehaviour
             MoveX();
             Jumping();
 
-            switchSize.isSmall = isSmall;
-            switchSize.isBig = isLarge;
+            //switchSize.isSmall = isSmall;
+            //switchSize.isBig = isLarge;
 
-             EdgeCheck();
+            if (isSmall)
+            {
+                SwitchSize("small");
+            }
+            if (isLarge)
+            {
+                SwitchSize("large");
+            }
+            else
+            {
+                SwitchSize("medium");
+            }
+
+            EdgeCheck();
         }        
+    }
+
+    private void SwitchSize(string sizeName)
+    {
+        List<float> statList = sizeStats.ReturnStats(sizeName);
+
+        transform.localScale = new Vector3(statList[0], statList[0], statList[0]);
+        maxSpeed = statList[1];
+        acceleration = statList[2];
+        deacceleration = statList[3];
+        jumpForce = statList[4];
+        rb.gravityScale = statList[5];
     }
 
     private void EdgeCheck()
@@ -195,7 +222,7 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 3.5f;
         }
         else if(!devBut.amGhost)
-            rb.gravityScale = 1;
+            rb.gravityScale = 1f;
     }
 
     private void MoveX()
@@ -242,8 +269,6 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    
-
     private void OnDisable()
     {
         actions["Move"].performed -= Move;
@@ -254,9 +279,9 @@ public class PlayerController : MonoBehaviour
 
         #region switchControls
         actions["Smaller"].started -= Smaller;
-        actions["Smaller"].canceled -= SmallerCancle;
+        actions["Smaller"].canceled -= SmallerCancel;
         actions["Larger"].started -= Larger;
-        actions["Larger"].canceled -= LargerCancle;
+        actions["Larger"].canceled -= LargerCancel;
         #endregion
 
         actions.Disable();
@@ -274,6 +299,4 @@ public class PlayerController : MonoBehaviour
 
         //Gizmos.DrawLine(transform.position)
     }
-
-    
 }

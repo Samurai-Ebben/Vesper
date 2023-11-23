@@ -67,12 +67,12 @@ public class SizeStats : MonoBehaviour
 
     public List<float> ReturnStats(string size)
     {
-        if (size == "small")
+        if (size.ToLower() == "small")
         {
             return statsSmall;
         }
 
-        if (size == "large")
+        if (size.ToLower() == "large")
         {
             return statsLarge;
         }
