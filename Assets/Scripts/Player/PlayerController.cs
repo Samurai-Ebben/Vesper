@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour
     private SizeStats sizeStats;
     private Rigidbody2D rb;
     private Transform origiParent;
-    private SizeStats stats;
     public bool activeMovementScript;
 
     #region EventHandler
@@ -119,7 +118,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        stats = GetComponent<SizeStats>();
         devBut = Camera.main.GetComponent<DevButtons>();
 
         origiParent = transform.parent;
