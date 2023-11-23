@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter = 0;
         }
 
-        //if (!InJumpBuffer && rb.velocity.y > 0 && canJump)
+        //if (!InJumpBuffer && rb.velocity.y > 0 )
         //{
         //    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
 

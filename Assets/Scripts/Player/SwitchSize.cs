@@ -139,10 +139,5 @@ public class SwitchSize : MonoBehaviour
         transform.parent = newParent;
     }
 
-    public void ResetParent()
-    {
-        print(origiParent);
-        transform.parent = origiParent;
-    }
     #endregion
 }
