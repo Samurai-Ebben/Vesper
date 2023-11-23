@@ -44,13 +44,13 @@ namespace TarodevController
         [Tooltip("The player's capacity to gain fall speed. a.k.a. In Air Gravity")]
         public float FallAcceleration = 110;
 
-        [Tooltip("The gravity multiplier added when jump is released early")]
+        [Tooltip("The gravity multiplier added when jumpDown is released early")]
         public float JumpEndEarlyGravityModifier = 3;
 
-        [Tooltip("The time before coyote jump becomes unusable. Coyote jump allows jump to execute even after leaving a ledge")]
+        [Tooltip("The time before coyote jumpDown becomes unusable. Coyote jumpDown allows jumpDown to execute even after leaving a ledge")]
         public float CoyoteTime = .15f;
 
-        [Tooltip("The amount of time we buffer a jump. This allows jump input before actually hitting the ground")]
+        [Tooltip("The amount of time we buffer a jumpDown. This allows jumpDown input before actually hitting the ground")]
         public float JumpBuffer = .2f;
     }
 }
