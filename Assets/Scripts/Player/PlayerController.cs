@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb                  =  GetComponent<Rigidbody2D>();
-        switchPlayer        =  GetComponent<SwitchV2>();
+        stats        =  GetComponent<SizeStats>();
         devBut = Camera.main.GetComponent<DevButtons>();
 
         origiParent = transform.parent;
