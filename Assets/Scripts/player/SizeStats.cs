@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SizeStats : MonoBehaviour
 {
-    List<float> propertiesSmall;
-    List<float> propertiesMedium;
-    List<float> propertiesLarge;
+    List<float> statsSmall;
+    List<float> statsMedium;
+    List<float> statsLarge;
 
     public float sizeSmall = 0.25f;
     public float sizeMedium = 0.75f;
@@ -34,7 +34,7 @@ public class SizeStats : MonoBehaviour
 
     void Start()
     {
-        propertiesSmall = new List<float>
+        statsSmall = new List<float>
         {
             sizeSmall,
             speedSmall,
@@ -44,7 +44,7 @@ public class SizeStats : MonoBehaviour
             fallSpeedSmall
         };
 
-        propertiesMedium = new List<float>
+        statsMedium = new List<float>
         {
             sizeMedium,
             speedMedium,
@@ -54,7 +54,7 @@ public class SizeStats : MonoBehaviour
             fallSpeedMedium
         };
 
-        propertiesLarge = new List<float>
+        statsLarge = new List<float>
         {
             sizeLarge,
             speedLarge,
@@ -64,5 +64,21 @@ public class SizeStats : MonoBehaviour
             fallSpeedLarge
         };
     }
+
+    public List<float> ReturnStats(string size)
+    {
+        if (size == "small")
+        {
+            return statsSmall;
+        }
+
+        if (size == "large")
+        {
+            return statsLarge;
+        }
+
+        return statsMedium;
+    }
+    
 }
 
