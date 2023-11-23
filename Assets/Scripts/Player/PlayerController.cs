@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private SwitchSize switchSize;
     private Rigidbody2D rb;
     private Transform origiParent;
-
+    private SwitchV2 switchPlayer;
     public bool activeMovementScript;
 
     #region EventHandlar
@@ -115,9 +115,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        origiParent = transform.parent;
+        rb                  =  GetComponent<Rigidbody2D>();
+        switchPlayer        =  GetComponent<SwitchV2>();
         devBut = Camera.main.GetComponent<DevButtons>();
+
+        origiParent = transform.parent;
         jumpBufferCounter = 0;
 
         speed = maxSpeed;
@@ -133,15 +135,13 @@ public class PlayerController : MonoBehaviour
             switchSize.isSmall = isSmall;
             switchSize.isBig = isLarge;
 
-            //Edge standing
              GroundCheckProcessing();
-
-        }
-        
+        }        
     }
 
     private void GroundCheckProcessing()
     {
+        //Edge standing
         if (IsGrounded() && !BesideGround())
         {
             groundHolderLeft.SetActive(true);
