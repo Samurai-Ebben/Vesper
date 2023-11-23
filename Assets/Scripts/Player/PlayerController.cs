@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     //Players refrences
     private InputActionAsset actions;
     private DevButtons devBut;
-    private SwitchSize switchSize;
+    //private SwitchSize switchSize;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
     private Transform origiParent;
@@ -96,9 +96,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        actions = GetComponentInParent<PlayerInput>().actions;
-        //actions = GetComponent<PlayerInput>().actions;
-        switchSize = GetComponentInParent<SwitchSize>();
+        //actions = GetComponentInParent<PlayerInput>().actions;
+        actions = GetComponent<PlayerInput>().actions;
+        //switchSize = GetComponentInParent<SwitchSize>();
         sizeStats = GetComponent<SizeStats>();
 
         actions["Move"].performed += Move;

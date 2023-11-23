@@ -38,10 +38,8 @@ namespace TarodevController
 
         public void OnJump(InputAction.CallbackContext ctx)
         {
-            if(ctx.performed)
-                jumpDown = true;
-            else if(ctx.started)
-                jumpHold = true;
+            jumpDown = true;
+            jumpHold = true;
         }
         
         public void OnJumpCancel(InputAction.CallbackContext ctx)
@@ -58,12 +56,11 @@ namespace TarodevController
             actions = GetComponent<PlayerInput>().actions;
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
 
-            actions["Move"].performed += Move;
-            actions["Move"].canceled += Move;
+            actions["Move"].performed += ctx => Move(ctx);
+            actions["Move"].canceled += ctx => Move(ctx);
 
-            actions["Jump"].performed += OnJump;
-            actions["Jump"].started += OnJump;
-            actions["Jump"].canceled += OnJumpCancel;
+            actions["Jump"].performed += ctx => OnJump(ctx);
+            actions["Jump"].canceled += ctx => OnJumpCancel(ctx);
 
             actions.Enable();
         }
@@ -73,18 +70,18 @@ namespace TarodevController
             _time += Time.deltaTime;
             GatherInput();
         }
-        private void OnDisable()
-        {
-            actions["Move"].performed -= Move;
-            actions["Move"].canceled -= Move;
+        //private void OnDisable()
+        //{
+        //    actions["Move"].performed -= Move;
+        //    actions["Move"].canceled -= Move;
 
-            actions["Jump"].performed -= OnJump;
-            actions["Jump"].started -= OnJump;
-            actions["Jump"].canceled -= OnJumpCancel;
+        //    actions["Jump"].performed -= OnJump;
+        //    actions["Jump"].started -= OnJump;
+        //    actions["Jump"].canceled -= OnJumpCancel;
 
 
-            actions.Disable();
-        }
+        //    actions.Disable();
+        //}
         private void GatherInput()
         {
             _frameInput = new FrameInput
