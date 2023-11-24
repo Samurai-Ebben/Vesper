@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 658788291900644521}
   - component: {fileID: 7134962954719812730}
   - component: {fileID: 2001940146935406576}
+  - component: {fileID: 1996938895583593536}
   - component: {fileID: 8462916738579366574}
   - component: {fileID: 4505907170274488285}
   - component: {fileID: 1118938134765149609}
@@ -140,15 +141,13 @@ MonoBehaviour:
   acceleration: 20
   deacceleration: 10
   jumpBufferTime: 0.05
-  jumpForce: 5
+  jumpForce: 10
+  jumpHoldForce: 5
   jumpHeight: 3
-  jumpCutOff: 0.067
+  jumpCutOff: 0.1
   InJumpBuffer: 0
   coyoteTime: 0.2
-  canJump: 1
-  airAcceleration: 0
-  airBrake: 0
-  airControl: 0
+  fallSpeed: 5
   groundCheckRad: {x: 1.21, y: 0.1}
   sideGroundCheckRad: {x: 1.21, y: 0.84}
   isGround:
@@ -159,6 +158,36 @@ MonoBehaviour:
   groundHolderRight: {fileID: 8530624062800487316}
   groundHolderLeft: {fileID: 4260734968566460160}
   activeMovementScript: 0
+--- !u!114 &1996938895583593536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f843f8f6262aa4da3df443835758f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeSmall: 0.25
+  sizeMedium: 0.75
+  sizeLarge: 1.25
+  speedSmall: 10
+  speedMedium: 6
+  speedLarge: 4
+  accelerationSmall: 30
+  accelerationMedium: 20
+  accelerationLarge: 10
+  deaccelerationSmall: 10
+  deaccelerationMedium: 20
+  deaccelerationLarge: 30
+  jumpHeightSmall: 4
+  jumpHeightMedium: 10
+  jumpHeightLarge: 8
+  fallSpeedSmall: 1
+  fallSpeedMedium: 2
+  fallSpeedLarge: 3
 --- !u!50 &8462916738579366574
 Rigidbody2D:
   serializedVersion: 4
@@ -216,7 +245,19 @@ MonoBehaviour:
     m_ActionId: ff119f63-6339-4c7d-a766-600b1e491926
     m_ActionName: Player/Move[/XInputControllerWindows/leftStick,/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2001940146935406576}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b38e64cf-019e-4f6a-8b14-059410666c05
     m_ActionName: Player/Jump[/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
