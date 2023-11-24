@@ -242,18 +242,6 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    public void SetParent(Transform newParent)
-    {
-        origiParent = transform.parent;
-        transform.parent.position = newParent.position;
-        //transform.localScale = origiParent.localScale;
-    }
-
-    public void resetParent()
-    {
-        transform.parent = origiParent;
-    }
-
     private void OnDisable()
     {
         actions["Move"].performed -= Move;
