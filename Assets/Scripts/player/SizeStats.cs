@@ -38,6 +38,16 @@ public class SizeStats : MonoBehaviour
     public float fallSpeedMedium = 2;
     public float fallSpeedLarge = 3;
 
+    [Space(10), Range(0, 1)]
+    public float jumpCutOffSmall = .5f;
+    public float jumpCutOffMedium = .1f;
+    public float jumpCutOffLarge = .005f;
+
+    [Space(10)]
+    public float jumpCutOffSmall = 1;
+    public float jumpCutOffMedium = 2;
+    public float jumpCutOffLarge = 3;
+
     void Start()
     {
         statsSmall = new List<float>
@@ -47,7 +57,8 @@ public class SizeStats : MonoBehaviour
             accelerationSmall,
             deaccelerationSmall,
             jumpHeightSmall,
-            fallSpeedSmall
+            fallSpeedSmall,
+            jumpCutOffSmall
         };
 
         statsMedium = new List<float>
@@ -57,7 +68,9 @@ public class SizeStats : MonoBehaviour
             accelerationMedium,
             deaccelerationMedium,
             jumpHeightMedium,
-            fallSpeedMedium
+            fallSpeedMedium,
+            jumpCutOffMedium
+
         };
 
         statsLarge = new List<float>
@@ -67,7 +80,8 @@ public class SizeStats : MonoBehaviour
             accelerationLarge,
             deaccelerationLarge,
             jumpHeightLarge,
-            fallSpeedLarge
+            fallSpeedLarge,
+            jumpCutOffLarge
         };
     }
 
