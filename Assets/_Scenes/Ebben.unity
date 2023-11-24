@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 52909210}
   - component: {fileID: 52909213}
-  - component: {fileID: 52909212}
   - component: {fileID: 52909211}
   m_Layer: 3
   m_Name: Square (6)
@@ -166,7 +165,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 52909209}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 85d0df41caf109b43812e70ac84b5700, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -202,20 +201,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &52909212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52909209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1aede3a2aa2be54aabc0017190ea6ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushWithBounceForce: 0
-  bounceForce: 10
 --- !u!212 &52909213
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -971,34 +956,6 @@ PrefabInstance:
     - target: {fileID: 658788291900644521, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: jumpHeightMedium
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeBigX
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeBigY
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeSmallX
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeSmallY
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeMediumX
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeMediumY
-      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Name
