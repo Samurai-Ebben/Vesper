@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     void OnJumpStarted(InputAction.CallbackContext ctx)
     {
-        if (canJump)
+        if (ctx.performed && canJump)
         {
             jumpBufferTimer = jumpBufferTime;
             jumpPressed = true;
@@ -164,11 +164,13 @@ public class PlayerController : MonoBehaviour
         //Jumping();
         HandleJumpBuffer();
         HandleCoyoteTime();
-        if (canJump && jumpPressed)
+
+        if (canJump &&IsGrounded() && jumpPressed)
         {
             Jump();
             jumpPressed = false;
         }
+
         #region SwitchHandlers
         if (isSmall)
             SwitchSize("small");
@@ -178,7 +180,6 @@ public class PlayerController : MonoBehaviour
 
         if (!isLarge && !isSmall)
         {
-            print("medium");
             SwitchSize("medium");
         }
         #endregion
@@ -252,6 +253,7 @@ public class PlayerController : MonoBehaviour
         {
             //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             rb.velocity = Vector2.up * jumpForce;
+            isJumping = true;
             //OnJump.Invoke();
         }
         else if (!isJumping && rb.velocity.y > 0)
@@ -259,6 +261,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
     }
+
     private void MoveX()
     {
         velocityX += moveInput.x * acceleration * Time.deltaTime;
@@ -286,7 +289,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleJumpBuffer()
     {
-        if (jumpBufferTimer > 0)
+        if (jumpBufferTimer > 0 && jumpPressed)
         {
             jumpBufferTimer -= Time.deltaTime;
             if (jumpBufferTimer <= 0 && coyoteTimer > 0)
