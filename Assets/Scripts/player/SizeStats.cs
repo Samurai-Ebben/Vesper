@@ -38,15 +38,20 @@ public class SizeStats : MonoBehaviour
     public float fallSpeedMedium = 2;
     public float fallSpeedLarge = 3;
 
-    [Space(10), Range(0, 1)]
-    public float jumpCutOffSmall = .5f;
-    public float jumpCutOffMedium = .1f;
-    public float jumpCutOffLarge = .005f;
+    [Space(10)]
+    [Range(0, 1)]public float jumpCutOffSmall = .5f;
+    [Range(0, 1)] public float jumpCutOffMedium = .1f;
+    [Range(0, 1)] public float jumpCutOffLarge = .005f;
 
     [Space(10)]
-    public float jumpCutOffSmall = 1;
-    public float jumpCutOffMedium = 2;
-    public float jumpCutOffLarge = 3;
+    public float groundCheckSizeSmallX;
+    public float groundCheckSizeMediumX;
+    public float groundCheckSizeBigX;
+
+    [Space(10)]
+    public float groundCheckSizeSmallY;
+    public float groundCheckSizeMediumY;
+    public float groundCheckSizeBigY;
 
     void Start()
     {
@@ -58,7 +63,9 @@ public class SizeStats : MonoBehaviour
             deaccelerationSmall,
             jumpHeightSmall,
             fallSpeedSmall,
-            jumpCutOffSmall
+            jumpCutOffSmall,
+            groundCheckSizeSmallX,
+            groundCheckSizeSmallY
         };
 
         statsMedium = new List<float>
@@ -69,8 +76,9 @@ public class SizeStats : MonoBehaviour
             deaccelerationMedium,
             jumpHeightMedium,
             fallSpeedMedium,
-            jumpCutOffMedium
-
+            jumpCutOffMedium, 
+            groundCheckSizeMediumX,
+            groundCheckSizeMediumY
         };
 
         statsLarge = new List<float>
@@ -81,7 +89,10 @@ public class SizeStats : MonoBehaviour
             deaccelerationLarge,
             jumpHeightLarge,
             fallSpeedLarge,
-            jumpCutOffLarge
+            jumpCutOffLarge,
+            groundCheckSizeBigX,
+            groundCheckSizeBigY
+
         };
     }
 
