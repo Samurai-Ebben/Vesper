@@ -107,7 +107,7 @@ public class SizeStats : MonoBehaviour
         {
             return statsLarge;
         }
-
+        
         return statsMedium;
     }
     

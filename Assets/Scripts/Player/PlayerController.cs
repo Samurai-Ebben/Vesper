@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
-        rb.velocity = new Vector2(velocityX, rb.velocity.y);
+        rb.velocity = new Vector2(velocityX/* + additionalBounce*/, rb.velocity.y);
     }
 
 
@@ -245,7 +245,13 @@ public class PlayerController : MonoBehaviour
     public void SetParent(Transform newParent)
     {
         origiParent = transform.parent;
-        transform.parent = newParent;
+        transform.parent.position = newParent.position;
+        //transform.localScale = origiParent.localScale;
+    }
+
+    public void resetParent()
+    {
+        transform.parent = origiParent;
     }
 
     private void OnDisable()
@@ -274,24 +280,6 @@ public class PlayerController : MonoBehaviour
         moveInput = ctx.ReadValue<Vector2>();
     }
 
-    //public void OnJump(InputAction.CallbackContext ctx)
-    //{
-    //    if (ctx.performed)
-    //    {
-    //        jumpBufferTimer = jumpBufferTime;
-    //        if (canJump)
-    //        {
-    //            jumpPressed = true;
-    //            canJump = false;
-    //        }
-
-    //    }
-    //    if (ctx.canceled && rb.velocity.y>0)
-    //    {
-    //        rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
-    //    }
-    //}
-
     void OnJumpStarted(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && canJump)
@@ -310,9 +298,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //public void OnJumpCancel(InputAction.CallbackContext ctx)
-    //{
-    //}
 
     public void Smaller(InputAction.CallbackContext ctx)
     {
