@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]Vector2 groundCheckRad;
     [SerializeField]Vector2 sideGroundCheckRad;
 
-    [Header("||SWICH_CONTROLS||")]
+    [Header("||SWITCH_CONTROLS||")]
     bool isSmall;
     bool isLarge;
 
@@ -56,75 +56,12 @@ public class PlayerController : MonoBehaviour
     //Players refrences
     private InputActionAsset actions;
     private DevButtons devBut;
-    //private SwitchSize switchSize;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
     Transform origiParent;
+
+    //private SwitchSize switchSize;
     public bool activeMovementScript;
-
-    #region EventHandler
-    public void Move(InputAction.CallbackContext ctx)
-    {
-        moveInput = ctx.ReadValue<Vector2>();
-    }
-
-    //public void OnJump(InputAction.CallbackContext ctx)
-    //{
-    //    if (ctx.performed)
-    //    {
-    //        jumpBufferTimer = jumpBufferTime;
-    //        if (canJump)
-    //        {
-    //            jumpPressed = true;
-    //            canJump = false;
-    //        }
-
-    //    }
-    //    if (ctx.canceled && rb.velocity.y>0)
-    //    {
-    //        rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
-    //    }
-    //}
-
-    void OnJumpStarted(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed && canJump)
-        {
-            jumpBufferTimer = jumpBufferTime;
-            jumpPressed = true;
-            canJump = false;
-        }
-    }
-
-    void OnJumpCanceled(InputAction.CallbackContext ctx)
-    {
-        if (!ctx.performed && rb.velocity.y > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
-        }
-    }
-
-    //public void OnJumpCancel(InputAction.CallbackContext ctx)
-    //{
-    //}
-
-    public void Smaller(InputAction.CallbackContext ctx)
-    {
-        isSmall = true;
-    }
-    public void SmallerCancel(InputAction.CallbackContext ctx)
-    {
-        isSmall = false;
-    }
-    public void Larger(InputAction.CallbackContext ctx)
-    {
-        isLarge = true;
-    }
-    public void LargerCancel(InputAction.CallbackContext ctx)
-    {
-        isLarge = false;
-    }
-    #endregion
 
     private void Awake()
     {
@@ -243,13 +180,12 @@ public class PlayerController : MonoBehaviour
             float velocityY = 0;
             velocityY += moveInput.y * acceleration;
             rb.velocity = new Vector2(velocityX, velocityY);
-
         }
 
-        if (!isFacingRight && moveInput.x > 0)
-            Flip();
-        else if (isFacingRight && moveInput.x < 0)
-            Flip();
+        //if (!isFacingRight && moveInput.x > 0)
+        //    Flip();
+        //else if (isFacingRight && moveInput.x < 0)
+        //    Flip();
 
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
 
@@ -285,7 +221,6 @@ public class PlayerController : MonoBehaviour
             canJump = true;
         }
     }
-
 
     #region Checkers
     bool IsGrounded()
@@ -332,6 +267,70 @@ public class PlayerController : MonoBehaviour
 
         actions.Disable();
     }
+
+    #region EventHandler
+    public void Move(InputAction.CallbackContext ctx)
+    {
+        moveInput = ctx.ReadValue<Vector2>();
+    }
+
+    //public void OnJump(InputAction.CallbackContext ctx)
+    //{
+    //    if (ctx.performed)
+    //    {
+    //        jumpBufferTimer = jumpBufferTime;
+    //        if (canJump)
+    //        {
+    //            jumpPressed = true;
+    //            canJump = false;
+    //        }
+
+    //    }
+    //    if (ctx.canceled && rb.velocity.y>0)
+    //    {
+    //        rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
+    //    }
+    //}
+
+    void OnJumpStarted(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && canJump)
+        {
+            jumpBufferTimer = jumpBufferTime;
+            jumpPressed = true;
+            canJump = false;
+        }
+    }
+
+    void OnJumpCanceled(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed && rb.velocity.y > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
+        }
+    }
+
+    //public void OnJumpCancel(InputAction.CallbackContext ctx)
+    //{
+    //}
+
+    public void Smaller(InputAction.CallbackContext ctx)
+    {
+        isSmall = true;
+    }
+    public void SmallerCancel(InputAction.CallbackContext ctx)
+    {
+        isSmall = false;
+    }
+    public void Larger(InputAction.CallbackContext ctx)
+    {
+        isLarge = true;
+    }
+    public void LargerCancel(InputAction.CallbackContext ctx)
+    {
+        isLarge = false;
+    }
+    #endregion
 
     private void OnDrawGizmosSelected()
     {
