@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]Vector2 sideGroundCheckRad;
 
     [Header("||SWITCH_CONTROLS||")]
-    bool isSmall;
-    bool isLarge;
+    public bool isSmall;
+    public bool isLarge;
 
     [Header("||LAYERS||")]
     [SerializeField] private LayerMask isGround;
