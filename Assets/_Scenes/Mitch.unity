@@ -1776,7 +1776,6 @@ MonoBehaviour:
   jumpCutOff: 0.1
   InJumpBuffer: 0
   coyoteTime: 0.2
-  canJump: 1
   airAcceleration: 0
   airBrake: 0
   airControl: 0
@@ -1789,6 +1788,7 @@ MonoBehaviour:
   sideGroundCheck: {fileID: 0}
   groundHolderRight: {fileID: 0}
   groundHolderLeft: {fileID: 0}
+  activeMovementScript: 0
 --- !u!212 &827934703
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2610,6 +2610,10 @@ PrefabInstance:
     - target: {fileID: 2053482036468403628, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
       propertyPath: m_Name
       value: MainSwitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236881413336371496, guid: 3f7f83fb035f7414fb9bff28ca3e6dff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

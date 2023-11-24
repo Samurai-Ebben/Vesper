@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,10 +8,11 @@ public class PlayerController : MonoBehaviour
 {
     [Header("||PLAYER CONTROLS||")]
     [SerializeField] float speed;
-    [SerializeField] float maxSpeed = 4;
-    [SerializeField] float acceleration = 20;
-    [SerializeField] float deacceleration = 4;
+    [SerializeField] float maxSpeed         = 4;
+    [SerializeField] float acceleration     = 20;
+    [SerializeField] float deacceleration   = 4;
     bool isFacingRight = true;
+
     //Controls
     float velocityX;
     Vector2 moveInput;
@@ -18,18 +20,22 @@ public class PlayerController : MonoBehaviour
     [Header("|Jumping Controls|")]
     [SerializeField] float jumpBufferTime = 0.1f;
     [SerializeField] float jumpForce = 6.0f;
-    [SerializeField] float jumpHeight = 3.0f;
+    [SerializeField] private float jumpHoldForce = 5f;
+    [SerializeField] float jumpHeight = 6.0f;
+
     [SerializeField, Range(0f, 1f)] float jumpCutOff = 0.1f;
+
     [SerializeField] bool InJumpBuffer;
     [SerializeField]float coyoteTime = 0.2f;
-    [HideInInspector] public bool canJump = true;
-    float coyoteTimeCounter;
-    float jumpBufferCounter;
+    private float coyoteTimer;
+    private float jumpBufferTimer;
+
+    private bool isJumping = false;
+    private bool canJump = true;
+    private bool jumpPressed = false;
 
     [Header("|Air Controls|")]
-    [SerializeField] float airAcceleration;
-    [SerializeField] float airBrake;
-    [SerializeField] float airControl;
+    [SerializeField] float fallSpeed = 3.5f;
 
     [SerializeField]Vector2 groundCheckRad;
     [SerializeField]Vector2 sideGroundCheckRad;
@@ -47,38 +53,66 @@ public class PlayerController : MonoBehaviour
     public GameObject groundHolderRight;
     public GameObject groundHolderLeft;
 
+    //Players refrences
     private InputActionAsset actions;
     private DevButtons devBut;
-    private SwitchSize switchSize;
-
-    //Players refrences
+    //private SwitchSize switchSize;
+    private SizeStats sizeStats;
     private Rigidbody2D rb;
+    Transform origiParent;
+    public bool activeMovementScript;
 
-    #region EventHandlar
+    #region EventHandler
     public void Move(InputAction.CallbackContext ctx)
     {
         moveInput = ctx.ReadValue<Vector2>();
     }
 
-    public void OnJump(InputAction.CallbackContext ctx)
+    //public void OnJump(InputAction.CallbackContext ctx)
+    //{
+    //    if (ctx.performed)
+    //    {
+    //        jumpBufferTimer = jumpBufferTime;
+    //        if (canJump)
+    //        {
+    //            jumpPressed = true;
+    //            canJump = false;
+    //        }
+
+    //    }
+    //    if (ctx.canceled && rb.velocity.y>0)
+    //    {
+    //        rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
+    //    }
+    //}
+
+    void OnJumpStarted(InputAction.CallbackContext ctx)
     {
-        InJumpBuffer = true;
+        if (canJump)
+        {
+            jumpBufferTimer = jumpBufferTime;
+            jumpPressed = true;
+            canJump = false;
+        }
     }
 
-    public void OnJumpCancel(InputAction.CallbackContext ctx)
+    void OnJumpCanceled(InputAction.CallbackContext ctx)
     {
-        InJumpBuffer = false;
-
-        if (rb.velocity.y < 0) return;
-
-        rb.velocity = new(rb.velocity.x, rb.velocity.y * jumpCutOff);
+        if (!ctx.performed && rb.velocity.y > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
+        }
     }
+
+    //public void OnJumpCancel(InputAction.CallbackContext ctx)
+    //{
+    //}
 
     public void Smaller(InputAction.CallbackContext ctx)
     {
         isSmall = true;
     }
-    public void SmallerCancle(InputAction.CallbackContext ctx)
+    public void SmallerCancel(InputAction.CallbackContext ctx)
     {
         isSmall = false;
     }
@@ -86,26 +120,29 @@ public class PlayerController : MonoBehaviour
     {
         isLarge = true;
     }
-    public void LargerCancle(InputAction.CallbackContext ctx)
+    public void LargerCancel(InputAction.CallbackContext ctx)
     {
         isLarge = false;
     }
     #endregion
+
     private void Awake()
     {
-        actions = GetComponentInParent<PlayerInput>().actions;
-        switchSize = GetComponentInParent<SwitchSize>();
+        //actions = GetComponentInParent<PlayerInput>().actions;
+        actions = GetComponent<PlayerInput>().actions;
+        //switchSize = GetComponentInParent<SwitchSize>();
+        sizeStats = GetComponent<SizeStats>();
 
         actions["Move"].performed += Move;
         actions["Move"].canceled += Move;
 
-        actions["Jump"].performed += OnJump;
-        actions["Jump"].canceled += OnJumpCancel;
+        actions["Jump"].performed += OnJumpStarted;
+        actions["Jump"].canceled += OnJumpCanceled;
 
         actions["Smaller"].started += Smaller;
-        actions["Smaller"].canceled += SmallerCancle;
+        actions["Smaller"].canceled += SmallerCancel;
         actions["Larger"].started += Larger;
-        actions["Larger"].canceled += LargerCancle;
+        actions["Larger"].canceled += LargerCancel;
 
         actions.Enable();
     }
@@ -113,21 +150,56 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
         devBut = Camera.main.GetComponent<DevButtons>();
-        jumpBufferCounter = 0;
+        origiParent = transform.parent;
 
-        speed = maxSpeed;
+        jumpBufferTimer = 0;
+
+        //speed = maxSpeed;
     }
 
     void Update()
     {
         MoveX();
-        if(canJump) Jumping();
+        //Jumping();
+        HandleJumpBuffer();
+        HandleCoyoteTime();
+        if (canJump && jumpPressed)
+        {
+            Jump();
+            jumpPressed = false;
+        }
+        #region SwitchHandlers
+        if (isSmall)
+            SwitchSize("small");
 
-        switchSize.isSmall = isSmall;
-        switchSize.isBig = isLarge;
+        if (isLarge)
+            SwitchSize("large");
 
+        if (!isLarge && !isSmall)
+        {
+            print("medium");
+            SwitchSize("medium");
+        }
+        #endregion
+
+        EdgeCheck();
+    }
+
+    private void SwitchSize(string sizeName)
+    {
+        List<float> statList = sizeStats.ReturnStats(sizeName);
+
+        transform.localScale = new Vector3(statList[0], statList[0], statList[0]);
+        maxSpeed = statList[1];
+        acceleration = statList[2];
+        deacceleration = statList[3];
+        jumpForce = statList[4];
+        rb.gravityScale = statList[5];
+    }
+
+    private void EdgeCheck()
+    {
         //Edge standing
         if (IsGrounded() && !BesideGround())
         {
@@ -141,52 +213,52 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Jumping()
-    {
-        //if (BesideGround() && IsGrounded()) return;
+    //private void Jumping()
+    //{
+    //    //if (BesideGround() && IsGrounded()) return;
+    //    //jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rb.gravityScale) * -2) * rb.mass;
 
+    //    if (IsGrounded())
+    //        coyoteTimer = coyoteTime;
+    //    else
+    //        coyoteTimer -= Time.deltaTime;
+
+    //    if (InJumpBuffer)
+    //    {
+    //        jumpBufferTimer = jumpBufferTime;
+    //    }
+    //    else
+    //        jumpBufferTimer -= Time.deltaTime;
+
+    //    //JumpBuffer.
+    //    if (coyoteTimer > 0 && jumpBufferTimer > 0)
+    //    {
+    //        //rb.velocity = Vector2.up * jumpForce;
+    //        //rb.velocity = new Vector2(rb.velocity.x,jumpForce);
+    //        jumpBufferTimer = 0;
+    //    }
+
+    //    //FallFaster
+    //    if (rb.velocity.y < 0 && !devBut.amGhost)
+    //        rb.gravityScale = fallSpeed;
+
+    //    else if(!devBut.amGhost)
+    //        rb.gravityScale = 1f;
+    //}
+
+    void Jump()
+    {
         if (IsGrounded())
         {
-            coyoteTimeCounter = coyoteTime;
+            //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = Vector2.up * jumpForce;
+            //OnJump.Invoke();
         }
-        else
+        else if (!isJumping && rb.velocity.y > 0)
         {
-            coyoteTimeCounter -= Time.deltaTime;
+            rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
-
-        if (InJumpBuffer)
-        {
-            jumpBufferCounter = jumpBufferTime;
-        }
-        else
-            jumpBufferCounter -= Time.deltaTime;
-
-        if (InJumpBuffer && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-
-        if (coyoteTimeCounter > 0 && jumpBufferCounter > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            jumpBufferCounter = 0;
-        }
-
-        //if (!InJumpBuffer && rb.velocity.y > 0)
-        //{
-        //    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
-
-        //    coyoteTimeCounter = 0;
-        //}
-
-        if (rb.velocity.y < 0 && !devBut.amGhost)
-        {
-            rb.gravityScale = 3.5f;
-        }
-        else if(!devBut.amGhost)
-            rb.gravityScale = 1;
     }
-
     private void MoveX()
     {
         velocityX += moveInput.x * acceleration * Time.deltaTime;
@@ -208,10 +280,38 @@ public class PlayerController : MonoBehaviour
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
-         rb.velocity = new Vector2(velocityX, rb.velocity.y);
+        rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }
 
 
+    void HandleJumpBuffer()
+    {
+        if (jumpBufferTimer > 0)
+        {
+            jumpBufferTimer -= Time.deltaTime;
+            if (jumpBufferTimer <= 0 && coyoteTimer > 0)
+            {
+                jumpPressed = true;
+                canJump = false;
+            }
+        }
+    }
+
+    void HandleCoyoteTime()
+    {
+        if (!IsGrounded())
+        {
+            coyoteTimer -= Time.deltaTime;
+        }
+        else
+        {
+            coyoteTimer = coyoteTime;
+            canJump = true;
+        }
+    }
+
+
+    #region Checkers
     bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, isGround);
@@ -221,6 +321,7 @@ public class PlayerController : MonoBehaviour
     {
         return Physics2D.OverlapBox(sideGroundCheck.position, sideGroundCheckRad, 0, isGround);
     }
+    #endregion
 
     void Flip()
     {
@@ -230,18 +331,29 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
 
+    public void SetParent(Transform newParent)
+    {
+        origiParent = transform.parent;
+        transform.parent = newParent;
+    }
+
     private void OnDisable()
     {
         actions["Move"].performed -= Move;
         actions["Move"].canceled -= Move;
 
-        actions["Jump"].performed -= OnJump;
-        actions["Jump"].canceled -= OnJumpCancel;
+        //actions["Jump"].performed -= OnJump;
+        //actions["Jump"].canceled -= OnJump;
+        actions["Jump"].performed -= OnJumpStarted;
+        actions["Jump"].canceled -= OnJumpCanceled;
 
+        #region switchControls
         actions["Smaller"].started -= Smaller;
-        actions["Smaller"].canceled -= SmallerCancle;
+        actions["Smaller"].canceled -= SmallerCancel;
         actions["Larger"].started -= Larger;
-        actions["Larger"].canceled -= LargerCancle;
+        actions["Larger"].canceled -= LargerCancel;
+        #endregion
+
         actions.Disable();
     }
 
@@ -257,6 +369,4 @@ public class PlayerController : MonoBehaviour
 
         //Gizmos.DrawLine(transform.position)
     }
-
-    
 }

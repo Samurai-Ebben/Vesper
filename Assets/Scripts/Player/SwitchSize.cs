@@ -8,6 +8,7 @@ public class SwitchSize : MonoBehaviour
     public GameObject mediumSize;
     public GameObject bigSize;
 
+    private Transform origiParent;
 
 
 
@@ -20,8 +21,7 @@ public class SwitchSize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bigSize.GetComponent<SpriteRenderer>().enabled = false;
-        smallSize.GetComponent<SpriteRenderer>().enabled = false;
+        origiParent = transform.parent;
     }
 
     // Update is called once per frame
@@ -74,6 +74,14 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = false;
 
+        bigSize.GetComponent<PlayerController>().activeMovementScript = true;
+        smallSize.GetComponent<PlayerController>().activeMovementScript = false;
+        mediumSize.GetComponent<PlayerController>().activeMovementScript = false;
+
+        bigSize.GetComponent<Collider2D>().enabled = true;
+        smallSize.GetComponent<Collider2D>().enabled = false;
+        mediumSize.GetComponent<Collider2D>().enabled = false;
+
         currentPos = bigSize.transform.position;
 
         smallSize.transform.position = currentPos;
@@ -88,6 +96,15 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<SpriteRenderer>().enabled = true;
         mediumSize.GetComponent<SpriteRenderer>().enabled= false;
 
+        bigSize.GetComponent<PlayerController>().activeMovementScript = false;
+        smallSize.GetComponent<PlayerController>().activeMovementScript = true;
+        mediumSize.GetComponent<PlayerController>().activeMovementScript = false;
+
+
+        bigSize.GetComponent<Collider2D>().enabled = false;
+        smallSize.GetComponent<Collider2D>().enabled = true;
+        mediumSize.GetComponent<Collider2D>().enabled = false;
+
         currentPos = smallSize.transform.position;
 
         bigSize.transform.position = currentPos;
@@ -100,6 +117,14 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = true;
 
+        bigSize.GetComponent<PlayerController>().activeMovementScript = false;
+        smallSize.GetComponent<PlayerController>().activeMovementScript = false;
+        mediumSize.GetComponent<PlayerController>().activeMovementScript = true;
+
+        //These helps in soo many things, just looks SHITY.
+        bigSize.GetComponent<Collider2D>().enabled = false;
+        smallSize.GetComponent<Collider2D>().enabled = false;
+        mediumSize.GetComponent<Collider2D>().enabled = true;
         currentPos = mediumSize.transform.position;
 
         bigSize.transform.position = currentPos;
@@ -107,7 +132,8 @@ public class SwitchSize : MonoBehaviour
 
     }
 
+    #region SettingParents
+    
 
-
-
+    #endregion
 }

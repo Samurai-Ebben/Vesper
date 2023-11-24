@@ -45,5 +45,22 @@ public class PlatformMoving : MonoBehaviour
 
         end = coordinates[currentIndex];
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var player = other.transform.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.SetParent(transform);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        var player = other.transform.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.SetParent(null);
+        }
+    }
+
 }
 
