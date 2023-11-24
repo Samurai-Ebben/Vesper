@@ -135,6 +135,10 @@ public class PlayerController : MonoBehaviour
         deacceleration = statList[3];
         jumpForce = statList[4];
         rb.gravityScale = statList[5];
+        jumpCutOff = statList[6];
+        groundCheckRad.x = statList[7];
+        groundCheckRad.y = statList[8];
+
     }
 
     private void EdgeCheck()
@@ -152,38 +156,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void Jumping()
-    //{
-    //    //if (BesideGround() && IsGrounded()) return;
-    //    //jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rb.gravityScale) * -2) * rb.mass;
-
-    //    if (IsGrounded())
-    //        coyoteTimer = coyoteTime;
-    //    else
-    //        coyoteTimer -= Time.deltaTime;
-
-    //    if (InJumpBuffer)
-    //    {
-    //        jumpBufferTimer = jumpBufferTime;
-    //    }
-    //    else
-    //        jumpBufferTimer -= Time.deltaTime;
-
-    //    //JumpBuffer.
-    //    if (coyoteTimer > 0 && jumpBufferTimer > 0)
-    //    {
-    //        //rb.velocity = Vector2.up * jumpForce;
-    //        //rb.velocity = new Vector2(rb.velocity.x,jumpForce);
-    //        jumpBufferTimer = 0;
-    //    }
-
-    //    //FallFaster
-    //    if (rb.velocity.y < 0 && !devBut.amGhost)
-    //        rb.gravityScale = fallSpeed;
-
-    //    else if(!devBut.amGhost)
-    //        rb.gravityScale = 1f;
-    //}
 
     void Jump()
     {

@@ -188,6 +188,15 @@ MonoBehaviour:
   fallSpeedSmall: 1
   fallSpeedMedium: 2
   fallSpeedLarge: 3
+  jumpCutOffSmall: 0.5
+  jumpCutOffMedium: 0.1
+  jumpCutOffLarge: 0.005
+  groundCheckSizeSmallX: 0.3
+  groundCheckSizeMediumX: 0.8
+  groundCheckSizeBigX: 1.35
+  groundCheckSizeSmallY: 0.009
+  groundCheckSizeMediumY: 0.06
+  groundCheckSizeBigY: 0.06
 --- !u!50 &8462916738579366574
 Rigidbody2D:
   serializedVersion: 4
@@ -450,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 6895616532544625887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.54, z: 0}
+  m_LocalPosition: {x: 0, y: -0.498, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
