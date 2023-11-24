@@ -190,8 +190,16 @@ public class PlayerController : MonoBehaviour
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
 
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
+        {
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
+            if (velocityX < 0.01f)
+            {
+                velocityX = 0;
+            }
+        }
+
+        print("velocityX is: " + velocityX);
         rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }
 

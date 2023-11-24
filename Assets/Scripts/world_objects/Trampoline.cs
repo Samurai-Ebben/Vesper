@@ -18,10 +18,11 @@ public class Trampoline : MonoBehaviour
 
             if (rb2d != null)
             {                
-                Vector2 bounceDirection = transform.up * bounceForce;
-                print(bounceDirection);
+                Vector2 bounceDirection = Vector2.right * bounceForce;
                 //rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(bounceDirection, ForceMode2D.Impulse);
+
+                //print(bounceDirection);
 
                 //PlayerController player = rb2d.GetComponent<PlayerController>();
                 //rb2d.velocity= Vector2.up*bounceForce;
