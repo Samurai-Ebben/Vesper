@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float fallSpeed = 3.5f;
 
     [SerializeField]Vector2 groundCheckRad;
-    [SerializeField]Vector2 sideGroundCheckRad;
+    //[SerializeField]Vector2 sideGroundCheckRad; // Make many raycasts instead.
 
     [Header("||SWITCH_CONTROLS||")]
     public bool isSmall;
@@ -120,9 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             SwitchSize("medium");
         }
-        #endregion
-
-        EdgeCheck();
+        #endregion   
     }
 
     private void SwitchSize(string sizeName)
@@ -141,20 +139,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void EdgeCheck()
-    {
-        //Edge standing
-        if (IsGrounded() && !BesideGround())
-        {
-            groundHolderLeft.SetActive(true);
-            groundHolderRight.SetActive(true);
-        }
-        else
-        {
-            groundHolderLeft.SetActive(false);
-            groundHolderRight.SetActive(false);
-        }
-    }
+    //private void EdgeCheck()
+    //{
+    //    //Edge standing
+    //    if (IsGrounded() && !BesideGround())
+    //    {
+    //        groundHolderLeft.SetActive(true);
+    //        groundHolderRight.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        groundHolderLeft.SetActive(false);
+    //        groundHolderRight.SetActive(false);
+    //    }
+    //}
 
 
     void Jump()
@@ -198,7 +196,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleJumpBuffer()
     {
-        if (jumpBufferTimer > 0 && jumpPressed)
+        if (jumpBufferTimer > 0 && jumpPressed && canJump)
         {
             jumpBufferTimer -= Time.deltaTime;
             if (jumpBufferTimer <= 0 && coyoteTimer > 0)
@@ -214,6 +212,8 @@ public class PlayerController : MonoBehaviour
         if (!IsGrounded())
         {
             coyoteTimer -= Time.deltaTime;
+            if(coyoteTimer <= 0 )
+                canJump = false;
         }
         else
         {
@@ -228,10 +228,10 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, isGround);
     }
 
-    bool BesideGround()
-    {
-        return Physics2D.OverlapBox(sideGroundCheck.position, sideGroundCheckRad, 0, isGround);
-    }
+    //bool BesideGround()
+    //{
+    //    return Physics2D.OverlapBox(sideGroundCheck.position, sideGroundCheckRad, 0, isGround);
+    //}
     #endregion
 
     void Flip()
@@ -313,7 +313,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireCube(groundCheck.position, groundCheckRad);
         Gizmos.color = Color.red;
 
-        Gizmos.DrawWireCube(sideGroundCheck.position, sideGroundCheckRad);
+
 
         //Gizmos.DrawLine(transform.position)
     }
