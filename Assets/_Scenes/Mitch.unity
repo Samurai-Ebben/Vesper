@@ -2332,6 +2332,15 @@ MonoBehaviour:
   fallSpeedSmall: 1
   fallSpeedMedium: 2
   fallSpeedLarge: 5
+  jumpCutOffSmall: 0.5
+  jumpCutOffMedium: 0.1
+  jumpCutOffLarge: 0.005
+  groundCheckSizeSmallX: 0
+  groundCheckSizeMediumX: 0
+  groundCheckSizeBigX: 0
+  groundCheckSizeSmallY: 0
+  groundCheckSizeMediumY: 0
+  groundCheckSizeBigY: 0
 --- !u!1 &1024649868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,6 +2790,10 @@ PrefabInstance:
     - target: {fileID: 658788291900644521, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: jumpHeightMedium
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2067882930552435579, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_LocalPosition.y
