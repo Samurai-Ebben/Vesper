@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]float coyoteTime = 0.2f;
     private float coyoteTimer;
     private float jumpBufferTimer;
+    public float additionalBounce;
 
     private bool isJumping = false;
     private bool canJump = true;

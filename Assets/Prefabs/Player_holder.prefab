@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1829714972289282490}
   - component: {fileID: 534306166351915892}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Name
-      value: Player_medium
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
