@@ -14,6 +14,8 @@ public class AnimationHandler : MonoBehaviour
     GameState state;
     PlayerController playerController;
     AnimationClip gettingSmall;
+
+    public float timeForScaling = 5;
     // Start is called before the first frame update
     void Start()
     {
