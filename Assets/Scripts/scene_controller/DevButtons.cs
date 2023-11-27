@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class DevButtons : MonoBehaviour
 {
-    public Vector3 checkpoint;
+    public Vector3 currentCheckpoint;
+    public Transform defaultCheckpoint;
     
     GameObject player;
     Collider2D playerCollider2D;
@@ -47,14 +48,14 @@ public class DevButtons : MonoBehaviour
         // Set Development Checkpoint
         if (Input.GetKeyUp(KeyCode.C))
         {
-            checkpoint = player.transform.position;
-            print("Checkpoint set to: " + checkpoint);
+            currentCheckpoint = player.transform.position;
+            print("Checkpoint set to: " + currentCheckpoint);
         }
 
         // Teleport to Checkpoint
         if (Input.GetKeyUp(KeyCode.T))
         {
-            player.transform.position = checkpoint;
+            player.transform.position = currentCheckpoint;
         }
 
         //// Show/Hide UI (turn on/off renderer components)
