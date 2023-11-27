@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
         if (!isLarge && !isSmall)
         {
             SwitchSize("medium");
+            
         }
         #endregion   
     }

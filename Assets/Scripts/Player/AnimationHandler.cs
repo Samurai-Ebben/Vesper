@@ -35,11 +35,20 @@ public class AnimationHandler : MonoBehaviour
         
         SmallerPlayer();
 
-     if(playerController.isSmall) 
+        if(playerController.isSmall) 
         {
-            transform.DOScale(2, 2).SetEase(Ease.OutElastic);
+            transform.DOScale(0.25f, 4).SetEase(Ease.OutElastic);
             // do smaller animation
-        }   
+        }
+        if (playerController.isLarge)
+        {
+            transform.DOScale(1.25f, 4).SetEase(Ease.OutElastic);
+            // do smaller animation
+        }
+        if(!playerController.isSmall && !playerController.isLarge) 
+        {
+            transform.DOScale(1, 4).SetEase(Ease.OutElastic);
+        }
     }
 
     void SmallerPlayer()
@@ -47,7 +56,6 @@ public class AnimationHandler : MonoBehaviour
         if(Input.GetKey(KeyCode.G)) 
         { 
             state = GameState.GettingBig;
-            Debug.Log(state);
             
             
         }
