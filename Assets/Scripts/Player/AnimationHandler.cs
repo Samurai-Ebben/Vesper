@@ -25,17 +25,7 @@ public class AnimationHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (state)
-        {
-            case GameState.GettingBig:
-                break;
-
-            case GameState.GettingSmall:
-                break;
                
-        }
-        
-        SmallerPlayer();
 
         if(playerController.isSmall) 
         {
@@ -53,13 +43,5 @@ public class AnimationHandler : MonoBehaviour
         }
     }
 
-    void SmallerPlayer()
-    {
-        if(Input.GetKey(KeyCode.G)) 
-        { 
-            state = GameState.GettingBig;
-            
-            
-        }
-    }
+    
 }
