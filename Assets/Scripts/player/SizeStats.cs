@@ -74,6 +74,7 @@ public class SizeStats : MonoBehaviour
         
         return statsMedium;
     }
+
     private void UpdateStatValues()
     {
         statsSmall = new List<float>
