@@ -74,10 +74,6 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = false;
 
-        bigSize.GetComponent<PlayerController>().activeMovementScript = true;
-        smallSize.GetComponent<PlayerController>().activeMovementScript = false;
-        mediumSize.GetComponent<PlayerController>().activeMovementScript = false;
-
         bigSize.GetComponent<Collider2D>().enabled = true;
         smallSize.GetComponent<Collider2D>().enabled = false;
         mediumSize.GetComponent<Collider2D>().enabled = false;
@@ -96,10 +92,6 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<SpriteRenderer>().enabled = true;
         mediumSize.GetComponent<SpriteRenderer>().enabled= false;
 
-        bigSize.GetComponent<PlayerController>().activeMovementScript = false;
-        smallSize.GetComponent<PlayerController>().activeMovementScript = true;
-        mediumSize.GetComponent<PlayerController>().activeMovementScript = false;
-
 
         bigSize.GetComponent<Collider2D>().enabled = false;
         smallSize.GetComponent<Collider2D>().enabled = true;
@@ -117,9 +109,6 @@ public class SwitchSize : MonoBehaviour
         smallSize.GetComponent<SpriteRenderer>().enabled = false;
         mediumSize.GetComponent<SpriteRenderer>().enabled = true;
 
-        bigSize.GetComponent<PlayerController>().activeMovementScript = false;
-        smallSize.GetComponent<PlayerController>().activeMovementScript = false;
-        mediumSize.GetComponent<PlayerController>().activeMovementScript = true;
 
         //These helps in soo many things, just looks SHITY.
         bigSize.GetComponent<Collider2D>().enabled = false;
