@@ -55,6 +55,27 @@ public class SizeStats : MonoBehaviour
 
     void Start()
     {
+        UpdateStatValues();
+    }
+
+    public List<float> ReturnStats(string size)
+    {
+        UpdateStatValues();
+
+        if (size.ToLower() == "small")
+        {
+            return statsSmall;
+        }
+
+        if (size.ToLower() == "large")
+        {
+            return statsLarge;
+        }
+        
+        return statsMedium;
+    }
+    private void UpdateStatValues()
+    {
         statsSmall = new List<float>
         {
             sizeSmall,
@@ -76,7 +97,7 @@ public class SizeStats : MonoBehaviour
             deaccelerationMedium,
             jumpHeightMedium,
             fallSpeedMedium,
-            jumpCutOffMedium, 
+            jumpCutOffMedium,
             groundCheckSizeMediumX,
             groundCheckSizeMediumY
         };
@@ -95,21 +116,5 @@ public class SizeStats : MonoBehaviour
 
         };
     }
-
-    public List<float> ReturnStats(string size)
-    {
-        if (size.ToLower() == "small")
-        {
-            return statsSmall;
-        }
-
-        if (size.ToLower() == "large")
-        {
-            return statsLarge;
-        }
-        
-        return statsMedium;
-    }
-    
 }
 

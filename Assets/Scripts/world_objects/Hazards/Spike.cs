@@ -9,7 +9,7 @@ public class Spike : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             DevButtons devButtons = FindAnyObjectByType<DevButtons>();
-            other.transform.position = devButtons.checkpoint;
+            other.transform.position = devButtons.currentCheckpoint;
         }
     }
 }
