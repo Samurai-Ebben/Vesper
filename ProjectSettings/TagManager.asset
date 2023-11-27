@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Bgr
+    uniqueID: 3080501151
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: player
+    uniqueID: 1688531763
     locked: 0
