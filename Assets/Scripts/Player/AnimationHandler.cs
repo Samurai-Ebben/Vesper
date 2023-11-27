@@ -37,6 +37,7 @@ public class AnimationHandler : MonoBehaviour
 
      if(playerController.isSmall) 
         {
+            transform.DOScale(2, 2).SetEase(Ease.OutElastic);
             // do smaller animation
         }   
     }
@@ -47,7 +48,7 @@ public class AnimationHandler : MonoBehaviour
         { 
             state = GameState.GettingBig;
             Debug.Log(state);
-            transform.DOScale(2, 2).SetEase(Ease.OutElastic);
+            
             
         }
     }

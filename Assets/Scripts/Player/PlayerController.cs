@@ -112,7 +112,6 @@ public class PlayerController : MonoBehaviour
         #region SwitchHandlers
         if (isSmall)
             SwitchSize("small");
-        AnimationChangesToSmall();
 
         if (isLarge)
             SwitchSize("large");
@@ -319,8 +318,5 @@ public class PlayerController : MonoBehaviour
         //Gizmos.DrawLine(transform.position)
     }
 
-    void AnimationChangesToSmall()
-    {
-        
-    }
+    
 }
