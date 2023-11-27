@@ -52,7 +52,6 @@ public class PlatformMoving : MonoBehaviour
         if (player != null)
         {
             player.SetParent(transform);
-            Debug.Log("funkar");
         }
     }
 
@@ -62,7 +61,6 @@ public class PlatformMoving : MonoBehaviour
         if (player != null)
         {
             player.SetParent(null);
-            Debug.Log("funkar inte");
 
         }
     }
