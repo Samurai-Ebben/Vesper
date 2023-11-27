@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     bool isFacingRight = true;
 
     //Controls
-    float velocityX;
+    public float velocityX;
     Vector2 moveInput;
 
     [Header("|Jumping Controls|")]
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]float coyoteTime = 0.2f;
     private float coyoteTimer;
     private float jumpBufferTimer;
-    public float additionalBounce;
+    public bool isBouncing;
 
     private bool isJumping = false;
     private bool canJump = true;
@@ -173,6 +173,7 @@ public class PlayerController : MonoBehaviour
 
     private void MoveX()
     {
+        if (isBouncing) return;
         velocityX += moveInput.x * acceleration * Time.deltaTime;
         if (devBut != null)
         {
@@ -194,7 +195,7 @@ public class PlayerController : MonoBehaviour
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
-        rb.velocity = new Vector2(velocityX/* + additionalBounce*/, rb.velocity.y);
+        rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }
 
 
