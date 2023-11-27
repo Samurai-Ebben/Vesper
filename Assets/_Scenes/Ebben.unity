@@ -269,6 +269,7 @@ MonoBehaviour:
   pushWithBounceForce: 0
   bounceForce: 10
   bounceDelay: 0.1
+  isRight: 0
 --- !u!1 &113118254
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d3584019413634aa3bc15a1727400d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpoint: {x: 0, y: 0, z: 0}
   amImmortal: 0
   amGhost: 0
 --- !u!1001 &575904358
@@ -1632,7 +1632,7 @@ Transform:
   m_GameObject: {fileID: 2058593631}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -6.31, y: -1.49, z: -0.07335377}
+  m_LocalPosition: {x: -5.7, y: -1.4, z: -0.07335377}
   m_LocalScale: {x: 2.5603943, y: 0.42548, z: 0.42548}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1652,7 +1652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushWithBounceForce: 0
   bounceForce: 10
-  bounceDelay: 0.1
+  bounceDelay: 0.4
+  isRight: 1
 --- !u!61 &2058593635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1764,11 +1765,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1829714972289282490, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0713377
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 1829714972289282490, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25108537
+      value: -1.51
       objectReference: {fileID: 0}
     - target: {fileID: 1829714972289282490, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1801,6 +1802,10 @@ PrefabInstance:
     - target: {fileID: 1829714972289282490, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4776989230760489331, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_Color.b
