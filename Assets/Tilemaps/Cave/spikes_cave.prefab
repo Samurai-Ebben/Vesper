@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6988556504455353655}
   - component: {fileID: 746193583015871395}
   m_Layer: 0
-  m_Name: Spikes
+  m_Name: spikes_cave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
