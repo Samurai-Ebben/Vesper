@@ -39,17 +39,17 @@ public class AnimationHandler : MonoBehaviour
 
         if(playerController.isSmall) 
         {
-            transform.DOScale(0.25f, 4).SetEase(Ease.OutElastic);
+            transform.DOScale(0.25f, timeForScaling).SetEase(Ease.OutElastic);
             // do smaller animation
         }
         if (playerController.isLarge)
         {
-            transform.DOScale(1.25f, 4).SetEase(Ease.OutElastic);
+            transform.DOScale(1.25f, timeForScaling).SetEase(Ease.OutElastic);
             // do smaller animation
         }
         if(!playerController.isSmall && !playerController.isLarge) 
         {
-            transform.DOScale(1, 4).SetEase(Ease.OutElastic);
+            transform.DOScale(1, timeForScaling).SetEase(Ease.OutElastic);
         }
     }
 
