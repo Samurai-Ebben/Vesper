@@ -149,7 +149,8 @@ MonoBehaviour:
   coyoteTime: 0.2
   fallSpeed: 5
   groundCheckRad: {x: 1.21, y: 0.1}
-  sideGroundCheckRad: {x: 1.21, y: 0.84}
+  isSmall: 0
+  isLarge: 0
   isGround:
     serializedVersion: 2
     m_Bits: 8
@@ -182,18 +183,18 @@ MonoBehaviour:
   deaccelerationSmall: 10
   deaccelerationMedium: 20
   deaccelerationLarge: 30
-  jumpHeightSmall: 4
-  jumpHeightMedium: 10
-  jumpHeightLarge: 8
+  jumpHeightSmall: 5
+  jumpHeightMedium: 8
+  jumpHeightLarge: 12
   fallSpeedSmall: 1
   fallSpeedMedium: 2
   fallSpeedLarge: 3
   jumpCutOffSmall: 0.5
   jumpCutOffMedium: 0.1
   jumpCutOffLarge: 0.005
-  groundCheckSizeSmallX: 0.3
-  groundCheckSizeMediumX: 0.8
-  groundCheckSizeBigX: 1.35
+  groundCheckSizeSmallX: 0.24
+  groundCheckSizeMediumX: 0.74
+  groundCheckSizeBigX: 1.24
   groundCheckSizeSmallY: 0.009
   groundCheckSizeMediumY: 0.06
   groundCheckSizeBigY: 0.06
@@ -373,7 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1272229039520015663
 Transform:
   m_ObjectHideFlags: 0
@@ -481,7 +482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5143406431964630874
 Transform:
   m_ObjectHideFlags: 0
