@@ -8,8 +8,8 @@ public class Spike : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            DevButtons devButtons = FindAnyObjectByType<DevButtons>();
-            other.transform.position = devButtons.currentCheckpoint;
+            SpawnAndCheckpoint spawnAndCheckpoint = FindObjectOfType<SpawnAndCheckpoint>();
+            spawnAndCheckpoint.RespawnPlayer();
         }
     }
 }
