@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class DevButtons : MonoBehaviour
 {
-    public Vector3 checkpoint;
-    
     GameObject player;
     Collider2D playerCollider2D;
     Rigidbody2D playerRB2D;
     float defaultGravity;
 
+    SpawnAndCheckpoint spawnAndCheckpoint;
+    SceneHandler sceneHandler;
+    
     public bool amImmortal = false;
     public bool amGhost = false;
 
@@ -22,6 +23,9 @@ public class DevButtons : MonoBehaviour
         playerCollider2D = player.GetComponent<Collider2D>();
         playerRB2D = player.GetComponent<Rigidbody2D>();
         defaultGravity = playerRB2D.gravityScale;
+        
+        spawnAndCheckpoint = GetComponent<SpawnAndCheckpoint>();
+        sceneHandler = GetComponent<SceneHandler>();
     }
 
     void Update()
@@ -29,32 +33,32 @@ public class DevButtons : MonoBehaviour
         // Restart Level
         if (Input.GetKeyUp(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            sceneHandler.ReloadScene();
         }
 
         // Next Level
         if (Input.GetKeyUp(KeyCode.N))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            sceneHandler.NextScene();
         }
 
         // Previous Level
         if (Input.GetKeyUp(KeyCode.P))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            sceneHandler.PreviousScene();
         }
 
         // Set Development Checkpoint
         if (Input.GetKeyUp(KeyCode.C))
         {
-            checkpoint = player.transform.position;
-            print("Checkpoint set to: " + checkpoint);
+            spawnAndCheckpoint.SetCheckpoint(player.transform.position);
+            print("Checkpoint set to: " + spawnAndCheckpoint.currentCheckpoint);
         }
 
-        // Teleport to Checkpoint
+        // Respawn at Checkpoint
         if (Input.GetKeyUp(KeyCode.T))
         {
-            player.transform.position = checkpoint;
+            spawnAndCheckpoint.RespawnPlayer();
         }
 
         //// Show/Hide UI (turn on/off renderer components)
