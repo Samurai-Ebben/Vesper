@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public enum GameState
 {
@@ -31,7 +32,8 @@ public class AnimationHandler : MonoBehaviour
                 break;
                
         }
-            SmallerPlayer();
+        
+        SmallerPlayer();
 
      if(playerController.isSmall) 
         {
@@ -43,9 +45,10 @@ public class AnimationHandler : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.G)) 
         { 
-        state = GameState.GettingBig;
-            Debug.Log(state); 
-        
+            state = GameState.GettingBig;
+            Debug.Log(state);
+            transform.DOScale(2, 2).SetEase(Ease.OutElastic);
+            
         }
     }
 }
