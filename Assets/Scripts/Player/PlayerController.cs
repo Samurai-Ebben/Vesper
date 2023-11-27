@@ -174,13 +174,16 @@ public class PlayerController : MonoBehaviour
     private void MoveX()
     {
         velocityX += moveInput.x * acceleration * Time.deltaTime;
-        if (devBut.amGhost)
+        if (devBut != null)
         {
-            float velocityY = 0;
-            velocityY += moveInput.y * acceleration;
-            rb.velocity = new Vector2(velocityX, velocityY);
+            if (devBut.amGhost)
+            {
+                float velocityY = 0;
+                velocityY += moveInput.y * acceleration;
+                rb.velocity = new Vector2(velocityX, velocityY);
+            }
         }
-
+        
         //if (!isFacingRight && moveInput.x > 0)
         //    Flip();
         //else if (isFacingRight && moveInput.x < 0)
