@@ -4,16 +4,11 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     public bool pushWithBounceForce;
-    public float bounceForce = 10f;
+    public float bounceForce = 200;
     public float bounceDelay = 0.1f;
-    public bool isRight = false;
-    Vector2 dire;
+    
     PlayerController player;
 
-    private void Start()
-    {
-        dire = isRight ? Vector2.right : Vector2.up;
-    }
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -22,15 +17,15 @@ public class Trampoline : MonoBehaviour
             var rb2d = player.GetComponent<Rigidbody2D>();
 
             //What is this for??
-            if (!pushWithBounceForce)
-            {
-                bounceForce = rb2d.gravityScale * 5;
-            }
+            //if (!pushWithBounceForce)
+            //{
+            //    bounceForce = rb2d.gravityScale * 5;
+            //}
 
             if (rb2d != null)
             {
                 player.isBouncing = true;
-                Vector2 bounceDirection = dire * bounceForce;
+                Vector2 bounceDirection = transform.up * bounceForce;
                 rb2d.AddForce(bounceDirection, ForceMode2D.Impulse);
 
                 StartCoroutine(EnableMovement());
