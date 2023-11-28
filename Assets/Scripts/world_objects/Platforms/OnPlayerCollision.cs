@@ -26,6 +26,15 @@ public class OnPlayerCollision : MonoBehaviour
         }
     }
 
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        spriteRenderer.color = Color.red;
+    //        disappearing.Disappear();
+    //    }
+    //}
+
     public void SetDefaultColor()
     {
         spriteRenderer.color = defaultColor;
