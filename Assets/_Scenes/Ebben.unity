@@ -26179,7 +26179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7569530594084706324, guid: 5621573181d72ab45a66e88e9d38ce55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.38
+      value: -0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7569530594084706324, guid: 5621573181d72ab45a66e88e9d38ce55, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26242,18 +26242,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1494792309468932868, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494792309468932868, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494792309468932868, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1688531763
-      objectReference: {fileID: 0}
     - target: {fileID: 1829714972289282490, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.41
@@ -26295,32 +26283,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4249621495272630601, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: fallSpeedLarge
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249621495272630601, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: fallSpeedSmall
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249621495272630601, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: fallSpeedMedium
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249621495272630601, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: jumpCutOffSmall
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249621495272630601, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: jumpHeightSmall
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776989230760489331, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776989230760489331, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1688531763
+      propertyPath: jumpHeightMedium
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
