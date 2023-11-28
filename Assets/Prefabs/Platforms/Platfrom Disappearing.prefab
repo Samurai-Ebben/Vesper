@@ -45,9 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa602c097652e74f93ad076e800c4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.5
   sustainTime: 1
+  cooldown: 0.5
   platform: {fileID: 2756527826174328144}
+  onTriggerColor:
+    serializedVersion: 2
+    rgba: 4278190335
 --- !u!1 &2756527826174328144
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +62,8 @@ GameObject:
   - component: {fileID: 7538819458152611089}
   - component: {fileID: 8910612093998369637}
   - component: {fileID: 2323194306062782538}
-  - component: {fileID: 2365316312671757435}
+  - component: {fileID: 7712078985901082638}
+  - component: {fileID: 5587077015069764973}
   m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
@@ -76,7 +80,7 @@ Transform:
   m_GameObject: {fileID: 2756527826174328144}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.99, y: -3.36, z: 0}
+  m_LocalPosition: {x: 0.24, y: -0.4, z: 0}
   m_LocalScale: {x: 2.5603943, y: 0.42548, z: 0.42548}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124,7 +128,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.098039225, g: 0.13725491, b: 0.21568629, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,7 +183,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2365316312671757435
+--- !u!70 &7712078985901082638
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756527826174328144}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_Size: {x: 1, y: 0.2}
+  m_Direction: 1
+--- !u!114 &5587077015069764973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,7 +227,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2756527826174328144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ecf5b42df7d01f468932d3163f9036f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e1c396c7aa142f43873b7ec5a26c9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isColliding: 0
+  sampleEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8823329071800335090}
+        m_TargetAssemblyTypeName: Disappearing, Assembly-CSharp
+        m_MethodName: Disappear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

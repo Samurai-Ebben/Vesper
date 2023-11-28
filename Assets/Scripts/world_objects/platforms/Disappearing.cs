@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Disappearing : MonoBehaviour
 {
-    public float cooldown = 0.5f;
     public float sustainTime = 1f;
+    public float cooldown = 0.5f;
 
     public GameObject platform;
-
-    OnPlayerCollision onPlayerCollision;
-
+    SpriteRenderer platformSpriteRenderer;
+    
     bool ongoingCoroutine;
+
+    public Color32 onTriggerColor;
+    private Color32 defaultColor;
 
     void Start()
     {
-        onPlayerCollision = GetComponentInChildren<OnPlayerCollision>();
+        platformSpriteRenderer = platform.GetComponent<SpriteRenderer>();
+        defaultColor = platformSpriteRenderer.color;
     }
 
     public void Disappear()
@@ -29,15 +32,17 @@ public class Disappearing : MonoBehaviour
     IEnumerator DisappearAndComeBack()
     {
         ongoingCoroutine = true;
+  
+        platformSpriteRenderer.color = onTriggerColor;
 
         yield return new WaitForSeconds(sustainTime);
         platform.SetActive(false);
-
+        
         yield return new WaitForSeconds(cooldown);
         platform.SetActive(true);
 
-        onPlayerCollision.SetDefaultColor();
-
+        platformSpriteRenderer.color = defaultColor;
+        
         ongoingCoroutine = false;
     }
 }
