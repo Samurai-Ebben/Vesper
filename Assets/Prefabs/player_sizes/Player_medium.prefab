@@ -46,6 +46,8 @@ GameObject:
   - component: {fileID: 8462916738579366574}
   - component: {fileID: 4505907170274488285}
   - component: {fileID: 1118938134765149609}
+  - component: {fileID: 8709759014473888023}
+  - component: {fileID: 3735912514214847531}
   m_Layer: 6
   m_Name: Player_medium
   m_TagString: Player
@@ -114,7 +116,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.45865577, g: 0.4716981, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -147,10 +149,10 @@ MonoBehaviour:
   jumpHeight: 3
   jumpForce: 10
   coyoteTime: 0.2
-  InJumpBuffer: 0
+  jumpBufferTimer: 0
   isBouncing: 0
   fallSpeed: 5
-  groundCheckRad: {x: 1.21, y: 0.1}
+  groundCheckRad: {x: 0.91, y: 0.1}
   isSmall: 0
   isLarge: 0
   isGround:
@@ -197,7 +199,7 @@ MonoBehaviour:
   groundCheckSizeMediumX: 0.74
   groundCheckSizeBigX: 1.24
   groundCheckSizeSmallY: 0.009
-  groundCheckSizeMediumY: 0.06
+  groundCheckSizeMediumY: 0.01
   groundCheckSizeBigY: 0.06
 --- !u!50 &8462916738579366574
 Rigidbody2D:
@@ -222,7 +224,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 2
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -359,6 +361,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &8709759014473888023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cad2b892a23b7498b5b2ac8795e6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeForScaling: 5
+--- !u!114 &3735912514214847531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146493eea4a1d23459d57a871922c4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkingTheTop: 1
+  canChangeSize: 0
 --- !u!1 &4260734968566460160
 GameObject:
   m_ObjectHideFlags: 0
