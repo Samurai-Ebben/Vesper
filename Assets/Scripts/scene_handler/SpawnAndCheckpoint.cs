@@ -6,7 +6,10 @@ public class SpawnAndCheckpoint : MonoBehaviour
 {
     public Transform spawnPoint;
     public GameObject playerPrefab;
-    public Vector3 currentCheckpoint;
+
+    [SerializeField]
+    Vector3 currentCheckpoint;
+
     GameObject player;
 
     void Awake()
