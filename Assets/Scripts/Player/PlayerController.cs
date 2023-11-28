@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
     private DevButtons devButtons;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
-    Transform origiParent;
 
     private void Awake()
     {
@@ -82,7 +81,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         devButtons = FindObjectOfType<DevButtons>();
-        origiParent = transform.parent;
 
         jumpBufferTimer = 0;
     }
@@ -164,12 +162,14 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
-            canJump = true;
+            //canJump = true;
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
+           
+        //canJump = false;
     }
 
     void HandleCoyoteTime()
@@ -177,11 +177,14 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
         {
             coyoteTimer = coyoteTime;
+            canJump = true;
         }
         else
         {
             coyoteTimer -= Time.deltaTime;
-            canJump = true;
+            if(coyoteTimer <= 0)
+                canJump = false;
+
         }
     }
 
@@ -213,7 +216,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpBufferTimer = jumpBufferTime;
             jumpPressed = true;
-            canJump = true;
+            //canJump = true;
         }
     }
 
@@ -224,7 +227,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
             coyoteTimer = 0;
-            canJump = true;
+            //canJump = true;
         }
     }
 
