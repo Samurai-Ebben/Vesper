@@ -15,6 +15,7 @@ public class AnimationHandler : MonoBehaviour
     PlayerController playerController;
     AnimationClip gettingSmall;
     RayCastHandler rayCastHandler;
+    SizeStats sizeStats;
 
     public float timeForScaling = 5;
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class AnimationHandler : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
         rayCastHandler = GetComponent<RayCastHandler>();
+        sizeStats = GetComponent<SizeStats>();
     }
 
     // Update is called once per frame
@@ -32,17 +34,17 @@ public class AnimationHandler : MonoBehaviour
         {
             if (playerController.isSmall)
             {
-                transform.DOScale(0.25f, timeForScaling).SetEase(Ease.OutElastic);
+                transform.DOScale(sizeStats.sizeSmall, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
             }
             if (playerController.isLarge)
             {
-                transform.DOScale(1.25f, timeForScaling).SetEase(Ease.OutElastic);
+                transform.DOScale(sizeStats.sizeLarge, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
             }
             if (!playerController.isSmall && !playerController.isLarge)
             {
-                transform.DOScale(1, timeForScaling).SetEase(Ease.OutElastic);
+                transform.DOScale(sizeStats.sizeMedium, timeForScaling).SetEase(Ease.OutElastic);
             }
         }
         
