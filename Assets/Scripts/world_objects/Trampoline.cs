@@ -17,10 +17,10 @@ public class Trampoline : MonoBehaviour
             var rb2d = player.GetComponent<Rigidbody2D>();
 
             //What is this for??
-            //if (!pushWithBounceForce)
-            //{
-            //    bounceForce = rb2d.gravityScale * 5;
-            //}
+            if (!pushWithBounceForce)
+            {
+                bounceForce = rb2d.gravityScale * 5;
+            }
 
             if (rb2d != null)
             {

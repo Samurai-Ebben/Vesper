@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     private void MoveX()
     {
-        if (isBouncing) return;
+        if (isBouncing && !IsGrounded()) return;
 
         velocityX += moveInput.x * acceleration * Time.deltaTime;
         if (devButtons != null)
@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Checkers
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, isGround);
     }
