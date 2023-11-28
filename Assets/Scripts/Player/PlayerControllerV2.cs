@@ -30,23 +30,7 @@ namespace TarodevController
 
         #endregion
 
-        private float _time;
-        public void Move(InputAction.CallbackContext ctx)
-        {
-            moveInput = ctx.ReadValue<Vector2>();
-        }
-
-        public void OnJump(InputAction.CallbackContext ctx)
-        {
-            jumpDown = true;
-            jumpHold = true;
-        }
-        
-        public void OnJumpCancel(InputAction.CallbackContext ctx)
-        {
-            jumpDown = false;
-            jumpHold = false;
-        }
+        private float _time;        
 
 
         private void Awake()
@@ -56,12 +40,6 @@ namespace TarodevController
             actions = GetComponent<PlayerInput>().actions;
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
 
-            actions["Move"].performed += ctx => Move(ctx);
-            actions["Move"].canceled += ctx => Move(ctx);
-
-            actions["Jump"].performed += ctx => OnJump(ctx);
-            actions["Jump"].canceled += ctx => OnJumpCancel(ctx);
-
             actions.Enable();
         }
 
@@ -70,25 +48,14 @@ namespace TarodevController
             _time += Time.deltaTime;
             GatherInput();
         }
-        //private void OnDisable()
-        //{
-        //    actions["Move"].performed -= Move;
-        //    actions["Move"].canceled -= Move;
 
-        //    actions["Jump"].performed -= OnJump;
-        //    actions["Jump"].started -= OnJump;
-        //    actions["Jump"].canceled -= OnJumpCancel;
-
-
-        //    actions.Disable();
-        //}
         private void GatherInput()
         {
             _frameInput = new FrameInput
             {
-                JumpDown = jumpDown,
-                JumpHeld = jumpHold,
-                Move = new Vector2(moveInput.x, moveInput.y)
+                JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
+                JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
+                Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
             };
 
             if (_stats.SnapInput)
