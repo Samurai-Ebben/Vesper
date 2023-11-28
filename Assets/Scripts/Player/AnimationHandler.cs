@@ -14,33 +14,40 @@ public class AnimationHandler : MonoBehaviour
     GameState state;
     PlayerController playerController;
     AnimationClip gettingSmall;
+    RayCastHandler rayCastHandler;
+    SizeStats sizeStats;
 
     public float timeForScaling = 5;
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<PlayerController>();
+        rayCastHandler = GetComponent<RayCastHandler>();
+        sizeStats = GetComponent<SizeStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
                
-
-        if(playerController.isSmall) 
+        if(rayCastHandler.canChangeSize == true) 
         {
-            transform.DOScale(0.25f, timeForScaling).SetEase(Ease.OutElastic);
-            // do smaller animation
+            if (playerController.isSmall)
+            {
+                transform.DOScale(sizeStats.sizeSmall, timeForScaling).SetEase(Ease.OutElastic);
+                // do smaller animation
+            }
+            if (playerController.isLarge)
+            {
+                transform.DOScale(sizeStats.sizeLarge, timeForScaling).SetEase(Ease.OutElastic);
+                // do smaller animation
+            }
+            if (!playerController.isSmall && !playerController.isLarge)
+            {
+                transform.DOScale(sizeStats.sizeMedium, timeForScaling).SetEase(Ease.OutElastic);
+            }
         }
-        if (playerController.isLarge)
-        {
-            transform.DOScale(1.25f, timeForScaling).SetEase(Ease.OutElastic);
-            // do smaller animation
-        }
-        if(!playerController.isSmall && !playerController.isLarge) 
-        {
-            transform.DOScale(1, timeForScaling).SetEase(Ease.OutElastic);
-        }
+        
     }
 
     

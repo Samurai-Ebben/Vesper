@@ -13,6 +13,8 @@ public class DevButtons : MonoBehaviour
 
     SpawnAndCheckpoint spawnAndCheckpoint;
     SceneHandler sceneHandler;
+
+    //Vector3 checkpoint;
     
     public bool amImmortal = false;
     public bool amGhost = false;
@@ -51,13 +53,14 @@ public class DevButtons : MonoBehaviour
         // Set Development Checkpoint
         if (Input.GetKeyUp(KeyCode.C))
         {
-            spawnAndCheckpoint.SetCheckpoint(player.transform.position);
-            print("Checkpoint set to: " + spawnAndCheckpoint.currentCheckpoint);
+            //checkpoint = player.transform.position;
+            spawnAndCheckpoint.SetCheckpoint();
         }
 
-        // Respawn at Checkpoint
+        // Teleport/respawn at Checkpoint
         if (Input.GetKeyUp(KeyCode.T))
         {
+            //player.transform.position = checkpoint;
             spawnAndCheckpoint.RespawnPlayer();
         }
 

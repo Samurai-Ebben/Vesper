@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    RayCastHandler rayCastHandler;
+
     [Header("||PLAYER CONTROLS||")]
     [SerializeField] float deacceleration   =   4;
     [SerializeField] float acceleration     =   20;
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         devButtons = FindObjectOfType<DevButtons>();
+        rayCastHandler = GetComponent<RayCastHandler>();
 
         jumpBufferTimer = 0;
     }
@@ -97,13 +100,13 @@ public class PlayerController : MonoBehaviour
         }
 
         #region SwitchHandlers
-        if (isSmall)
+        if (isSmall && rayCastHandler.canChangeSize)
             SwitchSize("small");
 
-        if (isLarge)
+        if (isLarge && rayCastHandler.canChangeSize)
             SwitchSize("large");
 
-        if (!isLarge && !isSmall)
+        if (!isLarge && !isSmall && rayCastHandler.canChangeSize)
         {
             SwitchSize("medium");
             

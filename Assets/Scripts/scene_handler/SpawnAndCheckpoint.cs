@@ -6,7 +6,11 @@ public class SpawnAndCheckpoint : MonoBehaviour
 {
     public Transform spawnPoint;
     public GameObject playerPrefab;
-    public Vector3 currentCheckpoint;
+
+    [SerializeField]
+    Vector3 currentCheckpoint;
+
+    GameObject playerHolder;
     GameObject player;
 
     void Awake()
@@ -15,19 +19,15 @@ public class SpawnAndCheckpoint : MonoBehaviour
         SpawnPlayer();
     }
 
-    void Update()
+    public void SetCheckpoint()
     {
-
+        currentCheckpoint = player.transform.position;
     }
 
-    public void SetCheckpoint(Vector3 coordinates)
-    {
-        currentCheckpoint = coordinates;
-    }
-    
     public void SpawnPlayer()
     {
-        player = Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
+        playerHolder = Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
+        player = playerHolder.GetComponentInChildren<Rigidbody2D>().gameObject;
     }
 
     public void RespawnPlayer()

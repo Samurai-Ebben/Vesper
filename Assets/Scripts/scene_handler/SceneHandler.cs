@@ -14,6 +14,7 @@ public class SceneHandler : MonoBehaviour
     // Next Level
     public void NextScene()
     {
+        print("NextScene() Triggered");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
