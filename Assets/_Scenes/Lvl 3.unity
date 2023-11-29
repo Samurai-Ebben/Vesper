@@ -7480,11 +7480,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.094154835
+      value: -8.41
       objectReference: {fileID: 0}
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.69731337
+      value: -1.95
       objectReference: {fileID: 0}
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12647,11 +12647,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.465845
+      value: 10.220001
       objectReference: {fileID: 0}
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2873132
+      value: -0.6300001
       objectReference: {fileID: 0}
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12734,7 +12734,7 @@ GameObject:
   - component: {fileID: 1438666764}
   - component: {fileID: 1438666765}
   m_Layer: 6
-  m_Name: Light 2D (2)
+  m_Name: Light ENTER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13011,11 +13011,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.125845
+      value: 7.88
       objectReference: {fileID: 0}
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.90731335
+      value: -2.01
       objectReference: {fileID: 0}
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13266,7 +13266,7 @@ GameObject:
   - component: {fileID: 1791994832}
   - component: {fileID: 1791994831}
   m_Layer: 6
-  m_Name: Light 2D
+  m_Name: Light EXIT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13494,7 +13494,7 @@ GameObject:
   - component: {fileID: 2112483311}
   - component: {fileID: 2112483310}
   m_Layer: 0
-  m_Name: Light 2D (1)
+  m_Name: Light 2D GLOBAL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
