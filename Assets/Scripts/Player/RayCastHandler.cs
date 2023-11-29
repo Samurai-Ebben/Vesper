@@ -6,14 +6,24 @@ public class RayCastHandler : MonoBehaviour
 {
     PlayerController controller;
     public float checkingTheTop = 0.25f;
-    float smallRay = 0.25f;
-    float mediumRay = 0.50f;
-    float largeRay = 0.75f;
+    float smallPlayerRay = 0.25f;
+    float mediumPlayerRay = 0.50f;
+    float largePlayerRay = 0.75f;
 
-    public float drawRay = 1;
+    float drawRay = 1;
+
+    public float drawRayForMedium;
+    public float drawRayForLarge;
+    public float drawRayForSmall;
+
+    bool mediumCanChangeSize;
+    bool largeCanChangeSize;
+    bool smallCanChangeSize;
 
     Collider2D coll;
     public bool canChangeSize;
+
+    bool hits;
 
 
     
@@ -29,40 +39,41 @@ public class RayCastHandler : MonoBehaviour
     void Update()
     {
 
-        float rightOffset = transform.position.x + drawRay;
-        Vector3 right = new Vector3(rightOffset, transform.position.y);
 
-        float leftOffset = transform.position.x - drawRay;
-        Vector3 left = new Vector3(leftOffset, transform.position.y); 
-
-        //RaycastHit2D leftSmall = Physics2D.Raycast(left, Vector2.up, smallRay);
-        //RaycastHit2D leftLarge = Physics2D.Raycast(left, Vector2.up, largeRay);
-
-        //RaycastHit2D rightSmall = Physics2D.Raycast(right, Vector2.up, smallRay);
-        //RaycastHit2D rightMedium = Physics2D.Raycast(right, Vector2.up, mediumRay);
-        //RaycastHit2D rightLarge = Physics2D.Raycast(right, Vector2.up, largeRay);
-
-
-
-
-        //Debug.DrawRay(right, Vector2.up * smallRay, Color.red);
-        //Debug.DrawRay(right, Vector2.up * mediumRay, Color.yellow);
-        //Debug.DrawRay(right, Vector2.up * largeRay, Color.green);
-
-        //Debug.DrawRay(left, Vector2.up * smallRay, Color.red);
-        //Debug.DrawRay(left, Vector2.up * mediumRay, Color.yellow);
-        //Debug.DrawRay(left, Vector2.up * largeRay, Color.green);
-
-        RayCastGenerator(left, largeRay, Color.red);
-
-
-
-        if(controller.isSmall)
+        if (controller.isSmall)
         {
+        mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
+    
+        }
+        //Debug.Log(hits);
+
+        // //if(hits)
+        // //{
+        // //       Debug.Log("We hit something");
+        // //}
+        // //   else
+        // //   {
+        // //       Debug.Log("Nope");
+        // //   }
+
+
+        if (controller.isLarge)
+        {
+            RayCastGenerator(largePlayerRay, Color.red);
+            RayCastGenerator(largePlayerRay, Color.yellow);
 
         }
 
-            canChangeSize = true;
+        if (!controller.isSmall && !controller.isLarge)
+        {
+            RayCastGenerator(mediumPlayerRay, Color.red);
+            RayCastGenerator(mediumPlayerRay, Color.yellow);
+
+        }
+
+        
+
+        canChangeSize = true;
 
         //if (hit.collider != null)
         //{
@@ -74,16 +85,60 @@ public class RayCastHandler : MonoBehaviour
         //}
     }
 
-    void RayCastGenerator(Vector3 sendingRaycastFrom, float characterSize, Color rayColor)
+    bool RayCastGenerator(float characterSize, Color rayColor)
     {
-        Physics2D.Raycast(sendingRaycastFrom, Vector2.up, characterSize);
-        if(rayColor != Color.red)
+        bool itHittedSomething;
+        if(characterSize == mediumPlayerRay)
         {
-            Debug.DrawRay(sendingRaycastFrom, Vector2.up * characterSize, rayColor);
+            drawRay = drawRayForMedium;
+        }
+
+        if(characterSize == smallPlayerRay) 
+        {
+            drawRay = drawRayForSmall;
+        }
+
+        if(characterSize == largePlayerRay)
+        {
+            drawRay = drawRayForLarge;   
+        }
+        
+            float leftOffset = transform.position.x - drawRay;
+            Vector3 left = new Vector3(leftOffset, transform.position.y);
+        
+        
+            float rightOffset = transform.position.x + drawRay;
+            Vector3 right = new Vector3(rightOffset, transform.position.y);
+        
+
+
+        RaycastHit2D leftRay = Physics2D.Raycast(left, Vector2.up, characterSize);
+        RaycastHit2D rightRay = Physics2D.Raycast(right, Vector2.up, characterSize);
+
+
+
+        // for debug and colors
+        if (rayColor != Color.red)
+        {
+            Debug.DrawRay(left, Vector2.up * characterSize, rayColor);
+            Debug.DrawRay(right, Vector2.up * characterSize, rayColor);
+
         }
         else
         {
-            Debug.DrawRay(sendingRaycastFrom, Vector2.up * characterSize, Color.red);
+            Debug.DrawRay(left, Vector2.up * characterSize, Color.red);
+            Debug.DrawRay(right, Vector2.up * characterSize, Color.red);
+
         }
+
+        if (leftRay.collider != null || rightRay.collider != null)
+        {
+            itHittedSomething = true;
+            return itHittedSomething == true;
+        }
+        else
+            return itHittedSomething = false;
     }
+
+
 }
