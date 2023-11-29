@@ -143,7 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aede3a2aa2be54aabc0017190ea6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushWithBounceForce: 0
-  bounceForce: 10
+  usingRaw: 0
+  usingGravityMultiplier: 1
+  rawBounceForce: 200
+  GravityScaleMultiplier: 5
   bounceDelay: 0.1
-  isVertical: 0
+  bounceForce: 10

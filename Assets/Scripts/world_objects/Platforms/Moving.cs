@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformMoving : MonoBehaviour
+public class Moving : MonoBehaviour
 {
     //public float waitDuration = 0.5f;
 
@@ -48,7 +48,7 @@ public class PlatformMoving : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var player = other.transform.parent.GetComponent<PlayerHandlar>();
+        var player = other.transform.parent.GetComponent<PlayerHandler>();
         if (player != null)
         {
             player.SetParent(transform);
@@ -57,7 +57,7 @@ public class PlatformMoving : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        var player = other.transform.parent.GetComponent<PlayerHandlar>();
+        var player = other.transform.parent.GetComponent<PlayerHandler>();
         if (player != null)
         {
             player.SetParent(null);
