@@ -23,15 +23,15 @@ public class Destructible : MonoBehaviour
         defaultColor = objectSpriteRenderer.color;
     }
 
-    public void GetDestroyed()
+    public void TriggerDestroy()
     {
         if (!ongoingCoroutine)
         {
-            StartCoroutine(Demolish());
+            StartCoroutine(Destroy());
         }
     }
 
-    IEnumerator Demolish()
+    IEnumerator Destroy()
     {
         ongoingCoroutine = true;
 

@@ -94,16 +94,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeBigX
-      value: 1
+      propertyPath: fallSpeedLarge
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeSmallX
-      value: 0.2
+      propertyPath: jumpCutOffLarge
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: groundCheckSizeMediumX
-      value: 0.7
+      propertyPath: jumpHeightLarge
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: jumpCutOffMedium
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: jumpHeightMedium
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: accelerationMedium
+      value: 35.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: deaccelerationLarge
+      value: 40.2
       objectReference: {fileID: 0}
     - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Name
