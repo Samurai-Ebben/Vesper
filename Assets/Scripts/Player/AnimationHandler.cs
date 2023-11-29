@@ -32,19 +32,19 @@ public class AnimationHandler : MonoBehaviour
                
         if(rayCastHandler.canChangeSize == true) 
         {
-            if (playerController.isSmall)
+            if (playerController.currentSize == PlayerController.Sizes.SMALL)
             {
                 transform.DOScale(sizeStats.sizeSmall, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
             }
-            if (playerController.isLarge)
+            if (playerController.currentSize == PlayerController.Sizes.MEDIUM)
+            {
+                transform.DOScale(sizeStats.sizeMedium, timeForScaling).SetEase(Ease.OutElastic);
+            }
+            if (playerController.currentSize == PlayerController.Sizes.LARGE)
             {
                 transform.DOScale(sizeStats.sizeLarge, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
-            }
-            if (!playerController.isSmall && !playerController.isLarge)
-            {
-                transform.DOScale(sizeStats.sizeMedium, timeForScaling).SetEase(Ease.OutElastic);
             }
         }
         

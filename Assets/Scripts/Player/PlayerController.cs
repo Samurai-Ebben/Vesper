@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -39,11 +41,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]Vector2 groundCheckRad;
     //[SerializeField]Vector2 sideGroundCheckRad; // Make many raycasts instead.
-
-    [Header("||SWITCH_CONTROLS||")]
-    public bool isSmall;
-    public bool isLarge;
-
+    
     [Header("||LAYERS||")]
     [SerializeField] private LayerMask isGround;
 
@@ -59,6 +57,15 @@ public class PlayerController : MonoBehaviour
     private DevButtons devButtons;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
+
+    //Sizes
+    public enum Sizes { SMALL, MEDIUM, LARGE };
+    public Sizes currentSize { get; private set; }
+
+    //Velocity Magnitude
+    private float currentMagnitude;
+    private float prevMagnitude;
+    public float deltaMagnitude;
 
     private void Awake()
     {
@@ -92,6 +99,7 @@ public class PlayerController : MonoBehaviour
     {
         MoveX();
         HandleCoyoteTime();
+        
 
         if (canJump && jumpPressed)
         {
@@ -100,18 +108,19 @@ public class PlayerController : MonoBehaviour
         }
 
         #region SwitchHandlers
-        if (isSmall && rayCastHandler.canChangeSize)
+        if (currentSize == Sizes.SMALL && rayCastHandler.canChangeSize)
             SwitchSize("small");
 
-        if (isLarge && rayCastHandler.canChangeSize)
-            SwitchSize("large");
-
-        if (!isLarge && !isSmall && rayCastHandler.canChangeSize)
-        {
+        if (currentSize == Sizes.MEDIUM && rayCastHandler.canChangeSize)
             SwitchSize("medium");
-            
-        }
-        #endregion   
+
+        if (currentSize == Sizes.LARGE && rayCastHandler.canChangeSize)
+            SwitchSize("large");       
+        #endregion
+
+        prevMagnitude = currentMagnitude;
+        currentMagnitude = rb.velocity.magnitude;
+        deltaMagnitude = currentMagnitude - prevMagnitude;
     }
 
     private void SwitchSize(string sizeName)
@@ -234,22 +243,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     public void Smaller(InputAction.CallbackContext ctx)
     {
-        isSmall = true;
+        currentSize = Sizes.SMALL;
     }
     public void SmallerCancel(InputAction.CallbackContext ctx)
     {
-        isSmall = false;
+        currentSize = Sizes.MEDIUM;
     }
     public void Larger(InputAction.CallbackContext ctx)
     {
-        isLarge = true;
+        currentSize = Sizes.LARGE;
     }
     public void LargerCancel(InputAction.CallbackContext ctx)
     {
-        isLarge = false;
+        currentSize = Sizes.MEDIUM;
     }
 
     private void OnDisable()
@@ -276,5 +284,11 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(groundCheck.position, groundCheckRad);
         Gizmos.color = Color.red;
-    }    
+    }
+
+    internal float GetMagnitude()
+    {
+        if (prevMagnitude != 0) return prevMagnitude;
+        else return currentMagnitude;
+    }
 }

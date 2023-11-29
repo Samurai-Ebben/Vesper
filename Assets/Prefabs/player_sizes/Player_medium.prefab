@@ -174,30 +174,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f843f8f6262aa4da3df443835758f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeSmall: 0.25
-  sizeMedium: 0.75
-  sizeLarge: 1.25
-  speedSmall: 10
-  speedMedium: 6
-  speedLarge: 4
-  accelerationSmall: 30
-  accelerationMedium: 20
+  sizeSmall: 0.5
+  sizeMedium: 1
+  sizeLarge: 2
+  speedSmall: 15
+  speedMedium: 10
+  speedLarge: 5
+  accelerationSmall: 50
+  accelerationMedium: 30
   accelerationLarge: 10
-  deaccelerationSmall: 10
+  deaccelerationSmall: 20
   deaccelerationMedium: 20
   deaccelerationLarge: 30
-  jumpHeightSmall: 6
-  jumpHeightMedium: 10
-  jumpHeightLarge: 12
-  fallSpeedSmall: 3
-  fallSpeedMedium: 4
-  fallSpeedLarge: 6
+  jumpHeightSmall: 11.5
+  jumpHeightMedium: 16
+  jumpHeightLarge: 24.3
+  fallSpeedSmall: 4
+  fallSpeedMedium: 8
+  fallSpeedLarge: 14
   jumpCutOffSmall: 0.25
   jumpCutOffMedium: 0.1
-  jumpCutOffLarge: 0.005
-  groundCheckSizeSmallX: 0.24
-  groundCheckSizeMediumX: 0.74
-  groundCheckSizeBigX: 1.24
+  jumpCutOffLarge: 0.05
+  groundCheckSizeSmallX: 0.2
+  groundCheckSizeMediumX: 0.7
+  groundCheckSizeBigX: 1
   groundCheckSizeSmallY: 0.009
   groundCheckSizeMediumY: 0.01
   groundCheckSizeBigY: 0.06
@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkingTheTop: 1
+  drawRay: 1
   canChangeSize: 0
 --- !u!1 &4260734968566460160
 GameObject:
