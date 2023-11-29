@@ -21,16 +21,13 @@ public class RayCastHandler : MonoBehaviour
     public bool largeCanChangeSize;
     public bool smallCanChangeSize;
 
-    Collider2D coll;
 
-    bool hits;
 
 
     
     // Start is called before the first frame update
     void Start()
     {
-        coll = GetComponent<Collider2D>();
         Physics2D.queriesStartInColliders = false;
         controller = GetComponent<PlayerController>();
     }
