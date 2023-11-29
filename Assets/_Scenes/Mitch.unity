@@ -26813,8 +26813,8 @@ MonoBehaviour:
   onTriggerColor:
     serializedVersion: 2
     rgba: 255
-  respawnEnabled: 0
-  respawnDelay: 5
+  respawnEnabled: 1
+  respawnDelay: 1
 --- !u!4 &866450490
 Transform:
   m_ObjectHideFlags: 0
@@ -27473,9 +27473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cfb8a0a6da7e44d9785e354ff6a96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requireX: 0
-  requireY: 1
-  velocityRequirement: 0
+  velocityRequirement: 4
   sampleEvent:
     m_PersistentCalls:
       m_Calls:
