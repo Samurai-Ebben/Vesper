@@ -111,10 +111,10 @@ public class PlayerController : MonoBehaviour
         if (currentSize == Sizes.SMALL)
             SwitchSize("small");
 
-        if (currentSize == Sizes.MEDIUM)
+        if (currentSize == Sizes.MEDIUM && rayCastHandler.smallCanChangeSize)
             SwitchSize("medium");
 
-        if (currentSize == Sizes.LARGE)
+        if (currentSize == Sizes.LARGE && rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize)
             SwitchSize("large");       
         #endregion
 

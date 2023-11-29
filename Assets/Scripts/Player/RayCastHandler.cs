@@ -42,18 +42,18 @@ public class RayCastHandler : MonoBehaviour
 
         if (controller.currentSize == PlayerController.Sizes.SMALL)
         {
-        mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(mediumPlayerRay, Color.yellow);
+            smallCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
     
         }
-        Debug.Log(mediumCanChangeSize);
+        Debug.Log(smallCanChangeSize);
         if (controller.currentSize == PlayerController.Sizes.LARGE)
         {
-            largeCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
+            largeCanChangeSize = RayCastGenerator(largePlayerRay, Color.red) || RayCastGenerator(largePlayerRay, Color.yellow);
 
         }
         if (controller.currentSize == PlayerController.Sizes.MEDIUM)
         {
-            mediumCanChangeSize = RayCastGenerator(largePlayerRay, Color.red) || RayCastGenerator(largePlayerRay, Color.yellow);
+            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(mediumPlayerRay, Color.yellow);
 
         }
 
@@ -110,13 +110,9 @@ public class RayCastHandler : MonoBehaviour
 
         }
 
-        if (leftRay.collider != null || rightRay.collider != null)
-        {
-            canChangeSize = false;
-            return canChangeSize == false;
-        }
-        else
-            return canChangeSize = true;
+            canChangeSize = leftRay.collider == null || rightRay.collider == null;
+            //Debug.Log(canChangeSize);
+        return canChangeSize;
     }
 
     }
