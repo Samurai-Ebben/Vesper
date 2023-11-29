@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHandlar : MonoBehaviour
+public class PlayerHandler : MonoBehaviour
 {
     public void SetParent(Transform newParent)
     {

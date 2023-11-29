@@ -3,9 +3,17 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    public bool pushWithBounceForce;
-    public float bounceForce = 200;
+    [Header("Push mode")]
+    public bool usingRaw;
+    public bool usingGravityMultiplier;
+
+    [Header("Values")]
+    public float rawBounceForce = 200;
+    public float GravityScaleMultiplier = 5;
     public float bounceDelay = 0.1f;
+    
+    [HideInInspector]
+    public float bounceForce;
     
     PlayerController player;
 
@@ -17,9 +25,16 @@ public class Trampoline : MonoBehaviour
             var rb2d = player.GetComponent<Rigidbody2D>();
 
             //What is this for??
-            if (!pushWithBounceForce)
+            if (usingGravityMultiplier)
             {
-                bounceForce = rb2d.gravityScale * 5;
+                bounceForce = rb2d.gravityScale * GravityScaleMultiplier;
+                usingRaw = false;
+            }
+
+            else
+            {
+                bounceForce = rawBounceForce;
+                usingRaw = true;
             }
 
             if (rb2d != null)
