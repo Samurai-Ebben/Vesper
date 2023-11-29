@@ -57,10 +57,10 @@ public class RayCastHandler : MonoBehaviour
 
 
 
-        if(controller.isSmall)
-        {
+        //if(controller.isSmall)
+        //{
 
-        }
+        //}
 
             canChangeSize = true;
 
