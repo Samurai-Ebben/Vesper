@@ -94,6 +94,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: sizeLarge
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: sizeSmall
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: sizeMedium
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: speedLarge
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: speedSmall
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: speedMedium
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: fallSpeedLarge
       value: 16
       objectReference: {fileID: 0}
@@ -106,12 +130,16 @@ PrefabInstance:
       value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: jumpHeightSmall
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: jumpCutOffMedium
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: jumpHeightMedium
-      value: 23
+      value: 16.5
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: accelerationMedium

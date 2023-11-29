@@ -6,8 +6,8 @@ public class Moving : MonoBehaviour
     //public float waitDuration = 0.5f;
 
     public List<Transform> coordinates;
-    
     int currentIndex;
+    
     public float percentageDistance;
     public float speed = 1f;
 
@@ -61,7 +61,6 @@ public class Moving : MonoBehaviour
         if (player != null)
         {
             player.SetParent(null);
-
         }
     }
 
