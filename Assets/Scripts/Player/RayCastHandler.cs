@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TarodevController;
 using UnityEngine;
 
 public class RayCastHandler : MonoBehaviour
@@ -40,10 +41,20 @@ public class RayCastHandler : MonoBehaviour
     {
 
 
-        if (controller.isSmall)
+        if (controller.currentSize == PlayerController.Sizes.SMALL)
         {
         mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
     
+        }
+        if (controller.currentSize == PlayerController.Sizes.LARGE)
+        {
+            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
+
+        }
+        if (controller.currentSize == PlayerController.Sizes.MEDIUM)
+        {
+            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
+
         }
         //Debug.Log(hits);
 
@@ -57,19 +68,7 @@ public class RayCastHandler : MonoBehaviour
         // //   }
 
 
-        if (controller.isLarge)
-        {
-            RayCastGenerator(largePlayerRay, Color.red);
-            RayCastGenerator(largePlayerRay, Color.yellow);
-
-        }
-
-        if (!controller.isSmall && !controller.isLarge)
-        {
-            RayCastGenerator(mediumPlayerRay, Color.red);
-            RayCastGenerator(mediumPlayerRay, Color.yellow);
-
-        }
+       
 
         
 
