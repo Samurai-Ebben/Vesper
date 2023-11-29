@@ -30,8 +30,7 @@ public class AnimationHandler : MonoBehaviour
     void Update()
     {
                
-        if(rayCastHandler.canChangeSize == true) 
-        {
+        
             if (playerController.currentSize == PlayerController.Sizes.SMALL)
             {
                 transform.DOScale(sizeStats.sizeSmall, timeForScaling).SetEase(Ease.OutElastic);
@@ -46,7 +45,7 @@ public class AnimationHandler : MonoBehaviour
                 transform.DOScale(sizeStats.sizeLarge, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
             }
-        }
+        
         
     }
 

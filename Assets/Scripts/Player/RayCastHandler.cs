@@ -17,12 +17,11 @@ public class RayCastHandler : MonoBehaviour
     public float drawRayForLarge;
     public float drawRayForSmall;
 
-    bool mediumCanChangeSize;
-    bool largeCanChangeSize;
-    bool smallCanChangeSize;
+    public bool mediumCanChangeSize;
+    public bool largeCanChangeSize;
+    public bool smallCanChangeSize;
 
     Collider2D coll;
-    public bool canChangeSize;
 
     bool hits;
 
@@ -43,50 +42,31 @@ public class RayCastHandler : MonoBehaviour
 
         if (controller.currentSize == PlayerController.Sizes.SMALL)
         {
-        mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
+        mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(mediumPlayerRay, Color.yellow);
     
         }
+        Debug.Log(mediumCanChangeSize);
         if (controller.currentSize == PlayerController.Sizes.LARGE)
         {
-            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
+            largeCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
 
         }
         if (controller.currentSize == PlayerController.Sizes.MEDIUM)
         {
-            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
+            mediumCanChangeSize = RayCastGenerator(largePlayerRay, Color.red) || RayCastGenerator(largePlayerRay, Color.yellow);
 
         }
-        //Debug.Log(hits);
-
-        // //if(hits)
-        // //{
-        // //       Debug.Log("We hit something");
-        // //}
-        // //   else
-        // //   {
-        // //       Debug.Log("Nope");
-        // //   }
 
 
-       
 
-        
 
-        canChangeSize = true;
 
-        //if (hit.collider != null)
-        //{
 
-        //}
-        //else
-        //{
-        //    canChangeSize= true;
-        //}
-    }
 
-    bool RayCastGenerator(float characterSize, Color rayColor)
+
+        bool RayCastGenerator(float characterSize, Color rayColor)
     {
-        bool itHittedSomething;
+        bool canChangeSize;
         if(characterSize == mediumPlayerRay)
         {
             drawRay = drawRayForMedium;
@@ -132,12 +112,13 @@ public class RayCastHandler : MonoBehaviour
 
         if (leftRay.collider != null || rightRay.collider != null)
         {
-            itHittedSomething = true;
-            return itHittedSomething == true;
+            canChangeSize = false;
+            return canChangeSize == false;
         }
         else
-            return itHittedSomething = false;
+            return canChangeSize = true;
     }
 
+    }
 
 }
