@@ -67,6 +67,9 @@ public class PlayerController : MonoBehaviour
     private float prevMagnitude;
     public float deltaMagnitude;
 
+    bool isBig = false;
+    bool isSmall = false;
+
     private void Awake()
     {
         actions = GetComponent<PlayerInput>().actions;
@@ -92,6 +95,7 @@ public class PlayerController : MonoBehaviour
         devButtons = FindObjectOfType<DevButtons>();
         rayCastHandler = GetComponent<RayCastHandler>();
 
+        currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
     }
 
@@ -108,14 +112,24 @@ public class PlayerController : MonoBehaviour
         }
 
         #region SwitchHandlers
+        if (isSmall)
+            currentSize = Sizes.SMALL;
+
+        if (isBig)
+            currentSize = Sizes.LARGE;
+
+        if (!isBig && !isSmall)
+        {
+            currentSize = Sizes.MEDIUM;
+        }
         if (currentSize == Sizes.SMALL)
             SwitchSize("small");
 
+        if (currentSize == Sizes.LARGE && rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize)
+            SwitchSize("large");
+
         if (currentSize == Sizes.MEDIUM && rayCastHandler.smallCanChangeSize)
             SwitchSize("medium");
-
-        if (currentSize == Sizes.LARGE && rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize)
-            SwitchSize("large");       
         #endregion
 
         prevMagnitude = currentMagnitude;
@@ -245,21 +259,20 @@ public class PlayerController : MonoBehaviour
 
     public void Smaller(InputAction.CallbackContext ctx)
     {
-        currentSize = Sizes.SMALL;
+        isSmall = true;
     }
     public void SmallerCancel(InputAction.CallbackContext ctx)
     {
-        currentSize = Sizes.MEDIUM;
+        isSmall = false;
     }
     public void Larger(InputAction.CallbackContext ctx)
     {
-        currentSize = Sizes.LARGE;
+        isBig = true;
     }
     public void LargerCancel(InputAction.CallbackContext ctx)
     {
-        currentSize = Sizes.MEDIUM;
+        isBig = false;
     }
-
     private void OnDisable()
     {
         actions["Move"].performed -= Move;
