@@ -24493,7 +24493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usingRaw: 0
   usingGravityMultiplier: 0
-  rawBounceForce: 50
+  rawBounceForce: 23.6
   GravityScaleMultiplier: 5
   bounceDelay: 0.1
   bounceForce: 0

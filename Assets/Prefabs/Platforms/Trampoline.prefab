@@ -323,6 +323,6 @@ MonoBehaviour:
   usingRaw: 0
   usingGravityMultiplier: 1
   rawBounceForce: 50
-  GravityScaleMultiplier: 3
+  GravityScaleMultiplier: 2
   bounceDelay: 0.1
   bounceForce: 0
