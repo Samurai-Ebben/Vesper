@@ -123,11 +123,9 @@ public class PlayerController : MonoBehaviour
         {
             currentSize = Sizes.MEDIUM;
         }
+
         if (currentSize == Sizes.SMALL)
             SwitchSize(currentSize);
-
-        if (currentSize == Sizes.LARGE && rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize)
-            SwitchSize("large");
 
         if (currentSize == Sizes.MEDIUM && rayCastHandler.smallCanChangeSize)
             SwitchSize(currentSize);
@@ -147,8 +145,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        // TODO remove print
-        print("Switching size to: " + size);
 
         List<float> statList = sizeStats.ReturnStats(size);
 
