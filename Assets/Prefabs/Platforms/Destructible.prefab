@@ -250,9 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3798a52563725244bf389022ee6983c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainObject: {fileID: 3960707441324804535}
-  onTriggerColor:
-    serializedVersion: 2
-    rgba: 255
+  terrainObject:
+  - {fileID: 3960707441324804535}
   respawnEnabled: 1
   respawnDelay: 1
