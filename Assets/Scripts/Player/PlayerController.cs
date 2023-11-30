@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     private float prevMagnitude;
     public float deltaMagnitude;
 
-    bool isBig = false;
+    public bool isBig = false;
     bool isSmall = false;
 
     private void Awake()
@@ -116,22 +116,15 @@ public class PlayerController : MonoBehaviour
         if (isSmall)
             currentSize = Sizes.SMALL;
 
-        if (isBig)
+        if (isBig /*&& rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize*/)
             currentSize = Sizes.LARGE;
 
-        if (!isBig && !isSmall)
-        {
+        if ((!isBig && !isSmall) && rayCastHandler.smallCanChangeSize)
             currentSize = Sizes.MEDIUM;
-        }
 
-        if (currentSize == Sizes.SMALL)
-            SwitchSize(currentSize);
 
-        if (currentSize == Sizes.MEDIUM && rayCastHandler.smallCanChangeSize)
-            SwitchSize(currentSize);
 
-        if (currentSize == Sizes.LARGE && rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize)
-            SwitchSize(currentSize);       
+        SwitchSize(currentSize);
         #endregion
 
         prevMagnitude = currentMagnitude;
@@ -141,10 +134,10 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchSize(Sizes size)
     {
-        if (currentSize == size)
-        {
-            return;
-        }
+        //if (currentSize == size)
+        //{
+        //    return;
+        //}
 
         List<float> statList = sizeStats.ReturnStats(size);
 
