@@ -6,14 +6,13 @@ public class Rising : MonoBehaviour
 {
     //Takes in the moving platforms
     public List<RisingMovement> platforms;
-    
+    PlayerController player;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            var player = other.gameObject.GetComponent<PlayerController>();
-            print(player.currentSize);
-            if(player.currentSize == Sizes.LARGE)
+            player = other.gameObject.GetComponent<PlayerController>();
+            if (player.currentSize == Sizes.LARGE)
             {
                 foreach (var platform in platforms)
                 {
@@ -30,19 +29,20 @@ public class Rising : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(DelayDescend());
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        StartCoroutine(DelayDescend());
+    //    }
+    //}
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            var player = other.gameObject.GetComponent<PlayerController>();
+            //var player = other.gameObject.GetComponent<PlayerController>();            
+
             if (player.currentSize == Sizes.LARGE)
             {
                 foreach (var platform in platforms)
@@ -52,6 +52,16 @@ public class Rising : MonoBehaviour
                         platform.Rise();
                     }
                 }
+                print("Large is on");
+            }
+            else
+            {
+                foreach (var platform in platforms)
+                {
+                    platform.Descend();
+                }
+                print("Large is off");
+
             }
         }
     }

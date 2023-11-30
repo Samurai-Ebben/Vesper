@@ -17,7 +17,7 @@ public class RisingMovement : MonoBehaviour
         initialPosition = transform.position;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (isRising && transform.position.y < targetHeight)
         {
@@ -40,7 +40,7 @@ public class RisingMovement : MonoBehaviour
 
     IEnumerator DescendCoroutine()
     {
-        //yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2);
         while (transform.position.y > initialPosition.y)
         {
             float step = riseSpeed * Time.deltaTime;
