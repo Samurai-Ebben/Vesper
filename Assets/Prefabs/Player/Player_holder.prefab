@@ -93,89 +93,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: sizeLarge
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: sizeSmall
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: sizeMedium
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: speedLarge
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: speedSmall
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: speedMedium
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: fallSpeedLarge
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: jumpCutOffLarge
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: jumpHeightLarge
-      value: 11.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: jumpHeightSmall
-      value: 9.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: jumpCutOffMedium
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: jumpHeightMedium
-      value: 16.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: accelerationMedium
-      value: 35.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: deaccelerationLarge
-      value: 40.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735912514214847531, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735912514214847531, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: canChangeSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735912514214847531, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: checkingTheTop
-      value: 1.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735912514214847531, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: drawRayForLarge
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735912514214847531, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: drawRayForSmall
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735912514214847531, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: drawRayForMedium
-      value: 0.26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -41,11 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 658788291900644521}
   - component: {fileID: 7134962954719812730}
-  - component: {fileID: 2001940146935406576}
   - component: {fileID: 1996938895583593536}
+  - component: {fileID: 2001940146935406576}
+  - component: {fileID: 7787492476899468120}
   - component: {fileID: 8462916738579366574}
   - component: {fileID: 4505907170274488285}
-  - component: {fileID: 1118938134765149609}
   - component: {fileID: 8709759014473888023}
   - component: {fileID: 3735912514214847531}
   m_Layer: 6
@@ -65,8 +65,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2067882930552435579}
   - {fileID: 5143406431964630874}
@@ -126,6 +126,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1996938895583593536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f843f8f6262aa4da3df443835758f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeSmall: 0.25
+  sizeMedium: 0.5
+  sizeLarge: 1
+  speedSmall: 10
+  speedMedium: 8
+  speedLarge: 4
+  accelerationSmall: 50
+  accelerationMedium: 35.5
+  accelerationLarge: 10
+  deaccelerationSmall: 20
+  deaccelerationMedium: 20
+  deaccelerationLarge: 40.2
+  jumpHeightSmall: 9.5
+  jumpHeightMedium: 16.5
+  jumpHeightLarge: 11.5
+  fallSpeedSmall: 4
+  fallSpeedMedium: 8
+  fallSpeedLarge: 16
+  jumpCutOffSmall: 0.25
+  jumpCutOffMedium: 0.25
+  jumpCutOffLarge: 0.25
+  groundCheckSizeSmallX: 0.2
+  groundCheckSizeMediumX: 0.7
+  groundCheckSizeBigX: 1
+  groundCheckSizeSmallY: 0.009
+  groundCheckSizeMediumY: 0.01
+  groundCheckSizeBigY: 0.06
 --- !u!114 &2001940146935406576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,8 +192,6 @@ MonoBehaviour:
   isBouncing: 0
   fallSpeed: 5
   groundCheckRad: {x: 0.91, y: 0.1}
-  isSmall: 0
-  isLarge: 0
   isGround:
     serializedVersion: 2
     m_Bits: 8
@@ -162,45 +199,52 @@ MonoBehaviour:
   sideGroundCheck: {fileID: 2701716146617683209}
   groundHolderRight: {fileID: 8530624062800487316}
   groundHolderLeft: {fileID: 4260734968566460160}
---- !u!114 &1996938895583593536
-MonoBehaviour:
+  deltaMagnitude: 0
+--- !u!61 &7787492476899468120
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2317494879089971283}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f843f8f6262aa4da3df443835758f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sizeSmall: 0.5
-  sizeMedium: 1
-  sizeLarge: 2
-  speedSmall: 15
-  speedMedium: 10
-  speedLarge: 5
-  accelerationSmall: 50
-  accelerationMedium: 30
-  accelerationLarge: 10
-  deaccelerationSmall: 20
-  deaccelerationMedium: 20
-  deaccelerationLarge: 30
-  jumpHeightSmall: 11.5
-  jumpHeightMedium: 16
-  jumpHeightLarge: 24.3
-  fallSpeedSmall: 4
-  fallSpeedMedium: 8
-  fallSpeedLarge: 14
-  jumpCutOffSmall: 0.25
-  jumpCutOffMedium: 0.1
-  jumpCutOffLarge: 0.05
-  groundCheckSizeSmallX: 0.2
-  groundCheckSizeMediumX: 0.7
-  groundCheckSizeBigX: 1
-  groundCheckSizeSmallY: 0.009
-  groundCheckSizeMediumY: 0.01
-  groundCheckSizeBigY: 0.06
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!50 &8462916738579366574
 Rigidbody2D:
   serializedVersion: 4
@@ -326,41 +370,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!70 &1118938134765149609
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2317494879089971283}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
 --- !u!114 &8709759014473888023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,14 +390,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2317494879089971283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 146493eea4a1d23459d57a871922c4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkingTheTop: 1
-  drawRay: 1
-  canChangeSize: 0
+  checkingTheTop: 1.09
+  drawRayForMedium: 0.26
+  drawRayForLarge: 0.45
+  drawRayForSmall: 0.08
+  mediumCanChangeSize: 0
+  largeCanChangeSize: 0
+  smallCanChangeSize: 0
 --- !u!1 &4260734968566460160
 GameObject:
   m_ObjectHideFlags: 0
