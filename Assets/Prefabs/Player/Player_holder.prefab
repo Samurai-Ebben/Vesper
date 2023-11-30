@@ -101,6 +101,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3735912514214847531, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: drawRayForMedium
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709759014473888023, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
