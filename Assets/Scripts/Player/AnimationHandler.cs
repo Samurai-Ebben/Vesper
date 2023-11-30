@@ -31,16 +31,16 @@ public class AnimationHandler : MonoBehaviour
     {
                
         
-            if (playerController.currentSize == PlayerController.Sizes.SMALL)
+            if (playerController.currentSize == Sizes.SMALL)
             {
                 transform.DOScale(sizeStats.sizeSmall, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
             }
-            if (playerController.currentSize == PlayerController.Sizes.MEDIUM)
+            if (playerController.currentSize == Sizes.MEDIUM)
             {
                 transform.DOScale(sizeStats.sizeMedium, timeForScaling).SetEase(Ease.OutElastic);
             }
-            if (playerController.currentSize == PlayerController.Sizes.LARGE)
+            if (playerController.currentSize == Sizes.LARGE)
             {
                 transform.DOScale(sizeStats.sizeLarge, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
