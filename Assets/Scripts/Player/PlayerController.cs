@@ -11,6 +11,7 @@ public enum Sizes { SMALL, MEDIUM, LARGE };
 public class PlayerController : MonoBehaviour
 {
     RayCastHandler rayCastHandler;
+    AnimationHandler animationHandler;
 
     [Header("||PLAYER CONTROLS||")]
     [SerializeField] float deacceleration   =   4;
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         devButtons = FindObjectOfType<DevButtons>();
         rayCastHandler = GetComponent<RayCastHandler>();
+        animationHandler = GetComponent<AnimationHandler>();
 
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
@@ -114,13 +116,24 @@ public class PlayerController : MonoBehaviour
 
         #region SwitchHandlers
         if (isSmall)
+        {
             currentSize = Sizes.SMALL;
+            animationHandler.smallCharacter = true;
+
+        }
 
         if (isBig /*&& rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize*/)
+        {
             currentSize = Sizes.LARGE;
+            animationHandler.largeCharacter = true;
 
-        if ((!isBig && !isSmall) && rayCastHandler.smallCanChangeSize)
+        }
+
+        if ((!isBig && !isSmall))
+        {
             currentSize = Sizes.MEDIUM;
+            animationHandler.mediumCharacter = true;
+        }
 
 
 

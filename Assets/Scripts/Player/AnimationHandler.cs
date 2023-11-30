@@ -18,6 +18,11 @@ public class AnimationHandler : MonoBehaviour
     SizeStats sizeStats;
 
     public float timeForScaling = 5;
+
+    public bool smallCharacter;
+    public bool mediumCharacter;
+    public bool largeCharacter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,16 +36,16 @@ public class AnimationHandler : MonoBehaviour
     {
                
         
-            if (playerController.currentSize == Sizes.SMALL)
+            if (smallCharacter)
             {
                 transform.DOScale(sizeStats.sizeSmall, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
             }
-            if (playerController.currentSize == Sizes.MEDIUM)
+            if (mediumCharacter)
             {
                 transform.DOScale(sizeStats.sizeMedium, timeForScaling).SetEase(Ease.OutElastic);
             }
-            if (playerController.currentSize == Sizes.LARGE)
+            if (largeCharacter)
             {
                 transform.DOScale(sizeStats.sizeLarge, timeForScaling).SetEase(Ease.OutElastic);
                 // do smaller animation
