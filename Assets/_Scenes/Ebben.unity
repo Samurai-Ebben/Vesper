@@ -238,10 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980d1c47aafecdb44af75db743cf5630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinates: []
   targetHeight: 0.5
   riseSpeed: 3
   isRising: 0
+  currentState: 0
+  timer: 0
 --- !u!61 &326227254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -385,10 +386,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980d1c47aafecdb44af75db743cf5630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinates: []
   targetHeight: -2
   riseSpeed: 2
   isRising: 0
+  currentState: 0
+  timer: 0
 --- !u!61 &410934190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1147,10 +1149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980d1c47aafecdb44af75db743cf5630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinates: []
   targetHeight: 2
   riseSpeed: 4
   isRising: 0
+  currentState: 0
+  timer: 0
 --- !u!61 &799029502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20574,7 +20577,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2}
+  m_Offset: {x: 0, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -21183,10 +21186,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1339712893050636578, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1829714972289282490, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.88
@@ -21226,10 +21225,6 @@ PrefabInstance:
     - target: {fileID: 1829714972289282490, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: currentSize
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

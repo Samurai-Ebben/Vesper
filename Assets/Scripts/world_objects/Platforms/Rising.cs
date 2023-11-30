@@ -6,51 +6,48 @@ public class Rising : MonoBehaviour
 {
     //Takes in the moving platforms
     public List<RisingMovement> platforms;
-    
+    PlayerController player;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            var player = other.gameObject.GetComponent<PlayerController>();
-            print(player.currentSize);
-            if(player.currentSize == Sizes.LARGE)
+            player = other.gameObject.GetComponent<PlayerController>();
+
+            bool large = player.currentSize == Sizes.LARGE;
+
+            foreach (var platform in platforms)
             {
-                foreach (var platform in platforms)
+                if(large)
                 {
                     platform.Rise();
                 }
-            }
-            else
-            {
-                foreach (var platform in platforms)
+                else
                 {
                     platform.Descend();
                 }
             }
+
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(DelayDescend());
-        }
-    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
+       
         if (other.CompareTag("Player"))
         {
-            var player = other.gameObject.GetComponent<PlayerController>();
-            if (player.currentSize == Sizes.LARGE)
+
+            bool large = player.currentSize == Sizes.LARGE;
+
+            foreach (var platform in platforms)
             {
-                foreach (var platform in platforms)
+                if (large)
                 {
-                    if (!platform.isRising)
-                    {
-                        platform.Rise();
-                    }
+                    platform.Rise();
+                }
+                else
+                {
+                    platform.Descend();
                 }
             }
         }
