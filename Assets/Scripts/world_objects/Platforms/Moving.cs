@@ -21,7 +21,7 @@ public class Moving : MonoBehaviour
         currentIndex = 1;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         percentageDistance += Time.deltaTime * speed;
         transform.position = Vector3.Lerp(start.position, end.position, percentageDistance);

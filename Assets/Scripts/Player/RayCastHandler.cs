@@ -55,12 +55,6 @@ public class RayCastHandler : MonoBehaviour
         }
 
 
-
-
-
-
-
-
         bool RayCastGenerator(float characterSize, Color rayColor)
     {
         bool canChangeSize;
