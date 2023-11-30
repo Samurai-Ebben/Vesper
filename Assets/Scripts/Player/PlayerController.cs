@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     public float deltaMagnitude;
 
     public bool isBig = false;
-    bool isSmall = false;
+    public bool isSmall = false;
 
     private void Awake()
     {
@@ -118,21 +118,17 @@ public class PlayerController : MonoBehaviour
         if (isSmall)
         {
             currentSize = Sizes.SMALL;
-            animationHandler.smallCharacter = true;
-
         }
 
-        if (isBig /*&& rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize*/)
+        if (isBig && rayCastHandler.largeCanChangeSize)
         {
             currentSize = Sizes.LARGE;
-            animationHandler.largeCharacter = true;
-
         }
 
-        if ((!isBig && !isSmall))
+        if ((!isBig && !isSmall) && rayCastHandler.smallCanChangeSize)
         {
             currentSize = Sizes.MEDIUM;
-            animationHandler.mediumCharacter = true;
+
         }
 
 

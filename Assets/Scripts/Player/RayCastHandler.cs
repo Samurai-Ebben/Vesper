@@ -31,18 +31,15 @@ public class RayCastHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controller.currentSize == Sizes.SMALL)
-        {
-            smallCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
-        }
-        if (controller.currentSize == Sizes.LARGE)
-        {
-            largeCanChangeSize = RayCastGenerator(largePlayerRay, Color.red) || RayCastGenerator(largePlayerRay, Color.yellow);
-        }
-        if (controller.currentSize == Sizes.MEDIUM)
-        {
-            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(mediumPlayerRay, Color.yellow);
-        }
+        
+            smallCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red);
+        
+        
+            largeCanChangeSize = RayCastGenerator(largePlayerRay, Color.red);
+        
+       
+            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red);
+        
 
 
         bool RayCastGenerator(float characterSize, Color rayColor)
@@ -91,7 +88,7 @@ public class RayCastHandler : MonoBehaviour
 
         }
 
-            canChangeSize = leftRay.collider == null || rightRay.collider == null;
+            canChangeSize = leftRay.collider == null && rightRay.collider == null;
             //Debug.Log(canChangeSize);
         return canChangeSize;
     }

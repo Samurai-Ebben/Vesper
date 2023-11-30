@@ -19,9 +19,11 @@ public class AnimationHandler : MonoBehaviour
 
     public float timeForScaling = 5;
 
-    public bool smallCharacter;
-    public bool mediumCharacter;
-    public bool largeCharacter;
+    public bool smallCharacterAnimation;
+    public bool mediumCharacterAnimation;
+    public bool largeCharacterAnimation;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,25 +36,46 @@ public class AnimationHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-               
-        
-            if (smallCharacter)
+            if (playerController.currentSize == Sizes.SMALL)
             {
-                transform.DOScale(sizeStats.sizeSmall, timeForScaling).SetEase(Ease.OutElastic);
-                // do smaller animation
+                ChangingAnimation("small");
             }
-            if (mediumCharacter)
+
+            if (playerController.currentSize == Sizes.LARGE)
             {
-                transform.DOScale(sizeStats.sizeMedium, timeForScaling).SetEase(Ease.OutElastic);
+                ChangingAnimation("large");
             }
-            if (largeCharacter)
+
+            if (playerController.currentSize == Sizes.MEDIUM)
             {
-                transform.DOScale(sizeStats.sizeLarge, timeForScaling).SetEase(Ease.OutElastic);
-                // do smaller animation
+                ChangingAnimation("medium");
             }
-        
-        
+
+
     }
 
+    void ChangingAnimation(string playerName)
+    {
+        float playerSize = 0;
+
+        switch (playerName)
+        { 
+            case "small":
+                playerSize = sizeStats.sizeSmall;
+            break;
+
+            case "large":
+                playerSize = sizeStats.sizeLarge;
+            break;
+
+            case "medium":
+                playerSize = sizeStats.sizeMedium;
+            break;
+        }
+
+
+        transform.DOScale(playerSize, timeForScaling).SetEase(Ease.OutElastic);
+    }
     
 }
+
