@@ -17,7 +17,7 @@ public class RisingMovement : MonoBehaviour
         initialPosition = transform.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isRising && transform.position.y < targetHeight)
         {
