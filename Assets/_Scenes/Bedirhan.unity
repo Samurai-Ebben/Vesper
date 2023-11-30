@@ -1339,10 +1339,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1339712893050636578, guid: 30c15560667a95646856058ddb489711, type: 3}
-      propertyPath: drawRayForMedium
-      value: 0.19
-      objectReference: {fileID: 0}
     - target: {fileID: 1829714972289282490, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.11
@@ -1385,7 +1381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6453793269897092126, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
