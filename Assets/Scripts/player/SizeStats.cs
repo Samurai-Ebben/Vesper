@@ -58,20 +58,27 @@ public class SizeStats : MonoBehaviour
         UpdateStatValues();
     }
 
-    public List<float> ReturnStats(string size)
+    public List<float> ReturnStats(Sizes size)
     {
         UpdateStatValues();
 
-        if (size.ToLower() == "small")
+        if (size == Sizes.SMALL)
         {
             return statsSmall;
         }
 
-        if (size.ToLower() == "large")
+        if (size == Sizes.LARGE)
         {
             return statsLarge;
         }
-        
+
+        if (size == Sizes.MEDIUM)
+        {
+            return statsMedium;
+        }
+
+        //TODO remove print
+        print("Unknown argument, returning statsMedium");
         return statsMedium;
     }
 

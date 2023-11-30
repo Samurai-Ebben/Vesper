@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum Sizes { SMALL, MEDIUM, LARGE };
+
 public class PlayerController : MonoBehaviour
 {
     RayCastHandler rayCastHandler;
@@ -59,7 +61,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     //Sizes
-    public enum Sizes { SMALL, MEDIUM, LARGE };
     public Sizes currentSize { get; private set; }
 
     //Velocity Magnitude
@@ -109,13 +110,13 @@ public class PlayerController : MonoBehaviour
 
         #region SwitchHandlers
         if (currentSize == Sizes.SMALL)
-            SwitchSize("small");
+            SwitchSize(currentSize);
 
         if (currentSize == Sizes.MEDIUM && rayCastHandler.smallCanChangeSize)
-            SwitchSize("medium");
+            SwitchSize(currentSize);
 
         if (currentSize == Sizes.LARGE && rayCastHandler.smallCanChangeSize && rayCastHandler.mediumCanChangeSize)
-            SwitchSize("large");       
+            SwitchSize(currentSize);       
         #endregion
 
         prevMagnitude = currentMagnitude;
@@ -123,9 +124,16 @@ public class PlayerController : MonoBehaviour
         deltaMagnitude = currentMagnitude - prevMagnitude;
     }
 
-    private void SwitchSize(string sizeName)
+    private void SwitchSize(Sizes size)
     {
-        List<float> statList = sizeStats.ReturnStats(sizeName);
+        if (currentSize == size)
+        {
+            return;
+        }
+        // TODO remove print
+        print("Switching size to: " + size);
+
+        List<float> statList = sizeStats.ReturnStats(size);
 
         transform.localScale = new Vector3(statList[0], statList[0], statList[0]);
         maxSpeed                =       statList[1];
@@ -246,18 +254,22 @@ public class PlayerController : MonoBehaviour
     public void Smaller(InputAction.CallbackContext ctx)
     {
         currentSize = Sizes.SMALL;
+        print("currentSize SET TO: " + currentSize);
     }
     public void SmallerCancel(InputAction.CallbackContext ctx)
     {
         currentSize = Sizes.MEDIUM;
+        print("currentSize SET TO: " + currentSize);
     }
     public void Larger(InputAction.CallbackContext ctx)
     {
         currentSize = Sizes.LARGE;
+        print("currentSize SET TO: " + currentSize);
     }
     public void LargerCancel(InputAction.CallbackContext ctx)
     {
         currentSize = Sizes.MEDIUM;
+        print("currentSize SET TO: " + currentSize);
     }
 
     private void OnDisable()

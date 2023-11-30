@@ -13,7 +13,7 @@ public class Rising : MonoBehaviour
         {
             var player = other.gameObject.GetComponent<PlayerController>();
             print(player.currentSize);
-            if(player.currentSize == PlayerController.Sizes.LARGE)
+            if(player.currentSize == Sizes.LARGE)
             {
                 foreach (var platform in platforms)
                 {
@@ -43,7 +43,7 @@ public class Rising : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var player = other.gameObject.GetComponent<PlayerController>();
-            if (player.currentSize == PlayerController.Sizes.LARGE)
+            if (player.currentSize == Sizes.LARGE)
             {
                 foreach (var platform in platforms)
                 {

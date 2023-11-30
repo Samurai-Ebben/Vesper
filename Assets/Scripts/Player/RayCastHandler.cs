@@ -21,10 +21,6 @@ public class RayCastHandler : MonoBehaviour
     public bool largeCanChangeSize;
     public bool smallCanChangeSize;
 
-
-
-
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,23 +31,17 @@ public class RayCastHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        if (controller.currentSize == PlayerController.Sizes.SMALL)
+        if (controller.currentSize == Sizes.SMALL)
         {
             smallCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red) || RayCastGenerator(smallPlayerRay, Color.yellow);
-    
         }
-        Debug.Log(smallCanChangeSize);
-        if (controller.currentSize == PlayerController.Sizes.LARGE)
+        if (controller.currentSize == Sizes.LARGE)
         {
             largeCanChangeSize = RayCastGenerator(largePlayerRay, Color.red) || RayCastGenerator(largePlayerRay, Color.yellow);
-
         }
-        if (controller.currentSize == PlayerController.Sizes.MEDIUM)
+        if (controller.currentSize == Sizes.MEDIUM)
         {
             mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red) || RayCastGenerator(mediumPlayerRay, Color.yellow);
-
         }
 
 

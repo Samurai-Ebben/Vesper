@@ -15,7 +15,7 @@ public class VelocityCheck : MonoBehaviour
             PlayerController playerController = other.GetComponent<PlayerController>();
 
             if (playerController.GetMagnitude() < breakForce) return;
-            if (playerController.currentSize != PlayerController.Sizes.LARGE) return;
+            if (playerController.currentSize != Sizes.LARGE) return;
 
             sampleEvent.Invoke();
             return;
