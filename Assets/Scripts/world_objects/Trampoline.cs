@@ -8,7 +8,7 @@ public class Trampoline : MonoBehaviour
     public bool usingGravityMultiplier;
 
     [Header("Values")]
-    public float rawBounceForce = 200;
+    public float rawBounceForce = 50;
     public float GravityScaleMultiplier = 5;
     public float bounceDelay = 0.1f;
     
