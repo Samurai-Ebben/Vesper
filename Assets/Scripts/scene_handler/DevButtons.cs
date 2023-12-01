@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 
 
 public class DevButtons : MonoBehaviour
@@ -37,9 +36,7 @@ public class DevButtons : MonoBehaviour
         // Restart Level
         if (Input.GetKeyUp(KeyCode.R) && (Input.GetKey(KeyCode.LeftControl)))
         {
-            DOTween.Clear();
             sceneHandler.ReloadScene();
-            DOTween.Init();
         }
 
         // Next Level
