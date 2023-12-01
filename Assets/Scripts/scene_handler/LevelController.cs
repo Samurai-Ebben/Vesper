@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnAndCheckpoint : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
+    //Singleton
+    //public static LevelController instance;
+
     public Transform spawnPoint;
     public GameObject playerPrefab;
 
@@ -11,10 +14,12 @@ public class SpawnAndCheckpoint : MonoBehaviour
     Vector3 currentCheckpoint;
 
     GameObject playerHolder;
-    GameObject player;
+    [HideInInspector]public GameObject player;
 
     void Awake()
     {
+        //if (instance != null) return;
+        //instance = this;
         currentCheckpoint = spawnPoint.position;
         SpawnPlayer();
     }
@@ -26,6 +31,7 @@ public class SpawnAndCheckpoint : MonoBehaviour
 
     public void SpawnPlayer()
     {
+
         playerHolder = Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
         player = playerHolder.GetComponentInChildren<Rigidbody2D>().gameObject;
     }
