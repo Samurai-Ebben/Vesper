@@ -461,11 +461,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7229780853740973210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8166752bfa474f040a3a954d7ba98aa7, type: 3}
+  m_Script: {fileID: 11500000, guid: 376413ea608654a45923178b1f269b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 6823699174650878128}
-  playerPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
+  spawnPoint: {fileID: 0}
+  playerPrefab: {fileID: 0}
   currentCheckpoint: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
 --- !u!114 &7688715490172628815

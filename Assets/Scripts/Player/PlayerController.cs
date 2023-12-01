@@ -14,36 +14,35 @@ public class PlayerController : MonoBehaviour
     AnimationHandler animationHandler;
 
     [Header("||PLAYER CONTROLS||")]
-    [SerializeField] float deacceleration   =   4;
-    [SerializeField] float acceleration     =   20;
-    [SerializeField] float maxSpeed         =   4;
-    [SerializeField] float speed;
+    float deacceleration   =   4;
+    float acceleration     =   20;
+    float maxSpeed         =   4;
+    float speed;
+    float velocityX;
     Vector2 moveInput;
-    [HideInInspector]public float velocityX;
 
-    bool                   isFacingRight    =   true;
+    bool  isFacingRight    =   true;
 
     [Header("|Jumping Controls|")]
     [SerializeField, Range(0f, 1f)] float jumpCutOff = 0.1f;
     [SerializeField] float jumpBufferTime       =       0.1f;
     [SerializeField] float jumpHoldForce        =       5f;
     [SerializeField] float jumpHeight           =       6.0f;
-    [SerializeField] float jumpForce            =       6.0f;
-    [SerializeField]float coyoteTime            =       0.2f;
+    float jumpForce            =       6.0f;
+    [SerializeField]float coyoteTime            =       0.15f;
 
     private bool isJumping      =       false;
     private bool canJump        =       true;
     private bool jumpPressed    =       false;
 
     private float coyoteTimer;
-    [SerializeField] private float jumpBufferTimer;
+    private float jumpBufferTimer;
     public bool isBouncing;
 
     [Header("|Air Controls|")]
     [SerializeField] float fallSpeed = 3.5f;
 
     [SerializeField]Vector2 groundCheckRad;
-    //[SerializeField]Vector2 sideGroundCheckRad; // Make many raycasts instead.
     
     [Header("||LAYERS||")]
     [SerializeField] private LayerMask isGround;
@@ -52,8 +51,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform sideGroundCheck;
 
-    public GameObject groundHolderRight;
-    public GameObject groundHolderLeft;
 
     //Players refrences
     private InputActionAsset actions;
@@ -69,8 +66,9 @@ public class PlayerController : MonoBehaviour
     private float prevMagnitude;
     public float deltaMagnitude;
 
-    public bool isBig = false;
-    public bool isSmall = false;
+    //Switch booleans.
+    bool isBig = false;
+    bool isSmall = false;
 
     private void Awake()
     {
@@ -131,8 +129,6 @@ public class PlayerController : MonoBehaviour
 
         }
 
-
-
         SwitchSize(currentSize);
         #endregion
 
@@ -143,11 +139,6 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchSize(Sizes size)
     {
-        //if (currentSize == size)
-        //{
-        //    return;
-        //}
-
         List<float> statList = sizeStats.ReturnStats(size);
 
         transform.localScale = new Vector3(statList[0], statList[0], statList[0]);
@@ -177,10 +168,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //if (!isFacingRight && moveInput.x > 0)
-            //Flip();
-        //else if (isFacingRight && moveInput.x < 0)
-            //Flip();
+        /*Do a flip 
+         * if (!isFacingRight && moveInput.x > 0)
+            Flip();
+        else if (isFacingRight && moveInput.x < 0)
+            Flip();
+        */
 
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
 
