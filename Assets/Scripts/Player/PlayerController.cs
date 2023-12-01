@@ -30,13 +30,13 @@ public class PlayerController : MonoBehaviour
     float jumpCutOff            =       0.1f;
     float jumpForce             =       6.0f;
 
-    private bool isJumping      =       false;
-    private bool canJump        =       true;
-    private bool jumpPressed    =       false;
+    bool isJumping              =       false;
+    bool canJump                =       true;
+    bool jumpPressed            =       false;
 
     float coyoteTimer;
     float jumpBufferTimer;
-    bool isBouncing;
+    public bool isBouncing;
 
     [Header("|Air Controls|")]
     [SerializeField] float fallSpeed = 3.5f;
