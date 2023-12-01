@@ -24,20 +24,19 @@ public class PlayerController : MonoBehaviour
     bool  isFacingRight    =   true;
 
     [Header("|Jumping Controls|")]
-    [SerializeField, Range(0f, 1f)] float jumpCutOff = 0.1f;
     [SerializeField] float jumpBufferTime       =       0.1f;
     [SerializeField] float jumpHoldForce        =       5f;
-    [SerializeField] float jumpHeight           =       6.0f;
-    float jumpForce            =       6.0f;
     [SerializeField]float coyoteTime            =       0.15f;
+    float jumpCutOff            =       0.1f;
+    float jumpForce             =       6.0f;
 
     private bool isJumping      =       false;
     private bool canJump        =       true;
     private bool jumpPressed    =       false;
 
-    private float coyoteTimer;
-    private float jumpBufferTimer;
-    public bool isBouncing;
+    float coyoteTimer;
+    float jumpBufferTimer;
+    bool isBouncing;
 
     [Header("|Air Controls|")]
     [SerializeField] float fallSpeed = 3.5f;

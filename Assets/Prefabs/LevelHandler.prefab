@@ -464,8 +464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376413ea608654a45923178b1f269b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  playerPrefab: {fileID: 0}
+  spawnPoint: {fileID: 6823699174650878128}
+  playerPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
   currentCheckpoint: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
 --- !u!114 &7688715490172628815
