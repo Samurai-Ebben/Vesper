@@ -20,6 +20,7 @@ public class RisingMovement : MonoBehaviour
     {
         initialPosition = transform.position;
         currentState = States.DOWN;
+
     }
 
     void Update()

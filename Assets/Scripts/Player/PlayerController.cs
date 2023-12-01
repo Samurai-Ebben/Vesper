@@ -197,14 +197,14 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
-            //canJump = true;
+            //Animation stretch
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
-        }
-           
-        //canJump = false;
+            //squash anim
+            //ScreenShake
+        }           
     }
 
     void HandleCoyoteTime()

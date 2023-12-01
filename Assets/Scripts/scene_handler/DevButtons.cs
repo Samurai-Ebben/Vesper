@@ -13,7 +13,7 @@ public class DevButtons : MonoBehaviour
     Rigidbody2D playerRB2D;
     float defaultGravity;
 
-    SpawnAndCheckpoint spawnAndCheckpoint;
+    LevelController spawnAndCheckpoint;
     SceneHandler sceneHandler;
 
     //Vector3 checkpoint;
@@ -27,12 +27,9 @@ public class DevButtons : MonoBehaviour
         playerCollider2D = player.GetComponent<Collider2D>();
         playerRB2D = player.GetComponent<Rigidbody2D>();
         defaultGravity = playerRB2D.gravityScale;
-
-        sceneHandler = GetComponent<SceneHandler>();
         
-        spawnAndCheckpoint = GetComponent<SpawnAndCheckpoint>();
-        Debug.Log(sceneHandler);
- 
+        spawnAndCheckpoint = GetComponent<LevelController>();
+        sceneHandler = GetComponent<SceneHandler>();
     }
 
     void Update()
