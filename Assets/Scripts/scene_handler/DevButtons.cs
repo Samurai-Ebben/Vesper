@@ -33,9 +33,8 @@ public class DevButtons : MonoBehaviour
 
     void Update()
     {
-        
         // Restart Level
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.R) && (Input.GetKey(KeyCode.LeftControl)))
         {
             sceneHandler.ReloadScene();
         }
@@ -118,6 +117,11 @@ public class DevButtons : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Alpha5))
         {
             Time.timeScale += 0.25f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            sceneHandler.Exit();
         }
     }
 }
