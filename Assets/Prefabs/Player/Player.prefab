@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8462916738579366574}
   - component: {fileID: 4505907170274488285}
   - component: {fileID: 3735912514214847531}
+  - component: {fileID: -8290789070323797973}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -137,18 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47be97bf4753fe4e961706336b83709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deacceleration: 10
-  acceleration: 20
-  maxSpeed: 6
-  speed: 0
-  velocityX: 0
   jumpCutOff: 0.1
   jumpBufferTime: 0.05
   jumpHoldForce: 5
   jumpHeight: 3
-  jumpForce: 10
   coyoteTime: 0.2
-  jumpBufferTimer: 0
   isBouncing: 0
   fallSpeed: 5
   groundCheckRad: {x: 0.91, y: 0.1}
@@ -157,11 +151,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheck: {fileID: 2067882930552435579}
   sideGroundCheck: {fileID: 0}
-  groundHolderRight: {fileID: 0}
-  groundHolderLeft: {fileID: 0}
   deltaMagnitude: 0
-  isBig: 0
-  isSmall: 0
 --- !u!61 &7787492476899468120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -351,6 +341,22 @@ MonoBehaviour:
   mediumCanChangeSize: 0
   largeCanChangeSize: 0
   smallCanChangeSize: 0
+--- !u!114 &-8290789070323797973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cad2b892a23b7498b5b2ac8795e6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeForScaling: 5
+  smallCharacterAnimation: 0
+  mediumCharacterAnimation: 0
+  largeCharacterAnimation: 0
 --- !u!1 &6895616532544625887
 GameObject:
   m_ObjectHideFlags: 0
