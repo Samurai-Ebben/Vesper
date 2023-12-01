@@ -2,41 +2,41 @@ using UnityEngine;
 
 public class SquishAndStretch : MonoBehaviour
 {
-    public Transform Sprite;
     public float Stretch = 0.1f;
-    [SerializeField] private Transform squashParent;
+    [SerializeField] private Transform anchor;
+    public Transform Sprite;
 
-    private Rigidbody2D _rigidbody;
-    private Vector3 _originalScale;
+    private Rigidbody2D rb2d;
+    private Vector3 originalScale;
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _originalScale = Sprite.transform.localScale;
+        rb2d = GetComponent<Rigidbody2D>();
+        originalScale = Sprite.transform.localScale;
 
-        if (!squashParent)
-            squashParent = new GameObject(string.Format("_squash_{0}", name)).transform;
+        if (!anchor)
+            anchor = new GameObject(string.Format("_squash_{0}", name)).transform;
     }
 
     private void Update()
     {
         Sprite.parent = transform;
         Sprite.localPosition = Vector3.zero;
-        Sprite.localScale = _originalScale;
+        Sprite.localScale = originalScale;
         Sprite.localRotation = Quaternion.identity;
 
-        squashParent.localScale = Vector3.one;
-        squashParent.position = transform.position;
+        anchor.localScale = Vector3.one;
+        anchor.position = transform.position;
 
-        Vector3 velocity = _rigidbody.velocity;
+        Vector3 velocity = rb2d.velocity;
         if (velocity.sqrMagnitude > 0.01f)
         {
-            squashParent.rotation = Quaternion.FromToRotation(Vector3.right, velocity);
+            anchor.rotation = Quaternion.FromToRotation(Vector3.right, velocity);
         }
 
         var scaleX = 1.0f + (velocity.magnitude * Stretch);
         var scaleY = 1.0f / scaleX;
-        Sprite.parent = squashParent;
-        squashParent.localScale = new Vector3(scaleX, scaleY, 1.0f);
+        Sprite.parent = anchor;
+        anchor.localScale = new Vector3(scaleX, scaleY, 1.0f);
     }
 }
