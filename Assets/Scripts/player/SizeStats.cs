@@ -84,11 +84,11 @@ public class SizeStats : MonoBehaviour
 
     private void UpdateStatValues()
     {
-        groundCheckSizeBigX     =   sizeLarge - 0.05f;
-        groundCheckSizeSmallX   =   sizeSmall - 0.05f;
-        groundCheckSizeMediumX  =   sizeMedium - 0.05f;
+        groundCheckSizeBigX     =   0.05f;
+        groundCheckSizeSmallX   =   0.05f;
+        groundCheckSizeMediumX  =   0.05f;
 
-        groundCheckSizeBigY = 0.02f;
+        groundCheckSizeBigY = 0.009f;
         groundCheckSizeSmallY = 0.007f;
         groundCheckSizeMediumY = 0.01f;
         statsSmall = new List<float>
