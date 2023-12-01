@@ -55,7 +55,7 @@ public class Rising : MonoBehaviour
 
     IEnumerator DelayDescend()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         foreach (var platform in platforms)
         {
             platform.Descend();
