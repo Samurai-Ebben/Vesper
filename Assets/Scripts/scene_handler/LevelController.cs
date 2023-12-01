@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnAndCheckpoint : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
     //Singleton
-    public static SpawnAndCheckpoint instance;
+    //public static LevelController instance;
 
     public Transform spawnPoint;
     public GameObject playerPrefab;
@@ -18,8 +18,8 @@ public class SpawnAndCheckpoint : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null) return;
-        instance = this;
+        //if (instance != null) return;
+        //instance = this;
         currentCheckpoint = spawnPoint.position;
         SpawnPlayer();
     }

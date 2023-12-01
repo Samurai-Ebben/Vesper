@@ -8,7 +8,7 @@ public class Spike : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            SpawnAndCheckpoint spawnAndCheckpoint = FindObjectOfType<SpawnAndCheckpoint>();
+            LevelController spawnAndCheckpoint = FindObjectOfType<LevelController>();
             spawnAndCheckpoint.RespawnPlayer();
         }
     }

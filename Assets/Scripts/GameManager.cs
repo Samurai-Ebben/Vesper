@@ -5,16 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    private LevelController levelControl;
     private void Awake()
     {
-        if (instance == null) return;
+        if (instance != null) return;
         instance = this;
-    }
-    private void Start()
-    {
-        print(SpawnAndCheckpoint.instance.player.name);
 
+        levelControl = GetComponent<LevelController>();
     }
 
 }
