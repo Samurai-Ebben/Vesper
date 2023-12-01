@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+
 
 public class DevButtons : MonoBehaviour
 {
@@ -25,17 +27,23 @@ public class DevButtons : MonoBehaviour
         playerCollider2D = player.GetComponent<Collider2D>();
         playerRB2D = player.GetComponent<Rigidbody2D>();
         defaultGravity = playerRB2D.gravityScale;
+
+        sceneHandler = GetComponent<SceneHandler>();
         
         spawnAndCheckpoint = GetComponent<SpawnAndCheckpoint>();
-        sceneHandler = GetComponent<SceneHandler>();
+        Debug.Log(sceneHandler);
+ 
     }
 
     void Update()
     {
+        
         // Restart Level
         if (Input.GetKeyUp(KeyCode.R))
         {
+            DOTween.Clear();
             sceneHandler.ReloadScene();
+            DOTween.Init();
         }
 
         // Next Level
