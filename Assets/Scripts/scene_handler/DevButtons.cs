@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+
 
 public class DevButtons : MonoBehaviour
 {
@@ -32,10 +34,13 @@ public class DevButtons : MonoBehaviour
 
     void Update()
     {
+        
         // Restart Level
         if (Input.GetKeyUp(KeyCode.R))
         {
+            DOTween.Clear();
             sceneHandler.ReloadScene();
+            DOTween.Init();
         }
 
         // Next Level
