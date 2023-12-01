@@ -11,7 +11,6 @@ public enum Sizes { SMALL, MEDIUM, LARGE };
 public class PlayerController : MonoBehaviour
 {
     RayCastHandler rayCastHandler;
-    AnimationHandler animationHandler;
 
     [Header("||PLAYER CONTROLS||")]
     float deacceleration   =   4;
@@ -49,7 +48,6 @@ public class PlayerController : MonoBehaviour
     [Header("||REFRENCES||")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform sideGroundCheck;
-
 
     //Players refrences
     private InputActionAsset actions;
@@ -93,7 +91,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         devButtons = FindObjectOfType<DevButtons>();
         rayCastHandler = GetComponent<RayCastHandler>();
-        animationHandler = GetComponent<AnimationHandler>();
 
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
@@ -103,7 +100,6 @@ public class PlayerController : MonoBehaviour
     {
         MoveX();
         HandleCoyoteTime();
-        
 
         if (canJump && jumpPressed)
         {
@@ -243,7 +239,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpBufferTimer = jumpBufferTime;
             jumpPressed = true;
-            //canJump = true;
         }
     }
 
@@ -254,7 +249,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
             coyoteTimer = 0;
-            //canJump = true;
         }
     }
 
