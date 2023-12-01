@@ -199,6 +199,39 @@
                 },
                 {
                     "name": "",
+                    "id": "3a9d709f-06b9-47fe-be08-c15c4da0099e",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35b3d8e8-7672-462b-9b2a-b9fa5eff5df1",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8988144-c63f-43dd-b0c4-d4a413b5a4ef",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2df1cd85-0127-499f-8661-091e34a01dc7",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
@@ -221,6 +254,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c1762148-a176-4216-b7d9-4b3505b7abfa",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Smaller",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1639f870-03e3-47b7-a75e-63221fa17c66",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -234,6 +278,17 @@
                     "name": "",
                     "id": "95fb3626-8991-4678-b76d-0f6e4eaa4364",
                     "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Larger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d5cf0f4-1a41-4ad6-ae0a-9ccec29f8dc4",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
