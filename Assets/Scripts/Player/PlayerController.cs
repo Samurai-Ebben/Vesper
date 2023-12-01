@@ -37,9 +37,6 @@ public class PlayerController : MonoBehaviour
     float jumpBufferTimer;
     public bool isBouncing;
 
-    [Header("|Air Controls|")]
-    [SerializeField] float fallSpeed = 3.5f;
-
     [SerializeField]Vector2 groundCheckRad;
     
     [Header("||LAYERS||")]
@@ -47,7 +44,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("||REFRENCES||")]
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform sideGroundCheck;
 
     //Players refrences
     private InputActionAsset actions;
