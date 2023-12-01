@@ -38,9 +38,7 @@ public class DevButtons : MonoBehaviour
         // Restart Level
         if (Input.GetKeyUp(KeyCode.R))
         {
-            DOTween.Clear();
             sceneHandler.ReloadScene();
-            DOTween.Init();
         }
 
         // Next Level
