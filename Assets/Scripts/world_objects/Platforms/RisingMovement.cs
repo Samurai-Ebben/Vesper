@@ -47,18 +47,13 @@ public class RisingMovement : MonoBehaviour
                 }
                 break;
         }
-
-
         return;
-       
     }
 
     public void Rise()
     {
         currentState = States.UP;
         return;
-        isRising = true;
-        //StopCoroutine("DescendCoroutine");
     }
 
     public void Descend()
@@ -68,21 +63,24 @@ public class RisingMovement : MonoBehaviour
             return;
         }
         currentState = States.DOWN;
-        timer = 2;
-
-
-        // isRising = false;
-        // StartCoroutine(DescendCoroutine());
+        timer = 2.7f;
     }
 
-    //IEnumerator DescendCoroutine()
-    //{
-    //    yield return new WaitForSeconds(2);
-    //    while (transform.position.y > initialPosition.y)
-    //    {
-    //        float step = riseSpeed * Time.deltaTime;
-    //        transform.Translate(Vector3.down * step);
-    //        yield return null;
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var player = other.transform.parent.GetComponent<PlayerHandler>();
+        if (player != null)
+        {
+            player.SetParent(transform);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        var player = other.transform.parent.GetComponent<PlayerHandler>();
+        if (player != null)
+        {
+            player.SetParent(null);
+        }
+    }
 }
