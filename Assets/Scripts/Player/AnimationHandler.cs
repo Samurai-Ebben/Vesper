@@ -76,6 +76,9 @@ public class AnimationHandler : MonoBehaviour
 
         transform.DOScale(playerSize, timeForScaling).SetEase(Ease.OutElastic);
     }
-    
+    private void OnDestroy()
+    {
+        DOTween.Clear(transform);
+    }
 }
 
