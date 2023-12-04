@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/_Scenes/Lvl 1.1 - jump.unity
     guid: 12d2e437db2a10845887d55cd45a9e3d
   - enabled: 1
-    path: Assets/_Scenes/Lvl 8.unity
+    path: Assets/_Scenes/Lvl 2.2.unity
     guid: 1fa391f43fccc1044b4a550507d35c03
   - enabled: 1
-    path: Assets/_Scenes/Lvl 9.unity
+    path: Assets/_Scenes/Lvl 2.3.unity
     guid: 5c6f8cdf8c0c155408ca082cc84f5783
   - enabled: 1
-    path: Assets/_Scenes/Lvl 10 - playtest final.unity
+    path: Assets/_Scenes/Lvl 13 - playtest final.unity
     guid: 8a696a6e6d10c8645a7323c8972c11ca
   m_configObjects: {}
