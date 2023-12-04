@@ -7,6 +7,7 @@ public class PlayerParticleEffect : MonoBehaviour
 
     private ParticleSystem pfx;
     private PlayerController player;
+    public float sizeOffset;
 
     private void Start()
     {
@@ -22,6 +23,6 @@ public class PlayerParticleEffect : MonoBehaviour
     private void ParticleSizeToPlayer()
     {
         ParticleSystem.ShapeModule pfxShape = pfx.shape;
-        pfxShape.scale = player.transform.localScale;
+        pfxShape.scale = player.transform.localScale * sizeOffset;
     }
 }
