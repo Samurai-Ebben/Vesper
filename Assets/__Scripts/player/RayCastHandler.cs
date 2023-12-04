@@ -11,6 +11,8 @@ public class RayCastHandler : MonoBehaviour
     float mediumPlayerRay = 0.50f;
     float largePlayerRay = 0.75f;
 
+    public LayerMask isBlock;
+
     float drawRay = 1;
 
     public float drawRayForMedium;
@@ -69,8 +71,8 @@ public class RayCastHandler : MonoBehaviour
         
 
 
-        RaycastHit2D leftRay = Physics2D.Raycast(left, Vector2.up, characterSize);
-        RaycastHit2D rightRay = Physics2D.Raycast(right, Vector2.up, characterSize);
+        RaycastHit2D leftRay = Physics2D.Raycast(left, Vector2.up, characterSize, isBlock);
+        RaycastHit2D rightRay = Physics2D.Raycast(right, Vector2.up, characterSize, isBlock);
 
 
 
