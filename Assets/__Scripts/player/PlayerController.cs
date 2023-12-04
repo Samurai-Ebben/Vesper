@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private DevButtons devButtons;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
-
+    private PlayerParticleEffect effects;
     //Sizes
     public Sizes currentSize { get; private set; }
 
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         devButtons = FindObjectOfType<DevButtons>();
         rayCastHandler = GetComponent<RayCastHandler>();
-
+        effects = GetComponent<PlayerParticleEffect>();
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
     }
@@ -181,6 +181,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
+            effects.isJump = true;
             //TODO Animation stretch
         }
         else if (!isJumping && rb.velocity.y > 0)
@@ -188,7 +189,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
             //TODO Squash anim
             //TODO ScreenShake
-        }           
+        }       
     }
 
     void HandleCoyoteTime()
@@ -203,7 +204,6 @@ public class PlayerController : MonoBehaviour
             coyoteTimer -= Time.deltaTime;
             if(coyoteTimer <= 0)
                 canJump = false;
-
         }
     }
 
@@ -231,21 +231,29 @@ public class PlayerController : MonoBehaviour
 
     void OnJumpStarted(InputAction.CallbackContext ctx)
     {
+        if (!IsGrounded())
+        {
+            effects.isJump = true;
+        }
         if (ctx.performed)
         {
             jumpBufferTimer = jumpBufferTime;
             jumpPressed = true;
+            effects.isLand = false;
         }
     }
 
     void OnJumpCanceled(InputAction.CallbackContext ctx)
     {
         jumpBufferTimer -= jumpBufferTime;
+        effects.isJump = false;
         if (!ctx.performed && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
             coyoteTimer = 0;
         }
+        
+        effects.isLand = true;
     }
 
     public void Smaller(InputAction.CallbackContext ctx)
