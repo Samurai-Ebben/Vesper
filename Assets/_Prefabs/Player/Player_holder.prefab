@@ -14590,6 +14590,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3028978548451914271, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: pfx
+      value: 
+      objectReference: {fileID: 1736656803641118814}
+    - target: {fileID: 3028978548451914271, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: trail
+      value: 
+      objectReference: {fileID: 6856538439995866173}
+    - target: {fileID: 3028978548451914271, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: jumpFx
+      value: 
+      objectReference: {fileID: 3617685519262970806}
+    - target: {fileID: 3028978548451914271, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: landFx
+      value: 
+      objectReference: {fileID: 4563681207884731407}
+    - target: {fileID: 3028978548451914271, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: trailOffset
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7520595503268067455, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Name
       value: ps_trail
@@ -14615,5 +14635,10 @@ PrefabInstance:
 --- !u!4 &2912493131369918880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 658788291900644521, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+  m_PrefabInstance: {fileID: 2400204627778546953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6856538439995866173 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
   m_PrefabInstance: {fileID: 2400204627778546953}
   m_PrefabAsset: {fileID: 0}
