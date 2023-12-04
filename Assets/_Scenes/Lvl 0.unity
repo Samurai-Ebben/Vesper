@@ -15487,7 +15487,7 @@ PrefabInstance:
     - target: {fileID: 2404579666120525487, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: spawnPoint
       value: 
-      objectReference: {fileID: 1405092377}
+      objectReference: {fileID: 1304470888}
     - target: {fileID: 2404579666120525487, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: playerPrefab
       value: 
@@ -16118,15 +16118,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1304470888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2702735996382199472, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+  m_PrefabInstance: {fileID: 374122440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1375614196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6126771023622976717, guid: b8727f8cfe367594696a9e2b25be8c8a, type: 3}
   m_PrefabInstance: {fileID: 780678141}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1405092377 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6823699174650878128, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
-  m_PrefabInstance: {fileID: 374122440}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1418942938
 GameObject:
