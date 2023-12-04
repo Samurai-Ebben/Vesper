@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2702735996382199472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.478, y: -3.97, z: 0}
+  m_LocalPosition: {x: -3.51, y: 5.38, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 9197743221205705046}
   - component: {fileID: 7645155434431193072}
   m_Layer: 0
-  m_Name: TriggerRespawnPlayer
+  m_Name: TriggerReloadScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.46, y: -11.87, z: 0}
-  m_LocalScale: {x: 30, y: 3, z: 1}
+  m_LocalScale: {x: 50, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7526439505820772682}
@@ -230,9 +230,9 @@ MonoBehaviour:
   sampleEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2404579666120525487}
-        m_TargetAssemblyTypeName: SpawnAndCheckpoint, Assembly-CSharp
-        m_MethodName: RespawnPlayer
+      - m_Target: {fileID: 7688715490172628815}
+        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
+        m_MethodName: ReloadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376413ea608654a45923178b1f269b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 6823699174650878128}
+  spawnPoint: {fileID: 2702735996382199472}
   playerPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
   currentCheckpoint: {x: 0, y: 0, z: 0}
   player: {fileID: 0}

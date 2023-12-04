@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     [Header("|Jumping Controls|")]
     [SerializeField] float jumpBufferTime       =       0.1f;
     [SerializeField] float jumpHoldForce        =       5f;
-    [SerializeField]float coyoteTime            =       0.15f;
+    [SerializeField] float coyoteTime           =       0.15f;
     float jumpCutOff            =       0.1f;
     float jumpForce             =       6.0f;
 
@@ -181,13 +181,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
-            //Animation stretch
+            //TODO Animation stretch
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
-            //squash anim
-            //ScreenShake
+            //TODO Squash anim
+            //TODO ScreenShake
         }           
     }
 
@@ -223,7 +223,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
     
-    #region InputHanldar
+    #region InputHanlder
     public void Move(InputAction.CallbackContext ctx)
     {
         moveInput = ctx.ReadValue<Vector2>();

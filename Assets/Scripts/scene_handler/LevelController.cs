@@ -7,11 +7,12 @@ public class LevelController : MonoBehaviour
     //Singleton
     //public static LevelController instance;
 
-    public Transform spawnPoint;
+    public GameObject spawnPoint;
     public GameObject playerPrefab;
 
-    [SerializeField]
-    Vector3 currentCheckpoint;
+    
+    //[SerializeField]
+    //Vector3 currentCheckpoint;
 
     GameObject playerHolder;
     [HideInInspector]public GameObject player;
@@ -20,19 +21,19 @@ public class LevelController : MonoBehaviour
     {
         //if (instance != null) return;
         //instance = this;
-        currentCheckpoint = spawnPoint.position;
+        //currentCheckpoint = spawnPoint.transform.position;
         SpawnPlayer();
     }
 
     public void SetCheckpoint()
     {
-        currentCheckpoint = player.transform.position;
+        //currentCheckpoint = player.transform.position;
+        spawnPoint.transform.position = player.transform.position;
     }
 
     public void SpawnPlayer()
     {
-
-        playerHolder = Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
+        playerHolder = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
         player = playerHolder.GetComponentInChildren<Rigidbody2D>().gameObject;
     }
 
@@ -44,7 +45,7 @@ public class LevelController : MonoBehaviour
         }
         else
         {
-            player.transform.position = currentCheckpoint;
+            player.transform.position = spawnPoint.transform.position;
         }
     }
 }
