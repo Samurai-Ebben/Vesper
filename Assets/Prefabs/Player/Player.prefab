@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8462916738579366574}
   - component: {fileID: 4505907170274488285}
   - component: {fileID: 3735912514214847531}
+  - component: {fileID: 3028978548451914271}
   - component: {fileID: -8290789070323797973}
   m_Layer: 6
   m_Name: Player
@@ -138,19 +139,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47be97bf4753fe4e961706336b83709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpCutOff: 0.1
   jumpBufferTime: 0.05
   jumpHoldForce: 5
-  jumpHeight: 3
-  coyoteTime: 0.2
+  coyoteTime: 0.15
   isBouncing: 0
-  fallSpeed: 5
   groundCheckRad: {x: 0.91, y: 0.1}
   isGround:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 2067882930552435579}
-  sideGroundCheck: {fileID: 0}
   deltaMagnitude: 0
 --- !u!61 &7787492476899468120
 BoxCollider2D:
@@ -341,6 +338,19 @@ MonoBehaviour:
   mediumCanChangeSize: 0
   largeCanChangeSize: 0
   smallCanChangeSize: 0
+--- !u!114 &3028978548451914271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d338ecaa852d24a954236ee1cd4d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeOffset: 1.2
 --- !u!114 &-8290789070323797973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6383879677764996376
 Transform:
   m_ObjectHideFlags: 0
