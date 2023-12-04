@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/Lvl 1.0.unity
     guid: 4d6bfcb5fc2385a43ab7b069868c31eb
   - enabled: 1
-    path: Assets/_Scenes/Lvl 1.2 - jump.unity
+    path: Assets/_Scenes/Lvl 1.1 - jump.unity
     guid: 12d2e437db2a10845887d55cd45a9e3d
   - enabled: 1
     path: Assets/_Scenes/Lvl 8.unity
