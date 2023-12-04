@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2702735996382199472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.47, y: 6.24, z: 0}
+  m_LocalPosition: {x: 0.22, y: 0.66, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -227,21 +227,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1c396c7aa142f43873b7ec5a26c9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sampleEvent:
+  triggerEnterEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7688715490172628815}
-        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
-        m_MethodName: ReloadScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  exitEventOn: 0
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6291191843700542747
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,21 +377,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1c396c7aa142f43873b7ec5a26c9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sampleEvent:
+  triggerEnterEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7688715490172628815}
-        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
-        m_MethodName: NextScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  exitEventOn: 0
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7229780853740973210
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +398,7 @@ GameObject:
   - component: {fileID: 7688715490172628815}
   - component: {fileID: 973706547002871020}
   m_Layer: 0
-  m_Name: LevelHandler
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,3 +475,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95e5ce9a331b9a429965312b6125645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
