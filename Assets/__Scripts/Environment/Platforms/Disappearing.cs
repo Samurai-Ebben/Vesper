@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Disappearing : MonoBehaviour
@@ -11,22 +12,15 @@ public class Disappearing : MonoBehaviour
     private Color32 defaultColor;
     
     bool platformActive = true;
+    bool playerOverlapping;
     bool ongoingCoroutine;
 
     public GameObject platform;
-    Collider2D platformCollider;
     SpriteRenderer platformSpriteRenderer;
-
-    GameObject player;
-    Collider2D playerCollider;
     
     void Start()
     {
         platformSpriteRenderer = platform.GetComponent<SpriteRenderer>();
-        platformCollider = platform.GetComponent<Collider2D>();
-
-        player = GameManager.instance.player;    
-        playerCollider = player.GetComponent<Collider2D>();
 
         defaultColor = platformSpriteRenderer.color;
     }
@@ -37,7 +31,7 @@ public class Disappearing : MonoBehaviour
         {
             platform.SetActive(false);
         }
-        else if (PlayerIsInside())
+        else if (!playerOverlapping)
         {
             platform.SetActive(true);
         }
@@ -68,12 +62,8 @@ public class Disappearing : MonoBehaviour
         ongoingCoroutine = false;
     }
 
-    bool PlayerIsInside()
+    public void SetPlayerOverlapping(bool boolean)
     {
-        if (playerCollider != null && platformCollider != null)
-        {
-            return playerCollider.IsTouching(platformCollider);
-        }
-        return false;
+        playerOverlapping = boolean;
     }
 }

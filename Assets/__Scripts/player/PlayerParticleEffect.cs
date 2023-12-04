@@ -23,6 +23,7 @@ public class PlayerParticleEffect : MonoBehaviour
     private void Update()
     {
         ParticleSizeToPlayer();
+        PlayEffects();
     }
 
     private void ParticleSizeToPlayer()
