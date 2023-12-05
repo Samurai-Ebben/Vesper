@@ -14630,6 +14630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ps_trail
       objectReference: {fileID: 0}
+    - target: {fileID: 7520595503268067455, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.05
