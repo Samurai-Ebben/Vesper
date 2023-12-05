@@ -5,17 +5,24 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    LevelController levelController;
+    public LevelController LevelController { get; private set; }
 
-    [HideInInspector]public GameObject player;
+    public GameObject Player { get; private set; }
 
     private void Awake()
     {
         if (instance != null) return;
         instance = this;
+        LevelController = GetComponent<LevelController>();
+        Player = LevelController.Player;
 
-        levelController = GetComponent<LevelController>();
-        player = levelController.player;
+    }
+
+    private void Start()
+    {
+        //Debug.Log(Player.name);
+        //print(player.name);
+        
     }
 
 }

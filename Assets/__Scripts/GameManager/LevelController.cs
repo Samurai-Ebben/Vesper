@@ -3,7 +3,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     //Singleton
-    //public static LevelController instance;
+    public static LevelController instance;
 
     public GameObject spawnPoint;
     public GameObject playerPrefab;
@@ -12,37 +12,39 @@ public class LevelController : MonoBehaviour
     Vector3 currentCheckpoint;
 
     GameObject playerHolder;
-    [HideInInspector]public GameObject player;
+    public GameObject Player { get; private set; }
 
     void Awake()
     {
-        //if (instance != null) return;
-        //instance = this;
+        if (instance != null) return;
+        instance = this;
         currentCheckpoint = spawnPoint.transform.position;
         SpawnPlayer();
     }
 
     public void SetCheckpoint()
     {
-        currentCheckpoint = player.transform.position;
+        currentCheckpoint = Player.transform.position;
         //spawnPoint.transform.position = player.transform.position;
     }
 
     public void SpawnPlayer()
     {
         playerHolder = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
-        player = playerHolder.GetComponentInChildren<Rigidbody2D>().gameObject;
+        Player = playerHolder.GetComponentInChildren<PlayerController>().gameObject;
+        Debug.Log(Player.name);
+
     }
 
     public void RespawnPlayer()
     {
-        if (player == null)
+        if (Player == null)
         {
             SpawnPlayer();
         }
         else
         {
-            player.transform.position = currentCheckpoint;
+            Player.transform.position = currentCheckpoint;
             ResettableObjectManager.Instance.ResetAllObjects();
 
             //ResetAllPlatforms();
