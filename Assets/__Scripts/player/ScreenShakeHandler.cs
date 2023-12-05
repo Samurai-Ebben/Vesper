@@ -20,6 +20,15 @@ public class ScreenShakeHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(controller.currentSize == Sizes.LARGE) 
+        { 
+            StartShake();
+        }
+
+    }
+
+    private void StartShake()
+    {
         if (controller.hasLanded)
         {
             StartCoroutine(ShakeScreen());
@@ -29,8 +38,8 @@ public class ScreenShakeHandler : MonoBehaviour
         {
             StopCoroutine(ShakeScreen());
         }
-
     }
+
     IEnumerator ShakeScreen()
     {
         float timeElapsed = 0;
