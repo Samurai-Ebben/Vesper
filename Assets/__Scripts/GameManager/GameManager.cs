@@ -5,17 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    LevelController levelControl;
+    LevelController levelController;
 
-    public GameObject player;
+    [HideInInspector]public GameObject player;
 
     private void Awake()
     {
         if (instance != null) return;
         instance = this;
 
-        levelControl = GetComponent<LevelController>();
-        player = levelControl.player;
+        levelController = GetComponent<LevelController>();
+        player = levelController.player;
     }
 
 }
