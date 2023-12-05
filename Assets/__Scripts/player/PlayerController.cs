@@ -29,16 +29,16 @@ public class PlayerController : MonoBehaviour
     float jumpCutOff            =       0.1f;
     float jumpForce             =       6.0f;
 
-    bool isJumping              =       false;
+    public bool isJumping              =       false;
     bool canJump                =       true;
-    bool jumpPressed            =       false;
+    public bool jumpPressed            =       false;
 
     float coyoteTimer;
     float jumpBufferTimer;
     public bool isBouncing;
 
     float timer;
-    bool startedJump = false;
+    public bool startedJump = false;
     public bool hasLanded = false;
 
     [SerializeField]Vector2 groundCheckRad;
@@ -98,11 +98,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (startedJump == true)
+        if (startedJump)
         {
             timer += 0.1f;
         }    
-        if(startedJump == false) 
+        if(!startedJump) 
         {
             timer = 0;
         }
@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
 
         if (hasLanded)
         {
+            effects.CreateLandDust();
             startedJump = false;
         }
 
@@ -204,12 +205,12 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        effects.CreateJumpDust();
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
-            effects.isJump = true;
             
             //TODO Animation stretch
         }
@@ -263,29 +264,23 @@ public class PlayerController : MonoBehaviour
     void OnJumpStarted(InputAction.CallbackContext ctx)
     {
         startedJump = true;
-        if (!IsGrounded())
-        {
-            effects.isJump = true;
-        }
+
         if (ctx.performed)
         {
             jumpBufferTimer = jumpBufferTime;
             jumpPressed = true;
-            effects.isLand = false;
         }
     }
 
     void OnJumpCanceled(InputAction.CallbackContext ctx)
     {
         jumpBufferTimer -= jumpBufferTime;
-        effects.isJump = false;
         if (!ctx.performed && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
             coyoteTimer = 0;
         }
         
-        effects.isLand = true;
     }
 
     public void Smaller(InputAction.CallbackContext ctx)
