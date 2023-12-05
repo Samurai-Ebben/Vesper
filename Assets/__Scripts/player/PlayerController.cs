@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     float jumpCutOff            =       0.1f;
     float jumpForce             =       6.0f;
 
-    bool isJumping              =       false;
+    public bool isJumping              =       false;
     bool canJump                =       true;
     public bool jumpPressed            =       false;
 
