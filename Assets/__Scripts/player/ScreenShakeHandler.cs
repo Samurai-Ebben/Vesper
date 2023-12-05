@@ -5,8 +5,8 @@ using UnityEngine;
 public class ScreenShakeHandler : MonoBehaviour
 {
     PlayerController controller;
-    public float duration = 2;
-    public float strength = 1.0f;
+    public float duration = 0.25f;
+    public float strength = 0.5f;
 
     Vector3 origPos;
     public bool startTheShake;
