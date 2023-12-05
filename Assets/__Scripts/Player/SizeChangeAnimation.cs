@@ -8,7 +8,7 @@ public enum GameState
     GettingBig,
     GettingSmall
 }
-public class AnimationHandler : MonoBehaviour
+public class SizeChangeAnimation : MonoBehaviour
 {
 
     GameState state;
