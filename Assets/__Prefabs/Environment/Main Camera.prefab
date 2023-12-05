@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29243c6d03a5d06488eaf0c425eb6fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.25
-  strength: 0.5
+  duration: 0.04
+  strength: 0.02
   startTheShake: 0
 --- !u!82 &-8667863244628774253
 AudioSource:

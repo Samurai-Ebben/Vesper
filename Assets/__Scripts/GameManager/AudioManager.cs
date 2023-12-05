@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AudioManager : MonoBehaviour
 {
     AudioSource source;
     PlayerController player;
 
-    public AudioClip jumpSmall, jumpBig, jumpMedium, switchToLarge, switchToSmall, switchToMedium;
+    public float volume = 2;
+    public float landingSound = 2;
+
+    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +22,40 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.isJumping && player.currentSize == Sizes.SMALL) 
+        //if (player.isJumping && player.currentSize == Sizes.SMALL)
+        //{
+        //    PlayingAudio(jumpSmall, volume);
+        //}
+        //if (player.isJumping && player.currentSize == Sizes.LARGE)
+        //{
+        //    PlayingAudio(jumpBig, volume);
+        //}
+        //if (player.isJumping && player.currentSize == Sizes.MEDIUM)
+        //{
+        //    PlayingAudio(jumpMedium, volume);
+        //}
+
+
+
+        if (player.hasLanded && player.currentSize == Sizes.SMALL)
         {
-        source.clip = jumpSmall;
-            source.Play();
+            PlayingAudio(landingSmall, landingSound);
         }
+        if (player.hasLanded && player.currentSize == Sizes.MEDIUM)
+        {
+            PlayingAudio(landingMedium, landingSound);
+        }
+        if (player.hasLanded && player.currentSize == Sizes.LARGE)
+        {
+            PlayingAudio(landingBig, landingSound);
+        }
+    }
+
+    void PlayingAudio(AudioClip clip, float volume)
+    {
+       source.clip = clip;
+       source.volume = volume;
+        source.PlayOneShot(clip, volume);
+        Debug.Log("Ljud");
     }
 }
