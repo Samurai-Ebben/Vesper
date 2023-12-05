@@ -122,7 +122,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
         MoveX();
         HandleCoyoteTime();
 
@@ -206,6 +205,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         effects.CreateJumpDust();
+        effects.StopLandDust();
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
             rb.velocity = Vector2.up * jumpForce;

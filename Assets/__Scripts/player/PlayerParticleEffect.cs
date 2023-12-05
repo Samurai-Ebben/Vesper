@@ -40,4 +40,8 @@ public class PlayerParticleEffect : MonoBehaviour
     {
         landFx.Play();
     }
+    public void StopLandDust()
+    {
+        landFx.Stop();
+    }
 }
