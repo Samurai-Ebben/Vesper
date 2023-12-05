@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
 
     //Players refrences
-    private InputActionAsset actions;
+    [HideInInspector]public InputActionAsset actions;
     private DevButtons devButtons;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
