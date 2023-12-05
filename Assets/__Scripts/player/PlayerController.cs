@@ -50,12 +50,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
 
     //Players refrences
-    private InputActionAsset actions;
+    [HideInInspector]public InputActionAsset actions;
     private DevButtons devButtons;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
     private PlayerParticleEffect effects;
-    private Animator animator;
+    private SquishAndSquash squishAndSquash;
 
     //Sizes
     public Sizes currentSize { get; private set; }
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         devButtons = FindObjectOfType<DevButtons>();
         rayCastHandler = GetComponent<RayCastHandler>();
         effects = GetComponent<PlayerParticleEffect>();
-        animator = GetComponent<Animator>();
+        squishAndSquash = GetComponentInChildren<SquishAndSquash>();
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
     }
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
             effects.CreateLandDust();
             startedJump = false;
 
-            //animator.SetTrigger("squash");
+            squishAndSquash.Squish();
         }
 
 
@@ -217,7 +217,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferTimer = 0;
             isJumping = true;
 
-            //animator.SetTrigger("stretch");
+            squishAndSquash.Squash();
         }
         else if (!isJumping && rb.velocity.y > 0)
         {

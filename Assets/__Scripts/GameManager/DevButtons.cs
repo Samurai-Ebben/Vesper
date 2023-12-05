@@ -22,7 +22,7 @@ public class DevButtons : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerCollider2D = player.GetComponent<Collider2D>();
+        playerCollider2D = player.GetComponentInChildren<Collider2D>();
         playerRB2D = player.GetComponent<Rigidbody2D>();
         defaultGravity = playerRB2D.gravityScale;
         
