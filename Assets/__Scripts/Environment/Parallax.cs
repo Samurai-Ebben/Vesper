@@ -9,12 +9,12 @@ public class Parallax : MonoBehaviour
     public Vector2 parallaxMult;
     Transform cam;
     Vector3 lastCamPos;
-
+    public Transform player;
     float textureUnitSize;
 
     void Start()
     {
-        cam = Camera.main.transform;
+        cam = player.transform;
         lastCamPos = cam.position;
 
         Sprite sprite = GetComponent<SpriteRenderer>().sprite;
