@@ -18,6 +18,10 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(player.isJumping && player.currentSize == Sizes.SMALL) 
+        {
+        source.clip = jumpSmall;
+            source.Play();
+        }
     }
 }
