@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -46,17 +43,19 @@ public class LevelController : MonoBehaviour
         else
         {
             player.transform.position = currentCheckpoint;
-            ResetAllPlatforms();
+            ResettableObjectManager.Instance.ResetAllObjects();
+
+            //ResetAllPlatforms();
             //player.transform.position = spawnPoint.transform.position;
         }
     }
-    public void ResetAllPlatforms()
-    {
-        IReset[] platforms = FindObjectsOfType<Component>().OfType<IReset>().ToArray();
+    //public void ResetAllPlatforms()
+    //{
+    //    IReset[] platforms = FindObjectsOfType<Component>().OfType<IReset>().ToArray();
 
-        foreach (IReset platform in platforms)
-        {
-            platform.ResetPlatform();
-        }
-    }
+    //    foreach (IReset platform in platforms)
+    //    {
+    //        platform.Reset();
+    //    }
+    //}
 }

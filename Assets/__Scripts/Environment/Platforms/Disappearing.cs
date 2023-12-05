@@ -62,7 +62,12 @@ public class Disappearing : MonoBehaviour, IReset
         ongoingCoroutine = false;
     }
 
-    public void ResetPlatform()
+    public void SetPlayerOverlapping(bool boolean)
+    {
+        playerOverlapping = boolean;
+    }
+
+    public void Reset()
     {
         if (ongoingCoroutine)
         {
@@ -72,9 +77,13 @@ public class Disappearing : MonoBehaviour, IReset
         platformActive = true;
         platformSpriteRenderer.color = defaultColor;
     }
-
-    public void SetPlayerOverlapping(bool boolean)
+    private void OnEnable()
     {
-        playerOverlapping = boolean;
+        ResettableObjectManager.Instance?.RegisterObject(this);
+    }
+
+    private void OnDisable()
+    {
+        ResettableObjectManager.Instance?.UnregisterObject(this);
     }
 }

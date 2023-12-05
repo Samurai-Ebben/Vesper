@@ -1,5 +1,7 @@
 
+using UnityEngine;
+
 public interface IReset
 {
-    void ResetPlatform();
+    void Reset();
 }

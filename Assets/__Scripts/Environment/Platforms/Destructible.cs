@@ -41,11 +41,20 @@ public class Destructible : MonoBehaviour, IReset
         ongoingCoroutine = false;
     }
 
-    public void ResetPlatform()
+    public void Reset()
     {
         foreach (GameObject obj in terrainObject)
         {
             obj.SetActive(true);
         }
+    }
+    private void OnEnable()
+    {
+        ResettableObjectManager.Instance?.RegisterObject(this);
+    }
+
+    private void OnDisable()
+    {
+        ResettableObjectManager.Instance?.UnregisterObject(this);
     }
 }
