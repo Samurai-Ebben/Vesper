@@ -13,8 +13,6 @@ public class PlayerParticleEffect : MonoBehaviour
     public float sizeOffset = 1.2f;
     public float trailOffset = 1.2f;
 
-    public bool isJump = false;
-    public bool isLand = false;
     private void Start()
     {
         player  = GetComponent<PlayerController>();      
@@ -23,7 +21,6 @@ public class PlayerParticleEffect : MonoBehaviour
     private void Update()
     {
         ParticleSizeToPlayer();
-        PlayEffects();
     }
 
     private void ParticleSizeToPlayer()
@@ -34,11 +31,17 @@ public class PlayerParticleEffect : MonoBehaviour
         pfxShape.scale = player.transform.localScale * sizeOffset;
     }
 
-    private void PlayEffects()
+    public void CreateJumpDust()
     {
-        if(isJump)
-            jumpFx.Play();
-        if(isLand)
-            landFx.Play();
+        jumpFx.Play();
+    }
+
+    public void CreateLandDust()
+    {
+        landFx.Play();
+    }
+    public void StopLandDust()
+    {
+        landFx.Stop();
     }
 }

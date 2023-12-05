@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     private SizeStats sizeStats;
     private Rigidbody2D rb;
     private PlayerParticleEffect effects;
+    private Animator animator;
+
     //Sizes
     public Sizes currentSize { get; private set; }
 
@@ -92,6 +94,7 @@ public class PlayerController : MonoBehaviour
         devButtons = FindObjectOfType<DevButtons>();
         rayCastHandler = GetComponent<RayCastHandler>();
         effects = GetComponent<PlayerParticleEffect>();
+        animator = GetComponent<Animator>();
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
     }
@@ -117,10 +120,11 @@ public class PlayerController : MonoBehaviour
 
         if (hasLanded)
         {
+            effects.CreateLandDust();
             startedJump = false;
-            effects.isLand = true;
-        }
 
+            //animator.SetTrigger("squash");
+        }
 
 
         MoveX();
@@ -205,20 +209,19 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        effects.CreateJumpDust();
+        effects.StopLandDust();
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
-            effects.isJump = true;
-            
-            //TODO Animation stretch
+
+            //animator.SetTrigger("stretch");
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
-            //TODO Squash anim
-            //TODO ScreenShake
         }       
     }
 
@@ -264,10 +267,7 @@ public class PlayerController : MonoBehaviour
     void OnJumpStarted(InputAction.CallbackContext ctx)
     {
         startedJump = true;
-        if (!IsGrounded())
-        {
-            effects.isJump = true;
-        }
+
         if (ctx.performed)
         {
             jumpBufferTimer = jumpBufferTime;
@@ -278,7 +278,6 @@ public class PlayerController : MonoBehaviour
     void OnJumpCanceled(InputAction.CallbackContext ctx)
     {
         jumpBufferTimer -= jumpBufferTime;
-        effects.isJump = false;
         if (!ctx.performed && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);

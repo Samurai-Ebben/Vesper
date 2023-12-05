@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -10,9 +8,8 @@ public class LevelController : MonoBehaviour
     public GameObject spawnPoint;
     public GameObject playerPrefab;
 
-    
-    //[SerializeField]
-    //Vector3 currentCheckpoint;
+    [SerializeField]
+    Vector3 currentCheckpoint;
 
     GameObject playerHolder;
     [HideInInspector]public GameObject player;
@@ -21,14 +18,14 @@ public class LevelController : MonoBehaviour
     {
         //if (instance != null) return;
         //instance = this;
-        //currentCheckpoint = spawnPoint.transform.position;
+        currentCheckpoint = spawnPoint.transform.position;
         SpawnPlayer();
     }
 
     public void SetCheckpoint()
     {
-        //currentCheckpoint = player.transform.position;
-        spawnPoint.transform.position = player.transform.position;
+        currentCheckpoint = player.transform.position;
+        //spawnPoint.transform.position = player.transform.position;
     }
 
     public void SpawnPlayer()
@@ -45,7 +42,20 @@ public class LevelController : MonoBehaviour
         }
         else
         {
-            player.transform.position = spawnPoint.transform.position;
+            player.transform.position = currentCheckpoint;
+            ResettableObjectManager.Instance.ResetAllObjects();
+
+            //ResetAllPlatforms();
+            //player.transform.position = spawnPoint.transform.position;
         }
     }
+    //public void ResetAllPlatforms()
+    //{
+    //    IReset[] platforms = FindObjectsOfType<Component>().OfType<IReset>().ToArray();
+
+    //    foreach (IReset platform in platforms)
+    //    {
+    //        platform.Reset();
+    //    }
+    //}
 }
