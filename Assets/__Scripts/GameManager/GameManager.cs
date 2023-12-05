@@ -18,11 +18,4 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        //Debug.Log(Player.name);
-        //print(player.name);
-        
-    }
-
 }

@@ -32,7 +32,6 @@ public class LevelController : MonoBehaviour
     {
         playerHolder = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
         Player = playerHolder.GetComponentInChildren<PlayerController>().gameObject;
-        Debug.Log(Player.name);
 
     }
 
