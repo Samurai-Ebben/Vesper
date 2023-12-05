@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destructible : MonoBehaviour
+public class Destructible : MonoBehaviour, IReset
 {
     public List<GameObject> terrainObject;
 
@@ -39,5 +39,22 @@ public class Destructible : MonoBehaviour
         }
 
         ongoingCoroutine = false;
+    }
+
+    public void Reset()
+    {
+        foreach (GameObject obj in terrainObject)
+        {
+            obj.SetActive(true);
+        }
+    }
+    private void OnEnable()
+    {
+        ResettableObjectManager.Instance?.RegisterObject(this);
+    }
+
+    private void OnDisable()
+    {
+        ResettableObjectManager.Instance?.UnregisterObject(this);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class Disappearing : MonoBehaviour
+public class Disappearing : MonoBehaviour, IReset
 {
     public float sustainTime = 1f;
     public float cooldown = 0.5f;
@@ -14,6 +14,7 @@ public class Disappearing : MonoBehaviour
     bool platformActive = true;
     bool playerOverlapping;
     bool ongoingCoroutine;
+    Coroutine myCoroutine;
 
     public GameObject platform;
     SpriteRenderer platformSpriteRenderer;
@@ -21,7 +22,6 @@ public class Disappearing : MonoBehaviour
     void Start()
     {
         platformSpriteRenderer = platform.GetComponent<SpriteRenderer>();
-
         defaultColor = platformSpriteRenderer.color;
     }
 
@@ -41,7 +41,7 @@ public class Disappearing : MonoBehaviour
     {
         if (!ongoingCoroutine)
         {
-            StartCoroutine(DisappearAndComeBack());
+            myCoroutine = StartCoroutine(DisappearAndComeBack());
         }
     }
 
@@ -65,5 +65,25 @@ public class Disappearing : MonoBehaviour
     public void SetPlayerOverlapping(bool boolean)
     {
         playerOverlapping = boolean;
+    }
+
+    public void Reset()
+    {
+        if (ongoingCoroutine)
+        {
+            StopCoroutine(myCoroutine);
+            ongoingCoroutine = false;
+        }
+        platformActive = true;
+        platformSpriteRenderer.color = defaultColor;
+    }
+    private void OnEnable()
+    {
+        ResettableObjectManager.Instance?.RegisterObject(this);
+    }
+
+    private void OnDisable()
+    {
+        ResettableObjectManager.Instance?.UnregisterObject(this);
     }
 }
