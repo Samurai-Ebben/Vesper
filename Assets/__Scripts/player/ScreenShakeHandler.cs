@@ -20,15 +20,15 @@ public class ScreenShakeHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(controller.isFalling)
-        //{
-        //    StartCoroutine(ShakeScreen());
-        //    Debug.Log("shake");
-        //}
-        //if(!controller.isFalling ) 
-        //{
-        //    StopCoroutine(ShakeScreen());
-        //}
+        if (controller.hasLanded)
+        {
+            StartCoroutine(ShakeScreen());
+            Debug.Log("shake");
+        }
+        if (!controller.hasLanded)
+        {
+            StopCoroutine(ShakeScreen());
+        }
 
     }
     IEnumerator ShakeScreen()

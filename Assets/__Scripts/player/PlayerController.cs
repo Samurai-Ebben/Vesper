@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
     float jumpBufferTimer;
     public bool isBouncing;
 
+    float timer;
+    bool startedJump = false;
+    public bool hasLanded = false;
+
     [SerializeField]Vector2 groundCheckRad;
     
     [Header("||LAYERS||")]
@@ -94,6 +98,30 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (startedJump == true)
+        {
+            timer += 0.1f;
+        }    
+        if(startedJump == false) 
+        {
+            timer = 0;
+        }
+
+        if (timer > 1 && IsGrounded())
+        {
+            hasLanded = true;
+        }
+        else 
+            hasLanded = false;
+
+
+        if (hasLanded)
+        {
+            startedJump = false;
+        }
+
+
+
         MoveX();
         HandleCoyoteTime();
 
@@ -182,6 +210,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferTimer = 0;
             isJumping = true;
             effects.isJump = true;
+            
             //TODO Animation stretch
         }
         else if (!isJumping && rb.velocity.y > 0)
@@ -198,6 +227,8 @@ public class PlayerController : MonoBehaviour
         {
             coyoteTimer = coyoteTime;
             canJump = true;
+            
+            isJumping = false;
         }
         else
         {
@@ -231,6 +262,7 @@ public class PlayerController : MonoBehaviour
 
     void OnJumpStarted(InputAction.CallbackContext ctx)
     {
+        startedJump = true;
         if (!IsGrounded())
         {
             effects.isJump = true;
