@@ -98,11 +98,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (startedJump == true)
+        if (startedJump)
         {
             timer += 0.1f;
         }    
-        if(startedJump == false) 
+        if(!startedJump) 
         {
             timer = 0;
         }
@@ -118,6 +118,7 @@ public class PlayerController : MonoBehaviour
         if (hasLanded)
         {
             startedJump = false;
+            effects.isLand = true;
         }
 
 
@@ -271,7 +272,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpBufferTimer = jumpBufferTime;
             jumpPressed = true;
-            effects.isLand = false;
         }
     }
 
@@ -285,7 +285,6 @@ public class PlayerController : MonoBehaviour
             coyoteTimer = 0;
         }
         
-        effects.isLand = true;
     }
 
     public void Smaller(InputAction.CallbackContext ctx)
