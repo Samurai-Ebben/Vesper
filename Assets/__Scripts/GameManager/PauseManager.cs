@@ -21,7 +21,6 @@ public class PauseManager : MonoBehaviour
 
     private void Start()
     {
-        
         actions = player.GetComponent<PlayerInput>().actions;
         actions["Pause"].performed += OnPause;
         //actions["PauseTrigger"].canceled += OnPause;
@@ -30,20 +29,26 @@ public class PauseManager : MonoBehaviour
 
     private void OnDisable()
     {
-        actions["PauseTrigger"].performed -= OnPause;
+        actions["Pause"].performed -= OnPause;
 
         actions.Disable();
     }
 
-    void OnPause(InputAction.CallbackContext ctx)
+    public void OnPause(InputAction.CallbackContext ctx)
     {
-        isPaused = !isPaused;
         PauseTrigger();
     }
 
     public void PauseTrigger()
     {
+        isPaused = !isPaused;
         Time.timeScale = isPaused ? 0: 1;
         PauseMenuCanvas.SetActive(isPaused);
+    }
+
+    public void Replay()
+    {
+        PauseTrigger();
+        LevelController.instance.RespawnPlayer();
     }
 }
