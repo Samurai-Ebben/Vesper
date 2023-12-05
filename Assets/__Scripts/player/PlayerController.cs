@@ -31,14 +31,14 @@ public class PlayerController : MonoBehaviour
 
     bool isJumping              =       false;
     bool canJump                =       true;
-    bool jumpPressed            =       false;
+    public bool jumpPressed            =       false;
 
     float coyoteTimer;
     float jumpBufferTimer;
     public bool isBouncing;
 
     float timer;
-    bool startedJump = false;
+    public bool startedJump = false;
     public bool hasLanded = false;
 
     [SerializeField]Vector2 groundCheckRad;
