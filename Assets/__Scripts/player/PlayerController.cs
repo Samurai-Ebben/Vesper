@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     private SizeStats sizeStats;
     private Rigidbody2D rb;
     private PlayerParticleEffect effects;
+    private Animator animator;
+
     //Sizes
     public Sizes currentSize { get; private set; }
 
@@ -92,6 +94,7 @@ public class PlayerController : MonoBehaviour
         devButtons = FindObjectOfType<DevButtons>();
         rayCastHandler = GetComponent<RayCastHandler>();
         effects = GetComponent<PlayerParticleEffect>();
+        animator = GetComponent<Animator>();
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
     }
@@ -119,6 +122,8 @@ public class PlayerController : MonoBehaviour
         {
             effects.CreateLandDust();
             startedJump = false;
+
+            //animator.SetTrigger("squash");
         }
 
 
@@ -211,14 +216,12 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
-            
-            //TODO Animation stretch
+
+            //animator.SetTrigger("stretch");
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
-            //TODO Squash anim
-            //TODO ScreenShake
         }       
     }
 
