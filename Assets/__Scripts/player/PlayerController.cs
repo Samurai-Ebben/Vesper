@@ -117,8 +117,8 @@ public class PlayerController : MonoBehaviour
 
         if (hasLanded)
         {
+            effects.CreateLandDust();
             startedJump = false;
-            effects.isLand = true;
         }
 
 
@@ -205,12 +205,12 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        effects.CreateJumpDust();
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
-            effects.isJump = true;
             
             //TODO Animation stretch
         }
@@ -264,10 +264,7 @@ public class PlayerController : MonoBehaviour
     void OnJumpStarted(InputAction.CallbackContext ctx)
     {
         startedJump = true;
-        if (!IsGrounded())
-        {
-            effects.isJump = true;
-        }
+
         if (ctx.performed)
         {
             jumpBufferTimer = jumpBufferTime;
@@ -278,7 +275,6 @@ public class PlayerController : MonoBehaviour
     void OnJumpCanceled(InputAction.CallbackContext ctx)
     {
         jumpBufferTimer -= jumpBufferTime;
-        effects.isJump = false;
         if (!ctx.performed && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
