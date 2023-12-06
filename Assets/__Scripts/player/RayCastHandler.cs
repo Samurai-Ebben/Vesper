@@ -11,6 +11,9 @@ public class RayCastHandler : MonoBehaviour
     float mediumPlayerRay = 0.50f;
     float largePlayerRay = 0.75f;
 
+    public float sideCheckLength;
+    public float diagonalLength = 0.5f;
+
     public LayerMask isBlock;
 
     float drawRay = 1;
@@ -23,6 +26,9 @@ public class RayCastHandler : MonoBehaviour
     public bool largeCanChangeSize;
     public bool smallCanChangeSize;
 
+    public bool sideCheck;
+    public bool diagonalCheck;   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,17 +40,19 @@ public class RayCastHandler : MonoBehaviour
     void Update()
     {
         
-            smallCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red);
+            smallCanChangeSize = RayCastGenerator(smallPlayerRay, Vector2.up, Color.red);
         
+            largeCanChangeSize = RayCastGenerator(largePlayerRay, Vector2.up, Color.red);
         
-            largeCanChangeSize = RayCastGenerator(largePlayerRay, Color.red);
-        
-       
-            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red);
-        
+            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Vector2.up, Color.red);
 
 
-        bool RayCastGenerator(float characterSize, Color rayColor)
+            sideCheck = RayCastGenerator(sideCheckLength, Vector2.right, Color.green) || RayCastGenerator(sideCheckLength, Vector2.left, Color.green);
+            diagonalCheck = RayCastGenerator(diagonalLength, new Vector2(-1, 1), Color.green) || RayCastGenerator(diagonalLength, new Vector2(1, 1), Color.red);
+
+
+
+        bool RayCastGenerator(float characterSize, Vector2 direction, Color rayColor)
     {
         bool canChangeSize;
         if(characterSize == mediumPlayerRay)
@@ -71,26 +79,25 @@ public class RayCastHandler : MonoBehaviour
         
 
 
-        RaycastHit2D leftRay = Physics2D.Raycast(left, Vector2.up, characterSize, isBlock);
-        RaycastHit2D rightRay = Physics2D.Raycast(right, Vector2.up, characterSize, isBlock);
+        RaycastHit2D leftTopRay = Physics2D.Raycast(left, direction, characterSize, isBlock);
+        RaycastHit2D rightTopRay = Physics2D.Raycast(right, direction, characterSize, isBlock);
 
 
-
-        // for debug and colors
-        if (rayColor != Color.red)
+            // for debug and colors
+            if (rayColor != Color.red)
         {
-            Debug.DrawRay(left, Vector2.up * characterSize, rayColor);
-            Debug.DrawRay(right, Vector2.up * characterSize, rayColor);
+            Debug.DrawRay(left, direction * characterSize, rayColor);
+            Debug.DrawRay(right, direction * characterSize, rayColor);
 
-        }
+            }
         else
         {
-            Debug.DrawRay(left, Vector2.up * characterSize, Color.red);
-            Debug.DrawRay(right, Vector2.up * characterSize, Color.red);
+            Debug.DrawRay(left, direction * characterSize, Color.red);
+            Debug.DrawRay(right, direction * characterSize, Color.red);
 
-        }
+            }
 
-            canChangeSize = leftRay.collider == null && rightRay.collider == null;
+            canChangeSize = leftTopRay.collider == null && rightTopRay.collider == null;
             //Debug.Log(canChangeSize);
         return canChangeSize;
     }
