@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkingTheTop: 1.09
+  sideCheckLength: 0.5
   isBlock:
     serializedVersion: 2
     m_Bits: 8
@@ -409,6 +410,8 @@ MonoBehaviour:
   mediumCanChangeSize: 0
   largeCanChangeSize: 0
   smallCanChangeSize: 0
+  rightSide: 0
+  leftSide: 0
 --- !u!114 &3028978548451914271
 MonoBehaviour:
   m_ObjectHideFlags: 0
