@@ -24,7 +24,6 @@ public class Trampoline : MonoBehaviour
             player = other.gameObject.GetComponentInParent<PlayerController>();
             var rb2d = player.GetComponent<Rigidbody2D>();
 
-            //What is this for??
             if (usingGravityMultiplier)
             {
                 bounceForce = rb2d.gravityScale * GravityScaleMultiplier;

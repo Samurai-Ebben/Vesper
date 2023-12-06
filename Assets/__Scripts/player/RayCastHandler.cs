@@ -11,7 +11,7 @@ public class RayCastHandler : MonoBehaviour
     float mediumPlayerRay = 0.50f;
     float largePlayerRay = 0.75f;
 
-    public LayerMask isBlock;
+    public LayerMask isGround;
 
     float drawRay = 1;
 
@@ -34,66 +34,66 @@ public class RayCastHandler : MonoBehaviour
     void Update()
     {
         
-            smallCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red);
+        smallCanChangeSize = RayCastGenerator(smallPlayerRay, Color.red);
         
         
-            largeCanChangeSize = RayCastGenerator(largePlayerRay, Color.red);
+        largeCanChangeSize = RayCastGenerator(largePlayerRay, Color.red);
         
-       
-            mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red);
+        
+        mediumCanChangeSize = RayCastGenerator(mediumPlayerRay, Color.red);
         
 
 
         bool RayCastGenerator(float characterSize, Color rayColor)
-    {
-        bool canChangeSize;
-        if(characterSize == mediumPlayerRay)
         {
-            drawRay = drawRayForMedium;
-        }
+            bool canChangeSize;
+            if(characterSize == mediumPlayerRay)
+            {
+                drawRay = drawRayForMedium;
+            }
 
-        if(characterSize == smallPlayerRay) 
-        {
-            drawRay = drawRayForSmall;
-        }
+            if(characterSize == smallPlayerRay) 
+            {
+                drawRay = drawRayForSmall;
+            }
 
-        if(characterSize == largePlayerRay)
-        {
-            drawRay = drawRayForLarge;   
-        }
+            if(characterSize == largePlayerRay)
+            {
+                drawRay = drawRayForLarge;   
+            }
         
-            float leftOffset = transform.position.x - drawRay;
-            Vector3 left = new Vector3(leftOffset, transform.position.y);
+                float leftOffset = transform.position.x - drawRay;
+                Vector3 left = new Vector3(leftOffset, transform.position.y);
         
         
-            float rightOffset = transform.position.x + drawRay;
-            Vector3 right = new Vector3(rightOffset, transform.position.y);
+                float rightOffset = transform.position.x + drawRay;
+                Vector3 right = new Vector3(rightOffset, transform.position.y);
         
 
 
-        RaycastHit2D leftRay = Physics2D.Raycast(left, Vector2.up, characterSize, isBlock);
-        RaycastHit2D rightRay = Physics2D.Raycast(right, Vector2.up, characterSize, isBlock);
+            RaycastHit2D leftRay = Physics2D.Raycast(left, Vector2.up, characterSize, isGround);
+            RaycastHit2D rightRay = Physics2D.Raycast(right, Vector2.up, characterSize, isGround);
 
 
 
-        // for debug and colors
-        if (rayColor != Color.red)
-        {
-            Debug.DrawRay(left, Vector2.up * characterSize, rayColor);
-            Debug.DrawRay(right, Vector2.up * characterSize, rayColor);
+            // for debug and colors
+            if (rayColor != Color.red)
+            {
+                Debug.DrawRay(left, Vector2.up * characterSize, rayColor);
+                Debug.DrawRay(right, Vector2.up * characterSize, rayColor);
 
+            }
+            else
+            {
+                Debug.DrawRay(left, Vector2.up * characterSize, Color.red);
+                Debug.DrawRay(right, Vector2.up * characterSize, Color.red);
+
+            }
+
+                canChangeSize = leftRay.collider == null && rightRay.collider == null;
+                //Debug.Log(canChangeSize);
+            return canChangeSize;
         }
-        else
-        {
-            Debug.DrawRay(left, Vector2.up * characterSize, Color.red);
-            Debug.DrawRay(right, Vector2.up * characterSize, Color.red);
-
-        }
-
-            canChangeSize = leftRay.collider == null && rightRay.collider == null;
-            //Debug.Log(canChangeSize);
-        return canChangeSize;
-    }
 
     }
 

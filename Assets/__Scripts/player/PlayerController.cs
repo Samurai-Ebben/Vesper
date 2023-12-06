@@ -230,7 +230,15 @@ public class PlayerController : MonoBehaviour
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
-        }       
+            if(isSmall && rayCastHandler.smallCanChangeSize && Mathf.Abs(moveInput.x) > 0)
+            {
+                //velocityX += 1000.02f;
+                rb.velocity = new Vector2(rb.velocity.x + 10, 0);
+                print(moveInput.x);
+
+            }
+        }
+
     }
 
     void HandleCoyoteTime()
