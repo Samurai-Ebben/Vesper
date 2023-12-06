@@ -11,7 +11,7 @@ public class Rising : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.gameObject.GetComponent<PlayerController>();
+            player = other.gameObject.GetComponentInParent<PlayerController>();
 
             bool large = player.currentSize == Sizes.LARGE;
 
