@@ -16,6 +16,7 @@ public class Squeeze : MonoBehaviour
     {
         originalScale = transform.localScale;
         squeezedScale = originalScale;
+        squeezeAmount *= transform.localScale.y;
         squeezedScale.y *= squeezeAmount;
         originalPosition = transform.position;
     }
