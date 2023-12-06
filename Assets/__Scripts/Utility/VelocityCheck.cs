@@ -12,7 +12,7 @@ public class VelocityCheck : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController playerController = other.GetComponent<PlayerController>();
+            PlayerController playerController = other.GetComponentInParent<PlayerController>();
 
             if (playerController.GetMagnitude() < breakForce) return;
             if (playerController.currentSize != Sizes.LARGE) return;
