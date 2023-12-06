@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cfb8a0a6da7e44d9785e354ff6a96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakForce: 0
+  breakForce: 20
   sampleEvent:
     m_PersistentCalls:
       m_Calls:
