@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class ScreenShakeHandler : MonoBehaviour
 {
-    PlayerController controller;
+    PlayerController playerController;
     public float duration = 0.25f;
     public float strength = 0.5f;
 
     Vector3 origPos;
     public bool startTheShake;
-    // Start is called before the first frame update
+    
     void Start()
     {
         origPos = transform.position;
-        controller = FindAnyObjectByType<PlayerController>();
+        playerController = PlayerController.instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(controller.currentSize == Sizes.LARGE) 
+        if(playerController.currentSize == Sizes.LARGE) 
         { 
             StartShake();
         }
-
     }
 
     private void StartShake()
     {
-        if (controller.hasLanded)
+        if (playerController.hasLanded)
         {
             StartCoroutine(ShakeScreen());
-            Debug.Log("shake");
         }
-        if (!controller.hasLanded)
+        if (!playerController.hasLanded)
         {
             StopCoroutine(ShakeScreen());
         }

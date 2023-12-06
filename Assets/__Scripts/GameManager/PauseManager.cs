@@ -20,8 +20,8 @@ public class PauseManager : MonoBehaviour
 
     private void Start()
     {
-        actions = LevelController.instance.player.GetComponent<PlayerController>().actions;
-        print(actions);
+        var playerInput = PlayerController.player.GetComponent<PlayerInput>();
+        actions = playerInput.actions;
         actions["Pause"].performed += OnPause;
 
         actions.Enable();
