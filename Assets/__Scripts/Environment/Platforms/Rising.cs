@@ -7,6 +7,7 @@ public class Rising : MonoBehaviour
     //Takes in the moving platforms
     public List<RisingMovement> platforms;
     PlayerController player;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -50,15 +51,6 @@ public class Rising : MonoBehaviour
                     platform.Descend();
                 }
             }
-        }
-    }
-
-    IEnumerator DelayDescend()
-    {
-        yield return new WaitForSeconds(3);
-        foreach (var platform in platforms)
-        {
-            platform.Descend();
         }
     }
 }

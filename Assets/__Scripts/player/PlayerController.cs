@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
         instance = this;
         player = gameObject;
 
-        print(player);
         actions = GetComponent<PlayerInput>().actions;
         sizeStats = GetComponent<SizeStats>();
 
