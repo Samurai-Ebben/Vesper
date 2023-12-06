@@ -16,7 +16,7 @@ public class PauseManager : MonoBehaviour
 
     private void Awake()
     {
-        player = LevelController.instance.player;
+        player = PlayerController.player;
     }
 
     private void Start()

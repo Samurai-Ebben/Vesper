@@ -10,6 +10,10 @@ public enum Sizes { SMALL, MEDIUM, LARGE };
 
 public class PlayerController : MonoBehaviour
 {
+    // Singleton, reference to player object
+    public static GameObject player;
+    public static PlayerController instance;
+
     // Size
     public Sizes currentSize { get; private set; }
 
@@ -71,6 +75,10 @@ public class PlayerController : MonoBehaviour
     
     private void Awake()
     {
+        if (instance != null) return;
+        instance = this;
+        player = gameObject;
+
         actions = GetComponent<PlayerInput>().actions;
         sizeStats = GetComponent<SizeStats>();
 
