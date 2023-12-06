@@ -12,7 +12,7 @@ public class LevelController : MonoBehaviour
     Vector3 currentCheckpoint;
 
     GameObject playerHolder;
-    public GameObject Player { get; private set; }
+    public GameObject player { get; private set; }
 
     void Awake()
     {
@@ -24,26 +24,25 @@ public class LevelController : MonoBehaviour
 
     public void SetCheckpoint()
     {
-        currentCheckpoint = Player.transform.position;
+        currentCheckpoint = player.transform.position;
         //spawnPoint.transform.position = player.transform.position;
     }
 
     public void SpawnPlayer()
     {
         playerHolder = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
-        Player = playerHolder.GetComponentInChildren<PlayerController>().gameObject;
-
+        player = playerHolder.GetComponentInChildren<PlayerController>().gameObject;
     }
 
     public void RespawnPlayer()
     {
-        if (Player == null)
+        if (player == null)
         {
             SpawnPlayer();
         }
         else
         {
-            Player.transform.position = currentCheckpoint;
+            player.transform.position = currentCheckpoint;
             ResettableObjectManager.Instance.ResetAllObjects();
 
             //ResetAllPlatforms();
