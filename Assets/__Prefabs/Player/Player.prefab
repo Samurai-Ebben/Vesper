@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47be97bf4753fe4e961706336b83709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bigEnabled: 1
+  smallEnabled: 1
   jumpBufferTime: 0.05
   jumpHoldForce: 5
   coyoteTime: 0.15
@@ -278,12 +280,11 @@ MonoBehaviour:
   startedJump: 0
   hasLanded: 0
   groundCheckRad: {x: 0.91, y: 0.1}
-  isGround:
+  groundCheck: {fileID: 2067882930552435579}
+  layerIsGround:
     serializedVersion: 2
     m_Bits: 8
-  groundCheck: {fileID: 2067882930552435579}
   actions: {fileID: 0}
-  deltaMagnitude: 0
 --- !u!114 &4505907170274488285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,9 +440,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeForScaling: 5
-  smallCharacterAnimation: 0
-  mediumCharacterAnimation: 0
-  largeCharacterAnimation: 0
 --- !u!50 &8437562171648355718
 Rigidbody2D:
   serializedVersion: 4
