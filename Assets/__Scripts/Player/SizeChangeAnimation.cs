@@ -18,20 +18,20 @@ public class SizeChangeAnimation : MonoBehaviour
 
     void Update()
     {
-            if (playerController.currentSize == Sizes.SMALL)
-            {
-                ChangingAnimation("small");
-            }
+        if (playerController.currentSize == Sizes.SMALL)
+        {
+            ChangingAnimation("small");
+        }
 
-            if (playerController.currentSize == Sizes.LARGE)
-            {
-                ChangingAnimation("large");
-            }
+        if (playerController.currentSize == Sizes.LARGE)
+        {
+            ChangingAnimation("large");
+        }
 
-            if (playerController.currentSize == Sizes.MEDIUM)
-            {
-                ChangingAnimation("medium");
-            }
+        if (playerController.currentSize == Sizes.MEDIUM)
+        {
+            ChangingAnimation("medium");
+        }
     }
 
     void ChangingAnimation(string playerName)

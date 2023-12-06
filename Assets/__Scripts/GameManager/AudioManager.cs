@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
-        player = GameManager.instance.player.GetComponent<PlayerController>();
+        player = PlayerController.instance;
     }
     // Update is called once per frame
     void Update()

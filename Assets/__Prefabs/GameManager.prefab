@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 6823699174650878128}
   - component: {fileID: 6837686976041134658}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: StartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -517,10 +517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376413ea608654a45923178b1f269b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2702735996382199472}
-  playerPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
+  startPoint: {fileID: 2702735996382199472}
+  playerHolderPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
   currentCheckpoint: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
 --- !u!114 &7688715490172628815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,4 +544,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95e5ce9a331b9a429965312b6125645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}

@@ -5,57 +5,48 @@ public class LevelController : MonoBehaviour
     //Singleton
     public static LevelController instance;
 
-    public GameObject spawnPoint;
-    public GameObject playerPrefab;
-
     [SerializeField]
     Vector3 currentCheckpoint;
 
-    GameObject playerHolder;
-    public GameObject player { get; private set; }
+    public GameObject startPoint;
+    public GameObject playerHolderPrefab;
+    private GameObject player;
 
-    void Awake()
+    private void Awake()
     {
         if (instance != null) return;
         instance = this;
-        currentCheckpoint = spawnPoint.transform.position;
-        SpawnPlayer();
+    }
+
+    void Start()
+    {
+        currentCheckpoint = startPoint.transform.position;
+        
+        if (PlayerController.player != null) 
+        {
+            player = PlayerController.player;
+        }
+        else
+        {
+            SpawnPlayer();
+        }
+
+        RespawnPlayer();
     }
 
     public void SetCheckpoint()
     {
         currentCheckpoint = player.transform.position;
-        //spawnPoint.transform.position = player.transform.position;
     }
-
     public void SpawnPlayer()
     {
-        playerHolder = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
-        player = playerHolder.GetComponentInChildren<PlayerController>().gameObject;
+        Instantiate(playerHolderPrefab);
+        player = PlayerController.player;
     }
 
     public void RespawnPlayer()
     {
-        if (player == null)
-        {
-            SpawnPlayer();
-        }
-        else
-        {
-            player.transform.position = currentCheckpoint;
-            ResettableObjectManager.Instance.ResetAllObjects();
-
-            //ResetAllPlatforms();
-            //player.transform.position = spawnPoint.transform.position;
-        }
+        player.transform.position = currentCheckpoint;
+        ResettableObjectManager.Instance.ResetAllObjects();
     }
-    //public void ResetAllPlatforms()
-    //{
-    //    IReset[] platforms = FindObjectsOfType<Component>().OfType<IReset>().ToArray();
-
-    //    foreach (IReset platform in platforms)
-    //    {
-    //        platform.Reset();
-    //    }
-    //}
 }
