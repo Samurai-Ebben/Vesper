@@ -8,7 +8,6 @@ public class Rising : MonoBehaviour
     public List<RisingMovement> platforms;
     PlayerController player;
 
-    public float dureationOnTarget = 3;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -52,15 +51,6 @@ public class Rising : MonoBehaviour
                     platform.Descend();
                 }
             }
-        }
-    }
-
-    IEnumerator DelayDescend()
-    {
-        yield return new WaitForSeconds(dureationOnTarget);
-        foreach (var platform in platforms)
-        {
-            platform.Descend();
         }
     }
 }
