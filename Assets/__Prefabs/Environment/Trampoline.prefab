@@ -418,5 +418,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squeezeAmount: 0.8
-  squeezeSpeed: 2
-  returnSpeed: 10
+  squeezeSpeed: 10
+  returnSpeed: 5
