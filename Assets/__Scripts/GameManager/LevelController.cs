@@ -10,7 +10,7 @@ public class LevelController : MonoBehaviour
 
     public GameObject startPoint;
     public GameObject playerHolderPrefab;
-    private GameObject player;
+    public GameObject player { get; private set; }
 
     private void Awake()
     {
