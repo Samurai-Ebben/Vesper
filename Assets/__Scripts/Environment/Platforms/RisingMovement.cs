@@ -15,6 +15,7 @@ public class RisingMovement : MonoBehaviour
     public States currentState;
 
     public float timer;
+    [Range(0,50)]public float durationOnTarget = 4;
 
     void Start()
     {
@@ -63,7 +64,7 @@ public class RisingMovement : MonoBehaviour
             return;
         }
         currentState = States.DOWN;
-        timer = 2.7f;
+        timer = durationOnTarget;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
