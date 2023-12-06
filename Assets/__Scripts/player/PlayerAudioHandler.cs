@@ -9,7 +9,7 @@ public class PlayerAudioHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerController = LevelController.instance.player.GetComponent<PlayerController>();
+        playerController = PlayerController.instance;
         audioManager = FindAnyObjectByType<AudioManager>();
     }
 
