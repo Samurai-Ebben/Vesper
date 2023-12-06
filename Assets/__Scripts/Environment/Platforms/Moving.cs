@@ -48,19 +48,25 @@ public class Moving : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var player = other.transform.parent.GetComponent<PlayerHandler>();
-        if (player != null)
+        if (other.gameObject.CompareTag("Player"))
         {
-            player.SetParent(transform);
+            var playerHandler = PlayerController.player.transform.parent.GetComponent<PlayerHandler>();
+            if (playerHandler != null)
+            {
+                playerHandler.SetParent(transform);
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        var player = other.transform.parent.GetComponent<PlayerHandler>();
-        if (player != null)
+        if (other.gameObject.CompareTag("Player"))
         {
-            player.SetParent(null);
+            var playerHandler = PlayerController.player.transform.parent.GetComponent<PlayerHandler>();
+            if (playerHandler != null)
+            {
+                playerHandler.SetParent(null);
+            }
         }
     }
 
