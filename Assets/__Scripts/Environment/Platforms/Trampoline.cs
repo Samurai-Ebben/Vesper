@@ -21,7 +21,7 @@ public class Trampoline : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.gameObject.GetComponent<PlayerController>();
+            player = other.gameObject.GetComponentInParent<PlayerController>();
             var rb2d = player.GetComponent<Rigidbody2D>();
 
             //What is this for??
