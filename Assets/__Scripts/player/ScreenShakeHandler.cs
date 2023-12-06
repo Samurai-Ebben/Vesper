@@ -32,7 +32,6 @@ public class ScreenShakeHandler : MonoBehaviour
         if (controller.hasLanded)
         {
             StartCoroutine(ShakeScreen());
-            Debug.Log("shake");
         }
         if (!controller.hasLanded)
         {
