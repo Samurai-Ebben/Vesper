@@ -402,7 +402,7 @@ MonoBehaviour:
   checkingTheTop: 1.09
   isBlock:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   drawRayForMedium: 0.19
   drawRayForLarge: 0.45
   drawRayForSmall: 0.08
