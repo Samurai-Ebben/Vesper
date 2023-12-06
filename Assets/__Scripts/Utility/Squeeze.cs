@@ -26,7 +26,7 @@ public class Squeeze : MonoBehaviour
         {
             float deltaY = (originalScale.y - squeezedScale.y) / 2;
             transform.localScale = Vector3.Lerp(transform.localScale, squeezedScale, squeezeSpeed * Time.deltaTime);
-            transform.position = originalPosition + new Vector3(0, -deltaY, 0);
+            transform.position = originalPosition + transform.up * -deltaY;
 
             if (Vector3.Distance(transform.localScale, squeezedScale) < 0.01f)
             {
