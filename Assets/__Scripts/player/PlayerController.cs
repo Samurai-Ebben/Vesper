@@ -10,9 +10,17 @@ public enum Sizes { SMALL, MEDIUM, LARGE };
 
 public class PlayerController : MonoBehaviour
 {
-    RayCastHandler rayCastHandler;
+    // Size
+    public Sizes currentSize { get; private set; }
 
-    [Header("||PLAYER CONTROLS||")]
+    private bool isBig = false;
+    private bool isSmall = false;
+
+    [Header("Size Switch")]
+    public bool bigEnabled = true;
+    public bool smallEnabled = true;
+
+    // Player Controls
     float deacceleration   =   4;
     float acceleration     =   20;
     float maxSpeed         =   4;
@@ -21,8 +29,9 @@ public class PlayerController : MonoBehaviour
     Vector2 moveInput;
 
     bool  isFacingRight    =   true;
-
-    [Header("|Jumping Controls|")]
+    
+    // Jump
+    [Header("Jump Controls")]
     [SerializeField] float jumpBufferTime       =       0.1f;
     [SerializeField] float jumpHoldForce        =       5f;
     [SerializeField] float coyoteTime           =       0.15f;
@@ -30,8 +39,8 @@ public class PlayerController : MonoBehaviour
     float jumpForce             =       6.0f;
 
     public bool isJumping              =       false;
-    bool canJump                =       true;
     public bool jumpPressed            =       false;
+    bool canJump                       =       true;
 
     float coyoteTimer;
     float jumpBufferTimer;
@@ -41,34 +50,25 @@ public class PlayerController : MonoBehaviour
     public bool startedJump = false;
     public bool hasLanded = false;
 
-    [SerializeField]Vector2 groundCheckRad;
-    
-    [Header("||LAYERS||")]
-    [SerializeField] private LayerMask isGround;
-
-    [Header("||REFRENCES||")]
+    // Ground Check
+    [Header("Ground Check")]
+    [SerializeField] Vector2 groundCheckRad;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask layerIsGround;
 
-    //Players refrences
+    // Players references
     [HideInInspector]public InputActionAsset actions;
     private DevButtons devButtons;
     private SizeStats sizeStats;
     private Rigidbody2D rb;
     private PlayerParticleEffect effects;
     private SquishAndSquash squishAndSquash;
+    private RayCastHandler rayCastHandler;
 
-    //Sizes
-    public Sizes currentSize { get; private set; }
-
-    //Velocity Magnitude
+    // Velocity Magnitude
     private float currentMagnitude;
     private float prevMagnitude;
-    public float deltaMagnitude;
-
-    //Switch booleans.
-    bool isBig = false;
-    bool isSmall = false;
-
+    
     private void Awake()
     {
         actions = GetComponent<PlayerInput>().actions;
@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
 
         actions["Smaller"].started += Smaller;
         actions["Smaller"].canceled += SmallerCancel;
+
         actions["Larger"].started += Larger;
         actions["Larger"].canceled += LargerCancel;
 
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        devButtons = FindObjectOfType<DevButtons>();
+        devButtons = LevelController.instance.gameObject.GetComponent<DevButtons>();
         rayCastHandler = GetComponent<RayCastHandler>();
         effects = GetComponent<PlayerParticleEffect>();
         squishAndSquash = GetComponentInChildren<SquishAndSquash>();
@@ -137,12 +138,12 @@ public class PlayerController : MonoBehaviour
         }
 
         #region SwitchHandlers
-        if (isSmall)
+        if (isSmall && smallEnabled)
         {
             currentSize = Sizes.SMALL;
         }
 
-        if (isBig && rayCastHandler.largeCanChangeSize)
+        if (isBig && bigEnabled && rayCastHandler.largeCanChangeSize)
         {
             currentSize = Sizes.LARGE;
         }
@@ -158,7 +159,6 @@ public class PlayerController : MonoBehaviour
 
         prevMagnitude = currentMagnitude;
         currentMagnitude = rb.velocity.magnitude;
-        deltaMagnitude = currentMagnitude - prevMagnitude;
     }
 
     private void SwitchSize(Sizes size)
@@ -245,7 +245,7 @@ public class PlayerController : MonoBehaviour
     #region Checkers
     public bool IsGrounded()
     {
-        return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, isGround);
+        return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, layerIsGround);
     }
 
     #endregion
