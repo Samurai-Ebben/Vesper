@@ -14,6 +14,7 @@ public class RayCastHandler : MonoBehaviour
     public float sideCheckLength;
     public float diagonalLength = 0.5f;
 
+    //since this is ground, maybe rename it?
     public LayerMask isBlock;
 
     float drawRay = 1;
@@ -51,7 +52,7 @@ public class RayCastHandler : MonoBehaviour
             diagonalCheck = RayCastGenerator(diagonalLength, new Vector2(-1, 1), Color.green) || RayCastGenerator(diagonalLength, new Vector2(1, 1), Color.red);
 
 
-
+        //THIS IS INSIDE THE UPDATE FUNCTION!! not wrong just not very lovely.
         bool RayCastGenerator(float characterSize, Vector2 direction, Color rayColor)
     {
         bool canChangeSize;
