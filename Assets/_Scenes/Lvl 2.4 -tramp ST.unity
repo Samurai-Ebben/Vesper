@@ -12045,6 +12045,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 8594069013872250606, guid: d865087c389b19149850ed7c4254005d, type: 3}
+      propertyPath: returnSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594069013872250606, guid: d865087c389b19149850ed7c4254005d, type: 3}
+      propertyPath: squeezeSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
