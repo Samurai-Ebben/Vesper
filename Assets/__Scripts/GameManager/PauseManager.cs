@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -10,20 +11,44 @@ public class PauseManager : MonoBehaviour
     EventSystem events;
     bool isPaused = false;
 
+    GameObject player;
     public GameObject PauseMenuCanvas;
+
     private void Awake()
     {
-        actions = GameManager.instance.player.GetComponent<InputActionAsset>();
-        actions["Pause"].performed += OnPause;
+        player = LevelController.instance.Player;
     }
 
-    void OnPause(InputAction.CallbackContext ctx)
+    private void Start()
+    {
+        actions = player.GetComponent<PlayerInput>().actions;
+        actions["Pause"].performed += OnPause;
+        //actions["PauseTrigger"].canceled += OnPause;
+        actions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        actions["Pause"].performed -= OnPause;
+
+        actions.Disable();
+    }
+
+    public void OnPause(InputAction.CallbackContext ctx)
+    {
+        PauseTrigger();
+    }
+
+    public void PauseTrigger()
     {
         isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0: 1;
+        PauseMenuCanvas.SetActive(isPaused);
     }
 
-    void Pause()
+    public void Replay()
     {
-        PauseMenuCanvas.SetActive(isPaused);
+        PauseTrigger();
+        LevelController.instance.RespawnPlayer();
     }
 }
