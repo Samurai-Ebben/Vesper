@@ -11,19 +11,19 @@ public class PauseManager : MonoBehaviour
     EventSystem events;
     bool isPaused = false;
 
-    GameObject player;
+    //PlayerController player;
     public GameObject PauseMenuCanvas;
 
     private void Awake()
     {
-        player = PlayerController.player;
     }
 
     private void Start()
     {
-        actions = player.GetComponent<PlayerInput>().actions;
+        actions = LevelController.instance.player.GetComponent<PlayerController>().actions;
+        print(actions);
         actions["Pause"].performed += OnPause;
-        //actions["PauseTrigger"].canceled += OnPause;
+
         actions.Enable();
     }
 

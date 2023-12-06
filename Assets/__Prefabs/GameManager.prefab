@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 2404579666120525487}
   - component: {fileID: 7688715490172628815}
   - component: {fileID: 973706547002871020}
+  - component: {fileID: 2645581391340601248}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -517,9 +518,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376413ea608654a45923178b1f269b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCheckpoint: {x: 0, y: 0, z: 0}
   startPoint: {fileID: 2702735996382199472}
   playerHolderPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
-  currentCheckpoint: {x: 0, y: 0, z: 0}
 --- !u!114 &7688715490172628815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,8 +540,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7229780853740973210}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c95e5ce9a331b9a429965312b6125645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2645581391340601248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7229780853740973210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbaa54d8d0bf03b4092ee23ed7d66311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenuCanvas: {fileID: 0}
