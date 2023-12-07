@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        //print("RespawnPlayer() triggered");
         player.transform.position = currentCheckpoint;
         ResettableObjectManager.Instance.ResetAllObjects();
-        //print("RespawnPlayer() triggered");
     }
 }
