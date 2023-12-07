@@ -170,4 +170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.04
   strength: 0.02
+  vertical: 1
+  horizontal: 0
   startTheShake: 0
