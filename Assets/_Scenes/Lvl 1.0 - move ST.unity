@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: -0.006, y: -0.05}
+  parallaxMult: {x: -0.0006, y: -0.05}
 --- !u!1 &36617916
 GameObject:
   m_ObjectHideFlags: 0
@@ -8621,7 +8621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: -0.008, y: -0.07}
+  parallaxMult: {x: -0.0008, y: -0.07}
 --- !u!1 &915934876
 GameObject:
   m_ObjectHideFlags: 0
