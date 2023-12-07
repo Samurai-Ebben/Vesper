@@ -43,6 +43,7 @@ public class Destructible : MonoBehaviour, IReset
 
     public void Reset()
     {
+        //print("reset for destructible triggered");
         foreach (GameObject obj in terrainObject)
         {
             obj.SetActive(true);
