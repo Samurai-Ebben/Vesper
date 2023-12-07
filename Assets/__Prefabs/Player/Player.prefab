@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 3028978548451914271}
   - component: {fileID: -8290789070323797973}
   - component: {fileID: 8437562171648355718}
-  - component: {fileID: 3892758365342748225}
+  - component: {fileID: 8069778530931190723}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47be97bf4753fe4e961706336b83709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetLanding: 0.05
   bigEnabled: 1
   smallEnabled: 1
   jumpBufferTime: 0.05
@@ -472,7 +473,7 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3892758365342748225
+--- !u!114 &8069778530931190723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
