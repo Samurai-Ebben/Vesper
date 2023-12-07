@@ -86,7 +86,6 @@ public class RisingMovement : MonoBehaviour , IReset
     public void Reset()
     {
         transform.position = initialPosition;
-        currentState = States.DOWN;
     }
 
     private void OnEnable()

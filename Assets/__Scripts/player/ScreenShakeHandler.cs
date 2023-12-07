@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ScreenShakeHandler : MonoBehaviour
 {
-    PlayerController playerController;
     public float duration = 0.25f;
     public float strength = 0.5f;
 
@@ -12,35 +11,23 @@ public class ScreenShakeHandler : MonoBehaviour
     public bool horizontal;
 
     Vector3 origPos;
-    public bool startTheShake;
 
     Vector3 RandomPosition;
     
     void Start()
     {
         origPos = transform.position;
-        playerController = FindAnyObjectByType<PlayerController>();
     }
 
     void Update()
-    {
+    {        
         
-        if(playerController.currentSize == Sizes.LARGE) 
-        { 
-            StartShake();
-        }
+        
     }
 
-    private void StartShake()
+    public void StartShake()
     {
-        if (playerController.hasLanded)
-        {
             StartCoroutine(ShakeScreen());
-        }
-        if (!playerController.hasLanded)
-        {
-            StopCoroutine(ShakeScreen());
-        }
     }
 
     IEnumerator ShakeScreen()

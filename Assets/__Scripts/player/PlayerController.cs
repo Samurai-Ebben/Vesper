@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public static GameObject player;
     public static PlayerController instance;
 
+    ScreenShakeHandler screenShakeHandler;
+
     // Size
     public Sizes currentSize { get; private set; }
 
@@ -102,11 +104,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerAudioHandler = GetComponent<PlayerAudioHandler>();    
-        devButtons      =       LevelController.instance.gameObject.GetComponent<DevButtons>();
+        devButtons      =       GameManager.Instance.gameObject.GetComponent<DevButtons>();
         squishAndSquash =       GetComponentInChildren<SquishAndSquash>();
         effects         =       GetComponent<PlayerParticleEffect>();
         rayCastHandler  =       GetComponent<RayCastHandler>();
         rb              =       GetComponent<Rigidbody2D>();
+        screenShakeHandler =    FindAnyObjectByType<ScreenShakeHandler>();  
 
         //originalStretchAmount = squishAndSquash.stretchAmount;
 
@@ -135,6 +138,12 @@ public class PlayerController : MonoBehaviour
             effects.CreateLandDust();
             startedJump = false;
             squishAndSquash.Squish();
+
+            if(currentSize == Sizes.LARGE)
+            {
+                screenShakeHandler.StartShake();
+            }
+            
 
         }
 
