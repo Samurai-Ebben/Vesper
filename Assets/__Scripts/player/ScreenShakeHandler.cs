@@ -14,7 +14,7 @@ public class ScreenShakeHandler : MonoBehaviour
     void Start()
     {
         origPos = transform.position;
-        playerController = PlayerController.instance.GetComponent<PlayerController>();
+        playerController = PlayerController.instance;
     }
 
     void Update()

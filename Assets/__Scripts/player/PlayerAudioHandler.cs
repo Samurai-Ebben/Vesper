@@ -10,7 +10,9 @@ public class PlayerAudioHandler : MonoBehaviour
     void Start()
     {
         playerController = PlayerController.instance;
-        audioManager = FindAnyObjectByType<AudioManager>();
+        audioManager = LevelController.instance.GetComponent<AudioManager>();
+        
+        //audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     // Update is called once per frame
