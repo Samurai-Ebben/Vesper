@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private bool isBig = false;
     private bool isSmall = false;
 
+    public float offsetLanding = 0.05f;
+
     [Header("Size Switch")]
     public bool bigEnabled = true;
     public bool smallEnabled = true;
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
     private PlayerParticleEffect effects;
     private SquishAndSquash squishAndSquash;
     private RayCastHandler rayCastHandler;
+    PlayerAudioHandler playerAudioHandler;
     // Velocity Magnitude
     private float currentMagnitude;
     private float prevMagnitude;
@@ -99,6 +102,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        playerAudioHandler = GetComponent<PlayerAudioHandler>();    
         devButtons      =       LevelController.instance.gameObject.GetComponent<DevButtons>();
         squishAndSquash =       GetComponentInChildren<SquishAndSquash>();
         effects         =       GetComponent<PlayerParticleEffect>();
@@ -113,29 +117,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (startedJump)
+        if (!IsGrounded())
         {
-            timer += 0.1f;
-        }    
-        if(!startedJump) 
+            timer += Time.deltaTime;
+        }
+        else
         {
+            if (timer > offsetLanding)
+            {
+                LandingActions();
+            }
             timer = 0;
-        }
-
-        if (timer > 1 && IsGrounded())
-        {
-            hasLanded = true;
-        }
-        else 
-            hasLanded = false;
-
-
-        if (hasLanded)
-        {
-            effects.CreateLandDust();
-            startedJump = false;
-
-            squishAndSquash.Squish();
         }
 
 
@@ -155,12 +147,12 @@ public class PlayerController : MonoBehaviour
             currentSize = Sizes.SMALL;
         }
 
-        if (isBig && bigEnabled && rayCastHandler.largeCanChangeSize)
+        if (isBig && bigEnabled && rayCastHandler.largeCanChangeSize && (rayCastHandler.sideCheck) && rayCastHandler.diagonalCheck)
         {
             currentSize = Sizes.LARGE;
         }
 
-        if ((!isBig && !isSmall) && rayCastHandler.smallCanChangeSize)
+        if ((!isBig && !isSmall) && rayCastHandler.smallCanChangeSize && (rayCastHandler.sideCheck) && rayCastHandler.diagonalCheck)
         {
             currentSize = Sizes.MEDIUM;
 
@@ -361,5 +353,15 @@ public class PlayerController : MonoBehaviour
     {
         if (prevMagnitude != 0) return prevMagnitude;
         else return currentMagnitude;
+    }
+
+    private void LandingActions()
+    {
+        effects.CreateLandDust();
+        playerAudioHandler.PlayLandingSound();
+        squishAndSquash.Squish();
+
+
+        startedJump = false;
     }
 }
