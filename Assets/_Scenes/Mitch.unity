@@ -24914,10 +24914,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aede3a2aa2be54aabc0017190ea6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingRaw: 0
   usingGravityMultiplier: 0
-  rawBounceForce: 23.6
-  GravityScaleMultiplier: 5
+  usingVelocityMultiplier: 0
+  gravityScaleMultiplier: 5
+  velocityMultiplier: 0.1
+  maxBounceForce: 30
   bounceDelay: 0.1
   bounceForce: 0
 --- !u!60 &217831738
@@ -41167,10 +41168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aede3a2aa2be54aabc0017190ea6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingRaw: 0
   usingGravityMultiplier: 0
-  rawBounceForce: 200
-  GravityScaleMultiplier: 5
+  usingVelocityMultiplier: 0
+  gravityScaleMultiplier: 5
+  velocityMultiplier: 0.1
+  maxBounceForce: 30
   bounceDelay: 0.1
   bounceForce: 10
 --- !u!212 &713936238
@@ -41988,10 +41990,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aede3a2aa2be54aabc0017190ea6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingRaw: 0
   usingGravityMultiplier: 0
-  rawBounceForce: 200
-  GravityScaleMultiplier: 5
+  usingVelocityMultiplier: 0
+  gravityScaleMultiplier: 5
+  velocityMultiplier: 0.1
+  maxBounceForce: 30
   bounceDelay: 0.1
   bounceForce: 10
 --- !u!212 &1000758221
@@ -43103,6 +43106,18 @@ PrefabInstance:
     - target: {fileID: 236323281712716555, guid: d865087c389b19149850ed7c4254005d, type: 3}
       propertyPath: m_Name
       value: Trampoline
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508898739183122582, guid: d865087c389b19149850ed7c4254005d, type: 3}
+      propertyPath: velocityMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508898739183122582, guid: d865087c389b19149850ed7c4254005d, type: 3}
+      propertyPath: gravityScaleMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508898739183122582, guid: d865087c389b19149850ed7c4254005d, type: 3}
+      propertyPath: usingVelocityMultiplier
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
