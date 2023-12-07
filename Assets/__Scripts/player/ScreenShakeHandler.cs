@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class ScreenShakeHandler : MonoBehaviour
 {
-    public float duration = 0.25f;
-    public float strength = 0.5f;
+    [Header("Duration")]
+    public float destructionDuration = 0.04f;
+    public float jumpDuration = 0.07f;
+
+    [Header("Strength")]
+    public float strengthForDestruction = 0.1f;
+    public float strengthForJump = 0.01f;
 
     public bool vertical;
     public bool horizontal;
@@ -25,12 +30,17 @@ public class ScreenShakeHandler : MonoBehaviour
         
     }
 
-    public void StartShake()
+    public void JumpShake()
     {
-            StartCoroutine(ShakeScreen());
+            StartCoroutine(ShakeScreen(strengthForJump, jumpDuration));
     }
 
-    IEnumerator ShakeScreen()
+    public void DestructionShake()
+    {
+        StartCoroutine(ShakeScreen(strengthForDestruction, destructionDuration));
+    }
+
+    IEnumerator ShakeScreen(float strength, float duration)
     {
         if (vertical)
         {
