@@ -52,58 +52,57 @@ public class RayCastHandler : MonoBehaviour
             diagonalCheck = RayCastGenerator(diagonalLength, new Vector2(-1, 1), Color.green) || RayCastGenerator(diagonalLength, new Vector2(1, 1), Color.red);
 
 
-        //THIS IS INSIDE THE UPDATE FUNCTION!! not wrong just not very lovely.
         //Make this function more generic and better to read please.
-        bool RayCastGenerator(float characterSize, Vector2 direction, Color rayColor)
+   
+
+    }
+    bool RayCastGenerator(float characterSize, Vector2 direction, Color rayColor)
     {
         bool canChangeSize;
-        if(characterSize == mediumPlayerRay)
+        if (characterSize == mediumPlayerRay)
         {
             drawRay = drawRayForMedium;
         }
 
-            if(characterSize == smallPlayerRay) 
-            {
-                drawRay = drawRayForSmall;
-            }
+        if (characterSize == smallPlayerRay)
+        {
+            drawRay = drawRayForSmall;
+        }
 
-            if(characterSize == largePlayerRay)
-            {
-                drawRay = drawRayForLarge;   
-            }
-        
-                float leftOffset = transform.position.x - drawRay;
-                Vector3 left = new Vector3(leftOffset, transform.position.y);
-        
-        
-                float rightOffset = transform.position.x + drawRay;
-                Vector3 right = new Vector3(rightOffset, transform.position.y);
-        
+        if (characterSize == largePlayerRay)
+        {
+            drawRay = drawRayForLarge;
+        }
+
+        float leftOffset = transform.position.x - drawRay;
+        Vector3 left = new Vector3(leftOffset, transform.position.y);
+
+
+        float rightOffset = transform.position.x + drawRay;
+        Vector3 right = new Vector3(rightOffset, transform.position.y);
+
 
 
         RaycastHit2D leftTopRay = Physics2D.Raycast(left, direction, characterSize, isBlock);
         RaycastHit2D rightTopRay = Physics2D.Raycast(right, direction, characterSize, isBlock);
 
 
-            // for debug and colors
-            if (rayColor != Color.red)
+        // for debug and colors
+        if (rayColor != Color.red)
         {
             Debug.DrawRay(left, direction * characterSize, rayColor);
             Debug.DrawRay(right, direction * characterSize, rayColor);
 
-            }
+        }
         else
         {
             Debug.DrawRay(left, direction * characterSize, Color.red);
             Debug.DrawRay(right, direction * characterSize, Color.red);
 
-            }
+        }
 
-            canChangeSize = leftTopRay.collider == null && rightTopRay.collider == null;
-            //Debug.Log(canChangeSize);
+        canChangeSize = leftTopRay.collider == null && rightTopRay.collider == null;
+        //Debug.Log(canChangeSize);
         return canChangeSize;
     }
-
-    }
-
 }
