@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -47,8 +48,23 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+
         player.transform.position = currentCheckpoint;
+
         ResettableObjectManager.Instance.ResetAllObjects();
         //print("RespawnPlayer() triggered");
+    }
+     
+    public void Death()
+    {
+        StartCoroutine(DieDelay());
+    }
+
+    public IEnumerator DieDelay()
+    {
+        PlayerController.player.GetComponent<PlayerParticleEffect>().DeathParticle();
+
+        yield return new WaitForSeconds(.3f);
+        RespawnPlayer();
     }
 }

@@ -42,17 +42,16 @@ public class PlayerParticleEffect : MonoBehaviour
     {
         landFx.Play();
     }
+
     public void StopLandDust()
     {
         landFx.Stop();
     }
 
-    public IEnumerator DeathParticle()
+    public void DeathParticle()
     {
         pfx.Stop();
         trail.Stop();
-        deathFx.Play();
-        yield return new WaitForSeconds(0.3f);
-        GameManager.Instance.RespawnPlayer();
+        deathFx.Play();    
     }
 }
