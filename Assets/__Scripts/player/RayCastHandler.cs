@@ -53,6 +53,7 @@ public class RayCastHandler : MonoBehaviour
 
 
         //THIS IS INSIDE THE UPDATE FUNCTION!! not wrong just not very lovely.
+        //Make this function more generic and better to read please.
         bool RayCastGenerator(float characterSize, Vector2 direction, Color rayColor)
     {
         bool canChangeSize;

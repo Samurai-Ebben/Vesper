@@ -99,11 +99,12 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        devButtons = LevelController.instance.gameObject.GetComponent<DevButtons>();
-        rayCastHandler = GetComponent<RayCastHandler>();
-        effects = GetComponent<PlayerParticleEffect>();
-        squishAndSquash = GetComponentInChildren<SquishAndSquash>();
+        devButtons      =       LevelController.instance.gameObject.GetComponent<DevButtons>();
+        squishAndSquash =       GetComponentInChildren<SquishAndSquash>();
+        effects         =       GetComponent<PlayerParticleEffect>();
+        rayCastHandler  =       GetComponent<RayCastHandler>();
+        rb              =       GetComponent<Rigidbody2D>();
+
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
     }
@@ -146,6 +147,7 @@ public class PlayerController : MonoBehaviour
         }
 
         #region SwitchHandlers
+        //s/b-Enabled??
         if (isSmall && smallEnabled)
         {
             currentSize = Sizes.SMALL;
@@ -226,13 +228,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
 
             squishAndSquash.Squash();
-            var temp = squishAndSquash.stretchAmount;
-
-            //Colliosion handlar in tight spaces.
-            if (isSmall && !rayCastHandler.mediumCanChangeSize)
-                squishAndSquash.stretchAmount = 0.05f;
-            else
-                squishAndSquash.stretchAmount = temp;
+            SquashCollisionHandlar();
 
         }
         else if (!isJumping && rb.velocity.y > 0)
@@ -240,6 +236,21 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
 
+    }
+
+    /// <summary>
+    /// Checks for small spaces when in the current size to limit the stretch and make the player able 
+    /// to fit easily through the gaps.
+    /// </summary>
+    private void SquashCollisionHandlar()
+    {
+        //Colliosion handlar in tight spaces.
+        var temp = squishAndSquash.stretchAmount;
+
+        if (isSmall && !rayCastHandler.mediumCanChangeSize) //iscurrently small && cant get bigger (in tight spaces).
+            squishAndSquash.stretchAmount = 0.05f;
+        else
+            squishAndSquash.stretchAmount = temp;
     }
 
     void HandleCoyoteTime()
