@@ -6,11 +6,11 @@ public class Trampoline : MonoBehaviour
 {
     [Header("Push mode")]
     public bool usingGravityMultiplier;
-    public bool usingVelocityMultiplier;
+    public bool usingYVelocityMultiplier;
 
     [Header("Values")]
     public float gravityScaleMultiplier = 5;
-    public float velocityMultiplier = 0.1f;
+    public float yVelocityMultiplier = 0.1f;
     public float maxBounceForce = 30;
     public float bounceDelay = 0.1f;
     
@@ -31,9 +31,9 @@ public class Trampoline : MonoBehaviour
                 bounceForce += rb2d.gravityScale * gravityScaleMultiplier;
             }
 
-            if (usingVelocityMultiplier)
+            if (usingYVelocityMultiplier)
             {
-                bounceForce += player.GetMagnitude() * velocityMultiplier;
+                bounceForce += player.GetAbsoluteYVelocity() * yVelocityMultiplier;
             }
 
             if (bounceForce > maxBounceForce)

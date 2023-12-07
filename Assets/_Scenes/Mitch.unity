@@ -24915,9 +24915,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usingGravityMultiplier: 0
-  usingVelocityMultiplier: 0
+  usingYVelocityMultiplier: 0
   gravityScaleMultiplier: 5
-  velocityMultiplier: 0.1
+  yVelocityMultiplier: 0.1
   maxBounceForce: 30
   bounceDelay: 0.1
   bounceForce: 0
@@ -41169,9 +41169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usingGravityMultiplier: 0
-  usingVelocityMultiplier: 0
+  usingYVelocityMultiplier: 0
   gravityScaleMultiplier: 5
-  velocityMultiplier: 0.1
+  yVelocityMultiplier: 0.1
   maxBounceForce: 30
   bounceDelay: 0.1
   bounceForce: 10
@@ -41407,6 +41407,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   actions: {fileID: 0}
+  numberOfVelocitiesToRecord: 10
 --- !u!212 &827934703
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41794,6 +41795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platfrom Disappearing
       objectReference: {fileID: 0}
+    - target: {fileID: 2450363372204831268, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41991,9 +41996,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usingGravityMultiplier: 0
-  usingVelocityMultiplier: 0
+  usingYVelocityMultiplier: 0
   gravityScaleMultiplier: 5
-  velocityMultiplier: 0.1
+  yVelocityMultiplier: 0.1
   maxBounceForce: 30
   bounceDelay: 0.1
   bounceForce: 10
@@ -43106,6 +43111,14 @@ PrefabInstance:
     - target: {fileID: 236323281712716555, guid: d865087c389b19149850ed7c4254005d, type: 3}
       propertyPath: m_Name
       value: Trampoline
+      objectReference: {fileID: 0}
+    - target: {fileID: 236323281712716555, guid: d865087c389b19149850ed7c4254005d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508898739183122582, guid: d865087c389b19149850ed7c4254005d, type: 3}
+      propertyPath: usingYVelocityMultiplier
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

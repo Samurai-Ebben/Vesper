@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 //using System.Drawing;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -73,10 +70,16 @@ public class PlayerController : MonoBehaviour
     private SquishAndSquash squishAndSquash;
     private RayCastHandler rayCastHandler;
     PlayerAudioHandler playerAudioHandler;
+
     // Velocity Magnitude
     private float currentMagnitude;
     private float prevMagnitude;
-    
+    //private float currentYVelocity;
+    //private float prevYVelocity;
+
+    private List<float> yVelocities = new List<float>();
+    public int numberOfVelocitiesToRecord = 10;
+
     private void Awake()
     {
         if (instance != null) return;
@@ -115,6 +118,11 @@ public class PlayerController : MonoBehaviour
 
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
+    }
+
+    void FixedUpdate()
+    {
+        RecordYVelocity();
     }
 
     void Update()
@@ -374,5 +382,26 @@ public class PlayerController : MonoBehaviour
         else return currentMagnitude;
     }
 
+    internal float GetAbsoluteYVelocity()
+    {
+        for (int i = yVelocities.Count - 1; i >= 0; i--)
+        {
+            if (yVelocities[i] > 0.0001f)
+            {
+                return yVelocities[i];
+            }
+        }
 
+        return 0f;
+    }
+
+    void RecordYVelocity()
+    {
+        yVelocities.Add(Mathf.Abs(rb.velocity.y));
+
+        if (yVelocities.Count > numberOfVelocitiesToRecord)
+        {
+            yVelocities.RemoveAt(0);
+        }
+    }
 }
