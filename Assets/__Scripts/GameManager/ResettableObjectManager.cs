@@ -24,11 +24,6 @@ public class ResettableObjectManager : MonoBehaviour
         resettableObjects.Add(resetObject);
     }
 
-    public void UnregisterObject(IReset resetObject)
-    {
-        resettableObjects.Remove(resetObject);
-    }
-
     public void ResetAllObjects()
     {
         foreach (IReset resetObject in resettableObjects)
