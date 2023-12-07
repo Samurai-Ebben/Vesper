@@ -116,18 +116,28 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!IsGrounded())
+        if (startedJump)
         {
-            timer += Time.deltaTime;
+            timer += 0.1f;
+        }
+        if (!startedJump) 
+            timer = 0;
+
+        if (timer > 1 && IsGrounded())
+        {
+            hasLanded = true;
         }
         else
+            hasLanded = false;
+
+        if (hasLanded)
         {
-            if (timer > offsetLanding)
-            {
-                LandingActions();
-            }
-            timer = 0;
+            effects.CreateLandDust();
+            startedJump = false;
+            squishAndSquash.Squish();
+
         }
+
 
 
         MoveX();
@@ -358,13 +368,5 @@ public class PlayerController : MonoBehaviour
         else return currentMagnitude;
     }
 
-    private void LandingActions()
-    {
-        effects.CreateLandDust();
-        //playerAudioHandler.PlayLandingSound();
-        squishAndSquash.Squish();
 
-
-        startedJump = false;
-    }
 }
