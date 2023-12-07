@@ -358,7 +358,7 @@ public class PlayerController : MonoBehaviour
     private void LandingActions()
     {
         effects.CreateLandDust();
-        playerAudioHandler.PlayLandingSound();
+        //playerAudioHandler.PlayLandingSound();
         squishAndSquash.Squish();
 
 
