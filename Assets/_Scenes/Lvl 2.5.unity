@@ -6437,6 +6437,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5594029240579729494, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: startPoint
+      value: 
+      objectReference: {fileID: 746682928}
+    - target: {fileID: 5594029240579729494, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: playerHolderPrefab
+      value: 
+      objectReference: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
     - target: {fileID: 6256694413383269448, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.5
@@ -6514,6 +6522,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+--- !u!1 &746682928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2702735996382199472, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+  m_PrefabInstance: {fileID: 746682927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &753556204
 GameObject:
   m_ObjectHideFlags: 0
