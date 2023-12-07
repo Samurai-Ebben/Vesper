@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class RisingMovement : MonoBehaviour , IReset
 {
-
     public float targetHeight;
     public float riseSpeed = 2.0f;
     [Range(0,50)]public float durationOnTarget = 4;
 
     private Vector3 initialPosition;
-    private bool isRising = false;
+    //private bool isRising = false;
 
     private enum States {DOWN,UP };
     private States currentState;
@@ -87,6 +86,7 @@ public class RisingMovement : MonoBehaviour , IReset
     public void Reset()
     {
         transform.position = initialPosition;
+        currentState = States.DOWN;
     }
 
     private void OnEnable()
