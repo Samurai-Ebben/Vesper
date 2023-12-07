@@ -31466,6 +31466,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5594029240579729494, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: startPoint
+      value: 
+      objectReference: {fileID: 868756715}
+    - target: {fileID: 5594029240579729494, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: playerHolderPrefab
+      value: 
+      objectReference: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
     - target: {fileID: 6256694413383269448, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.35
@@ -37709,6 +37717,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.01}
+--- !u!1 &868756715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2702735996382199472, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+  m_PrefabInstance: {fileID: 217801682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &956190399
 GameObject:
   m_ObjectHideFlags: 0
