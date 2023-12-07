@@ -264,10 +264,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aede3a2aa2be54aabc0017190ea6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingRaw: 0
   usingGravityMultiplier: 1
-  rawBounceForce: 50
-  GravityScaleMultiplier: 2.9
+  usingVelocityMultiplier: 1
+  gravityScaleMultiplier: 1
+  velocityMultiplier: 1
+  maxBounceForce: 20
   bounceDelay: 0.1
   bounceForce: 0
 --- !u!61 &6746471483940611589

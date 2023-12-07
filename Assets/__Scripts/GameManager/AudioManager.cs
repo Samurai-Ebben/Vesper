@@ -14,23 +14,21 @@ public class AudioManager : MonoBehaviour
     public float landingSound = 2;
 
     public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium;
+    public List<AudioClip> clips;
     // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();
         player = PlayerController.instance;
+        clips = new List<AudioClip> { jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium };
+
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void PlayingAudio(AudioClip clip, float volume)
     {
        source.clip = clip;
        source.volume = volume;
         source.PlayOneShot(clip, volume);
+
 
     }
 }
