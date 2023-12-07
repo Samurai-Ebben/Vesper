@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     // Size
     public Sizes currentSize { get; private set; }
+    float originalStretchAmount;
 
     private bool isBig = false;
     private bool isSmall = false;
@@ -68,7 +69,6 @@ public class PlayerController : MonoBehaviour
     private PlayerParticleEffect effects;
     private SquishAndSquash squishAndSquash;
     private RayCastHandler rayCastHandler;
-
     // Velocity Magnitude
     private float currentMagnitude;
     private float prevMagnitude;
@@ -104,6 +104,8 @@ public class PlayerController : MonoBehaviour
         effects         =       GetComponent<PlayerParticleEffect>();
         rayCastHandler  =       GetComponent<RayCastHandler>();
         rb              =       GetComponent<Rigidbody2D>();
+
+        originalStretchAmount = squishAndSquash.stretchAmount;
 
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
@@ -228,7 +230,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
 
             squishAndSquash.Squash();
-            SquashCollisionHandlar();
+            SquashCollisionHandler();
 
         }
         else if (!isJumping && rb.velocity.y > 0)
@@ -242,15 +244,14 @@ public class PlayerController : MonoBehaviour
     /// Checks for small spaces when in the current size to limit the stretch and make the player able 
     /// to fit easily through the gaps.
     /// </summary>
-    private void SquashCollisionHandlar()
+    private void SquashCollisionHandler()
     {
         //Colliosion handlar in tight spaces.
-        var temp = squishAndSquash.stretchAmount;
 
         if (isSmall && !rayCastHandler.mediumCanChangeSize) //iscurrently small && cant get bigger (in tight spaces).
             squishAndSquash.stretchAmount = 0.05f;
         else
-            squishAndSquash.stretchAmount = temp;
+            squishAndSquash.stretchAmount = originalStretchAmount;
     }
 
     void HandleCoyoteTime()
