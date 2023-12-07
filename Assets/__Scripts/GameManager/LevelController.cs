@@ -16,12 +16,7 @@ public class LevelController : MonoBehaviour
     {
         if (instance != null) return;
         instance = this;
-    }
 
-    void Start()
-    {
-        currentCheckpoint = startPoint.transform.position;
-        
         if (PlayerController.player != null) 
         {
             player = PlayerController.player;
@@ -30,6 +25,12 @@ public class LevelController : MonoBehaviour
         {
             SpawnPlayer();
         }
+    }
+
+    void Start()
+    {
+        currentCheckpoint = startPoint.transform.position;
+        
 
         RespawnPlayer();
     }
