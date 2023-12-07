@@ -23,10 +23,9 @@ public class ScreenShakeHandler : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    {        
         if(playerController.currentSize == Sizes.LARGE) 
-        { 
+        {
             StartShake();
         }
     }
