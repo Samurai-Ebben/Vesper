@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
 
     // Size
     public Sizes currentSize { get; private set; }
-    float originalStretchAmount;
 
     private bool isBig = false;
     private bool isSmall = false;
@@ -109,7 +108,7 @@ public class PlayerController : MonoBehaviour
         rayCastHandler  =       GetComponent<RayCastHandler>();
         rb              =       GetComponent<Rigidbody2D>();
 
-        originalStretchAmount = squishAndSquash.stretchAmount;
+        //originalStretchAmount = squishAndSquash.stretchAmount;
 
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
@@ -239,9 +238,13 @@ public class PlayerController : MonoBehaviour
     private void SquashCollisionHandler()
     {
         //Colliosion handlar in tight spaces.
+        float originalStretchAmount = squishAndSquash.stretchAmount;
 
-        if (isSmall && !rayCastHandler.mediumCanChangeSize) //iscurrently small && cant get bigger (in tight spaces).
-            squishAndSquash.stretchAmount = 0.05f;
+        if (currentSize== Sizes.SMALL && !rayCastHandler.mediumCanChangeSize)
+        {
+            Debug.Log(rayCastHandler.mediumCanChangeSize);
+            squishAndSquash.stretchAmount = 0.0f;
+        }
         else
             squishAndSquash.stretchAmount = originalStretchAmount;
     }
