@@ -1,15 +1,17 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
     [Header("Push mode")]
-    public bool usingRaw;
     public bool usingGravityMultiplier;
+    public bool usingVelocityMultiplier;
 
     [Header("Values")]
-    public float rawBounceForce = 50;
-    public float GravityScaleMultiplier = 5;
+    public float gravityScaleMultiplier = 5;
+    public float velocityMultiplier = 0.1f;
+    public float maxBounceForce = 30;
     public float bounceDelay = 0.1f;
     
     [HideInInspector]
@@ -26,14 +28,17 @@ public class Trampoline : MonoBehaviour
 
             if (usingGravityMultiplier)
             {
-                bounceForce = rb2d.gravityScale * GravityScaleMultiplier;
-                usingRaw = false;
+                bounceForce += rb2d.gravityScale * gravityScaleMultiplier;
             }
 
-            else
+            if (usingVelocityMultiplier)
             {
-                bounceForce = rawBounceForce;
-                usingRaw = true;
+                bounceForce += player.GetMagnitude() * velocityMultiplier;
+            }
+
+            if (bounceForce > maxBounceForce)
+            {
+                bounceForce = maxBounceForce;
             }
 
             if (rb2d != null)
@@ -44,6 +49,8 @@ public class Trampoline : MonoBehaviour
 
                 StartCoroutine(EnableMovement());
             }
+
+            bounceForce = 0;
         }
     }
 

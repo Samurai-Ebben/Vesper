@@ -251,10 +251,7 @@ public class PlayerController : MonoBehaviour
         float originalStretchAmount = squishAndSquash.stretchAmount;
 
         if (currentSize== Sizes.SMALL && !rayCastHandler.mediumCanChangeSize)
-        {
-            Debug.Log(rayCastHandler.mediumCanChangeSize);
             squishAndSquash.stretchAmount = 0.0f;
-        }
         else
             squishAndSquash.stretchAmount = originalStretchAmount;
     }
