@@ -43,7 +43,6 @@ public class Destructible : MonoBehaviour, IReset
 
     public void Reset()
     {
-        //print("reset for destructible triggered");
         foreach (GameObject obj in terrainObject)
         {
             obj.SetActive(true);
@@ -51,15 +50,11 @@ public class Destructible : MonoBehaviour, IReset
     }
     private void OnEnable()
     {
-        ResettableObjectManager.Instance?.RegisterObject(this);
-        //print(this.name + " got added to list");
-
+        ResettableObjectManager.Instance.RegisterObject(this);
     }
 
     private void OnDisable()
     {
-        ResettableObjectManager.Instance?.UnregisterObject(this);
-        //print(this.name + " got removed from list");
-
+        ResettableObjectManager.Instance.UnregisterObject(this);
     }
 }
