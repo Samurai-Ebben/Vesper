@@ -18,6 +18,7 @@ public class RisingMovement : MonoBehaviour , IReset
 
     void Start()
     {
+        initialPosition = transform.position;
         currentState = States.DOWN;
         ResettableObjectManager.Instance?.RegisterObject(this);
     }
@@ -86,5 +87,6 @@ public class RisingMovement : MonoBehaviour , IReset
     public void Reset()
     {
         transform.position = initialPosition;
+        currentState = States.DOWN;
     }
 }
