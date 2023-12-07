@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerParticleEffect : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerParticleEffect : MonoBehaviour
     public ParticleSystem trail;
     public ParticleSystem jumpFx;
     public ParticleSystem landFx;
+    public ParticleSystem deathFx;
     private PlayerController player;
     public float sizeOffset = 1.2f;
     public float trailOffset = 1.2f;
@@ -43,5 +45,14 @@ public class PlayerParticleEffect : MonoBehaviour
     public void StopLandDust()
     {
         landFx.Stop();
+    }
+
+    public IEnumerator DeathParticle()
+    {
+        pfx.Stop();
+        trail.Stop();
+        deathFx.Play();
+        yield return new WaitForSeconds(0.3f);
+        GameManager.Instance.RespawnPlayer();
     }
 }
