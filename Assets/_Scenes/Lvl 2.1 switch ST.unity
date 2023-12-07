@@ -15845,7 +15845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: durationOnTarget
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16445,7 +16445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: durationOnTarget
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16541,7 +16541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: durationOnTarget
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16712,24 +16712,8 @@ PrefabInstance:
       value: PlatformRising (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
-      propertyPath: timer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
-      propertyPath: isRising
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
-      propertyPath: riseSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
-      propertyPath: targetHeight
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: durationOnTarget
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

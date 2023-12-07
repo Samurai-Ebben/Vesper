@@ -2,26 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RisingMovement : MonoBehaviour
+public class RisingMovement : MonoBehaviour , IReset
 {
 
     public float targetHeight;
     public float riseSpeed = 2.0f;
+    [Range(0,50)]public float durationOnTarget = 4;
 
     private Vector3 initialPosition;
-    public bool isRising = false;
+    private bool isRising = false;
 
-    public enum States {DOWN,UP };
-    public States currentState;
+    private enum States {DOWN,UP };
+    private States currentState;
 
-    public float timer;
-    [Range(0,50)]public float durationOnTarget = 4;
+    private float timer;
+
 
     void Start()
     {
-        initialPosition = transform.position;
         currentState = States.DOWN;
-
     }
 
     void Update()
@@ -83,5 +82,22 @@ public class RisingMovement : MonoBehaviour
         {
             player.SetParent(null);
         }
+    }
+
+    public void Reset()
+    {
+        transform.position = initialPosition;
+    }
+
+    private void OnEnable()
+    {
+        initialPosition = transform.position;
+
+        ResettableObjectManager.Instance?.RegisterObject(this);
+    }
+
+    private void OnDisable()
+    {
+        ResettableObjectManager.Instance?.UnregisterObject(this);
     }
 }
