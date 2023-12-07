@@ -14,11 +14,12 @@ public class ScreenShakeHandler : MonoBehaviour
     void Start()
     {
         origPos = transform.position;
-        playerController = PlayerController.instance.GetComponent<PlayerController>();
+        playerController = PlayerController.instance;
     }
 
     void Update()
     {
+        Debug.Log(playerController);
         if(playerController.currentSize == Sizes.LARGE) 
         { 
             StartShake();
