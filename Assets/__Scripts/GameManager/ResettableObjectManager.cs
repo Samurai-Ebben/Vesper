@@ -31,11 +31,8 @@ public class ResettableObjectManager : MonoBehaviour
 
     public void ResetAllObjects()
     {
-        //print("ResetAllObjects() triggered");
-
         foreach (IReset resetObject in resettableObjects)
         {
-            //print("in the list: " + resetObject);
             resetObject.Reset();
         }
     }
