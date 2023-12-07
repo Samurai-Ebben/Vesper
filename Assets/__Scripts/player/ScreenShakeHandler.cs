@@ -30,16 +30,9 @@ public class ScreenShakeHandler : MonoBehaviour
         }
     }
 
-    private void StartShake()
+    public void StartShake()
     {
-        if (playerController.hasLanded)
-        {
             StartCoroutine(ShakeScreen());
-        }
-        if (!playerController.hasLanded)
-        {
-            StopCoroutine(ShakeScreen());
-        }
     }
 
     IEnumerator ShakeScreen()
