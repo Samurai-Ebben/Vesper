@@ -13,6 +13,11 @@ public class Destructible : MonoBehaviour, IReset
     public bool respawnEnabled = false;
     public float respawnDelay = 5f;
 
+    private void Start()
+    {
+        ResettableObjectManager.Instance.RegisterObject(this);
+    }
+
     public void TriggerDestroy()
     {
         screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
@@ -50,14 +55,5 @@ public class Destructible : MonoBehaviour, IReset
         {
             obj.SetActive(true);
         }
-    }
-    private void OnEnable()
-    {
-        ResettableObjectManager.Instance.RegisterObject(this);
-    }
-
-    private void OnDisable()
-    {
-        ResettableObjectManager.Instance.UnregisterObject(this);
     }
 }

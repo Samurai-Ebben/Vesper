@@ -6521,6 +6521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443517483}
   - component: {fileID: 443517484}
+  - component: {fileID: 443517485}
   m_Layer: 0
   m_Name: ruins
   m_TagString: Untagged
@@ -6595,6 +6596,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &443517485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443517482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: -0.02}
 --- !u!1 &444723623
 GameObject:
   m_ObjectHideFlags: 0
@@ -7307,6 +7321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853056892}
   - component: {fileID: 853056893}
+  - component: {fileID: 853056894}
   m_Layer: 0
   m_Name: foreground_cave_3
   m_TagString: Untagged
@@ -7381,6 +7396,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &853056894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853056891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: -0.0006, y: -0.05}
 --- !u!1 &967923441
 GameObject:
   m_ObjectHideFlags: 0
@@ -7955,6 +7983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1387562987}
   - component: {fileID: 1387562988}
+  - component: {fileID: 1387562989}
   m_Layer: 0
   m_Name: foreground_cave_1
   m_TagString: Untagged
@@ -8029,6 +8058,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1387562989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387562986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: -0.001, y: -0.1}
 --- !u!1 &1416411346
 GameObject:
   m_ObjectHideFlags: 0
@@ -8207,6 +8249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1510450175}
   - component: {fileID: 1510450176}
+  - component: {fileID: 1510450177}
   m_Layer: 0
   m_Name: foreground_cave_2
   m_TagString: Untagged
@@ -8281,6 +8324,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1510450177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510450174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: -0.0008, y: -0.07}
 --- !u!1 &1595209275
 GameObject:
   m_ObjectHideFlags: 0
@@ -8731,6 +8787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1783576165}
   - component: {fileID: 1783576166}
+  - component: {fileID: 1783576167}
   m_Layer: 0
   m_Name: background_cave_gradient
   m_TagString: Untagged
@@ -8805,6 +8862,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1783576167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783576164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: -0.01}
 --- !u!1001 &1808940474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8882,6 +8952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1827603849}
   - component: {fileID: 1827603850}
+  - component: {fileID: 1827603851}
   m_Layer: 0
   m_Name: background_cave_1
   m_TagString: Untagged
@@ -8956,6 +9027,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1827603851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827603848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: -0.01}
 --- !u!1 &1863554064
 GameObject:
   m_ObjectHideFlags: 0
@@ -9085,6 +9169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2036267768}
   - component: {fileID: 2036267769}
+  - component: {fileID: 2036267770}
   m_Layer: 0
   m_Name: background_cave_gradient
   m_TagString: Untagged
@@ -9159,6 +9244,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2036267770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036267767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: -0.02}
 --- !u!1001 &2061115055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9231,6 +9329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129040595}
   - component: {fileID: 2129040596}
+  - component: {fileID: 2129040597}
   m_Layer: 0
   m_Name: background_cave_2
   m_TagString: Untagged
@@ -9305,6 +9404,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2129040597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129040594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: -0.01}
 --- !u!1001 &7232928111515571742
 PrefabInstance:
   m_ObjectHideFlags: 0
