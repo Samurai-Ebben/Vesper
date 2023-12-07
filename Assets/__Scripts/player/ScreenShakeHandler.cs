@@ -19,7 +19,6 @@ public class ScreenShakeHandler : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(playerController);
         if(playerController.currentSize == Sizes.LARGE) 
         { 
             StartShake();
