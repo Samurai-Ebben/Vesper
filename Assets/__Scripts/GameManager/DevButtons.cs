@@ -21,11 +21,6 @@ public class DevButtons : MonoBehaviour
 
     void Start()
     {
-        player = PlayerController.player;
-        playerCollider2D = player.GetComponentInChildren<Collider2D>();
-        playerRB2D = player.GetComponent<Rigidbody2D>();
-        defaultGravity = playerRB2D.gravityScale;
-        
         spawnAndCheckpoint = GetComponent<GameManager>();
         sceneHandler = GetComponent<SceneHandler>();
     }
@@ -86,7 +81,12 @@ public class DevButtons : MonoBehaviour
         // NoClip (fly, go through walls)
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
-            if(amGhost != true)
+            player = PlayerController.player;
+            playerCollider2D = player.GetComponentInChildren<Collider2D>();
+            playerRB2D = player.GetComponent<Rigidbody2D>();
+            defaultGravity = playerRB2D.gravityScale;
+
+            if (amGhost != true)
             {
                 playerCollider2D.enabled = false;
                 playerRB2D.gravityScale = 0;

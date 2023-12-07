@@ -17,7 +17,10 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null) return;
         Instance = this;
+    }
 
+    void Start()
+    {
         if (PlayerController.player != null) 
         {
             player = PlayerController.player;
@@ -26,12 +29,8 @@ public class GameManager : MonoBehaviour
         {
             SpawnPlayer();
         }
-    }
 
-    void Start()
-    {
         currentCheckpoint = startPoint.transform.position;
-
         RespawnPlayer();
     }
 
@@ -48,9 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        //print("RespawnPlayer() triggered");
         player.transform.position = currentCheckpoint;
-
         ResettableObjectManager.Instance.ResetAllObjects();
     }
      
