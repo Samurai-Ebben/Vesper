@@ -226,17 +226,18 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
 
             squishAndSquash.Squash();
+            var temp = squishAndSquash.stretchAmount;
+
+            //Colliosion handlar in tight spaces.
+            if (isSmall && !rayCastHandler.mediumCanChangeSize)
+                squishAndSquash.stretchAmount = 0.05f;
+            else
+                squishAndSquash.stretchAmount = temp;
+
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
-            if(isSmall && rayCastHandler.smallCanChangeSize && Mathf.Abs(moveInput.x) > 0)
-            {
-                //velocityX += 1000.02f;
-                rb.velocity = new Vector2(rb.velocity.x + 10, 0);
-                print(moveInput.x);
-
-            }
         }
 
     }
