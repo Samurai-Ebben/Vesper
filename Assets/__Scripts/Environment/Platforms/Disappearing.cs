@@ -24,8 +24,10 @@ public class Disappearing : MonoBehaviour, IReset
         platformSpriteRenderer = platform.GetComponent<SpriteRenderer>();
         defaultColor = platformSpriteRenderer.color;   
     }
-    void Start()
+
+    private void Start()
     {
+        ResettableObjectManager.Instance?.RegisterObject(this);
     }
 
     private void Update()
@@ -79,14 +81,5 @@ public class Disappearing : MonoBehaviour, IReset
         }
         platformActive = true;
         platformSpriteRenderer.color = defaultColor;
-    }
-    private void OnEnable()
-    {
-        ResettableObjectManager.Instance?.RegisterObject(this);
-    }
-
-    private void OnDisable()
-    {
-        ResettableObjectManager.Instance?.UnregisterObject(this);
     }
 }

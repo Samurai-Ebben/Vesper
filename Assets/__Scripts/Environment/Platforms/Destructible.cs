@@ -12,6 +12,11 @@ public class Destructible : MonoBehaviour, IReset
     public bool respawnEnabled = false;
     public float respawnDelay = 5f;
 
+    private void Start()
+    {
+        ResettableObjectManager.Instance.RegisterObject(this);
+    }
+
     public void TriggerDestroy()
     {
         if (!ongoingCoroutine)
@@ -47,18 +52,5 @@ public class Destructible : MonoBehaviour, IReset
         {
             obj.SetActive(true);
         }
-    }
-    private void OnEnable()
-    {
-        ResettableObjectManager.Instance?.RegisterObject(this);
-        //print(this.name + " got added to list");
-
-    }
-
-    private void OnDisable()
-    {
-        ResettableObjectManager.Instance?.UnregisterObject(this);
-        //print(this.name + " got removed from list");
-
     }
 }

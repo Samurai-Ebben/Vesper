@@ -16,10 +16,10 @@ public class RisingMovement : MonoBehaviour , IReset
 
     private float timer;
 
-
     void Start()
     {
         currentState = States.DOWN;
+        ResettableObjectManager.Instance?.RegisterObject(this);
     }
 
     void Update()
@@ -86,17 +86,5 @@ public class RisingMovement : MonoBehaviour , IReset
     public void Reset()
     {
         transform.position = initialPosition;
-    }
-
-    private void OnEnable()
-    {
-        initialPosition = transform.position;
-
-        ResettableObjectManager.Instance?.RegisterObject(this);
-    }
-
-    private void OnDisable()
-    {
-        ResettableObjectManager.Instance?.UnregisterObject(this);
     }
 }
