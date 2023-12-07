@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
             if(currentSize == Sizes.LARGE)
             {
-                screenShakeHandler.StartShake();
+                screenShakeHandler.JumpShake();
             }
             
 

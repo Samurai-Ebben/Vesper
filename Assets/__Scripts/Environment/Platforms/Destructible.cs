@@ -5,6 +5,7 @@ using UnityEngine;
 public class Destructible : MonoBehaviour, IReset
 {
     public List<GameObject> terrainObject;
+    ScreenShakeHandler screenShakeHandler;
 
     bool ongoingCoroutine;
 
@@ -19,8 +20,10 @@ public class Destructible : MonoBehaviour, IReset
 
     public void TriggerDestroy()
     {
+        screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
         if (!ongoingCoroutine)
         {
+            screenShakeHandler.DestructionShake();
             StartCoroutine(Destroy());
         }
     }
