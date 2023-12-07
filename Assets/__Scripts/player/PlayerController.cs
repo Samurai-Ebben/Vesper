@@ -150,12 +150,8 @@ public class PlayerController : MonoBehaviour
             if(currentSize == Sizes.LARGE)
             {
                 screenShakeHandler.JumpShake();
-            }
-            
-
+            }            
         }
-
-
 
         MoveX();
         HandleCoyoteTime();
@@ -167,7 +163,6 @@ public class PlayerController : MonoBehaviour
         }
 
         #region SwitchHandlers
-        //s/b-Enabled??
         if (isSmall && smallEnabled)
         {
             currentSize = Sizes.SMALL;
