@@ -23,24 +23,16 @@ public class ScreenShakeHandler : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    {        
         if(playerController.currentSize == Sizes.LARGE) 
-        { 
+        {
             StartShake();
         }
     }
 
-    private void StartShake()
+    public void StartShake()
     {
-        if (playerController.hasLanded)
-        {
             StartCoroutine(ShakeScreen());
-        }
-        if (!playerController.hasLanded)
-        {
-            StopCoroutine(ShakeScreen());
-        }
     }
 
     IEnumerator ShakeScreen()

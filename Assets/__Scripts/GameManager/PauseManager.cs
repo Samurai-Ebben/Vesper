@@ -49,6 +49,6 @@ public class PauseManager : MonoBehaviour
     public void Replay()
     {
         PauseTrigger();
-        LevelController.instance.RespawnPlayer();
+        GameManager.Instance.RespawnPlayer();
     }
 }
