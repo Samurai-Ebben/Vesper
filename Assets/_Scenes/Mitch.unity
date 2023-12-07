@@ -43107,18 +43107,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampoline
       objectReference: {fileID: 0}
-    - target: {fileID: 4508898739183122582, guid: d865087c389b19149850ed7c4254005d, type: 3}
-      propertyPath: velocityMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4508898739183122582, guid: d865087c389b19149850ed7c4254005d, type: 3}
-      propertyPath: gravityScaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4508898739183122582, guid: d865087c389b19149850ed7c4254005d, type: 3}
-      propertyPath: usingVelocityMultiplier
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
