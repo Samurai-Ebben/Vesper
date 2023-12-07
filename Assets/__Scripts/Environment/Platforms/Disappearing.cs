@@ -18,11 +18,14 @@ public class Disappearing : MonoBehaviour, IReset
 
     public GameObject platform;
     SpriteRenderer platformSpriteRenderer;
-    
-    void Start()
+
+    private void Awake()
     {
         platformSpriteRenderer = platform.GetComponent<SpriteRenderer>();
-        defaultColor = platformSpriteRenderer.color;
+        defaultColor = platformSpriteRenderer.color;   
+    }
+    void Start()
+    {
     }
 
     private void Update()
