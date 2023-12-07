@@ -10,7 +10,7 @@ public class PlayerAudioHandler : MonoBehaviour
     void Start()
     {
         playerController = PlayerController.instance;
-        audioManager = LevelController.instance.GetComponent<AudioManager>();
+        audioManager = GameManager.Instance.GetComponent<AudioManager>();
         
         //audioManager = FindAnyObjectByType<AudioManager>();
     }

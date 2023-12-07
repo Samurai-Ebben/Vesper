@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerAudioHandler = GetComponent<PlayerAudioHandler>();    
-        devButtons      =       LevelController.instance.gameObject.GetComponent<DevButtons>();
+        devButtons      =       GameManager.Instance.gameObject.GetComponent<DevButtons>();
         squishAndSquash =       GetComponentInChildren<SquishAndSquash>();
         effects         =       GetComponent<PlayerParticleEffect>();
         rayCastHandler  =       GetComponent<RayCastHandler>();
