@@ -17654,6 +17654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92804916}
   - component: {fileID: 92804917}
+  - component: {fileID: 92804918}
   m_Layer: 0
   m_Name: c
   m_TagString: Untagged
@@ -17728,6 +17729,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &92804918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92804915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &113217022
 GameObject:
   m_ObjectHideFlags: 0
@@ -17738,6 +17752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113217023}
   - component: {fileID: 113217024}
+  - component: {fileID: 113217025}
   m_Layer: 0
   m_Name: pillar_tall_2
   m_TagString: Untagged
@@ -17812,6 +17827,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &113217025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113217022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &231163514
 GameObject:
   m_ObjectHideFlags: 0
@@ -17941,6 +17969,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1708646440}
     m_Modifications:
+    - target: {fileID: 1792694970934827532, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -17989,6 +18021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Destructible
       objectReference: {fileID: 0}
+    - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98dff4be57da577498fb5df948890a50, type: 3}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SortingOrder
       value: 8
@@ -18110,6 +18146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421186580}
   - component: {fileID: 421186581}
+  - component: {fileID: 421186582}
   m_Layer: 0
   m_Name: pillar_double_2
   m_TagString: Untagged
@@ -18184,6 +18221,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &421186582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421186579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &428212462
 GameObject:
   m_ObjectHideFlags: 0
@@ -18381,6 +18431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 514024783}
   - component: {fileID: 514024784}
+  - component: {fileID: 514024785}
   m_Layer: 0
   m_Name: pillar_double_1
   m_TagString: Untagged
@@ -18455,6 +18506,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &514024785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514024782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &650987691
 GameObject:
   m_ObjectHideFlags: 0
@@ -18465,6 +18529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 650987692}
   - component: {fileID: 650987693}
+  - component: {fileID: 650987694}
   m_Layer: 0
   m_Name: pillar_1
   m_TagString: Untagged
@@ -18539,6 +18604,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &650987694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650987691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &720928715
 GameObject:
   m_ObjectHideFlags: 0
@@ -18549,6 +18627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 720928716}
   - component: {fileID: 720928717}
+  - component: {fileID: 720928718}
   m_Layer: 0
   m_Name: d
   m_TagString: Untagged
@@ -18623,6 +18702,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &720928718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720928715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &744864984
 GameObject:
   m_ObjectHideFlags: 0
@@ -18715,6 +18807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1708646440}
     m_Modifications:
+    - target: {fileID: 1792694970934827532, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.75
@@ -18764,6 +18860,10 @@ PrefabInstance:
       value: Platform Destructible (7)
       objectReference: {fileID: 0}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98dff4be57da577498fb5df948890a50, type: 3}
+    - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SortingOrder
       value: 8
       objectReference: {fileID: 0}
@@ -18782,6 +18882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 783871602}
   - component: {fileID: 783871603}
+  - component: {fileID: 783871604}
   m_Layer: 0
   m_Name: a
   m_TagString: Untagged
@@ -18856,6 +18957,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &783871604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783871601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &804578926
 GameObject:
   m_ObjectHideFlags: 0
@@ -19199,6 +19313,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1708646440}
     m_Modifications:
+    - target: {fileID: 1792694970934827532, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -19247,6 +19365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Destructible (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98dff4be57da577498fb5df948890a50, type: 3}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SortingOrder
       value: 8
@@ -19820,6 +19942,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1708646440}
     m_Modifications:
+    - target: {fileID: 1792694970934827532, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -19868,6 +19994,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Destructible (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98dff4be57da577498fb5df948890a50, type: 3}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SortingOrder
       value: 8
@@ -19976,6 +20106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1423600782}
   - component: {fileID: 1423600783}
+  - component: {fileID: 1423600784}
   m_Layer: 0
   m_Name: pillar_tall_1
   m_TagString: Untagged
@@ -20050,6 +20181,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1423600784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423600781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &1429827683
 GameObject:
   m_ObjectHideFlags: 0
@@ -20231,6 +20375,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1708646440}
     m_Modifications:
+    - target: {fileID: 1792694970934827532, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -20280,6 +20428,10 @@ PrefabInstance:
       value: Platform Destructible (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98dff4be57da577498fb5df948890a50, type: 3}
+    - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SortingOrder
       value: 8
       objectReference: {fileID: 0}
@@ -20303,6 +20455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664119476}
   - component: {fileID: 1664119477}
+  - component: {fileID: 1664119478}
   m_Layer: 0
   m_Name: pillar_5
   m_TagString: Untagged
@@ -20377,6 +20530,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1664119478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664119475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &1688761902
 GameObject:
   m_ObjectHideFlags: 0
@@ -20387,6 +20553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1688761903}
   - component: {fileID: 1688761904}
+  - component: {fileID: 1688761905}
   m_Layer: 0
   m_Name: b
   m_TagString: Untagged
@@ -20461,6 +20628,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1688761905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688761902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &1707951315
 GameObject:
   m_ObjectHideFlags: 0
@@ -20547,6 +20727,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1708646440}
     m_Modifications:
+    - target: {fileID: 1792694970934827532, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -20595,6 +20779,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Destructible (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98dff4be57da577498fb5df948890a50, type: 3}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SortingOrder
       value: 8
@@ -20740,6 +20928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1906982678}
   - component: {fileID: 1906982679}
+  - component: {fileID: 1906982680}
   m_Layer: 0
   m_Name: e
   m_TagString: Untagged
@@ -20814,6 +21003,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1906982680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906982677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxMult: {x: 0, y: 0}
 --- !u!4 &1912884058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
