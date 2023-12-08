@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2350422432543548552}
   - component: {fileID: 8823329071800335090}
   m_Layer: 0
-  m_Name: Platfrom Disappearing
+  m_Name: PlatfromDisappearing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

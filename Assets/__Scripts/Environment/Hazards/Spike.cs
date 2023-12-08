@@ -8,7 +8,7 @@ public class Spike : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.RespawnPlayer();
+            GameManager.Instance.Death();
         }
     }
 }
