@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -62,7 +63,6 @@ public class GameManager : MonoBehaviour
         PlayerController.player.GetComponent<PlayerParticleEffect>().DeathParticle();
 
         PlayerController.instance.rb.velocity = Vector2.zero;
-        //PlayerController.instance.rb.gravityScale = 0;
 
         yield return new WaitForSeconds(deathTime);
         RespawnPlayer();
