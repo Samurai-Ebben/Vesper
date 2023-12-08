@@ -1,9 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Moving : MonoBehaviour
 {
-    //public float waitDuration = 0.5f;
+    public float waitDuration;
 
     public List<Transform> coordinates;
     int currentIndex;
@@ -14,6 +15,8 @@ public class Moving : MonoBehaviour
     Transform start;
     Transform end;
 
+    bool move = true;
+
     void Start()
     {
         start = coordinates[0];
@@ -23,11 +26,15 @@ public class Moving : MonoBehaviour
 
     void FixedUpdate()
     {
-        percentageDistance += Time.deltaTime * speed;
-        transform.position = Vector3.Lerp(start.position, end.position, percentageDistance);
+        if (move)
+        {
+            percentageDistance += Time.deltaTime * speed;
+            transform.position = Vector3.Lerp(start.position, end.position, percentageDistance);
+        }
 
         if (percentageDistance >= 1)
         {
+            StartCoroutine(Wait());
             NextCycle();
         }
     }
@@ -44,6 +51,13 @@ public class Moving : MonoBehaviour
         }
 
         end = coordinates[currentIndex];
+    }
+
+    IEnumerator Wait()
+    {
+        move = false;
+        yield return new WaitForSeconds(waitDuration);
+        move = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
