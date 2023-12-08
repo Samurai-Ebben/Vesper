@@ -20148,7 +20148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.08}
+  parallaxMult: {x: 0, y: -0.01}
 --- !u!1 &551234259
 GameObject:
   m_ObjectHideFlags: 0
@@ -20516,7 +20516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.008}
+  parallaxMult: {x: 0, y: -0.001}
 --- !u!1001 &640385082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21504,7 +21504,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c4429377637d3324c8c8edb5883c0074, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21528,7 +21528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.01}
+  parallaxMult: {x: 0, y: -0.003}
 --- !u!1 &905963490
 GameObject:
   m_ObjectHideFlags: 0
@@ -21626,7 +21626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.04}
+  parallaxMult: {x: 0, y: -0.005}
 --- !u!1 &947612995
 GameObject:
   m_ObjectHideFlags: 0
@@ -22827,7 +22827,7 @@ Transform:
   m_GameObject: {fileID: 1221411598}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.010498, y: -1.2566415, z: -0.12805519}
+  m_LocalPosition: {x: 2.04, y: -1.85, z: -0.12805519}
   m_LocalScale: {x: 1.4009, y: 1.3201, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22897,7 +22897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.1}
+  parallaxMult: {x: 0, y: -0.025}
 --- !u!1001 &1237813137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23736,7 +23736,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 67e5c30fbcbe8464ea96003510a0375f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23760,7 +23760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.02}
+  parallaxMult: {x: 0, y: -0.003}
 --- !u!1 &1424832686
 GameObject:
   m_ObjectHideFlags: 0
@@ -23858,7 +23858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.06}
+  parallaxMult: {x: 0, y: -0.007}
 --- !u!1 &1425407252
 GameObject:
   m_ObjectHideFlags: 0
