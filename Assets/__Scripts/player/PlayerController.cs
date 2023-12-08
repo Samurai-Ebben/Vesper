@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]public InputActionAsset actions;
     private DevButtons devButtons;
     private SizeStats sizeStats;
-    private Rigidbody2D rb;
+    public  Rigidbody2D rb { get; private set; }
     private PlayerParticleEffect effects;
     private SquishAndSquash squishAndSquash;
     private RayCastHandler rayCastHandler;
@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        #region sound 
+        #region sound
         //if(currentSize == Sizes.SMALL) 
         //{
         //    audioManager.PlayingAudio(audioManager.jumpSmall, audioManager.jumpingVolume);
