@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
 
     private void MoveX()
     {
-        if (isBouncing && !IsGrounded()) return;
+        if (isBouncing /*&& !IsGrounded()*/) return;
 
         velocityX += moveInput.x * acceleration * Time.deltaTime;
         if (devButtons != null)
