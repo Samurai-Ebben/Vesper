@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class PlayerParticleEffect : MonoBehaviour
 {
-
+    ScreenShakeHandler cam;
     public ParticleSystem pfx;
     public ParticleSystem trail;
     public ParticleSystem jumpFx;
@@ -18,6 +18,7 @@ public class PlayerParticleEffect : MonoBehaviour
     private void Start()
     {
         player  = GetComponent<PlayerController>();      
+        cam = Camera.main.GetComponent<ScreenShakeHandler>();
     }
 
     private void Update()
@@ -50,6 +51,7 @@ public class PlayerParticleEffect : MonoBehaviour
 
     public void DeathParticle()
     {
+        cam.DeathShake();
         pfx.Stop();
         trail.Stop();
         deathFx.Play();    
