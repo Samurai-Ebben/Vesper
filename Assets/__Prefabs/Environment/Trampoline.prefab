@@ -266,8 +266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usingGravityMultiplier: 1
   usingYVelocityMultiplier: 1
-  gravityScaleMultiplier: 0.3
-  yVelocityMultiplier: 0.9
+  gravityScaleMultiplier: 0.8
+  yVelocityMultiplier: 0.8
   maxBounceForce: 34
   bounceDelay: 0.1
   bounceForce: 0
