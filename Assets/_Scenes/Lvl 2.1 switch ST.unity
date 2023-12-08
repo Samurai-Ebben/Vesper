@@ -13943,7 +13943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3062991760121829804, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_SortingOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3974034664008646628, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_Name
@@ -14017,6 +14017,10 @@ PrefabInstance:
       propertyPath: platforms.Array.data[3]
       value: 
       objectReference: {fileID: 1837666665}
+    - target: {fileID: 6582625186569609065, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
