@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerHolderPrefab;
     private GameObject player;
 
+    public float deathTime;
     private void Awake()
     {
         if (Instance != null) return;
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.player.GetComponent<PlayerParticleEffect>().DeathParticle();
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(deathTime);
         RespawnPlayer();
     }
 }
