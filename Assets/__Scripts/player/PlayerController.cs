@@ -257,6 +257,7 @@ public class PlayerController : MonoBehaviour
         #endregion
         effects.CreateJumpDust();
         effects.StopLandDust();
+            SquashCollisionHandler();
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
@@ -264,7 +265,6 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
 
             squishAndSquash.Squash();
-            SquashCollisionHandler();
 
         }
         else if (!isJumping && rb.velocity.y > 0)
