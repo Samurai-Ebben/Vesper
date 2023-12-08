@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/_Scenes/Lvl Cutscene 1 - intro.unity
+    guid: d551b98089cc6704b9d9fb3953d932af
   - enabled: 1
     path: Assets/_Scenes/Lvl 1.0 - move ST.unity
     guid: 4d6bfcb5fc2385a43ab7b069868c31eb
@@ -23,6 +26,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Lvl 1.5.unity
     guid: a0b70394bcfb16a4e82b520769643553
+  - enabled: 0
+    path: Assets/_Scenes/Lvl Cutscene 2 - caves.unity
+    guid: 177934be5c1dbc04caab8f12885a3ee1
   - enabled: 1
     path: Assets/_Scenes/Lvl 2.1 switch ST.unity
     guid: e97077a0fd54b6246828a475223c99c9
@@ -39,9 +45,15 @@ EditorBuildSettings:
     path: Assets/_Scenes/Lvl 2.5.unity
     guid: f43a826351b3b4843a7659990b28e0b8
   - enabled: 0
+    path: Assets/_Scenes/Lvl Cutscene 3 - gronud.unity
+    guid: f794d3592712a714c9357d8ffcf68dc5
+  - enabled: 0
     path: Assets/_Scenes/Lvl 3.1.unity
     guid: 26c3ad79ee0cc6b48a2db5aa22cc21c1
   - enabled: 1
     path: Assets/_Scenes/Lvl 13 - playtest final.unity
     guid: 8a696a6e6d10c8645a7323c8972c11ca
+  - enabled: 0
+    path: Assets/_Scenes/Lvl Cutscene 4 - ending.unity
+    guid: 9366bbefd23de6347882fff73baa4ade
   m_configObjects: {}
