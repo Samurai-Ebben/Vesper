@@ -7,10 +7,12 @@ public class ScreenShakeHandler : MonoBehaviour
     [Header("Duration")]
     public float destructionDuration = 0.04f;
     public float jumpDuration = 0.07f;
+    public float deathDuration = 0.04f;
 
     [Header("Strength")]
     public float strengthForDestruction = 0.1f;
     public float strengthForJump = 0.01f;
+    public float strengthForDeath = 0.04f;
 
     public bool vertical;
     public bool horizontal;
@@ -38,6 +40,12 @@ public class ScreenShakeHandler : MonoBehaviour
     public void DestructionShake()
     {
         StartCoroutine(ShakeScreen(strengthForDestruction, destructionDuration));
+    }
+    public void DeathShake()
+    {
+        vertical = false;
+        horizontal = false;
+        StartCoroutine(ShakeScreen(strengthForDeath, deathDuration));
     }
 
     IEnumerator ShakeScreen(float strength, float duration)
