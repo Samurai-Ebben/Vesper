@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     public static GameObject player;
     public static PlayerController instance;
 
-    ScreenShakeHandler screenShakeHandler;
+    ScreenShakeHandler screenShake;
+    AudioManager audioManager;
 
     // Size
     public Sizes currentSize { get; private set; }
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]public InputActionAsset actions;
     private DevButtons devButtons;
     private SizeStats sizeStats;
-    private Rigidbody2D rb;
+    public  Rigidbody2D rb { get; private set; }
     private PlayerParticleEffect effects;
     private SquishAndSquash squishAndSquash;
     private RayCastHandler rayCastHandler;
@@ -112,7 +113,8 @@ public class PlayerController : MonoBehaviour
         effects         =       GetComponent<PlayerParticleEffect>();
         rayCastHandler  =       GetComponent<RayCastHandler>();
         rb              =       GetComponent<Rigidbody2D>();
-        screenShakeHandler =    FindAnyObjectByType<ScreenShakeHandler>();  
+        screenShake     =       FindAnyObjectByType<ScreenShakeHandler>();  
+        //audioManager    =       FindAnyObjectByType<AudioManager>();
 
         //originalStretchAmount = squishAndSquash.stretchAmount;
 
@@ -149,7 +151,7 @@ public class PlayerController : MonoBehaviour
 
             if(currentSize == Sizes.LARGE)
             {
-                screenShakeHandler.JumpShake();
+                screenShake.JumpShake();
             }
             
 
@@ -239,6 +241,20 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        #region sound
+        //if(currentSize == Sizes.SMALL) 
+        //{
+        //    audioManager.PlayingAudio(audioManager.jumpSmall, audioManager.jumpingVolume);
+        //}
+        //else if (currentSize == Sizes.MEDIUM)
+        //{
+        //    audioManager.PlayingAudio(audioManager.jumpMedium, audioManager.jumpingVolume);
+        //}
+        //else if (currentSize == Sizes.LARGE)
+        //{
+        //    audioManager.PlayingAudio(audioManager.jumpBig, audioManager.jumpingVolume);
+        //}
+        #endregion
         effects.CreateJumpDust();
         effects.StopLandDust();
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
