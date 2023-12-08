@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.player.GetComponent<PlayerParticleEffect>().DeathParticle();
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.4f);
         RespawnPlayer();
     }
 }
