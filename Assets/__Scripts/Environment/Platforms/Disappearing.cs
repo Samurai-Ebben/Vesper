@@ -27,7 +27,7 @@ public class Disappearing : MonoBehaviour, IReset
 
     private void Start()
     {
-        ResettableObjectManager.Instance?.RegisterObject(this);
+        RegisterSelfToResettableManager();
     }
 
     private void Update()
@@ -81,5 +81,10 @@ public class Disappearing : MonoBehaviour, IReset
         }
         platformActive = true;
         platformSpriteRenderer.color = defaultColor;
+    }
+
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance?.RegisterObject(this);
     }
 }

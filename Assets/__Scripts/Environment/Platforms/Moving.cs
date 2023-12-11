@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Moving : MonoBehaviour
+public class Moving : MonoBehaviour, IReset
 {
     public float waitDuration;
 
@@ -11,6 +12,7 @@ public class Moving : MonoBehaviour
     
     public float percentageDistance;
     public float speed = 1f;
+    [Range(0,1)] public float startPercentageDistance;
 
     Transform start;
     Transform end;
@@ -19,9 +21,8 @@ public class Moving : MonoBehaviour
 
     void Start()
     {
-        start = coordinates[0];
-        end = coordinates[1];
-        currentIndex = 1;
+        RegisterSelfToResettableManager();
+        InitialValues();
     }
 
     void FixedUpdate()
@@ -84,5 +85,22 @@ public class Moving : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        InitialValues();
+    }
+
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance?.RegisterObject(this);
+    }
+
+    private void InitialValues()
+    {
+        start = coordinates[0];
+        end = coordinates[1];
+        currentIndex = 1;
+        percentageDistance = startPercentageDistance;
+    }
 }
 
