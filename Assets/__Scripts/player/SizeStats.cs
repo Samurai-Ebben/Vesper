@@ -53,6 +53,21 @@ public class SizeStats : MonoBehaviour
     float groundCheckSizeMediumY;
     float groundCheckSizeBigY;
 
+    [Space(10)]
+    [Range(0,10)]float airSpeedMultiSmall = .9f;
+    [Range(0, 10)] float airSpeedMultiMedium = 1f;
+    [Range(0, 10)] float airSpeedMultiLarge = 1f;
+
+    [Space(10)]
+    [Range(0, 10)] float airAccMultiSmall = 1f;
+    [Range(0, 10)] float airAccMultiMedium = 1f;
+    [Range(0, 10)] float airAccMultiLarge = 1f;
+
+    [Space(10)]
+    [Range(0, 10)] float airDecMultiSmall = .9f;
+    [Range(0, 10)] float airDecMultiMedium = .9f;
+    [Range(0, 10)] float airDecMultiLarge = .9f;
+
     void Start()
     {
         UpdateStatValues();
@@ -101,8 +116,11 @@ public class SizeStats : MonoBehaviour
             fallSpeedSmall,
             jumpCutOffSmall,
             groundCheckSizeSmallX,
-            groundCheckSizeSmallY
-        };
+            groundCheckSizeSmallY,
+            airSpeedMultiSmall,
+            airAccMultiSmall,
+            airDecMultiSmall
+    };
 
         statsMedium = new List<float>
         {
@@ -114,7 +132,10 @@ public class SizeStats : MonoBehaviour
             fallSpeedMedium,
             jumpCutOffMedium,
             groundCheckSizeMediumX,
-            groundCheckSizeMediumY
+            groundCheckSizeMediumY,
+            airSpeedMultiMedium,
+            airAccMultiMedium,
+            airDecMultiMedium
         };
 
         statsLarge = new List<float>
@@ -127,7 +148,10 @@ public class SizeStats : MonoBehaviour
             fallSpeedLarge,
             jumpCutOffLarge,
             groundCheckSizeBigX,
-            groundCheckSizeBigY
+            groundCheckSizeBigY,
+            airSpeedMultiLarge,
+            airAccMultiLarge,
+            airDecMultiLarge
 
         };
     }

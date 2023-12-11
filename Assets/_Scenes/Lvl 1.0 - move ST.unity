@@ -8648,12 +8648,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
+      propertyPath: airDec
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: bigEnabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: smallEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
