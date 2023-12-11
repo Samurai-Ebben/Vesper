@@ -221,12 +221,20 @@ public class PlayerController : MonoBehaviour
     {
         if (isBouncing) return;
 
+        var accOrigi = acceleration;
+        var maxSpeedOrig = maxSpeed;
         if (inAir)
         {
             maxSpeed *= airSpeedMulti;
             acceleration *= airAccMulti;
             //deacceleration *= airDecMulti;
         }
+        else
+        {
+            acceleration = accOrigi;
+            maxSpeed = maxSpeedOrig;
+        }
+
         velocityX += moveInput.x * acceleration * Time.deltaTime;
         if (devButtons != null)
         {
