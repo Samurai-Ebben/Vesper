@@ -15,7 +15,7 @@ public class Destructible : MonoBehaviour, IReset
 
     private void Start()
     {
-        ResettableObjectManager.Instance.RegisterObject(this);
+        RegisterSelfToResettableManager();
     }
 
     public void TriggerDestroy()
@@ -55,5 +55,10 @@ public class Destructible : MonoBehaviour, IReset
         {
             obj.SetActive(true);
         }
+
+    }
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance.RegisterObject(this);
     }
 }

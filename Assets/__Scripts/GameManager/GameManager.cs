@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     public void RespawnPlayer()
     {
         player.transform.position = currentCheckpoint;
-        ResettableObjectManager.Instance.ResetAllObjects();
+        ResettableManager.Instance.ResetAllObjects();
     }
      
     public void Death()
