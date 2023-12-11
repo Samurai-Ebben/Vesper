@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     public bool smallEnabled = true;
 
     // Player Controls
-    float deacceleration   =   4;
-    float acceleration     =   20;
+    [SerializeField] float deacceleration   =   4;
+    [SerializeField] float acceleration     =   20;
     [SerializeField]float maxSpeed         =   4;
     float speed;
     [SerializeField]float velocityX;
@@ -38,14 +38,13 @@ public class PlayerController : MonoBehaviour
     
     // Jump
     [Header("Jump Controls")]
-    [SerializeField] float jumpBufferTime       =       0.1f;
-    [SerializeField] float jumpHoldForce        =       5f;
-    [SerializeField] float coyoteTime           =       0.15f;
+    float jumpBufferTime        =       0.1f;
+    float jumpHoldForce         =       5f;
+    float coyoteTime            =       0.15f;
     float jumpCutOff            =       0.1f;
     float jumpForce             =       6.0f;
 
     public bool isJumping              =       false;
-    public bool inAir                  =       false;
     public bool jumpPressed            =       false;
     bool canJump                       =       true;
 
@@ -55,7 +54,13 @@ public class PlayerController : MonoBehaviour
 
     float timer;
     public bool startedJump = false;
-    public bool hasLanded = false;
+    public bool hasLanded   = false;
+
+    [Header("AirControls")]
+    public bool inAir       =       false;
+    float airSpeedMulti     =        .9f;
+    float airAccMulti       =        .9f;
+    float airDecMulti       =        .9f;
 
     // Ground Check
     [Header("Ground Check")]
@@ -133,6 +138,7 @@ public class PlayerController : MonoBehaviour
         if (startedJump)
         {
             timer += 0.1f;
+            inAir = true;
         }
         if (!startedJump) 
             timer = 0;
@@ -149,8 +155,9 @@ public class PlayerController : MonoBehaviour
             effects.CreateLandDust();
             startedJump = false;
             squishAndSquash.Squish();
+            inAir = false;
 
-            if(currentSize == Sizes.LARGE)
+            if (currentSize == Sizes.LARGE)
             {
                 screenShake.JumpShake();
             }
@@ -205,13 +212,21 @@ public class PlayerController : MonoBehaviour
         jumpCutOff              =       statList[6];
         groundCheckRad.x        =       statList[7];
         groundCheckRad.y        =       statList[8];
-
+        airSpeedMulti           =       statList[9];
+        airAccMulti             =       statList[10];
+        airDecMulti             =       statList[11];
     }
 
     private void MoveX()
     {
         if (isBouncing) return;
 
+        if (inAir)
+        {
+            maxSpeed *= airSpeedMulti;
+            acceleration *= airAccMulti;
+            //deacceleration *= airDecMulti;
+        }
         velocityX += moveInput.x * acceleration * Time.deltaTime;
         if (devButtons != null)
         {
@@ -223,21 +238,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        /*Do a flip 
-         * if (!isFacingRight && moveInput.x > 0)
-            Flip();
-        else if (isFacingRight && moveInput.x < 0)
-            Flip();
-        */
 
-        if (inAir)
-            velocityX /= 2;
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
 
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
+        {
+            if (inAir)
+            {
+                deacceleration *= airDecMulti;
+            }
             velocityX *= 1 - deacceleration * Time.deltaTime;
-
+        }
+            
         rb.velocity = new Vector2(velocityX, rb.velocity.y);
+
     }
 
     void Jump()
@@ -260,24 +274,23 @@ public class PlayerController : MonoBehaviour
         effects.CreateJumpDust();
         effects.StopLandDust();
         SquashCollisionHandler();
-        if(rb.velocity.y != 0 && !IsGrounded())
-        {
-            inAir = true;
-        }
-        else inAir = false;
+
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             jumpBufferTimer = 0;
             isJumping = true;
-
+            inAir = true;
             squishAndSquash.Squash();
+            Debug.Log("Jumping");
 
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
+            Debug.Log("JumpHold");
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
+
     }
 
     /// <summary>
