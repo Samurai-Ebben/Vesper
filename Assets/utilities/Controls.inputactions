@@ -274,6 +274,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2d0abcc8-d7eb-41ed-8267-5d91c3b31daa",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Smaller",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1639f870-03e3-47b7-a75e-63221fa17c66",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
@@ -298,6 +309,17 @@
                     "name": "",
                     "id": "8d5cf0f4-1a41-4ad6-ae0a-9ccec29f8dc4",
                     "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Larger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7024a788-6ca6-4b5c-bf9a-b8fe43ebdf70",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
