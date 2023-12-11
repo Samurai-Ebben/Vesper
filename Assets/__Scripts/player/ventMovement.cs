@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Profiling;
 
 public class ventMovement : MonoBehaviour
 {
@@ -8,24 +10,49 @@ public class ventMovement : MonoBehaviour
     public float moveSpeed = 5f; // Adjust as needed
     public LayerMask wallLayer; // LayerMask for collision detection with walls or obstacles
     private Vector2 inputDirection;
+    bool canMove = true;
+    private Rigidbody2D rb;
+    InputActionAsset actions;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        actions = GetComponent<PlayerInput>().actions;
+
+        actions["Move"].performed += OnMove;
+        //actions["Move"].canceled += Move;
+
+        actions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        actions["Move"].performed -= OnMove;
+    }
 
     void Update()
     {
-        inputDirection.x = Input.GetAxisRaw("Horizontal");
-        inputDirection.y = Input.GetAxisRaw("Vertical");
-
         Move();
+    }
+
+    void OnMove(InputAction.CallbackContext ctx)
+    {
+        inputDirection = ctx.ReadValue<Vector2>();
     }
 
     void Move()
     {
-        Vector3 currentPosition = transform.position;
-        Vector3 targetPosition = currentPosition + new Vector3(inputDirection.x, inputDirection.y, 0f);
+        rb.gravityScale = 0;
 
-        // Check if the target position is not blocked by a wall or obstacle
-        if (!Physics2D.OverlapPoint(targetPosition, wallLayer))
-        {
-            transform.position = Vector3.MoveTowards(currentPosition, targetPosition, moveSpeed * Time.deltaTime);
-        }
+        if (!canMove) return;
+
+        rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
+        //canMove = false;
+
+
     }
 }

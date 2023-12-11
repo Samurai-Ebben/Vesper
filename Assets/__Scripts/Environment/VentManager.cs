@@ -13,15 +13,14 @@ public class VentManager : MonoBehaviour
             player.bigEnabled = false;
             player.isBouncing = true;
             player.GetComponent<ventMovement>().enabled = true;
-        }
-        
+        }        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         player.GetComponent<ventMovement>().enabled = false;
         player.isBouncing = false;
+        player.bigEnabled = true;
 
     }
-
 }
