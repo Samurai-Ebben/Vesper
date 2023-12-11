@@ -29,9 +29,9 @@ public class PlayerController : MonoBehaviour
     // Player Controls
     float deacceleration   =   4;
     float acceleration     =   20;
-    float maxSpeed         =   4;
+    [SerializeField]float maxSpeed         =   4;
     float speed;
-    float velocityX;
+    [SerializeField]float velocityX;
     Vector2 moveInput;
 
     bool  isFacingRight    =   true;
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     float jumpForce             =       6.0f;
 
     public bool isJumping              =       false;
+    public bool inAir                  =       false;
     public bool jumpPressed            =       false;
     bool canJump                       =       true;
 
@@ -157,8 +158,6 @@ public class PlayerController : MonoBehaviour
 
         }
 
-
-
         MoveX();
         HandleCoyoteTime();
 
@@ -211,7 +210,7 @@ public class PlayerController : MonoBehaviour
 
     private void MoveX()
     {
-        if (isBouncing /*&& !IsGrounded()*/) return;
+        if (isBouncing) return;
 
         velocityX += moveInput.x * acceleration * Time.deltaTime;
         if (devButtons != null)
@@ -231,6 +230,8 @@ public class PlayerController : MonoBehaviour
             Flip();
         */
 
+        if (inAir)
+            velocityX /= 2;
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
 
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
@@ -255,9 +256,15 @@ public class PlayerController : MonoBehaviour
         //    audioManager.PlayingAudio(audioManager.jumpBig, audioManager.jumpingVolume);
         //}
         #endregion
+
         effects.CreateJumpDust();
         effects.StopLandDust();
-            SquashCollisionHandler();
+        SquashCollisionHandler();
+        if(rb.velocity.y != 0 && !IsGrounded())
+        {
+            inAir = true;
+        }
+        else inAir = false;
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
