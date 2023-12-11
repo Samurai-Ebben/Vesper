@@ -253,7 +253,7 @@
                 {
                     "name": "",
                     "id": "bc0afcc8-f739-46e9-888a-78b8598aab65",
-                    "path": "<Keyboard>/j",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -286,7 +286,7 @@
                 {
                     "name": "",
                     "id": "95fb3626-8991-4678-b76d-0f6e4eaa4364",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

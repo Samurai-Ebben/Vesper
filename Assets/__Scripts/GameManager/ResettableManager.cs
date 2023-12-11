@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ResettableObjectManager : MonoBehaviour
+public class ResettableManager : MonoBehaviour
 {
-    public static ResettableObjectManager Instance;
+    public static ResettableManager Instance;
 
     private List<IReset> resettableObjects = new List<IReset>();
 
