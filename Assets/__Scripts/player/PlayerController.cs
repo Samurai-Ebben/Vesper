@@ -290,12 +290,10 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             inAir = true;
             squishAndSquash.Squash();
-            Debug.Log("Jumping");
 
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
-            Debug.Log("JumpHold");
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
 
