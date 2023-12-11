@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScreenShakeHandler : MonoBehaviour
+public class ScreenShakeHandler : MonoBehaviour, IReset
 {
     [Header("Duration")]
     public float destructionDuration = 0.04f;
@@ -23,6 +23,7 @@ public class ScreenShakeHandler : MonoBehaviour
     
     void Start()
     {
+        RegisterSelfToResettableManager();
         origPos = transform.position;
     }
 
@@ -79,5 +80,14 @@ public class ScreenShakeHandler : MonoBehaviour
         transform.position = origPos;   
 
 
+    }
+
+    public void Reset()
+    {
+        vertical = true;
+    }
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance.RegisterObject(this);
     }
 }
