@@ -23,9 +23,6 @@ public class Moving : MonoBehaviour, IReset
     {
         RegisterSelfToResettableManager();
         InitialValues();
-
-        //print("startpos: " + startPercentageDistance);
-        //print("percentageDistance: " + percentageDistance);
     }
 
     void FixedUpdate()
@@ -91,10 +88,6 @@ public class Moving : MonoBehaviour, IReset
     public void Reset()
     {
         InitialValues();
-
-        //print("RESET TRIGGERED");
-        //print("startpos: " + startPercentageDistance);
-        //print("percentageDistance: " + percentageDistance);
     }
 
     public void RegisterSelfToResettableManager()
