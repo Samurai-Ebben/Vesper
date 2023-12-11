@@ -54,19 +54,19 @@ public class SizeStats : MonoBehaviour
     float groundCheckSizeBigY;
 
     [Space(10)]
-    [Range(0,10)]float airSpeedMultiSmall = .9f;
-    [Range(0, 10)] float airSpeedMultiMedium = 1f;
-    [Range(0, 10)] float airSpeedMultiLarge = 1f;
-
-    [Space(10)]
-    [Range(0, 10)] float airAccMultiSmall = 1f;
-    [Range(0, 10)] float airAccMultiMedium = 1f;
-    [Range(0, 10)] float airAccMultiLarge = 1f;
-
-    [Space(10)]
-    [Range(0, 10)] float airDecMultiSmall = .9f;
-    [Range(0, 10)] float airDecMultiMedium = .9f;
-    [Range(0, 10)] float airDecMultiLarge = .9f;
+    [Range(0,10)]  public float airSpeedMultiSmall = .9f;
+    [Range(0, 10)] public float airSpeedMultiMedium = 1f;
+    [Range(0, 10)] public float airSpeedMultiLarge = 1f;
+                    
+    [Space(10)]     
+    [Range(0, 10)] public float airAccMultiSmall = 1f;
+    [Range(0, 10)] public float airAccMultiMedium = 1f;
+    [Range(0, 10)] public float airAccMultiLarge = 1f;
+                   
+    [Space(10)]    
+    [Range(0, 10)] public float airDecMultiSmall = .9f;
+    [Range(0, 10)] public float airDecMultiMedium = .9f;
+    [Range(0, 10)] public float airDecMultiLarge = .9f;
 
     void Start()
     {
