@@ -20,6 +20,8 @@ public class VentManager : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         player.GetComponent<ventMovement>().enabled = false;
+        player.isBouncing = false;
+
     }
 
 }
