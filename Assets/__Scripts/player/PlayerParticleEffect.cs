@@ -51,7 +51,6 @@ public class PlayerParticleEffect : MonoBehaviour
 
     public void DeathParticle()
     {
-        cam.DeathShake();
         //pfx.Stop();
         //trail.Stop();
         deathFx.Play();    
