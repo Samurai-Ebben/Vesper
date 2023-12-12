@@ -11,9 +11,6 @@ public class PlayerController : MonoBehaviour
     public static GameObject player;
     public static PlayerController instance;
 
-    ScreenShakeHandler screenShake;
-    AudioManager audioManager;
-
     // Size
     public Sizes currentSize { get; private set; }
 
@@ -29,9 +26,9 @@ public class PlayerController : MonoBehaviour
     // Player Controls
     [SerializeField] float deacceleration   =   4;
     [SerializeField] float acceleration     =   20;
-    [SerializeField]float maxSpeed         =   4;
+    [SerializeField] float maxSpeed         =   4;
+    [SerializeField] float velocityX;
     float speed;
-    [SerializeField]float velocityX;
     Vector2 moveInput;
 
     bool  isFacingRight    =   true;
@@ -57,10 +54,10 @@ public class PlayerController : MonoBehaviour
     public bool hasLanded   = false;
 
     [Header("AirControls")]
-    public bool inAir       =       false;
-    float airSpeedMulti     =        .9f;
-    float airAccMulti       =        .9f;
-    float airDecMulti       =        .9f;
+    public bool inAir           =       false;
+    float airSpeedMultiplier    =        .9f;
+    float airAccMultiplier      =        .9f;
+    float airDecMultiplier      =        .9f;
 
     // Ground Check
     [Header("Ground Check")]
@@ -69,20 +66,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerIsGround;
 
     // Players references
-    [HideInInspector]public InputActionAsset actions;
-    private DevButtons devButtons;
-    private SizeStats sizeStats;
     public  Rigidbody2D rb { get; private set; }
-    private PlayerParticleEffect effects;
-    private SquishAndSquash squishAndSquash;
-    private RayCastHandler rayCastHandler;
+    [HideInInspector] public InputActionAsset actions;
+    DevButtons devButtons;
+    SizeStats sizeStats;
+    PlayerParticleEffect effects;
+    SquishAndSquash squishAndSquash;
+    RayCastHandler rayCastHandler;
+    ScreenShakeHandler screenShake;
     PlayerAudioHandler playerAudioHandler;
+    AudioManager audioManager;
 
     // Velocity Magnitude
     private float currentMagnitude;
     private float prevMagnitude;
-    //private float currentYVelocity;
-    //private float prevYVelocity;
 
     private List<float> yVelocities = new List<float>();
     public int numberOfVelocitiesToRecord = 10;
@@ -113,14 +110,14 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        playerAudioHandler = GetComponent<PlayerAudioHandler>();    
-        devButtons      =       GameManager.Instance.gameObject.GetComponent<DevButtons>();
-        squishAndSquash =       GetComponentInChildren<SquishAndSquash>();
-        effects         =       GetComponent<PlayerParticleEffect>();
-        rayCastHandler  =       GetComponent<RayCastHandler>();
-        rb              =       GetComponent<Rigidbody2D>();
-        screenShake     =       FindAnyObjectByType<ScreenShakeHandler>();  
-        //audioManager    =       FindAnyObjectByType<AudioManager>();
+        devButtons          =     GameManager.Instance.gameObject.GetComponent<DevButtons>();
+        playerAudioHandler  =     GetComponent<PlayerAudioHandler>();    
+        squishAndSquash     =     GetComponentInChildren<SquishAndSquash>();
+        effects             =     GetComponent<PlayerParticleEffect>();
+        rayCastHandler      =     GetComponent<RayCastHandler>();
+        rb                  =     GetComponent<Rigidbody2D>();
+        screenShake         =     FindAnyObjectByType<ScreenShakeHandler>();  
+        //audioManager      =     FindAnyObjectByType<AudioManager>();
 
         //originalStretchAmount = squishAndSquash.stretchAmount;
 
@@ -130,25 +127,39 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        MoveX();
+        Jump();
+        CoyoteTime();
         RecordYVelocity();
+        RecordMagnitude();
     }
 
     void Update()
+    {
+        JuiceFx();
+        SwitchSize();
+    }
+
+    private void JuiceFx()
     {
         if (startedJump)
         {
             timer += 0.1f;
             inAir = true;
         }
-        if (!startedJump) 
+        if (!startedJump)
+        {
             timer = 0;
+        }
 
         if (timer > 1 && IsGrounded())
         {
             hasLanded = true;
         }
         else
+        {
             hasLanded = false;
+        }
 
         if (hasLanded)
         {
@@ -161,21 +172,10 @@ public class PlayerController : MonoBehaviour
             {
                 screenShake.JumpShake();
             }
-            
-
         }
-
-        MoveX();
-        HandleCoyoteTime();
-
-        if (canJump && jumpPressed)
-        {
-            Jump();
-            jumpPressed = false;
-        }
-
-        #region SwitchHandlers
-        //s/b-Enabled??
+    }
+    private void SwitchSize()
+    {
         if (isSmall && smallEnabled)
         {
             currentSize = Sizes.SMALL;
@@ -189,21 +189,11 @@ public class PlayerController : MonoBehaviour
         if ((!isBig && !isSmall) && rayCastHandler.smallCanChangeSize && (rayCastHandler.sideCheck) && rayCastHandler.diagonalCheck)
         {
             currentSize = Sizes.MEDIUM;
-
         }
 
-        SwitchSize(currentSize);
-        #endregion
+        List<float> statList = sizeStats.ReturnStats(currentSize);
 
-        prevMagnitude = currentMagnitude;
-        currentMagnitude = rb.velocity.magnitude;
-    }
-
-    private void SwitchSize(Sizes size)
-    {
-        List<float> statList = sizeStats.ReturnStats(size);
-
-        transform.localScale = new Vector3(statList[0], statList[0], statList[0]);
+        transform.localScale    = new Vector3(statList[0], statList[0], statList[0]);
         maxSpeed                =       statList[1];
         acceleration            =       statList[2];
         deacceleration          =       statList[3];
@@ -212,30 +202,29 @@ public class PlayerController : MonoBehaviour
         jumpCutOff              =       statList[6];
         groundCheckRad.x        =       statList[7];
         groundCheckRad.y        =       statList[8];
-        airSpeedMulti           =       statList[9];
-        airAccMulti             =       statList[10];
-        airDecMulti             =       statList[11];
+        airSpeedMultiplier      =       statList[9];
+        airAccMultiplier        =       statList[10];
+        airDecMultiplier        =       statList[11];
     }
 
     private void MoveX()
     {
         if (isBouncing) return;
 
-        var accOrigi = acceleration;
-        var maxSpeedOrig = maxSpeed;
         if (inAir)
         {
-            maxSpeed *= airSpeedMulti;
-            acceleration *= airAccMulti;
+            maxSpeed *= airSpeedMultiplier;
+            acceleration *= airAccMultiplier;
             //deacceleration *= airDecMulti;
         }
         else
         {
-            acceleration = accOrigi;
-            maxSpeed = maxSpeedOrig;
+            maxSpeed /= airSpeedMultiplier;
+            acceleration /= airAccMultiplier;
         }
 
         velocityX += moveInput.x * acceleration * Time.deltaTime;
+
         if (devButtons != null)
         {
             if (devButtons.amGhost)
@@ -246,24 +235,29 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
         velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
 
         if (moveInput.x == 0 || (moveInput.x < 0 == velocityX > 0))
         {
             if (inAir)
             {
-                deacceleration *= airDecMulti;
+                deacceleration *= airDecMultiplier;
             }
             velocityX *= 1 - deacceleration * Time.deltaTime;
+
+            //if (rb.velocity.magnitude < 0.1f)
+            //{
+            //    velocityX = 0;
+            //}
         }
             
         rb.velocity = new Vector2(velocityX, rb.velocity.y);
-
     }
 
     void Jump()
     {
+        if (!canJump || !jumpPressed) return;
+        
         #region sound
         //if(currentSize == Sizes.SMALL) 
         //{
@@ -297,6 +291,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
 
+        jumpPressed = false;
     }
 
     /// <summary>
@@ -314,7 +309,7 @@ public class PlayerController : MonoBehaviour
             squishAndSquash.stretchAmount = originalStretchAmount;
     }
 
-    void HandleCoyoteTime()
+    void CoyoteTime()
     {
         if (IsGrounded())
         {
@@ -372,7 +367,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutOff);
             coyoteTimer = 0;
         }
-        
     }
 
     public void Smaller(InputAction.CallbackContext ctx)
@@ -410,11 +404,10 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    private void OnDrawGizmosSelected()
+    private void RecordMagnitude()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(groundCheck.position, groundCheckRad);
-        Gizmos.color = Color.red;
+        prevMagnitude = currentMagnitude;
+        currentMagnitude = rb.velocity.magnitude;
     }
 
     internal float GetMagnitude()
@@ -444,5 +437,12 @@ public class PlayerController : MonoBehaviour
         {
             yVelocities.RemoveAt(0);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(groundCheck.position, groundCheckRad);
+        Gizmos.color = Color.red;
     }
 }
