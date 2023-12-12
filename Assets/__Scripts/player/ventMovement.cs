@@ -7,10 +7,12 @@ using UnityEngine.Profiling;
 public class ventMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 5f; // Adjust as needed
-    public LayerMask wallLayer; // LayerMask for collision detection with walls or obstacles
-    private Vector2 inputDirection;
+    public float moveSpeed = 5f;
     bool canMove = true;
+
+    public LayerMask wayPoint;
+    private Vector2 inputDirection;
+
     private Rigidbody2D rb;
     InputActionAsset actions;
 

@@ -42,7 +42,6 @@ public class Rising : MonoBehaviour
 
                 }
             }
-
         }
     }
 
@@ -92,28 +91,23 @@ public class Rising : MonoBehaviour
             }
             timer = 0;
         }
-
     }
 
-
-    //private void OnTriggerStay2D(Collider2D other)
-    //{
-       
-    //    if (other.CompareTag("Player"))
-    //    {
-
-
-    //        foreach (var platform in platforms)
-    //        {
-    //            if (large)
-    //            {
-    //                platform.Rise();
-    //            }
-    //            else
-    //            {
-    //                platform.Descend();
-    //            }
-    //        }
-    //    }
-    //}
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            foreach (var platform in platforms)
+            {
+                if (large)
+                {
+                    platform.Rise();
+                }
+                else
+                {
+                    platform.Descend();
+                }
+            }
+        }
+    }
 }
