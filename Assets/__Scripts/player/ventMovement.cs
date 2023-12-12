@@ -4,21 +4,24 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Profiling;
 
-public class ventMovement : MonoBehaviour
+public class ventMovement : MonoBehaviour, IReset
 {
 
     public float moveSpeed = 5f;
     bool canMove = true;
 
     public LayerMask wayPoint;
-    private Vector2 inputDirection;
+    public Vector2 inputDirection {  get; private set; }
 
     private Rigidbody2D rb;
     InputActionAsset actions;
+    RayCastHandler rayCastHandler;
 
     private void Start()
     {
+        rayCastHandler = GetComponent<RayCastHandler>();
         rb = GetComponent<Rigidbody2D>();
+        RegisterSelfToResettableManager();
     }
 
     private void OnEnable()
@@ -47,9 +50,19 @@ public class ventMovement : MonoBehaviour
 
     void Move()
     {
-        rb.gravityScale = 0;        
-
+        rb.gravityScale = 0;
+        Debug.Log(inputDirection);
         rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
 
+    }
+
+    public void Reset()
+    {
+        inputDirection = Vector2.zero;
+    }
+
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance?.RegisterObject(this);
     }
 }
