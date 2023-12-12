@@ -6,32 +6,39 @@ public class Rising : MonoBehaviour
 {
     //Takes in the moving platforms
     public List<RisingMovement> platforms;
-    PlayerController player;
-    Animator anim;
+   
+    //  Animator anim;
+    public float pressedDistance;
+    private float timer;
+    private bool large;
+    private bool onMe;
+    private bool prevSize;
+    public Transform box;
+    private Vector3 stopPos;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        stopPos = Vector3.zero;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.gameObject.GetComponentInParent<PlayerController>();
-
-            bool large = player.currentSize == Sizes.LARGE;
-
+            if(onMe == false)
+            {
+                timer = 0;
+                onMe = true;
+            }
+        
             foreach (var platform in platforms)
             {
                 if(large)
                 {
                     platform.Rise();
-                    anim.SetBool("IsPressed", true);
                 }
                 else
                 {
                     platform.Descend();
-                    anim.SetBool("IsPressed", false);
 
                 }
             }
@@ -43,37 +50,50 @@ public class Rising : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            anim.SetBool("IsPressed", false);
-
+            if(onMe == true)
+            {
+                onMe = false;
+                timer = 0;
+                stopPos = box.transform.localPosition;
+            }
             foreach (var platform in platforms)
                 platform.Descend();
         }
 
     }
 
-
-    private void OnTriggerStay2D(Collider2D other)
+    public void Update()
     {
-       
-        if (other.CompareTag("Player"))
+        timer += Time.deltaTime;
+        if(onMe)
         {
-
-            bool large = player.currentSize == Sizes.LARGE;
-
-            foreach (var platform in platforms)
+            if (large)
             {
-                if (large)
-                {
-                    platform.Rise();
-                    anim.SetBool("IsPressed", true);
-                }
-                else
-                {
-                    platform.Descend();
-                    anim.SetBool("IsPressed", false);
-
-                }
+                box.localPosition = Vector3.Lerp(Vector3.zero, Vector3.down * pressedDistance, timer);
+            }
+            else
+            {
+                box.localPosition = Vector3.Lerp(stopPos, Vector3.zero, timer);
             }
         }
+      
+        else
+        {
+            box.localPosition = Vector3.Lerp(stopPos, Vector3.zero, timer);
+        }
+
+        prevSize = large;
+        large = PlayerController.instance.currentSize == Sizes.LARGE;
+        if(prevSize != large)
+        {
+            if(large == false)
+            {
+                stopPos = box.transform.localPosition;
+            }
+            timer = 0;
+        }
+
     }
+
+
 }
