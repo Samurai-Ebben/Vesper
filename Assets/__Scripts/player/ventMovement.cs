@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Profiling;
 
-public class ventMovement : MonoBehaviour, IReset
+public class VentMovement : MonoBehaviour, IReset
 {
 
     public float moveSpeed = 5f;
@@ -36,6 +38,10 @@ public class ventMovement : MonoBehaviour, IReset
     private void OnDisable()
     {
         actions["Move"].performed -= OnMove;
+
+        inputDirection = Vector2.zero;
+        //actions.Disable();
+
     }
 
     void Update()

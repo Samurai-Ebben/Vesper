@@ -196,11 +196,11 @@ GameObject:
   - component: {fileID: 1996938895583593536}
   - component: {fileID: 2001940146935406576}
   - component: {fileID: 4505907170274488285}
+  - component: {fileID: 7074607068600479384}
   - component: {fileID: 3735912514214847531}
   - component: {fileID: 3028978548451914271}
   - component: {fileID: -8290789070323797973}
   - component: {fileID: 8069778530931190723}
-  - component: {fileID: 8356939002387037915}
   - component: {fileID: 8437562171648355718}
   m_Layer: 6
   m_Name: Player
@@ -403,6 +403,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7074607068600479384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb9250e4ccb7a34fb6b8d41d3c44ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  wayPoint:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3735912514214847531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,22 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a412c9e92468954a85b87a838e0233a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8356939002387037915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2317494879089971283}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb9250e4ccb7a34fb6b8d41d3c44ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!50 &8437562171648355718
 Rigidbody2D:
   serializedVersion: 4
