@@ -93,6 +93,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: speedLarge
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: speedMedium
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: fallSpeedLarge
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: jumpHeightSmall
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: airAccMultiSmall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: airSpeedMultiSmall
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Name
       value: Player
