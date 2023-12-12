@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject startPoint;
     public GameObject playerHolderPrefab;
     private GameObject player;
+    private Vector2 instantiateCoordinate = new Vector3 (-25, -25);
 
     public float deathTime;
     private void Awake()
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        Instantiate(playerHolderPrefab);
+        Instantiate(playerHolderPrefab, instantiateCoordinate, Quaternion.identity);
         player = PlayerController.player;
     }
 
