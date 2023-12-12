@@ -24,7 +24,6 @@ public class ventMovement : MonoBehaviour
         actions = GetComponent<PlayerInput>().actions;
 
         actions["Move"].performed += OnMove;
-        //actions["Move"].canceled += Move;
 
         actions.Enable();
     }
@@ -46,13 +45,9 @@ public class ventMovement : MonoBehaviour
 
     void Move()
     {
-        rb.gravityScale = 0;
-
-        if (!canMove) return;
+        rb.gravityScale = 0;        
 
         rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
-        //canMove = false;
-
 
     }
 }
