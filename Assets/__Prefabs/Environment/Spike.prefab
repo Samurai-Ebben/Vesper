@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6514664690295535586}
   - component: {fileID: 4457119348972378385}
   - component: {fileID: 4799666364731674615}
+  - component: {fileID: 8100710172394142431}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Untagged
@@ -93,7 +94,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8783587950400707718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -143,3 +144,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31627ce1a2005b4cb7df2a9e56c48b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &8100710172394142431
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783587950400707718}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.49}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.46602154, y: -0.011325359}
+  - {x: -0.02258265, y: 0.7739513}
+  - {x: 0.46979702, y: -0.01132679}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
