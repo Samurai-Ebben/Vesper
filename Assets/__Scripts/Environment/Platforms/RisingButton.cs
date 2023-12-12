@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Rising : MonoBehaviour
+public class RisingButton : MonoBehaviour, IReset
 {
     //Takes in the moving platforms
     public List<RisingMovement> platforms;
@@ -10,7 +11,7 @@ public class Rising : MonoBehaviour
     //  Animator anim;
     public float pressedDistance;
     private float timer;
-    private bool large;
+    private bool playerIsLarge;
     private bool onMe;
     private bool prevSize;
     public Transform box;
@@ -19,6 +20,7 @@ public class Rising : MonoBehaviour
     private void Start()
     {
         stopPos = Vector3.zero;
+        RegisterSelfToResettableManager();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,7 +34,7 @@ public class Rising : MonoBehaviour
         
             foreach (var platform in platforms)
             {
-                if(large)
+                if(playerIsLarge)
                 {
                     platform.Rise();
                 }
@@ -58,7 +60,6 @@ public class Rising : MonoBehaviour
             foreach (var platform in platforms)
                 platform.Descend();
         }
-
     }
 
     public void Update()
@@ -66,7 +67,7 @@ public class Rising : MonoBehaviour
         timer += Time.deltaTime;
         if(onMe)
         {
-            if (large)
+            if (playerIsLarge)
             {
                 box.localPosition = Vector3.Lerp(Vector3.zero, Vector3.down * pressedDistance, timer);
             }
@@ -81,11 +82,11 @@ public class Rising : MonoBehaviour
             box.localPosition = Vector3.Lerp(stopPos, Vector3.zero, timer);
         }
 
-        prevSize = large;
-        large = PlayerController.instance.currentSize == Sizes.LARGE;
-        if(prevSize != large)
+        prevSize = playerIsLarge;
+        playerIsLarge = PlayerController.instance.currentSize == Sizes.LARGE;
+        if(prevSize != playerIsLarge)
         {
-            if(large == false)
+            if(playerIsLarge == false)
             {
                 stopPos = box.transform.localPosition;
             }
@@ -99,7 +100,7 @@ public class Rising : MonoBehaviour
         {
             foreach (var platform in platforms)
             {
-                if (large)
+                if (playerIsLarge)
                 {
                     platform.Rise();
                 }
@@ -109,5 +110,16 @@ public class Rising : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Reset()
+    {
+        stopPos = Vector3.zero;
+        box.transform.localPosition = Vector3.zero;
+    }
+
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance?.RegisterObject(this);
     }
 }
