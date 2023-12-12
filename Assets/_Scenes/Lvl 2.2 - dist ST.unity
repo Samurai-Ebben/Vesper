@@ -20221,6 +20221,10 @@ PrefabInstance:
       propertyPath: playerHolderPrefab
       value: 
       objectReference: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
+    - target: {fileID: 5766244006934020170, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: cursorVisible
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6256694413383269448, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_LocalScale.y
       value: 6
@@ -24042,6 +24046,22 @@ PrefabInstance:
     - target: {fileID: 45015251647070485, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
       propertyPath: m_Name
       value: VentTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773291051604109047, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
+      propertyPath: m_Size.x
+      value: 3.7910824
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773291051604109047, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
+      propertyPath: m_Size.y
+      value: 5.671112
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773291051604109047, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.8779101
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773291051604109047, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.338192
       objectReference: {fileID: 0}
     - target: {fileID: 3705752337025181029, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
       propertyPath: m_LocalPosition.x
