@@ -199,8 +199,9 @@ GameObject:
   - component: {fileID: 3735912514214847531}
   - component: {fileID: 3028978548451914271}
   - component: {fileID: -8290789070323797973}
-  - component: {fileID: 8437562171648355718}
   - component: {fileID: 8069778530931190723}
+  - component: {fileID: 8356939002387037915}
+  - component: {fileID: 8437562171648355718}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -259,6 +260,15 @@ MonoBehaviour:
   jumpCutOffSmall: 0.25
   jumpCutOffMedium: 0.25
   jumpCutOffLarge: 0.25
+  airSpeedMultiSmall: 1
+  airSpeedMultiMedium: 1
+  airSpeedMultiLarge: 1
+  airAccMultiSmall: 1
+  airAccMultiMedium: 1
+  airAccMultiLarge: 1
+  airDecMultiSmall: 1
+  airDecMultiMedium: 1
+  airDecMultiLarge: 1
 --- !u!114 &2001940146935406576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,20 +284,23 @@ MonoBehaviour:
   offsetLanding: 0.05
   bigEnabled: 1
   smallEnabled: 1
-  jumpBufferTime: 0.05
-  jumpHoldForce: 5
-  coyoteTime: 0.15
+  deacceleration: 4
+  acceleration: 20
+  maxSpeed: 4
+  velocityX: 0
   isJumping: 0
   jumpPressed: 0
   isBouncing: 0
   startedJump: 0
   hasLanded: 0
+  inAir: 0
   groundCheckRad: {x: 0.91, y: 0.1}
   groundCheck: {fileID: 2067882930552435579}
   layerIsGround:
     serializedVersion: 2
     m_Bits: 8
   actions: {fileID: 0}
+  numberOfVelocitiesToRecord: 10
 --- !u!114 &4505907170274488285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +461,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeForScaling: 5
+--- !u!114 &8069778530931190723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a412c9e92468954a85b87a838e0233a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8356939002387037915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317494879089971283}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb9250e4ccb7a34fb6b8d41d3c44ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &8437562171648355718
 Rigidbody2D:
   serializedVersion: 4
@@ -475,18 +516,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8069778530931190723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2317494879089971283}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a412c9e92468954a85b87a838e0233a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2791282726055458763
 GameObject:
   m_ObjectHideFlags: 0
@@ -10119,9 +10148,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1688531763
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -19864,9 +19893,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1688531763
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -24809,13 +24838,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8070231713305165450}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.494, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5636030741477410357}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &4569406631656141654
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -24952,8 +24981,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 10
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -25447,7 +25476,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 10
     angle: 1.9
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -25455,7 +25484,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 2.75, y: 1, z: 0.25}
+    m_Scale: {x: 2.75, y: 2.75, z: 0.25}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -25534,7 +25563,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.09
+      value: 0.01
       mode: 0
       spread: 0
       speed:
@@ -25763,7 +25792,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 15
+        scalar: 50
         minScalar: 30
         maxCurve:
           serializedVersion: 2
