@@ -96,4 +96,24 @@ public class Rising : MonoBehaviour
     }
 
 
+    //private void OnTriggerStay2D(Collider2D other)
+    //{
+       
+    //    if (other.CompareTag("Player"))
+    //    {
+
+
+    //        foreach (var platform in platforms)
+    //        {
+    //            if (large)
+    //            {
+    //                platform.Rise();
+    //            }
+    //            else
+    //            {
+    //                platform.Descend();
+    //            }
+    //        }
+    //    }
+    //}
 }
