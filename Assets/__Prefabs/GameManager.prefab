@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5847212019379451000}
   - component: {fileID: 7319749068665743644}
   m_Layer: 0
-  m_Name: ResetObjectManager
+  m_Name: ResettableManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 2645581391340601248}
   - component: {fileID: 3627516008902076236}
   - component: {fileID: 9171868373564011023}
+  - component: {fileID: 5766244006934020170}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -508,6 +509,7 @@ MonoBehaviour:
   currentCheckpoint: {x: 0, y: 0, z: 0}
   startPoint: {fileID: 2702735996382199472}
   playerHolderPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
+  deathTime: 0
 --- !u!114 &4704372139927105350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +564,7 @@ MonoBehaviour:
   startLandingSound: 0
   volume: 2
   landingSound: 7
+  jumpingVolume: 2
   jumpSmall: {fileID: 8300000, guid: 8d5065938b48b4640833685eceb576fb, type: 3}
   jumpBig: {fileID: 8300000, guid: 754b67a76970b434fb5c65b5682ec313, type: 3}
   jumpMedium: {fileID: 8300000, guid: 24f3200dbaaf6ef4097f47e51b254c6a, type: 3}
@@ -668,3 +671,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5766244006934020170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7229780853740973210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487b8690f3d44014c921d5e763c3a187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorVisible: 1
