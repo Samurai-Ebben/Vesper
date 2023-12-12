@@ -245,10 +245,10 @@ public class PlayerController : MonoBehaviour
             }
             velocityX *= 1 - deacceleration * Time.deltaTime;
 
-            //if (rb.velocity.magnitude < 0.1f)
-            //{
-            //    velocityX = 0;
-            //}
+            if (rb.velocity.magnitude < 0.1f)
+            {
+                velocityX = 0;
+            }
         }
             
         rb.velocity = new Vector2(velocityX, rb.velocity.y);
