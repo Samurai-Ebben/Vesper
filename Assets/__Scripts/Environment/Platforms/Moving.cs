@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class Moving : MonoBehaviour, IReset
 {
-    public float waitDuration;
 
     public List<Transform> coordinates;
     int currentIndex;
     
-    public float percentageDistance;
+    public float waitDuration;
     public float speed = 1f;
+    public float percentageDistance;
     [Range(0,1)] public float startPercentageDistance;
 
     Transform start;
     Transform end;
 
     bool move = true;
+    Coroutine waitCoroutine;
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class Moving : MonoBehaviour, IReset
 
         if (percentageDistance >= 1)
         {
-            StartCoroutine(Wait());
+            waitCoroutine = StartCoroutine(Wait());
             NextCycle();
         }
     }
@@ -101,6 +102,12 @@ public class Moving : MonoBehaviour, IReset
         end = coordinates[1];
         currentIndex = 1;
         percentageDistance = startPercentageDistance;
+        move = true;
+
+        if (waitCoroutine != null)
+        {
+            StopCoroutine(waitCoroutine);
+        }
     }
 }
 
