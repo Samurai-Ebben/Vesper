@@ -297,7 +297,7 @@ MonoBehaviour:
   startedJump: 0
   hasLanded: 0
   inAir: 0
-  groundCheckRad: {x: 0.91, y: 0.1}
+  groundCheckRadius: {x: 0, y: 0}
   groundCheck: {fileID: 2067882930552435579}
   layerIsGround:
     serializedVersion: 2
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb9250e4ccb7a34fb6b8d41d3c44ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   canMoveHori: 0
   canMoveVert: 0
   wayPoint:

@@ -29,13 +29,13 @@ public class VentMovement : MonoBehaviour, IReset
     {
         actions = GetComponent<PlayerInput>().actions;
 
-        actions["Move"].performed += OnMove;
+        actions["Vent"].performed += OnMove;
         actions.Enable();
     }
 
     private void OnDisable()
     {
-        actions["Move"].performed -= OnMove;
+        actions["Vent"].performed -= OnMove;
 
         inputDirection = Vector2.zero;
         //actions.Disable();
@@ -54,32 +54,16 @@ public class VentMovement : MonoBehaviour, IReset
             inputDirection.x = input.x;
             inputDirection.y = 0;
         }
-        if (canMoveVert && input.y != 0)
+        if (canMoveVert && input.y !=  0)
         {
             inputDirection.y = input.y;
             inputDirection.x = 0;
         }
     }
 
-    //void OnMove(InputAction.CallbackContext ctx)
-    //{
-    //    Vector2 input = ctx.ReadValue<Vector2>();
-
-    //    if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
-    //    {
-    //        inputDirection.x = Mathf.Sign(input.x);
-    //        inputDirection.y = 0;
-    //    }
-    //    else
-    //    {
-    //        inputDirection.x = 0;
-    //        inputDirection.y = Mathf.Sign(input.y);
-    //    }
-    //}
-
     void Move()
     {
-        inputDirection = inputDirection.normalized;
+        //inputDirection = inputDirection.normalized;
 
         rb.gravityScale = 0;
         canMoveVert = rayCastHandler.smallDownIsFree || rayCastHandler.smallTopIsFree;
