@@ -13,8 +13,9 @@ public class AudioManager : MonoBehaviour
     public float volume = 2;
     public float landingSound = 2;
     public float jumpingVolume = 2;
+    public float deathVolume = 2;
 
-    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium;
+    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death;
     public List<AudioClip> clips;
     // Start is called before the first frame update
     void Start()

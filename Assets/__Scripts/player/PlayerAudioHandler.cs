@@ -6,6 +6,7 @@ public class PlayerAudioHandler : MonoBehaviour
 {
     PlayerController playerController;
     AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,4 +36,21 @@ public class PlayerAudioHandler : MonoBehaviour
             audioManager.PlayingAudio(audioManager.landingBig, audioManager.landingSound);
         }
     }
+
+    public void PlayJumpingSound()
+    {
+        if (playerController.currentSize == Sizes.SMALL)
+        {
+            audioManager.PlayingAudio(audioManager.jumpSmall, audioManager.jumpingVolume);
+        }
+        else if (playerController.currentSize == Sizes.MEDIUM)
+        {
+            audioManager.PlayingAudio(audioManager.jumpMedium, audioManager.jumpingVolume);
+        }
+        else if (playerController.currentSize == Sizes.LARGE)
+        {
+            audioManager.PlayingAudio(audioManager.jumpBig, audioManager.jumpingVolume);
+        }
+    }
+
 }
