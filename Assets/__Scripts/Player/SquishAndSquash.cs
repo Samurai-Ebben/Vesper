@@ -8,8 +8,6 @@ public class SquishAndSquash : MonoBehaviour
     public float squishSquashDuration = 0.2f;
     public float revertScaleDuration = 0.1f;
 
-    ScreenShakeHandler screenShakeHandler;
-
     private Vector3 originalScale;
 
     private void Start()
@@ -20,7 +18,6 @@ public class SquishAndSquash : MonoBehaviour
     // Jump
     public void Squash()
     {
-        screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
         StartCoroutine(SquishSquashOverTime(originalScale.x - stretchAmount, originalScale.y + stretchAmount));
     }
 
@@ -65,16 +62,5 @@ public class SquishAndSquash : MonoBehaviour
         }
 
         transform.localScale = targetSize;
-    }
-
-  
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Corner")
-        {
-            Debug.Log("SHake!!!");
-            screenShakeHandler.CornerShake();
-        }
     }
 }
