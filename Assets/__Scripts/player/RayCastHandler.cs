@@ -57,6 +57,8 @@ public class RayCastHandler : MonoBehaviour
 
 
 
+
+
     public bool diagonalCheck;
 
 
@@ -83,9 +85,9 @@ public class RayCastHandler : MonoBehaviour
         leftSide = RayCastGenerator(sideCheckLength, Vector2.left, totalSideRaycast);
         anySide = leftSide || rightSide;
 
-        RayCastGenerator(smallRaycastLength, Vector2.down, totalDownRaycast);
-        RayCastGenerator(largeRaycastLength, Vector2.down, totalDownRaycast);
-        RayCastGenerator(mediumRaycastLength, Vector2.down, totalDownRaycast);
+        smallDownIsFree = RayCastGenerator(smallRaycastLength, Vector2.down, totalDownRaycast);
+        largeDownIsFree = RayCastGenerator(largeRaycastLength, Vector2.down, totalDownRaycast);
+        mediumDownIsFree = RayCastGenerator(mediumRaycastLength, Vector2.down, totalDownRaycast);
 
 
 
@@ -94,10 +96,6 @@ public class RayCastHandler : MonoBehaviour
         leftDown = RayCastGenerator(diagonalLength, new Vector2(-1, -1), totalDiagonalRaycast);
         leftTop = RayCastGenerator(diagonalLength, new Vector2(-1, 1), totalDiagonalRaycast);
         diagonalTop = rightTop || leftTop;
-
-
-
-
 
     }
     bool RayCastGenerator(float characterSize, Vector2 direction, int totalRaycast)
