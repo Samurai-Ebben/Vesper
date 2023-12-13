@@ -11,7 +11,7 @@ public class CollectibleManager : MonoBehaviour
     List<GameObject> collectedObjects;
     
     int collectedAmount;
-    int TotalCollectibleAmount = 10;
+    int totalCollectibleAmount = 10;
 
     void Start()
     {
@@ -55,7 +55,7 @@ public class CollectibleManager : MonoBehaviour
     // Utility Functions
     public void UpdateDisplay()
     {
-        collectibleDisplay.text = collectedAmount.ToString() + " / " + TotalCollectibleAmount;
+        collectibleDisplay.text = collectedAmount.ToString() + " / " + totalCollectibleAmount;
     }
     public void RegisterSelfAsCollected(GameObject collectible)
     {
