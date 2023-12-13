@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject startPoint;
     public GameObject playerHolderPrefab;
     private GameObject player;
+    AudioManager audioManager;
     private Vector2 instantiateCoordinate = new Vector3 (-25, -25);
 
     public float deathTime;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
 
         currentCheckpoint = startPoint.transform.position;
         RespawnPlayer();
+        audioManager = GetComponent<AudioManager>();
     }
 
     public void SetCheckpoint()
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
     public void Death()
     {
         StartCoroutine(DieDelay());
+        audioManager.PlayingAudio(audioManager.death, audioManager.deathVolume);
     }
 
     public IEnumerator DieDelay()
