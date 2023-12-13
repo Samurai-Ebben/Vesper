@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     // Ground Check
     [Header("Ground Check")]
-    [SerializeField] Vector2 groundCheckRad;
+    [SerializeField] Vector2 groundCheckRadius;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask layerIsGround;
 
@@ -181,8 +181,8 @@ public class PlayerController : MonoBehaviour
         jumpForce               =       statList[4];
         rb.gravityScale         =       statList[5];
         jumpCutOff              =       statList[6];
-        groundCheckRad.x        =       statList[7];
-        groundCheckRad.y        =       statList[8];
+        groundCheckRadius.x     =       statList[7];
+        groundCheckRadius.y     =       statList[8];
         airSpeedMultiplier      =       statList[9];
         airAccMultiplier        =       statList[10];
         airDecMultiplier        =       statList[11];
@@ -313,7 +313,7 @@ public class PlayerController : MonoBehaviour
     #region Checkers
     public bool IsGrounded()
     {
-        return Physics2D.OverlapBox(groundCheck.position, groundCheckRad, 0, layerIsGround);
+        return Physics2D.OverlapBox(groundCheck.position, groundCheckRadius, 0, layerIsGround);
     }
 
     #endregion
@@ -426,7 +426,7 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(groundCheck.position, groundCheckRad);
+        Gizmos.DrawWireCube(groundCheck.position, groundCheckRadius);
         Gizmos.color = Color.red;
     }
 
