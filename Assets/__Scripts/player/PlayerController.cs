@@ -181,12 +181,12 @@ public class PlayerController : MonoBehaviour
             currentSize = Sizes.SMALL;
         }
 
-        if (isBig && bigEnabled && rayCastHandler.largeCanChangeSize && (rayCastHandler.sideCheck) && rayCastHandler.diagonalCheck)
+        if (isBig && bigEnabled && rayCastHandler.largeTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
         {
             currentSize = Sizes.LARGE;
         }
 
-        if ((!isBig && !isSmall) && rayCastHandler.smallCanChangeSize && (rayCastHandler.sideCheck) && rayCastHandler.diagonalCheck)
+        if ((!isBig && !isSmall) && rayCastHandler.mediumTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
         {
             currentSize = Sizes.MEDIUM;
         }
@@ -303,7 +303,7 @@ public class PlayerController : MonoBehaviour
         //Colliosion handlar in tight spaces.
         float originalStretchAmount = squishAndSquash.stretchAmount;
 
-        if (currentSize== Sizes.SMALL && !rayCastHandler.mediumCanChangeSize)
+        if (currentSize== Sizes.SMALL && !rayCastHandler.mediumTopIsFree)
             squishAndSquash.stretchAmount = 0.0f;
         else
             squishAndSquash.stretchAmount = originalStretchAmount;
