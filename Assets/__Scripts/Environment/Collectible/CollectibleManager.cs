@@ -11,7 +11,7 @@ public class CollectibleManager : MonoBehaviour
     List<GameObject> collectedObjects;
     
     int collectedAmount;
-    int TotalCollectibleAmount = 10;
+    int totalCollectibleAmount = 13;
 
     void Start()
     {
@@ -55,11 +55,27 @@ public class CollectibleManager : MonoBehaviour
     // Utility Functions
     public void UpdateDisplay()
     {
-        collectibleDisplay.text = collectedAmount.ToString() + " / " + TotalCollectibleAmount;
+        collectibleDisplay.text = collectedAmount.ToString() + " / " + totalCollectibleAmount;
     }
     public void RegisterSelfAsCollected(GameObject collectible)
     {
         collectedObjects.Add(collectible);
         print("Amount in list" + collectedObjects.Count);
     }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+//    private void OnDisable()
+//    {
+//#if UNITY_EDITOR
+//        if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
+//        {
+//            Debug.Log("Exiting Play Mode in Editor");
+//            PlayerPrefs.DeleteAll();
+//        }
+//#endif
+//    }
 }
