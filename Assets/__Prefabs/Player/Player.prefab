@@ -269,9 +269,9 @@ MonoBehaviour:
   airDecMultiSmall: 1
   airDecMultiMedium: 1
   airDecMultiLarge: 1
-  landingSfxOffsetSmall: 0.15
-  landingSfxOffsetMedium: 0.33
-  landingSfxOffsetLarge: 0.66
+  landingSfxOffsetSmall: 0.03
+  landingSfxOffsetMedium: 0.14
+  landingSfxOffsetLarge: 0.32
 --- !u!114 &2001940146935406576
 MonoBehaviour:
   m_ObjectHideFlags: 0
