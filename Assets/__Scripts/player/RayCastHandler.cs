@@ -30,7 +30,6 @@ public class RayCastHandler : MonoBehaviour
     //since this is ground, maybe rename it?
     public LayerMask mask;
 
-    float drawRay = 1;
 
     RaycastHit2D centerRaycast;
     public float drawRayForMedium;
