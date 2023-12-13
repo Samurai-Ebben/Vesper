@@ -49,12 +49,11 @@ public class VentMovement : MonoBehaviour, IReset
     }
 
     void OnMove(InputAction.CallbackContext ctx)
-    {            
+    {
         if(canMoveHori && ctx.ReadValue<Vector2>().x != 0)
         {
             inputDirection.x = ctx.ReadValue<Vector2>().x;
             inputDirection.y = 0;
-
         }
         if (canMoveVert && ctx.ReadValue<Vector2>().y != 0)
         {
@@ -71,9 +70,6 @@ public class VentMovement : MonoBehaviour, IReset
         rb.gravityScale = 0;
         canMoveVert = rayCastHandler.smallDownIsFree || rayCastHandler.smallTopIsFree;
         canMoveHori = rayCastHandler.rightSide || rayCastHandler.leftSide;
-
-        //Debug.Log(inputDirection);
-        Debug.Log(inputDirection);
 
         rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
 
