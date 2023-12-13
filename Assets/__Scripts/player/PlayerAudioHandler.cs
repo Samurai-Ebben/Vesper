@@ -17,7 +17,7 @@ public class PlayerAudioHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(audioManager);
+        //Debug.Log(audioManager);
     }
 
     public void PlayLandingSound()

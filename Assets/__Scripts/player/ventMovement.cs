@@ -8,7 +8,6 @@ using UnityEngine.Profiling;
 
 public class VentMovement : MonoBehaviour, IReset
 {
-
     public float moveSpeed = 5f;
     public bool canMoveHori;
     public bool canMoveVert;
@@ -31,7 +30,6 @@ public class VentMovement : MonoBehaviour, IReset
         actions = GetComponent<PlayerInput>().actions;
 
         actions["Move"].performed += OnMove;
-        //actions["Move"].canceled += OnMove;
         actions.Enable();
     }
 
@@ -48,41 +46,36 @@ public class VentMovement : MonoBehaviour, IReset
         Move();
     }
 
-    /*
     void OnMove(InputAction.CallbackContext ctx)
     {
         Vector2 input = ctx.ReadValue<Vector2>();
         if(canMoveHori && input.x != 0)
         {
-            inputDirection.x = Mathf.Sign(input.x);
+            inputDirection.x = input.x;
             inputDirection.y = 0;
         }
         if (canMoveVert && input.y != 0)
         {
+            inputDirection.y = input.y;
             inputDirection.x = 0;
-            inputDirection.y = Mathf.Sign(input.y);
-        }
-    }*/
-
-    void OnMove(InputAction.CallbackContext ctx)
-    {
-        Vector2 input = ctx.ReadValue<Vector2>();
-
-        // Check if currently moving horizontally or vertically
-        bool movingHorizontally = Mathf.Abs(inputDirection.x) > Mathf.Abs(inputDirection.y);
-        bool movingVertically = Mathf.Abs(inputDirection.y) > Mathf.Abs(inputDirection.x);
-
-        if (canMoveHori && input.x != 0 && !movingVertically)
-        {
-            inputDirection.x = Mathf.Sign(input.x);
-            inputDirection.y = 0;
-        }
-        if (canMoveVert && input.y != 0 && !movingHorizontally)
-        {
-            inputDirection.x = 0;
-            inputDirection.y = Mathf.Sign(input.y);
         }
     }
+
+    //void OnMove(InputAction.CallbackContext ctx)
+    //{
+    //    Vector2 input = ctx.ReadValue<Vector2>();
+
+    //    if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
+    //    {
+    //        inputDirection.x = Mathf.Sign(input.x);
+    //        inputDirection.y = 0;
+    //    }
+    //    else
+    //    {
+    //        inputDirection.x = 0;
+    //        inputDirection.y = Mathf.Sign(input.y);
+    //    }
+    //}
 
     void Move()
     {
