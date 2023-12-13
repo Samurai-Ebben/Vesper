@@ -149,9 +149,10 @@ public class PlayerController : MonoBehaviour
         }
         if(timer > landingSFX && IsGrounded())
         {
+
+            timer = 0;
             LandingActions();
         }
-            timer = 0;
 
         
     }
@@ -417,6 +418,7 @@ public class PlayerController : MonoBehaviour
 
     private void LandingActions()
     {
+        Debug.Log("Landing");
         effects.CreateLandDust();
         playerAudioHandler.PlayLandingSound();
         squishAndSquash.Squish();
