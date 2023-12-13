@@ -29599,7 +29599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844178211845993431, guid: 97a874d684701814a9091e807950a6d1, type: 3}
       propertyPath: waitDuration
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29992,7 +29992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844178211845993431, guid: 97a874d684701814a9091e807950a6d1, type: 3}
       propertyPath: waitDuration
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
