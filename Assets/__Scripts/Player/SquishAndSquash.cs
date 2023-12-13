@@ -10,9 +10,11 @@ public class SquishAndSquash : MonoBehaviour
 
     private Vector3 originalScale;
 
+    ScreenShakeHandler screenShakeHandler;
     private void Start()
     {
         originalScale = transform.localScale;
+        screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
     }
 
     // Jump
@@ -62,5 +64,13 @@ public class SquishAndSquash : MonoBehaviour
         }
 
         transform.localScale = targetSize;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "corner")
+        {
+            screenShakeHandler.CornerShake();
+        }
     }
 }
