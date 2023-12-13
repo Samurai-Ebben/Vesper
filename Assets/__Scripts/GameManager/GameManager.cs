@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     {
         player.transform.position = currentCheckpoint;
         ResettableManager.Instance.ResetAllObjects();
+        GetComponent<CollectibleManager>().TriggerOnDeath();
     }
      
     public void Death()
