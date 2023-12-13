@@ -28722,16 +28722,20 @@ PrefabInstance:
       value: PlatformDestructible (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Color.b
-      value: 0.17537737
+      value: 0.16862746
       objectReference: {fileID: 0}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Color.g
-      value: 0.06707606
+      value: 0.06369407
       objectReference: {fileID: 0}
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Color.r
-      value: 0.1792453
+      value: 0.18431373
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
