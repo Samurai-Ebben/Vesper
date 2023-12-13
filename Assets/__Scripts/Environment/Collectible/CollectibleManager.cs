@@ -60,4 +60,20 @@ public class CollectibleManager : MonoBehaviour
     {
         collectedObjects.Add(collectible);
     }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+//    private void OnDisable()
+//    {
+//#if UNITY_EDITOR
+//        if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
+//        {
+//            Debug.Log("Exiting Play Mode in Editor");
+//            PlayerPrefs.DeleteAll();
+//        }
+//#endif
+//    }
 }
