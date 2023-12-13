@@ -242,9 +242,9 @@ MonoBehaviour:
   sizeSmall: 0.23
   sizeMedium: 0.48
   sizeLarge: 0.98
-  speedSmall: 12
-  speedMedium: 7.5
-  speedLarge: 5
+  speedSmall: 10
+  speedMedium: 7
+  speedLarge: 4
   accelerationSmall: 50
   accelerationMedium: 35.5
   accelerationLarge: 10
@@ -256,22 +256,22 @@ MonoBehaviour:
   jumpHeightLarge: 11.5
   fallSpeedSmall: 4
   fallSpeedMedium: 6
-  fallSpeedLarge: 8
+  fallSpeedLarge: 12
   jumpCutOffSmall: 0.25
   jumpCutOffMedium: 0.25
   jumpCutOffLarge: 0.25
-  airSpeedMultiSmall: 1.15
+  airSpeedMultiSmall: 1
   airSpeedMultiMedium: 1
   airSpeedMultiLarge: 1
-  airAccMultiSmall: 1.5
+  airAccMultiSmall: 1
   airAccMultiMedium: 1
   airAccMultiLarge: 1
-  airDecMultiSmall: 0.5
-  airDecMultiMedium: 0.5
+  airDecMultiSmall: 1
+  airDecMultiMedium: 1
   airDecMultiLarge: 1
-  landingSfxOffsetSmall: 0.06
-  landingSfxOffsetMedium: 0.15
-  landingSfxOffsetLarge: 0.3
+  landingSfxOffsetSmall: 0.15
+  landingSfxOffsetMedium: 0.33
+  landingSfxOffsetLarge: 0.66
 --- !u!114 &2001940146935406576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   startedJump: 0
   hasLanded: 0
   inAir: 0
-  groundCheckRad: {x: 0.91, y: 0.1}
+  groundCheckRadius: {x: 0, y: 0}
   groundCheck: {fileID: 2067882930552435579}
   layerIsGround:
     serializedVersion: 2
@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a412c9e92468954a85b87a838e0233a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumping: 0
 --- !u!50 &8437562171648355718
 Rigidbody2D:
   serializedVersion: 4

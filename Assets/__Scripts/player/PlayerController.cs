@@ -147,11 +147,11 @@ public class PlayerController : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
-        else if(timer > landingSFX && IsGrounded())
+        if(timer > landingSFX && IsGrounded())
         {
             LandingActions();
-            timer = 0;
         }
+            timer = 0;
 
         
     }
@@ -241,21 +241,6 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         if (!canJump || !jumpPressed) return;
-        
-        #region sound
-        //if(currentSize == Sizes.SMALL) 
-        //{
-        //    audioManager.PlayingAudio(audioManager.jumpSmall, audioManager.jumpingVolume);
-        //}
-        //else if (currentSize == Sizes.MEDIUM)
-        //{
-        //    audioManager.PlayingAudio(audioManager.jumpMedium, audioManager.jumpingVolume);
-        //}
-        //else if (currentSize == Sizes.LARGE)
-        //{
-        //    audioManager.PlayingAudio(audioManager.jumpBig, audioManager.jumpingVolume);
-        //}
-        #endregion
 
         effects.CreateJumpDust();
         effects.StopLandDust();
