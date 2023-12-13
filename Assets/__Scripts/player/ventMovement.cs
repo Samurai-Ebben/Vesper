@@ -31,7 +31,7 @@ public class VentMovement : MonoBehaviour, IReset
         actions = GetComponent<PlayerInput>().actions;
 
         actions["Move"].performed += OnMove;
-        actions["Move"].canceled += OnMove;
+        //actions["Move"].canceled += OnMove;
         actions.Enable();
     }
 
@@ -48,17 +48,39 @@ public class VentMovement : MonoBehaviour, IReset
         Move();
     }
 
+    /*
     void OnMove(InputAction.CallbackContext ctx)
     {
-        if(canMoveHori && ctx.ReadValue<Vector2>().x != 0)
+        Vector2 input = ctx.ReadValue<Vector2>();
+        if(canMoveHori && input.x != 0)
         {
-            inputDirection.x = ctx.ReadValue<Vector2>().x;
+            inputDirection.x = Mathf.Sign(input.x);
             inputDirection.y = 0;
         }
-        if (canMoveVert && ctx.ReadValue<Vector2>().y != 0)
+        if (canMoveVert && input.y != 0)
         {
-            inputDirection.y = ctx.ReadValue<Vector2>().y;
             inputDirection.x = 0;
+            inputDirection.y = Mathf.Sign(input.y);
+        }
+    }*/
+
+    void OnMove(InputAction.CallbackContext ctx)
+    {
+        Vector2 input = ctx.ReadValue<Vector2>();
+
+        // Check if currently moving horizontally or vertically
+        bool movingHorizontally = Mathf.Abs(inputDirection.x) > Mathf.Abs(inputDirection.y);
+        bool movingVertically = Mathf.Abs(inputDirection.y) > Mathf.Abs(inputDirection.x);
+
+        if (canMoveHori && input.x != 0 && !movingVertically)
+        {
+            inputDirection.x = Mathf.Sign(input.x);
+            inputDirection.y = 0;
+        }
+        if (canMoveVert && input.y != 0 && !movingHorizontally)
+        {
+            inputDirection.x = 0;
+            inputDirection.y = Mathf.Sign(input.y);
         }
     }
 
