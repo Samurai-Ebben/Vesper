@@ -431,20 +431,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146493eea4a1d23459d57a871922c4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkingTheTop: 1.09
+  smallRaycastLength: 0.25
+  mediumRaycastLength: 0.5
+  largeRaycastLength: 0.75
+  totalTopRaycast: 3
+  totalSideRaycast: 3
+  totalDownRaycast: 3
   sideCheckLength: 0.5
   diagonalLength: 0.5
-  isBlock:
+  mask:
     serializedVersion: 2
     m_Bits: 8
   drawRayForMedium: 0.19
   drawRayForLarge: 0.45
   drawRayForSmall: 0.08
-  mediumCanChangeSize: 0
-  largeCanChangeSize: 0
-  smallCanChangeSize: 0
-  sideCheck: 0
+  mediumTopIsFree: 0
+  largeTopIsFree: 0
+  smallTopIsFree: 0
+  rightSide: 0
+  leftSide: 0
+  anySide: 0
+  rightTop: 0
+  rightDown: 0
+  leftDown: 0
+  leftTop: 0
+  diagonalTop: 0
+  smallDownIsFree: 0
+  mediumDownIsFree: 0
+  largeDownIsFree: 0
   diagonalCheck: 0
+  edgeOffset: 1.5
 --- !u!114 &3028978548451914271
 MonoBehaviour:
   m_ObjectHideFlags: 0

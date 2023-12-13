@@ -98,6 +98,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: speedSmall
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: speedMedium
       value: 7.5
       objectReference: {fileID: 0}
@@ -107,15 +111,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: jumpHeightSmall
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: airAccMultiSmall
-      value: 1
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: airDecMultiSmall
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: airDecMultiMedium
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1996938895583593536, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: airSpeedMultiSmall
-      value: 1
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Name
