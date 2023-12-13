@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
             currentSize = Sizes.LARGE;
         }
 
-        if ((!isBig && !isSmall) && rayCastHandler.mediumTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
+        if ((!isBig && !isSmall) && rayCastHandler.smallTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
         {
             currentSize = Sizes.MEDIUM;
         }

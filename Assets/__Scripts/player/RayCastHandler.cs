@@ -95,10 +95,8 @@ public class RayCastHandler : MonoBehaviour
         leftTop = RayCastGenerator(diagonalLength, new Vector2(-1, 1), totalDiagonalRaycast);
         diagonalTop = rightTop || leftTop;
 
-        Debug.Log(rightSide);
 
 
-        //Make this function more generic and better to read please.
 
 
     }
