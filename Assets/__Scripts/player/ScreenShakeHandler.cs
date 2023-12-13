@@ -43,11 +43,13 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     }
     public void JumpShake()
     {
+        vertical = true;
         StartCoroutine(ShakeScreen(strengthForJump, jumpDuration));
     }
 
     public void DestructionShake()
     {
+        vertical = true;
         StartCoroutine(ShakeScreen(strengthForDestruction, destructionDuration));
     }
     public void DeathShake()
