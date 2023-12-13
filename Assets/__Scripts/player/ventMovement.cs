@@ -10,10 +10,10 @@ public class VentMovement : MonoBehaviour, IReset
 {
 
     public float moveSpeed = 5f;
-    bool canMove = true;
-
+    public bool canMoveHori;
+    public bool canMoveVert;
     public LayerMask wayPoint;
-    public Vector2 inputDirection {  get; private set; }
+    public Vector2 inputDirection;
 
     private Rigidbody2D rb;
     InputActionAsset actions;
@@ -41,7 +41,6 @@ public class VentMovement : MonoBehaviour, IReset
 
         inputDirection = Vector2.zero;
         //actions.Disable();
-
     }
 
     void Update()
@@ -51,13 +50,27 @@ public class VentMovement : MonoBehaviour, IReset
 
     void OnMove(InputAction.CallbackContext ctx)
     {
-        inputDirection = ctx.ReadValue<Vector2>();
+        if(canMoveHori && ctx.ReadValue<Vector2>().x != 0)
+        {
+            inputDirection.x = ctx.ReadValue<Vector2>().x;
+            inputDirection.y = 0;
+        }
+        if (canMoveVert && ctx.ReadValue<Vector2>().y != 0)
+        {
+            inputDirection.y = ctx.ReadValue<Vector2>().y;
+            inputDirection.x = 0;
+
+        }
     }
 
     void Move()
     {
+        inputDirection = inputDirection.normalized;
+
         rb.gravityScale = 0;
-        Debug.Log(inputDirection);
+        canMoveVert = rayCastHandler.smallDownIsFree || rayCastHandler.smallTopIsFree;
+        canMoveHori = rayCastHandler.rightSide || rayCastHandler.leftSide;
+
         rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
 
     }
