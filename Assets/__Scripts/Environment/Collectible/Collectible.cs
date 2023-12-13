@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    //void Start()
-    //{
-
-    //}
-
-    //void Update()
-    //{
-
-    //}
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameManager.Instance.GetComponent<CollectibleManager>().CollectibleCollected();
+
+            // TODO Animation/Particles
+
             Destroy(gameObject);
         }
     }
