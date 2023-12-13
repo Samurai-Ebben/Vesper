@@ -68,6 +68,11 @@ public class SizeStats : MonoBehaviour
     [Range(0, 10)] public float airDecMultiMedium = .9f;
     [Range(0, 10)] public float airDecMultiLarge = .9f;
 
+    [Space(10)]
+    public float landingSfxOffsetSmall = 0.05f;
+    public float landingSfxOffsetMedium = 0.1f;
+    public float landingSfxOffsetLarge = 0.5f;
+
     void Start()
     {
         UpdateStatValues();
@@ -119,7 +124,8 @@ public class SizeStats : MonoBehaviour
             groundCheckSizeSmallY,
             airSpeedMultiSmall,
             airAccMultiSmall,
-            airDecMultiSmall
+            airDecMultiSmall,
+            landingSfxOffsetSmall
     };
 
         statsMedium = new List<float>
@@ -135,7 +141,8 @@ public class SizeStats : MonoBehaviour
             groundCheckSizeMediumY,
             airSpeedMultiMedium,
             airAccMultiMedium,
-            airDecMultiMedium
+            airDecMultiMedium,
+            landingSfxOffsetMedium
         };
 
         statsLarge = new List<float>
@@ -151,7 +158,8 @@ public class SizeStats : MonoBehaviour
             groundCheckSizeBigY,
             airSpeedMultiLarge,
             airAccMultiLarge,
-            airDecMultiLarge
+            airDecMultiLarge,
+            landingSfxOffsetLarge
 
         };
     }
