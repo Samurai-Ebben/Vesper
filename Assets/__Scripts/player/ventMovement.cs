@@ -31,7 +31,7 @@ public class VentMovement : MonoBehaviour, IReset
         actions = GetComponent<PlayerInput>().actions;
 
         actions["Move"].performed += OnMove;
-
+        actions["Move"].canceled += OnMove;
         actions.Enable();
     }
 
@@ -59,7 +59,6 @@ public class VentMovement : MonoBehaviour, IReset
         {
             inputDirection.y = ctx.ReadValue<Vector2>().y;
             inputDirection.x = 0;
-
         }
     }
 
