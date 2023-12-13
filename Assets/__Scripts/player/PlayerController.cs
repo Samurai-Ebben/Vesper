@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     [Header("Jump Controls")]
     float jumpBufferTime        =       0.1f;
     float jumpHoldForce         =       5f;
-    float coyoteTime            =       0.15f;
+    float coyoteTime            =       0.05f;
     float jumpCutOff            =       0.1f;
     float jumpForce             =       6.0f;
 
@@ -61,7 +61,8 @@ public class PlayerController : MonoBehaviour
 
     // Ground Check
     [Header("Ground Check")]
-    [SerializeField] Vector2 groundCheckRadius;
+    public float shortenGroundCheckXValue = 0.1f;
+    [SerializeField] Vector2 groundCheckSize;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask layerIsGround;
 
@@ -182,8 +183,8 @@ public class PlayerController : MonoBehaviour
         jumpForce               =       statList[4];
         rb.gravityScale         =       statList[5];
         jumpCutOff              =       statList[6];
-        groundCheckRadius.x     =       statList[7];
-        groundCheckRadius.y     =       statList[8];
+        //groundCheckRadius.x     =       statList[7];
+        //groundCheckRadius.y     =       statList[8];
         airSpeedMultiplier      =       statList[9];
         airAccMultiplier        =       statList[10];
         airDecMultiplier        =       statList[11];
@@ -300,9 +301,14 @@ public class PlayerController : MonoBehaviour
     #region Checkers
     public bool IsGrounded()
     {
-        return Physics2D.OverlapBox(groundCheck.position, groundCheckRadius, 0, layerIsGround);
-    }
+        BoxCollider2D collider = GetComponentInChildren<BoxCollider2D>();
+        Vector2 colliderSize = collider.size * new Vector2(1,0);
+        Vector2 scaledColliderSize = new Vector2(colliderSize.x * transform.localScale.x, colliderSize.y * transform.localScale.y);
+        Vector2 offset = new Vector2(shortenGroundCheckXValue, 0);
+        groundCheckSize = scaledColliderSize - offset;
 
+        return Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0, layerIsGround);
+    }
     #endregion
 
     void Flip()
@@ -413,13 +419,12 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(groundCheck.position, groundCheckRadius);
+        Gizmos.DrawWireCube(groundCheck.position, groundCheckSize);
         Gizmos.color = Color.red;
     }
 
     private void LandingActions()
     {
-        Debug.Log("Landing");
         effects.CreateLandDust();
         playerAudioHandler.PlayLandingSound();
         squishAndSquash.Squish();

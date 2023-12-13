@@ -60,7 +60,6 @@ public class CollectibleManager : MonoBehaviour
     public void RegisterSelfAsCollected(GameObject collectible)
     {
         collectedObjects.Add(collectible);
-        print("Amount in list" + collectedObjects.Count);
     }
 
     private void OnApplicationQuit()
