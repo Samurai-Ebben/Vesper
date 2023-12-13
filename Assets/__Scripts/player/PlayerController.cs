@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool isBig = false;
     private bool isSmall = false;
 
-    public float offsetLanding = 0.05f;
+    public float landingSFX = 0.05f;
 
     [Header("Size Switch")]
     public bool bigEnabled = true;
@@ -142,37 +142,18 @@ public class PlayerController : MonoBehaviour
 
     private void JuiceFx()
     {
-        if (startedJump)
+
+        if (!IsGrounded())
         {
-            timer += 0.1f;
-            inAir = true;
+            timer += Time.deltaTime;
         }
-        if (!startedJump)
+        else if(timer > landingSFX && IsGrounded())
         {
+            LandingActions();
             timer = 0;
         }
 
-        if (timer > 1 && IsGrounded())
-        {
-            hasLanded = true;
-        }
-        else
-        {
-            hasLanded = false;
-        }
-
-        if (hasLanded)
-        {
-            effects.CreateLandDust();
-            startedJump = false;
-            squishAndSquash.Squish();
-            inAir = false;
-
-            if (currentSize == Sizes.LARGE)
-            {
-                screenShake.JumpShake();
-            }
-        }
+        
     }
     private void SwitchSize()
     {
@@ -205,6 +186,9 @@ public class PlayerController : MonoBehaviour
         airSpeedMultiplier      =       statList[9];
         airAccMultiplier        =       statList[10];
         airDecMultiplier        =       statList[11];
+        landingSFX              =       statList[12];
+
+
     }
 
     private void MoveX()
@@ -445,4 +429,22 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireCube(groundCheck.position, groundCheckRadius);
         Gizmos.color = Color.red;
     }
+
+    private void LandingActions()
+    {
+        effects.CreateLandDust();
+        playerAudioHandler.PlayLandingSound();
+        squishAndSquash.Squish();
+
+            effects.CreateLandDust();
+            startedJump = false;
+            squishAndSquash.Squish();
+            inAir = false;
+
+            if (currentSize == Sizes.LARGE)
+            {
+                screenShake.JumpShake();
+            }
+    }
 }
+
