@@ -15,7 +15,6 @@ public class CollectibleManager : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
         collectedObjects = new List<GameObject>();
         collectedAmount = PlayerPrefs.GetInt("collectedAmount");
         UpdateDisplay();
@@ -60,6 +59,5 @@ public class CollectibleManager : MonoBehaviour
     public void RegisterSelfAsCollected(GameObject collectible)
     {
         collectedObjects.Add(collectible);
-        print("Amount in list" + collectedObjects.Count);
     }
 }
