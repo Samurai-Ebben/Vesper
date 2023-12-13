@@ -7,7 +7,6 @@ public class PlayerAudioHandler : MonoBehaviour
     PlayerController playerController;
     AudioManager audioManager;
 
-    public bool jumping;
     // Start is called before the first frame update
     void Start()
     {

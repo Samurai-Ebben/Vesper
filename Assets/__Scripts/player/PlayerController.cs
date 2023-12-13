@@ -116,8 +116,8 @@ public class PlayerController : MonoBehaviour
         effects             =     GetComponent<PlayerParticleEffect>();
         rayCastHandler      =     GetComponent<RayCastHandler>();
         rb                  =     GetComponent<Rigidbody2D>();
-        screenShake         =     FindAnyObjectByType<ScreenShakeHandler>();  
-        //audioManager      =     FindAnyObjectByType<AudioManager>();
+        screenShake         =     FindAnyObjectByType<ScreenShakeHandler>();
+        playerAudioHandler =      FindAnyObjectByType<PlayerAudioHandler>();
 
         //originalStretchAmount = squishAndSquash.stretchAmount;
 
@@ -246,6 +246,7 @@ public class PlayerController : MonoBehaviour
         effects.CreateJumpDust();
         effects.StopLandDust();
         SquashCollisionHandler();
+        playerAudioHandler.PlayJumpingSound();
 
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
