@@ -8,11 +8,14 @@ public class Collectible : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.GetComponent<CollectibleManager>().CollectibleCollected();
+            var collectibleManager = GameManager.Instance.GetComponent<CollectibleManager>();
+
+            collectibleManager.CollectibleCollected();
+            collectibleManager.RegisterSelfAsCollected(gameObject);
 
             // TODO Animation/Particles
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
