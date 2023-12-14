@@ -24957,7 +24957,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4, y: 0.2}
+    oldSize: {x: 2.5, y: 0.25}
     newSize: {x: 2.4, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -39108,74 +39108,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &331913276
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 331913279}
-  - component: {fileID: 331913278}
-  - component: {fileID: 331913277}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &331913277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331913276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &331913278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331913276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &331913279
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331913276}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &388607193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
@@ -41458,7 +41390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47be97bf4753fe4e961706336b83709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetLanding: 0.05
+  landingSFX: 0.05
   bigEnabled: 1
   smallEnabled: 1
   deacceleration: 4
@@ -41471,13 +41403,15 @@ MonoBehaviour:
   startedJump: 0
   hasLanded: 0
   inAir: 0
-  groundCheckRad: {x: 0, y: 0}
+  shortenGroundCheckXValue: 0.1
+  groundCheckSize: {x: 0, y: 0}
   groundCheck: {fileID: 0}
   layerIsGround:
     serializedVersion: 2
     m_Bits: 0
   actions: {fileID: 0}
   numberOfVelocitiesToRecord: 10
+  pausedPressed: 0
 --- !u!212 &827934703
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42283,6 +42217,9 @@ MonoBehaviour:
   airDecMultiSmall: 0.9
   airDecMultiMedium: 0.9
   airDecMultiLarge: 0.9
+  landingSfxOffsetSmall: 0.05
+  landingSfxOffsetMedium: 0.1
+  landingSfxOffsetLarge: 0.5
 --- !u!4 &1023675793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 658788291900644521, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
@@ -63282,4 +63219,3 @@ SceneRoots:
   - {fileID: 224721220}
   - {fileID: 1283036769}
   - {fileID: 1342678693}
-  - {fileID: 331913279}
