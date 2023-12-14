@@ -7948,6 +7948,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6256694413383269448, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823699174650878128, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823699174650878128, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.14
+      objectReference: {fileID: 0}
     - target: {fileID: 7229780853740973210, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -8837,7 +8849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: smallEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9973,7 +9985,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.07, y: -4.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

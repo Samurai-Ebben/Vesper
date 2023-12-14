@@ -46,12 +46,12 @@ public class SizeStats : MonoBehaviour
     [Space(10)]
     float groundCheckSizeSmallX;
     float groundCheckSizeMediumX;
-    float groundCheckSizeBigX;
+    float groundCheckSizeLargeX;
 
     [Space(10)]
     float groundCheckSizeSmallY;
     float groundCheckSizeMediumY;
-    float groundCheckSizeBigY;
+    float groundCheckSizeLargeY;
 
     [Space(10)]
     [Range(0,10)]  public float airSpeedMultiSmall = .9f;
@@ -97,20 +97,19 @@ public class SizeStats : MonoBehaviour
             return statsMedium;
         }
 
-        //TODO remove print
-        print("Unknown argument, returning statsMedium");
         return statsMedium;
     }
 
     private void UpdateStatValues()
     {
-        groundCheckSizeBigX     =   0.05f;
-        groundCheckSizeSmallX   =   0.05f;
-        groundCheckSizeMediumX  =   0.05f;
+        groundCheckSizeSmallX   =   sizeSmall;
+        groundCheckSizeMediumX  =   sizeMedium;
+        groundCheckSizeLargeX   =   sizeLarge;
 
-        groundCheckSizeBigY = 0.009f;
-        groundCheckSizeSmallY = 0.007f;
-        groundCheckSizeMediumY = 0.01f;
+        groundCheckSizeSmallY   =   0.007f;
+        groundCheckSizeMediumY  =   0.01f;
+        groundCheckSizeLargeY   =   0.009f;
+
         statsSmall = new List<float>
         {
             sizeSmall,
@@ -154,8 +153,8 @@ public class SizeStats : MonoBehaviour
             jumpHeightLarge,
             fallSpeedLarge,
             jumpCutOffLarge,
-            groundCheckSizeBigX,
-            groundCheckSizeBigY,
+            groundCheckSizeLargeX,
+            groundCheckSizeLargeY,
             airSpeedMultiLarge,
             airAccMultiLarge,
             airDecMultiLarge,
