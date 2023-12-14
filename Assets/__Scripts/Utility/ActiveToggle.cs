@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ActiveToggle : MonoBehaviour
 {
+    public GameObject targetGameObject;
     public void SetTrue()
     {
-        gameObject.SetActive(true);
+        targetGameObject.SetActive(true);
     }
 
     public void SetFalse()
     {
-        gameObject.SetActive(false);
+        targetGameObject.SetActive(false);
     }
 }
