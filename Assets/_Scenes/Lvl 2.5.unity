@@ -17620,7 +17620,7 @@ GameObject:
   - component: {fileID: 1953241009}
   - component: {fileID: 1953241008}
   - component: {fileID: 1953241010}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ruin_large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17730,7 +17730,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.671455, y: 21.39}
+    oldSize: {x: 9.67, y: 21.39}
     newSize: {x: 9.671455, y: 21.39}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
