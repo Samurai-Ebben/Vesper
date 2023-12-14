@@ -297,7 +297,8 @@ MonoBehaviour:
   startedJump: 0
   hasLanded: 0
   inAir: 0
-  groundCheckRadius: {x: 0, y: 0}
+  shortenGroundCheckXValue: 0.1
+  groundCheckSize: {x: 0, y: 0}
   groundCheck: {fileID: 2067882930552435579}
   layerIsGround:
     serializedVersion: 2
@@ -449,6 +450,8 @@ MonoBehaviour:
   totalTopRaycast: 3
   totalSideRaycast: 3
   totalDownRaycast: 3
+  helpOffset: 0.23
+  edgeOffset: 1.5
   sideCheckLength: 0.5
   diagonalLength: 0.5
   mask:
@@ -473,8 +476,8 @@ MonoBehaviour:
   largeDownIsFree: 0
   rightHelpCheck: 0
   leftHelpCheck: 0
+  helpingPush: 0
   diagonalCheck: 0
-  edgeOffset: 1.5
 --- !u!114 &3028978548451914271
 MonoBehaviour:
   m_ObjectHideFlags: 0
