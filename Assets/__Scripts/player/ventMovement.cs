@@ -40,7 +40,7 @@ public class VentMovement : MonoBehaviour, IReset
     {
         actions["Vent"].performed -= OnMove;
 
-        inputDirection = Vector2.down;
+        //inputDirection = Vector2.down;
         //actions.Disable();
     }
 
