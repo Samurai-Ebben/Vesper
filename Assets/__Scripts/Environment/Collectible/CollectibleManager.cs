@@ -15,7 +15,6 @@ public class CollectibleManager : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
         collectedObjects = new List<GameObject>();
         collectedAmount = PlayerPrefs.GetInt("collectedAmount");
         UpdateDisplay();
