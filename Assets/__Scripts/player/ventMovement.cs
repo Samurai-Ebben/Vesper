@@ -15,9 +15,11 @@ public class VentMovement : MonoBehaviour, IReset
     public Vector2 inputDirection;
 
     Transform player;
+    Transform lastPos;
     private Rigidbody2D rb;
     InputActionAsset actions;
     RayCastHandler rayCastHandler;
+
 
     private void Start()
     {
@@ -39,8 +41,8 @@ public class VentMovement : MonoBehaviour, IReset
     private void OnDisable()
     {
         actions["Vent"].performed -= OnMove;
-
-        //inputDirection = Vector2.down;
+        lastPos.position = transform.position;
+        inputDirection = Vector2.zero;
         //actions.Disable();
     }
 
@@ -75,9 +77,17 @@ public class VentMovement : MonoBehaviour, IReset
         rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
     }
 
+
+    public void GetSuckedIn(Transform target, float SuckForce)
+    {
+        print("Succckkkkk");
+        var direction = transform.position - target.position;
+        rb.velocity = new Vector2(direction.x * SuckForce, direction.y*SuckForce);
+    }
+
     //Vector2 playerRelativeDirection()
     //{
-    //    Vector3 direction = transform.position - player.position;
+    //    Vector3 direction = lastPos.position - player.position;
     //    Vector2 relativePosition = Vector2.zero;
 
     //    if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
@@ -94,7 +104,7 @@ public class VentMovement : MonoBehaviour, IReset
 
     public void Reset()
     {
-        inputDirection = Vector2.down;
+        inputDirection = Vector2.zero;
     }
 
     public void RegisterSelfToResettableManager()

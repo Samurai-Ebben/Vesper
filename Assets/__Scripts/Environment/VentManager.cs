@@ -8,15 +8,13 @@ public class VentManager : MonoBehaviour
     PlayerController player;
     public float exitingSpeedX = 2;
     public float exitingSpeedY = 5;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             player = PlayerController.instance;
             player.isBouncing = true;
-            player.GetComponent<VentMovement>().enabled = true;
-            //player.enabled = false;
+            player.GetComponent<VentMovement>().enabled = true;            
         }        
     }
 
@@ -25,7 +23,7 @@ public class VentManager : MonoBehaviour
         player.GetComponent<VentMovement>().enabled = false;
         StartCoroutine(DelayMovementDisable());
         var rb = player.GetComponent<Rigidbody2D>();
-        float absX = Math.Abs( rb.position.x);
+        float absX = Math.Abs( rb.position.x); // Why position instead of velocity?
         float absY = Math.Abs( rb.velocity.y);
         if(absX > absY)
         {
