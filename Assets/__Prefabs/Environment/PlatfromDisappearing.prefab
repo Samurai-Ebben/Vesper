@@ -50,7 +50,7 @@ MonoBehaviour:
   cooldown: 0.5
   onTriggerColor:
     serializedVersion: 2
-    rgba: 4278190335
+    rgba: 4286611711
   platform: {fileID: 2756527826174328144}
 --- !u!1 &2589710850659495412
 GameObject:
