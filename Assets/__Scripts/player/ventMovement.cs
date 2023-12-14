@@ -11,11 +11,12 @@ public class VentMovement : MonoBehaviour, IReset
     public float moveSpeed = 5f;
     public bool canMoveHori;
     public bool canMoveVert;
+    public bool canMove = false;
     public LayerMask wayPoint;
     public Vector2 inputDirection;
 
     Transform player;
-    Transform lastPos;
+    //Transform lastPos;
     private Rigidbody2D rb;
     InputActionAsset actions;
     RayCastHandler rayCastHandler;
@@ -41,7 +42,7 @@ public class VentMovement : MonoBehaviour, IReset
     private void OnDisable()
     {
         actions["Vent"].performed -= OnMove;
-        lastPos.position = transform.position;
+        //lastPos.position = transform.position;
         inputDirection = Vector2.zero;
         //actions.Disable();
     }
@@ -69,20 +70,14 @@ public class VentMovement : MonoBehaviour, IReset
     void Move()
     {
         //inputDirection = inputDirection.normalized;
+        if (!canMove) return;
 
         rb.gravityScale = 0;
         canMoveVert = rayCastHandler.smallDownIsFree || rayCastHandler.smallTopIsFree;
         canMoveHori = rayCastHandler.rightSide || rayCastHandler.leftSide;
 
+        //TODO: take in the last direction and velocity.
         rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
-    }
-
-
-    public void GetSuckedIn(Transform target, float SuckForce)
-    {
-        print("Succckkkkk");
-        var direction = transform.position - target.position;
-        rb.velocity = new Vector2(direction.x * SuckForce, direction.y*SuckForce);
     }
 
     //Vector2 playerRelativeDirection()

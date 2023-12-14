@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     float coyoteTimer;
     float jumpBufferTimer;
     public bool isBouncing;
+    public bool canMove = true;
 
     float timer;
     public bool startedJump = false;
@@ -199,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
     private void MoveX()
     {
-        if (isBouncing) return;
+        if (isBouncing || !canMove) return;
 
         if (inAir)
         {
@@ -246,6 +247,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        if (!canMove) return;
         if (!canJump || !jumpPressed) return;
 
         effects.CreateJumpDust();

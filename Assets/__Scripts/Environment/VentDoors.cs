@@ -5,25 +5,51 @@ using UnityEngine;
 public class VentDoors : MonoBehaviour
 {
 
-    public float suckForce = 5;
+    public float suckForce = 200;
 
-    private void OnCollisionStay2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         
         if (other.gameObject.CompareTag("Player"))
         {
+            Vacuum(other);
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Vacuum(other);
+        }
+    }
+
+    void Vacuum(Collider2D target)
+    {
+        var player = PlayerController.instance;
+        if (player.currentSize == Sizes.SMALL)
+        {
+            player.GetComponent<VentMovement>().canMove = false;
+            var direction = transform.position - target.transform.position;
+            player.rb.velocity = new Vector2(direction.x, direction.y) * suckForce;
+            //player.rb.AddForce(direction * suckForce, ForceMode2D.Force);
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        print("Exit");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            print("Exit2");
+
             var player = PlayerController.instance;
             if (player.currentSize == Sizes.SMALL)
             {
-                //TODO: Suck in the player
-                var direction = transform.position - other.transform.position;
-                //player.rb.velocity = new Vector2(direction.x * suckForce, direction.y * suckForce);
-                player.rb.AddForce(direction * suckForce, ForceMode2D.Impulse);
+                print("Exit3");
 
+                player.GetComponent<VentMovement>().canMove = true;
             }
         }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
     }
 }
