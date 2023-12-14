@@ -8,35 +8,20 @@ using UnityEngine.InputSystem;
 public class PauseManager : MonoBehaviour
 {
     private InputActionAsset actions;
-    EventSystem events;
+    //EventSystem events;
     bool isPaused = false;
 
     //PlayerController player;
     public GameObject PauseMenuCanvas;
 
-    private void Awake()
+    private void Update()
     {
+        OnPause();
     }
-
-    private void Start()
+    public void OnPause()
     {
-        var playerInput = PlayerController.player.GetComponent<PlayerInput>();
-        actions = playerInput.actions;
-        actions["Pause"].performed += OnPause;
-
-        actions.Enable();
-    }
-
-    private void OnDisable()
-    {
-        actions["Pause"].performed -= OnPause;
-
-        actions.Disable();
-    }
-
-    public void OnPause(InputAction.CallbackContext ctx)
-    {
-        PauseTrigger();
+        if(PlayerController.instance.pausedPressed)
+            PauseTrigger();
     }
 
     public void PauseTrigger()

@@ -85,6 +85,8 @@ public class PlayerController : MonoBehaviour
     private List<float> yVelocities = new List<float>();
     public int numberOfVelocitiesToRecord = 10;
 
+
+    public bool pausedPressed = false;
     private void Awake()
     {
         if (instance != null) return;
@@ -97,6 +99,8 @@ public class PlayerController : MonoBehaviour
         actions["Move"].performed += Move;
         actions["Move"].canceled += Move;
 
+        actions["Pause"].performed += OnPause;
+        actions["Pause"].canceled += OnPauseCancel;
         actions["Jump"].performed += OnJumpStarted;
         actions["Jump"].canceled += OnJumpCanceled;
 
@@ -362,6 +366,15 @@ public class PlayerController : MonoBehaviour
     {
         isBig = false;
     }
+
+    public void OnPause(InputAction.CallbackContext ctx)
+    {
+        pausedPressed = true;
+    }
+    public void OnPauseCancel(InputAction.CallbackContext ctx)
+    {
+        pausedPressed = false;
+    }
     private void OnDisable()
     {
         actions["Move"].performed -= Move;
@@ -376,6 +389,11 @@ public class PlayerController : MonoBehaviour
         actions["Larger"].started -= Larger;
         actions["Larger"].canceled -= LargerCancel;
         #endregion
+
+
+
+        actions["Pause"].performed -= OnPause;
+        actions["Pause"].canceled -= OnPauseCancel;
 
         actions.Disable();
     }
