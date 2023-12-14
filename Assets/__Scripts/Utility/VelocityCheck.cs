@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class VelocityCheck : MonoBehaviour
 {
     public float breakForce;
-    public UnityEvent sampleEvent;
+    public UnityEvent DisableSelf;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,7 +17,7 @@ public class VelocityCheck : MonoBehaviour
             if (playerController.GetMagnitude() < breakForce) return;
             if (playerController.currentSize != Sizes.LARGE) return;
 
-            sampleEvent.Invoke();
+            DisableSelf.Invoke();
             return;
         }
     }

@@ -189,8 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cfb8a0a6da7e44d9785e354ff6a96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakForce: 15
-  sampleEvent:
+  breakForce: 0
+  DisableSelf:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3006795969496910298}
@@ -255,7 +255,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5081,5 +5081,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainObject:
   - {fileID: 3960707441324804535}
+  particles: {fileID: 6399946281690608396}
   respawnEnabled: 0
   respawnDelay: 1

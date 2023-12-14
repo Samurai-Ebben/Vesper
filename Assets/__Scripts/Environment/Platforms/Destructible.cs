@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class Destructible : MonoBehaviour, IReset
 {
     public List<GameObject> terrainObject;
+    public ParticleSystem particles;
     ScreenShakeHandler screenShakeHandler;
 
     bool ongoingCoroutine;
@@ -23,6 +25,7 @@ public class Destructible : MonoBehaviour, IReset
         screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
         if (!ongoingCoroutine)
         {
+            particles.Play();
             screenShakeHandler.DestructionShake();
             StartCoroutine(Destroy());
         }
