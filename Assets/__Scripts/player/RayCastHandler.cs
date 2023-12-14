@@ -16,6 +16,8 @@ public class RayCastHandler : MonoBehaviour
     public float mediumRaycastLength = 0.50f;
     public float largeRaycastLength = 0.75f;
 
+    public float helperCheckLength = 0.5f;
+
     [Header("Total Raycast")]
     public int totalTopRaycast = 3;
     public int totalSideRaycast = 3;
@@ -54,6 +56,9 @@ public class RayCastHandler : MonoBehaviour
     public bool mediumDownIsFree;
     public bool largeDownIsFree;
 
+    public bool rightHelpCheck;
+    public bool leftHelpCheck;
+
 
 
 
@@ -88,7 +93,7 @@ public class RayCastHandler : MonoBehaviour
         largeDownIsFree = RayCastGenerator(largeRaycastLength, Vector2.down, totalDownRaycast);
         mediumDownIsFree = RayCastGenerator(mediumRaycastLength, Vector2.down, totalDownRaycast);
 
-
+ 
 
         rightTop = RayCastGenerator(diagonalLength, new Vector2(1, 1), totalDiagonalRaycast);
         rightDown = RayCastGenerator(diagonalLength, new Vector2(1, -1), totalDiagonalRaycast);
@@ -99,6 +104,8 @@ public class RayCastHandler : MonoBehaviour
     }
     bool RayCastGenerator(float characterSize, Vector2 direction, int totalRaycast)
     {
+
+        
 
         Vector3 center = new Vector3(transform.position.x, transform.position.y);
 

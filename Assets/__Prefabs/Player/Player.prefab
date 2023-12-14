@@ -304,6 +304,7 @@ MonoBehaviour:
     m_Bits: 8
   actions: {fileID: 0}
   numberOfVelocitiesToRecord: 10
+  pausedPressed: 0
 --- !u!114 &4505907170274488285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +402,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6c85f209-1571-4968-a4e9-8fd1b7ee9b2d
     m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7a13183d-d199-4080-8c01-482ce824b2ed
+    m_ActionName: Player/Vent[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -440,6 +445,7 @@ MonoBehaviour:
   smallRaycastLength: 0.25
   mediumRaycastLength: 0.5
   largeRaycastLength: 0.75
+  helperCheckLength: 0.5
   totalTopRaycast: 3
   totalSideRaycast: 3
   totalDownRaycast: 3
@@ -465,6 +471,8 @@ MonoBehaviour:
   smallDownIsFree: 0
   mediumDownIsFree: 0
   largeDownIsFree: 0
+  rightHelpCheck: 0
+  leftHelpCheck: 0
   diagonalCheck: 0
   edgeOffset: 1.5
 --- !u!114 &3028978548451914271
@@ -511,7 +519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a412c9e92468954a85b87a838e0233a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumping: 0
 --- !u!50 &8437562171648355718
 Rigidbody2D:
   serializedVersion: 4

@@ -880,10 +880,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLandingSound: 0
-  volume: 2
-  landingSound: 7
-  jumpingVolume: 2
-  deathVolume: 2
+  volume: 0
+  landingSound: 0
+  jumpingVolume: 0
+  deathVolume: 0
   jumpSmall: {fileID: 8300000, guid: 8d5065938b48b4640833685eceb576fb, type: 3}
   jumpBig: {fileID: 8300000, guid: 754b67a76970b434fb5c65b5682ec313, type: 3}
   jumpMedium: {fileID: 8300000, guid: 24f3200dbaaf6ef4097f47e51b254c6a, type: 3}
