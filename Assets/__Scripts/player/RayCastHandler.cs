@@ -73,7 +73,7 @@ public class RayCastHandler : MonoBehaviour
 
     public bool checkAllToGround;
 
-    float checkGroundOffset = 0.22f;
+    float checkGroundOffset = 0.47f;
 
     float checkGorundLength = 0.56f;
 
