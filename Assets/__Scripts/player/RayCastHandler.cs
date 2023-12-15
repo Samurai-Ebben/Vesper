@@ -71,6 +71,11 @@ public class RayCastHandler : MonoBehaviour
 
     public bool helpingPush;
 
+    public bool checkAllToGround;
+
+    float checkGroundOffset = 0.22f;
+
+    float checkGorundLength = 0.56f;
 
 
 
@@ -117,6 +122,8 @@ public class RayCastHandler : MonoBehaviour
         leftTop = RayCastGenerator(diagonalLength, new Vector2(-1, 1), totalDiagonalRaycast);
         diagonalTop = rightTop || leftTop;
 
+        //checkAllToGround = RayCastGenerator(smallRaycastLength, Vector2.down, totalDownRaycast, true);
+
         if (!smallTopIsFree)
         {
             helpingPush = true;
@@ -125,6 +132,20 @@ public class RayCastHandler : MonoBehaviour
         {
             helpingPush = false;
         }
+
+        Vector3 center = transform.position;
+        Vector3 right = transform.position;
+        Vector3 left = transform.position;
+
+        right.x -= -checkGroundOffset;
+        left.x -= checkGroundOffset;
+
+        checkAllToGround = Physics2D.Raycast(right, Vector2.down, checkGorundLength, mask) && Physics2D.Raycast(center, Vector2.down, checkGorundLength, mask) && Physics2D.Raycast(left, Vector2.down, checkGorundLength, mask);
+        Debug.DrawRay(right, Vector2.down * checkGorundLength, Color.red);
+        Debug.DrawRay(left, Vector2.down * checkGorundLength, Color.red);
+        Debug.DrawRay(center, Vector2.down * checkGorundLength, Color.red);
+
+
 
     }
 
@@ -148,9 +169,10 @@ public class RayCastHandler : MonoBehaviour
         }
     }
 
-    bool RayCastGenerator(float characterSize, Vector2 direction, int totalRaycast)
+    bool RayCastGenerator(float characterSize, Vector2 direction, int totalRaycast, bool allOfThem = false)
     {
 
+        
         
 
         Vector3 center = new Vector3(transform.position.x, transform.position.y);
@@ -159,56 +181,83 @@ public class RayCastHandler : MonoBehaviour
 
         for (int i = 0; i < totalRaycast; i++)
         {
-            if (direction == Vector2.up || direction == Vector2.down)
-            {
-                offset = (col.bounds.size.x * edgeOffset) / totalRaycast;
-                centerRaycast = Physics2D.Raycast(center + new Vector3((i - (totalRaycast - 1) / 2f) * offset, 0), direction, characterSize, mask);
-                Debug.DrawRay(center + new Vector3((i - (totalRaycast - 1) / 2f) * offset, 0), direction * characterSize, Color.red);
-            }
+           
+                if (direction == Vector2.up || direction == Vector2.down)
+                {
+                    offset = (col.bounds.size.x * edgeOffset) / totalRaycast;
+                    centerRaycast = Physics2D.Raycast(center + new Vector3((i - (totalRaycast - 1) / 2f) * offset, 0), direction, characterSize, mask);
+                    Debug.DrawRay(center + new Vector3((i - (totalRaycast - 1) / 2f) * offset, 0), direction * characterSize, Color.red);
+                }
 
-            else if (direction == Vector2.right || direction == Vector2.left)
-            {
-                offset = (col.bounds.size.y * edgeOffset) / totalRaycast;
-                centerRaycast = Physics2D.Raycast(center + new Vector3(0, (i - (totalRaycast - 1) / 2f) * offset), direction, characterSize, mask);
-                Debug.DrawRay(center + new Vector3(0, (i - (totalRaycast - 1) / 2f) * offset), direction * characterSize, Color.red);
-            }
-            else if (direction == new Vector2(1, 1) || direction == new Vector2(1, -1) || direction == new Vector2(-1, 1) || direction == new Vector2(-1, -1))
-            {
-                offset = (col.bounds.size.y * edgeOffset) / totalRaycast;
-                centerRaycast = Physics2D.Raycast(center + new Vector3((i - (totalRaycast - 1) / 2f), (i - (totalRaycast - 1) / 2f) * offset), direction, characterSize, mask);
-                Debug.DrawRay(center + new Vector3((i - (totalRaycast - 1) / 2f), (i - (totalRaycast - 1) / 2f) * offset), direction * characterSize, Color.red);
-            }
+                else if (direction == Vector2.right || direction == Vector2.left)
+                {
+                    offset = (col.bounds.size.y * edgeOffset) / totalRaycast;
+                    centerRaycast = Physics2D.Raycast(center + new Vector3(0, (i - (totalRaycast - 1) / 2f) * offset), direction, characterSize, mask);
+                    Debug.DrawRay(center + new Vector3(0, (i - (totalRaycast - 1) / 2f) * offset), direction * characterSize, Color.red);
+                }
+                else if (direction == new Vector2(1, 1) || direction == new Vector2(1, -1) || direction == new Vector2(-1, 1) || direction == new Vector2(-1, -1))
+                {
+                    offset = (col.bounds.size.y * edgeOffset) / totalRaycast;
+                    centerRaycast = Physics2D.Raycast(center + new Vector3((i - (totalRaycast - 1) / 2f), (i - (totalRaycast - 1) / 2f) * offset), direction, characterSize, mask);
+                    Debug.DrawRay(center + new Vector3((i - (totalRaycast - 1) / 2f), (i - (totalRaycast - 1) / 2f) * offset), direction * characterSize, Color.red);
+                }
 
 
-            canChangeSize = centerRaycast.collider == null;
+
 
             if (centerRaycast.collider != null)
             {
-                canChangeSize = false;
-                break;
+                if (allOfThem)
+                {
+                    canChangeSize = false;
+                    continue;
+                }
+                else
+                {
+                    canChangeSize = false;
+                    return canChangeSize;
+                }
             }
 
         }
-        return canChangeSize;
+            return canChangeSize;
+
+    
+
+    //private void DirectionHandler(float characterSize, Vector2 direction, int totalRaycast, Vector3 center, int i)
+    //{
+    //    Vector3 offsetBetweenRay = Vector2.zero;
+
+    //    if (direction == Vector2.up || direction == Vector2.down)
+    //    {
+    //        offset = (col.bounds.size.x * edgeOffset) / totalRaycast;
+    //        offsetBetweenRay = new Vector2((i - (totalRaycast - 1) / 2f) * offset, 0);
+    //    }
+    //    else if (direction == Vector2.right || direction == Vector2.left)
+    //    {
+    //        offset = (col.bounds.size.y * edgeOffset) / totalRaycast;
+    //        offsetBetweenRay = new Vector2(0, ((i - totalRaycast - 1) / 2f) * offset);
+    //    }
 
 
-
+    //    centerRaycast = Physics2D.Raycast(center + offsetBetweenRay, direction, characterSize, mask);
+    //    Debug.DrawRay(center + offsetBetweenRay, direction * characterSize, Color.red);
+    //}
     }
-
     bool RayCastForHelper(float rayLength, float offset)
     {
         bool rightCheck = false;
         bool leftCheck = false;
         bool centerCheck = false;
 
-        Vector2 originPos = new Vector2 (transform.position.x + offset, transform.position.y);
+        Vector2 originPos = new Vector2(transform.position.x + offset, transform.position.y);
 
         rightCheck = Physics2D.Raycast(new Vector2(originPos.x, originPos.y), Vector2.up * rayLength);
-        Debug.DrawRay(new Vector2 (originPos.x, originPos.y), Vector2.up * rayLength, Color.black);
+        Debug.DrawRay(new Vector2(originPos.x, originPos.y), Vector2.up * rayLength, Color.black);
 
         return rightCheck;
-            
-            //new Vector2(col.bounds.size.x * offsetHelp, transform.position.y);
+
+        //new Vector2(col.bounds.size.x * offsetHelp, transform.position.y);
 
 
         //helpOffset = col.bounds.size 
@@ -235,24 +284,4 @@ public class RayCastHandler : MonoBehaviour
 
 
     }
-
-    //private void DirectionHandler(float characterSize, Vector2 direction, int totalRaycast, Vector3 center, int i)
-    //{
-    //    Vector3 offsetBetweenRay = Vector2.zero;
-
-    //    if (direction == Vector2.up || direction == Vector2.down)
-    //    {
-    //        offset = (col.bounds.size.x * edgeOffset) / totalRaycast;
-    //        offsetBetweenRay = new Vector2((i - (totalRaycast - 1) / 2f) * offset, 0);
-    //    }
-    //    else if (direction == Vector2.right || direction == Vector2.left)
-    //    {
-    //        offset = (col.bounds.size.y * edgeOffset) / totalRaycast;
-    //        offsetBetweenRay = new Vector2(0, ((i - totalRaycast - 1) / 2f) * offset);
-    //    }
-
-
-    //    centerRaycast = Physics2D.Raycast(center + offsetBetweenRay, direction, characterSize, mask);
-    //    Debug.DrawRay(center + offsetBetweenRay, direction * characterSize, Color.red);
-    //}
 }
