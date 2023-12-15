@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     // Size
     public Sizes currentSize { get; private set; }
+    public Vector2 moveInput{get; private set;}
 
     private bool isBig = false;
     private bool isSmall = false;
@@ -29,7 +30,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxSpeed = 4;
     [SerializeField] float velocityX;
     float speed;
-    public Vector2 moveInput{get; private set;}
 
     bool  isFacingRight    =   true;
     
@@ -101,7 +101,8 @@ public class PlayerController : MonoBehaviour
         actions["Move"].canceled += Move;
 
         actions["Pause"].performed += OnPause;
-        actions["Pause"].canceled += OnPauseCancel;
+        //actions["Pause"].canceled += OnPauseCancel;
+
         actions["Jump"].performed += OnJumpStarted;
         actions["Jump"].canceled += OnJumpCanceled;
 
@@ -371,7 +372,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext ctx)
     {
-        pausedPressed = true;
+        //pausedPressed = true;
+        GameManager.Instance.GetComponent<PauseManager>().PauseTrigger();
     }
     public void OnPauseCancel(InputAction.CallbackContext ctx)
     {
@@ -394,8 +396,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-        actions["Pause"].performed -= OnPause;
-        actions["Pause"].canceled -= OnPauseCancel;
+        //actions["Pause"].performed -= OnPause;
+        //actions["Pause"].canceled -= OnPauseCancel;
 
         actions.Disable();
     }
