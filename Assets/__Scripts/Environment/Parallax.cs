@@ -35,6 +35,8 @@ public class Parallax : MonoBehaviour, IReset
 
         if (GameManager.Instance.Dead)
             cam = Camera.main.transform;
+        else cam = PlayerController.player.transform;
+
         transform.position += new Vector3(delta.x * parallaxMult.x, delta.y * parallaxMult.y);
         lastCamPos = cam.position;
     }

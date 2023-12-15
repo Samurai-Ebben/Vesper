@@ -55,10 +55,10 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        Dead = false;
         player.transform.position = currentCheckpoint;
         ResettableManager.Instance.ResetAllObjects();
         GetComponent<CollectibleManager>().TriggerOnDeath();
-        Dead = false;
     }
      
     public void Death()
