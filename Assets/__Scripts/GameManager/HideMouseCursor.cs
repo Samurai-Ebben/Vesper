@@ -17,4 +17,6 @@ public class HideMouseCursor : MonoBehaviour
             Cursor.visible = cursorVisible;
         }
     }
+
+    public void toggleCursorVisibility() { Cursor.visible = !Cursor.visible;}
 }
