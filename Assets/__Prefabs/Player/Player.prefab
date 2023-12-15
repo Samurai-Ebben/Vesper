@@ -458,6 +458,9 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 8
+  platform:
+    serializedVersion: 2
+    m_Bits: 512
   drawRayForMedium: 0.19
   drawRayForLarge: 0.45
   drawRayForSmall: 0.08
@@ -479,6 +482,7 @@ MonoBehaviour:
   leftHelpCheck: 0
   anySideHelpCheck: 0
   helpingPush: 0
+  checkAllToGround: 0
   diagonalCheck: 0
 --- !u!114 &3028978548451914271
 MonoBehaviour:
