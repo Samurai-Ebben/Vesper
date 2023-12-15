@@ -41,6 +41,7 @@ public class VentManager : MonoBehaviour
 
     IEnumerator DelayMovementDisable()
     {
+        //this line gives the player back its controls, preventing it from being rocketed out.
         yield return new WaitForSeconds(0.01f);
         player.canMove = true;
     }

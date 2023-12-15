@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour
     public bool smallEnabled = true;
 
     // Player Controls
-    [SerializeField] float deacceleration   =   4;
-    [SerializeField] float acceleration     =   20;
-    [SerializeField] float maxSpeed         =   4;
+    [SerializeField] float deacceleration = 4;
+    [SerializeField] float acceleration = 20;
+    [SerializeField] float maxSpeed = 4;
     [SerializeField] float velocityX;
     float speed;
-    Vector2 moveInput;
+    public Vector2 moveInput{get; private set;}
 
     bool  isFacingRight    =   true;
     

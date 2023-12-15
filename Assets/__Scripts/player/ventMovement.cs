@@ -37,14 +37,14 @@ public class VentMovement : MonoBehaviour, IReset
 
         actions["Vent"].performed += OnMove;
         actions.Enable();
+        inputDirection = PlayerController.instance.moveInput;
+
     }
 
     private void OnDisable()
     {
         actions["Vent"].performed -= OnMove;
-        //lastPos.position = transform.position;
         inputDirection = Vector2.zero;
-        //actions.Disable();
     }
 
     void Update()
@@ -69,14 +69,13 @@ public class VentMovement : MonoBehaviour, IReset
 
     void Move()
     {
-        //inputDirection = inputDirection.normalized;
-        if (!canMove) return;
+        //if (!canMove) return;
 
         rb.gravityScale = 0;
+
         canMoveVert = rayCastHandler.smallDownIsFree || rayCastHandler.smallTopIsFree;
         canMoveHori = rayCastHandler.rightSide || rayCastHandler.leftSide;
 
-        //TODO: take in the last direction and velocity.
         rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
     }
 
