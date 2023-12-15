@@ -263,7 +263,7 @@ MonoBehaviour:
   airSpeedMultiSmall: 1
   airSpeedMultiMedium: 1
   airSpeedMultiLarge: 1
-  airAccMultiSmall: 1
+  airAccMultiSmall: 0.2
   airAccMultiMedium: 1
   airAccMultiLarge: 1
   airDecMultiSmall: 1
@@ -304,7 +304,6 @@ MonoBehaviour:
   layerIsGround:
     serializedVersion: 2
     m_Bits: 8
-  actions: {fileID: 0}
   numberOfVelocitiesToRecord: 10
   pausedPressed: 0
 --- !u!114 &4505907170274488285
