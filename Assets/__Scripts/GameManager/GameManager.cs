@@ -17,10 +17,13 @@ public class GameManager : MonoBehaviour
     private Vector2 instantiateCoordinate = new Vector3 (-25, -25);
 
     public float deathTime;
+    public bool Dead {  get; private set; }
     private void Awake()
     {
-        if (Instance != null) return;
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(Instance);
     }
 
     void Start()
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
      
     public void Death()
     {
+        Dead = true;
         StartCoroutine(DieDelay());
         audioManager.PlayingAudio(audioManager.death, audioManager.deathVolume);
     }

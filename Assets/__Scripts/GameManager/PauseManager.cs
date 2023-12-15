@@ -7,27 +7,26 @@ using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
-    private InputActionAsset actions;
     //EventSystem events;
     bool isPaused = false;
 
     //PlayerController player;
     public GameObject PauseMenuCanvas;
 
-    private void Update()
-    {
-        OnPause();
-    }
-    public void OnPause()
-    {
-        if(PlayerController.instance.pausedPressed)
-            PauseTrigger();
-    }
+    //private void Update()
+    //{
+    //    OnPause();
+    //}
+    //public void OnPause()
+    //{
+    //    if(PlayerController.instance.pausedPressed)
+    //        PauseTrigger();
+    //}
 
     public void PauseTrigger()
     {
         isPaused = !isPaused;
-        Time.timeScale = isPaused ? 0: 1;
+        Time.timeScale = isPaused ? 0 : 1;
         PauseMenuCanvas.SetActive(isPaused);
     }
 
