@@ -28,6 +28,8 @@ public class PauseManager : MonoBehaviour
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
         PauseMenuCanvas.SetActive(isPaused);
+
+        GetComponent<HideMouseCursor>().toggleCursorVisibility();
     }
 
     public void Replay()
