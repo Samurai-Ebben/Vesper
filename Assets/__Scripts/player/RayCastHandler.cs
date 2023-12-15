@@ -39,6 +39,8 @@ public class RayCastHandler : MonoBehaviour
     //since this is ground, maybe rename it?
     public LayerMask mask;
 
+    public LayerMask platform;
+
 
     RaycastHit2D centerRaycast;
     RaycastHit2D helperRaycast;
@@ -73,7 +75,7 @@ public class RayCastHandler : MonoBehaviour
 
     public bool checkAllToGround;
 
-    float checkGroundOffset = 0.47f;
+    float checkGroundOffset = 0.40f;
 
     float checkGorundLength = 0.56f;
 
@@ -140,7 +142,7 @@ public class RayCastHandler : MonoBehaviour
         right.x -= -checkGroundOffset;
         left.x -= checkGroundOffset;
 
-        checkAllToGround = Physics2D.Raycast(right, Vector2.down, checkGorundLength, mask) && Physics2D.Raycast(center, Vector2.down, checkGorundLength, mask) && Physics2D.Raycast(left, Vector2.down, checkGorundLength, mask);
+        checkAllToGround = Physics2D.Raycast(right, Vector2.down, checkGorundLength, platform) && Physics2D.Raycast(center, Vector2.down, checkGorundLength, platform) && Physics2D.Raycast(left, Vector2.down, checkGorundLength, platform);
         Debug.DrawRay(right, Vector2.down * checkGorundLength, Color.red);
         Debug.DrawRay(left, Vector2.down * checkGorundLength, Color.red);
         Debug.DrawRay(center, Vector2.down * checkGorundLength, Color.red);
