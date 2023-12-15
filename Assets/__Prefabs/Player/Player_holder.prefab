@@ -177,6 +177,10 @@ PrefabInstance:
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].tangentMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7074607068600479384, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.1

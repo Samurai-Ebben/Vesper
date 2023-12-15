@@ -135,17 +135,21 @@ public class RayCastHandler : MonoBehaviour
             helpingPush = false;
         }
 
-        Vector3 center = transform.position;
-        Vector3 right = transform.position;
-        Vector3 left = transform.position;
+        
+            Vector3 center = transform.position;
+            Vector3 right = transform.position;
+            Vector3 left = transform.position;
 
-        right.x -= -checkGroundOffset;
-        left.x -= checkGroundOffset;
+            right.x -= -checkGroundOffset;
+            left.x -= checkGroundOffset;
 
-        checkAllToGround = Physics2D.Raycast(right, Vector2.down, checkGorundLength, platform) && Physics2D.Raycast(center, Vector2.down, checkGorundLength, platform) && Physics2D.Raycast(left, Vector2.down, checkGorundLength, platform);
-        Debug.DrawRay(right, Vector2.down * checkGorundLength, Color.red);
-        Debug.DrawRay(left, Vector2.down * checkGorundLength, Color.red);
-        Debug.DrawRay(center, Vector2.down * checkGorundLength, Color.red);
+            checkAllToGround = Physics2D.Raycast(right, Vector2.down, checkGorundLength, platform) && Physics2D.Raycast(center, Vector2.down, checkGorundLength, platform) && Physics2D.Raycast(left, Vector2.down, checkGorundLength, platform);
+            Debug.DrawRay(right, Vector2.down * checkGorundLength, Color.red);
+            Debug.DrawRay(left, Vector2.down * checkGorundLength, Color.red);
+            Debug.DrawRay(center, Vector2.down * checkGorundLength, Color.red);
+
+        
+        
 
 
 

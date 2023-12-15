@@ -5043,7 +5043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884947779466125009}
   - component: {fileID: 3006795969496910298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlatformDestructible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
