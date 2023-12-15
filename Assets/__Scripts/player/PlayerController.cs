@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     // Size
-    public Sizes currentSize { get; private set; }
 
     private bool isBig = false;
     private bool isSmall = false;
@@ -24,12 +23,11 @@ public class PlayerController : MonoBehaviour
     public bool smallEnabled = true;
 
     // Player Controls
-    [SerializeField] float deacceleration   =   4;
-    [SerializeField] float acceleration     =   20;
-    [SerializeField] float maxSpeed         =   4;
+    [SerializeField] float deacceleration = 4;
+    [SerializeField] float acceleration = 20;
+    [SerializeField] float maxSpeed = 4;
     [SerializeField] float velocityX;
     float speed;
-    Vector2 moveInput;
 
     bool  isFacingRight    =   true;
     
@@ -48,6 +46,7 @@ public class PlayerController : MonoBehaviour
     float coyoteTimer;
     float jumpBufferTimer;
     public bool isBouncing;
+    public bool canMove = true;
 
     float timer;
     public bool startedJump = false;
@@ -66,17 +65,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask layerIsGround;
 
-    // Players references
+    // Players proprties
+    public Sizes currentSize { get; private set; }
+    public Vector2 moveInput{get; private set;}
     public  Rigidbody2D rb { get; private set; }
-    [HideInInspector] public InputActionAsset actions;
+    public InputActionAsset actions { get; private set; }
+    public AudioManager audioManager { get; private set; }
+    public RayCastHandler rayCastHandler { get; private set; }
+
+    //player references
     DevButtons devButtons;
     SizeStats sizeStats;
     PlayerParticleEffect effects;
     SquishAndSquash squishAndSquash;
-    RayCastHandler rayCastHandler;
     ScreenShakeHandler screenShake;
     PlayerAudioHandler playerAudioHandler;
-    AudioManager audioManager;
 
     // Velocity Magnitude
     private float currentMagnitude;
@@ -87,6 +90,7 @@ public class PlayerController : MonoBehaviour
 
 
     public bool pausedPressed = false;
+
     private void Awake()
     {
         if (instance != null) return;
@@ -100,7 +104,7 @@ public class PlayerController : MonoBehaviour
         actions["Move"].canceled += Move;
 
         actions["Pause"].performed += OnPause;
-        actions["Pause"].canceled += OnPauseCancel;
+
         actions["Jump"].performed += OnJumpStarted;
         actions["Jump"].canceled += OnJumpCanceled;
 
@@ -123,8 +127,6 @@ public class PlayerController : MonoBehaviour
         rb                  =     GetComponent<Rigidbody2D>();
         screenShake         =     FindAnyObjectByType<ScreenShakeHandler>();
         playerAudioHandler =      FindAnyObjectByType<PlayerAudioHandler>();
-
-        //originalStretchAmount = squishAndSquash.stretchAmount;
 
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
@@ -199,13 +201,12 @@ public class PlayerController : MonoBehaviour
 
     private void MoveX()
     {
-        if (isBouncing) return;
+        if (isBouncing || !canMove) return;
 
         if (inAir)
         {
             maxSpeed *= airSpeedMultiplier;
             acceleration *= airAccMultiplier;
-            //deacceleration *= airDecMulti;
         }
         else
         {
@@ -246,6 +247,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        if (!canMove) return;
         if (!canJump || !jumpPressed) return;
 
         effects.CreateJumpDust();
@@ -369,12 +371,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext ctx)
     {
-        pausedPressed = true;
+        GameManager.Instance.GetComponent<PauseManager>().PauseTrigger();
     }
-    public void OnPauseCancel(InputAction.CallbackContext ctx)
-    {
-        pausedPressed = false;
-    }
+ 
     private void OnDisable()
     {
         actions["Move"].performed -= Move;
@@ -389,11 +388,6 @@ public class PlayerController : MonoBehaviour
         actions["Larger"].started -= Larger;
         actions["Larger"].canceled -= LargerCancel;
         #endregion
-
-
-
-        actions["Pause"].performed -= OnPause;
-        actions["Pause"].canceled -= OnPauseCancel;
 
         actions.Disable();
     }
@@ -447,15 +441,15 @@ public class PlayerController : MonoBehaviour
         playerAudioHandler.PlayLandingSound();
         squishAndSquash.Squish();
 
-            effects.CreateLandDust();
-            startedJump = false;
-            squishAndSquash.Squish();
-            inAir = false;
+        effects.CreateLandDust();
+        startedJump = false;
+        squishAndSquash.Squish();
+        inAir = false;
 
-            if (currentSize == Sizes.LARGE)
-            {
-                screenShake.JumpShake();
-            }
+        if (currentSize == Sizes.LARGE)
+        {
+            screenShake.JumpShake();
+        }
     }
 }
 

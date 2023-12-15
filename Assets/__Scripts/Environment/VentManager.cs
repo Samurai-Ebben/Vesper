@@ -14,9 +14,8 @@ public class VentManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             player = PlayerController.instance;
-            player.isBouncing = true;
-            player.GetComponent<VentMovement>().enabled = true;
-            //player.enabled = false;
+            player.canMove = false;
+            player.GetComponent<VentMovement>().enabled = true;            
         }        
     }
 
@@ -24,8 +23,10 @@ public class VentManager : MonoBehaviour
     {
         player.GetComponent<VentMovement>().enabled = false;
         StartCoroutine(DelayMovementDisable());
-        var rb = player.GetComponent<Rigidbody2D>();
-        float absX = Math.Abs( rb.position.x);
+
+        /*var rb = player.GetComponent<Rigidbody2D>();
+
+        float absX = Math.Abs( rb.position.x); // Why position instead of velocity?
         float absY = Math.Abs( rb.velocity.y);
         if(absX > absY)
         {
@@ -35,11 +36,13 @@ public class VentManager : MonoBehaviour
         {
             rb.velocity = new Vector2(0, exitingSpeedY);
         }
+        */
     }
 
     IEnumerator DelayMovementDisable()
     {
-        yield return new WaitForSeconds(0.2f);
-        player.isBouncing = false;
+        //this line gives the player back its controls, preventing it from being rocketed out.
+        yield return new WaitForSeconds(0.01f);
+        player.canMove = true;
     }
 }

@@ -263,7 +263,7 @@ MonoBehaviour:
   airSpeedMultiSmall: 1
   airSpeedMultiMedium: 1
   airSpeedMultiLarge: 1
-  airAccMultiSmall: 1
+  airAccMultiSmall: 0.2
   airAccMultiMedium: 1
   airAccMultiLarge: 1
   airDecMultiSmall: 1
@@ -294,15 +294,16 @@ MonoBehaviour:
   isJumping: 0
   jumpPressed: 0
   isBouncing: 0
+  canMove: 1
   startedJump: 0
   hasLanded: 0
   inAir: 0
-  groundCheckRadius: {x: 0, y: 0}
+  shortenGroundCheckXValue: 0.1
+  groundCheckSize: {x: 0, y: 0}
   groundCheck: {fileID: 2067882930552435579}
   layerIsGround:
     serializedVersion: 2
     m_Bits: 8
-  actions: {fileID: 0}
   numberOfVelocitiesToRecord: 10
   pausedPressed: 0
 --- !u!114 &4505907170274488285
@@ -426,6 +427,7 @@ MonoBehaviour:
   moveSpeed: 10
   canMoveHori: 0
   canMoveVert: 0
+  canMove: 0
   wayPoint:
     serializedVersion: 2
     m_Bits: 0
@@ -449,6 +451,8 @@ MonoBehaviour:
   totalTopRaycast: 3
   totalSideRaycast: 3
   totalDownRaycast: 3
+  helpOffset: 0.23
+  edgeOffset: 1.5
   sideCheckLength: 0.5
   diagonalLength: 0.5
   mask:
@@ -473,8 +477,9 @@ MonoBehaviour:
   largeDownIsFree: 0
   rightHelpCheck: 0
   leftHelpCheck: 0
+  anySideHelpCheck: 0
+  helpingPush: 0
   diagonalCheck: 0
-  edgeOffset: 1.5
 --- !u!114 &3028978548451914271
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,13 +11,16 @@ public class VentMovement : MonoBehaviour, IReset
     public float moveSpeed = 5f;
     public bool canMoveHori;
     public bool canMoveVert;
+    public bool canMove = false;
     public LayerMask wayPoint;
     public Vector2 inputDirection;
 
     Transform player;
+    //Transform lastPos;
     private Rigidbody2D rb;
     InputActionAsset actions;
     RayCastHandler rayCastHandler;
+
 
     private void Start()
     {
@@ -34,14 +37,14 @@ public class VentMovement : MonoBehaviour, IReset
 
         actions["Vent"].performed += OnMove;
         actions.Enable();
+        inputDirection = PlayerController.instance.moveInput;
+
     }
 
     private void OnDisable()
     {
         actions["Vent"].performed -= OnMove;
-
-        inputDirection = Vector2.down;
-        //actions.Disable();
+        inputDirection = Vector2.zero;
     }
 
     void Update()
@@ -66,9 +69,10 @@ public class VentMovement : MonoBehaviour, IReset
 
     void Move()
     {
-        //inputDirection = inputDirection.normalized;
+        //if (!canMove) return;
 
         rb.gravityScale = 0;
+
         canMoveVert = rayCastHandler.smallDownIsFree || rayCastHandler.smallTopIsFree;
         canMoveHori = rayCastHandler.rightSide || rayCastHandler.leftSide;
 
@@ -77,7 +81,7 @@ public class VentMovement : MonoBehaviour, IReset
 
     //Vector2 playerRelativeDirection()
     //{
-    //    Vector3 direction = transform.position - player.position;
+    //    Vector3 direction = lastPos.position - player.position;
     //    Vector2 relativePosition = Vector2.zero;
 
     //    if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
@@ -94,7 +98,7 @@ public class VentMovement : MonoBehaviour, IReset
 
     public void Reset()
     {
-        inputDirection = Vector2.down;
+        inputDirection = Vector2.zero;
     }
 
     public void RegisterSelfToResettableManager()
