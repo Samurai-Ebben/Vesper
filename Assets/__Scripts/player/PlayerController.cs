@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     // Size
-
     private bool isBig = false;
     private bool isSmall = false;
 

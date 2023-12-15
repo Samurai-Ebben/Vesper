@@ -3,13 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallax : MonoBehaviour
+public class Parallax : MonoBehaviour, IReset
 {
 
     public Vector2 parallaxMult;
     Transform cam;
     Vector3 lastCamPos;
     Transform player;
+
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance?.RegisterObject(this);
+    }
+
+    public void Reset()
+    {
+        cam = PlayerController.player.transform;
+    }
 
     void Start()
     {
