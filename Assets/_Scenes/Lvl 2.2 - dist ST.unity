@@ -22573,7 +22573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960707441324804535, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4986762722744561313, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: breakForce
