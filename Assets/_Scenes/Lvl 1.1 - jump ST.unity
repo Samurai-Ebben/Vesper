@@ -6575,10 +6575,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 4.25
       objectReference: {fileID: 0}
-    - target: {fileID: 6993640121089094921, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
-      propertyPath: deathTime
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 7229780853740973210, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_Name
       value: GameManager
