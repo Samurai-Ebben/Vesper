@@ -16,7 +16,7 @@ public class VelocityCheck : MonoBehaviour
 
             if (playerController.GetMagnitude() < breakForce) return;
             if (playerController.currentSize != Sizes.LARGE) return;
-
+            //if(!playerController.GetComponent<RayCastHandler>().largeDownIsFree) return;
             DisableSelf.Invoke();
             return;
         }
