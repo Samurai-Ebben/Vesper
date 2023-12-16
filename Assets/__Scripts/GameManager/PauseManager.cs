@@ -13,15 +13,10 @@ public class PauseManager : MonoBehaviour
     //PlayerController player;
     public GameObject PauseMenuCanvas;
 
-    //private void Update()
-    //{
-    //    OnPause();
-    //}
-    //public void OnPause()
-    //{
-    //    if(PlayerController.instance.pausedPressed)
-    //        PauseTrigger();
-    //}
+    private void Start()
+    {
+        isPaused = false;
+    }
 
     public void PauseTrigger()
     {

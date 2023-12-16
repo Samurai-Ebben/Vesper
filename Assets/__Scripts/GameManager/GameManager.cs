@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour
     public void Death()
     {
         Dead = true;
-        StartCoroutine(DieDelay());
         audioManager.PlayingAudio(audioManager.death, audioManager.deathVolume);
+        StartCoroutine(DieDelay());
     }
 
     public IEnumerator DieDelay()

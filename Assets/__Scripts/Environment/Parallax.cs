@@ -3,26 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallax : MonoBehaviour, IReset
+public class Parallax : MonoBehaviour
 {
 
     public Vector2 parallaxMult;
     Transform cam;
+    Transform origPos;
     Vector3 lastCamPos;
     Transform player;
 
-    public void RegisterSelfToResettableManager()
-    {
-        ResettableManager.Instance?.RegisterObject(this);
-    }
-
-    public void Reset()
-    {
-        cam = PlayerController.player.transform;
-    }
 
     void Start()
     {
+        //origPos.position = transform.position;
         cam = PlayerController.player.transform;
         lastCamPos = cam.position;
 
@@ -32,10 +25,10 @@ public class Parallax : MonoBehaviour, IReset
     void Update()
     {
         Vector3 delta = cam.position - lastCamPos;
-            
-        if (GameManager.Instance.Dead)
-            cam = Camera.main.transform;
-        else cam = PlayerController.player.transform;
+        
+        //if (GameManager.Instance.Dead)
+        //    cam = Camera.main.transform;
+        //else cam = PlayerController.player.transform;
 
         transform.position += new Vector3(delta.x * parallaxMult.x, delta.y * parallaxMult.y);
         lastCamPos = cam.position;
