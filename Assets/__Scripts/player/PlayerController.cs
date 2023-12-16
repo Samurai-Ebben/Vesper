@@ -450,5 +450,10 @@ public class PlayerController : MonoBehaviour
             screenShake.JumpShake();
         }
     }
+
+    private void OnDestroy()
+    {
+        actions["Pause"].performed -= OnPause;
+    }
 }
 
