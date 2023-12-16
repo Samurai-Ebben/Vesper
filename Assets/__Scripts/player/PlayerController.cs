@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     [Header("Size Switch")]
     public bool bigEnabled = true;
     public bool smallEnabled = true;
+    public float superJumpTime = 1.3f;
+    public float superJumpTimer;
+    [Range(1,2f)]public float superJumpForce = 1.2f;
+
 
     // Player Controls
     [SerializeField] float deacceleration = 4;
@@ -138,6 +142,8 @@ public class PlayerController : MonoBehaviour
         CoyoteTime();
         RecordYVelocity();
         RecordMagnitude();
+
+        
     }
 
     void Update()
@@ -164,18 +170,22 @@ public class PlayerController : MonoBehaviour
     }
     private void SwitchSize()
     {
+        //if(currentSize == Sizes.SMALL)
         if (isSmall && smallEnabled)
         {
+            superJumpTimer = superJumpTime;
             currentSize = Sizes.SMALL;
         }
 
         if (isBig && bigEnabled && rayCastHandler.largeTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
         {
+            superJumpTimer = 0;
             currentSize = Sizes.LARGE;
         }
 
         if ((!isBig && !isSmall) && rayCastHandler.smallTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
         {
+            superJumpTimer = 0;
             currentSize = Sizes.MEDIUM;
         }
 
@@ -249,10 +259,12 @@ public class PlayerController : MonoBehaviour
         if (!canMove) return;
         if (!canJump || !jumpPressed) return;
 
+
         effects.CreateJumpDust();
         effects.StopLandDust();
         SquashCollisionHandler();
         playerAudioHandler.PlayJumpingSound();
+
 
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
@@ -261,12 +273,20 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             inAir = true;
             squishAndSquash.Squash();
+            if (rb.velocity.y >= 0 && superJumpTimer > 0)
+            {
+                superJumpTimer -= Time.deltaTime;
+                print("SuperJump");
+                rb.velocity = Vector2.up * jumpForce * superJumpForce;
+                effects.CreateJumpDust();
+            }
 
         }
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
+
 
         jumpPressed = false;
     }
@@ -315,14 +335,6 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0, layerIsGround);
     }
     #endregion
-
-    void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
-    }
     
     #region InputHanlder
     public void Move(InputAction.CallbackContext ctx)

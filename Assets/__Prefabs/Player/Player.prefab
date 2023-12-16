@@ -287,6 +287,9 @@ MonoBehaviour:
   landingSFX: 0.05
   bigEnabled: 1
   smallEnabled: 1
+  superJumpTime: 0.2
+  superJumpTimer: 0
+  superJumpForce: 1.4
   deacceleration: 4
   acceleration: 20
   maxSpeed: 4
