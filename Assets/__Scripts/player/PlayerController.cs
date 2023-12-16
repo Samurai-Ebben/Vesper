@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour
         //if(currentSize == Sizes.SMALL)
         if (isSmall && smallEnabled)
         {
-            superJumpTimer = superJumpTime; // this line should be somewhere else.
+            //superJumpTimer = superJumpTime; // this line should be somewhere else.
             currentSize = Sizes.SMALL;
         }
 
