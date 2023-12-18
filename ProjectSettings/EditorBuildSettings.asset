@@ -54,6 +54,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/Lvl 13 - playtest final.unity
     guid: 8a696a6e6d10c8645a7323c8972c11ca
   - enabled: 0
-    path: Assets/_Scenes/Lvl CS 4 - ending.unity
+    path: Assets/_Scenes/Lvl Cutscene 4 - ending.unity
     guid: 9366bbefd23de6347882fff73baa4ade
   m_configObjects: {}
