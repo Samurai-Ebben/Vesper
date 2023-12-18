@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Purchasing;
 
 public class Disappearing : MonoBehaviour, IReset
 {
@@ -12,12 +14,16 @@ public class Disappearing : MonoBehaviour, IReset
     private Color32 defaultColor;
     
     bool platformActive = true;
+    bool previousActive =  true;
     bool playerOverlapping;
     bool ongoingCoroutine;
     Coroutine myCoroutine;
 
     public GameObject platform;
     SpriteRenderer platformSpriteRenderer;
+
+    public UnityEvent fadeIn;
+    public UnityEvent fadeOut;
 
     private void Awake()
     {
@@ -39,7 +45,13 @@ public class Disappearing : MonoBehaviour, IReset
         else if (!playerOverlapping)
         {
             platform.SetActive(true);
+            if (previousActive == false)
+            {
+                fadeIn.Invoke();
+            }
         }
+
+        previousActive = platformActive;
     }
 
     public void Disappear()
@@ -49,7 +61,6 @@ public class Disappearing : MonoBehaviour, IReset
             myCoroutine = StartCoroutine(DisappearAndComeBack());
         }
     }
-
     IEnumerator DisappearAndComeBack()
     {
         ongoingCoroutine = true;
@@ -80,6 +91,7 @@ public class Disappearing : MonoBehaviour, IReset
             ongoingCoroutine = false;
         }
         platformActive = true;
+        previousActive = true;
         platformSpriteRenderer.color = defaultColor;
     }
 
