@@ -12,10 +12,14 @@ public class PauseManager : MonoBehaviour
 
     //PlayerController player;
     public GameObject PauseMenuCanvas;
+    public GameObject menu;
+    public GameObject controls;
+
 
     private void Start()
     {
         isPaused = false;
+        controls.SetActive(false);
         PauseMenuCanvas.SetActive(false);
     }
 
@@ -33,5 +37,22 @@ public class PauseManager : MonoBehaviour
     {
         PauseTrigger();
         GameManager.Instance.RespawnPlayer();
+    }
+
+    public void ControlsMenu()
+    {
+        menu.SetActive(false);
+        controls.SetActive(true);
+    }
+
+    public void BackMenu()
+    {
+        menu.SetActive(true);
+        controls.SetActive(false);
+    }
+
+    public void Quit()
+    {
+        print("Back to main menu");
     }
 }
