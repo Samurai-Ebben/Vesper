@@ -54,7 +54,7 @@ public class CollectibleManager : MonoBehaviour
     // Utility Functions
     public void UpdateDisplay()
     {
-        collectibleDisplay.text = collectedAmount.ToString() + " / " + totalCollectibleAmount;
+        collectibleDisplay.text = " X " + collectedAmount.ToString();
     }
     public void RegisterSelfAsCollected(GameObject collectible)
     {
