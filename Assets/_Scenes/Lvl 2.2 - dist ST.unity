@@ -26757,50 +26757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.025}
---- !u!1 &2113655857
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2113655859}
-  - component: {fileID: 2113655858}
-  m_Layer: 0
-  m_Name: Max Curve script
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2113655858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113655857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26d206d2e214fa49b4b4d6183bde4af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2113655859
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113655857}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9626746, y: -0.7004533, z: 0.007809857}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2126151930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
@@ -27052,7 +27008,6 @@ SceneRoots:
   - {fileID: 374122440}
   - {fileID: 934450671}
   - {fileID: 468548143}
-  - {fileID: 2113655859}
   - {fileID: 428212463}
   - {fileID: 1708646440}
   - {fileID: 1104309413}
