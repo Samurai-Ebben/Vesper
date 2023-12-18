@@ -19969,6 +19969,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 89.865
       objectReference: {fileID: 0}
+    - target: {fileID: 6514664690295535586, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8783587950400707718, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
       propertyPath: m_Name
       value: Spike (3)
@@ -20710,6 +20714,10 @@ PrefabInstance:
     - target: {fileID: 2572436534385835626, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514664690295535586, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8783587950400707718, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
       propertyPath: m_Name
@@ -21847,7 +21855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: targetHeight
-      value: -3.5
+      value: -2.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22088,6 +22096,10 @@ PrefabInstance:
     - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Color.r
       value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780843853840521355, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
