@@ -4,23 +4,33 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-    //EventSystem events;
+    public EventSystem events;
     public bool isPaused = false;
-
     //PlayerController player;
     public GameObject PauseMenuCanvas;
     public GameObject menu;
     public GameObject controls;
-
+    public GameObject indicator;
+    public GameObject indicator2;
+    public float indicateOffset = 50;
 
     private void Start()
     {
         isPaused = false;
         controls.SetActive(false);
         PauseMenuCanvas.SetActive(false);
+        //events = GameManager.Instance.GetComponentInChildren<EventSystem>();
+    }
+
+    private void Update()
+    {
+        var selected = events.currentSelectedGameObject.transform;
+        indicator.transform.position = selected.position - new Vector3(selected.localScale.x + indicateOffset, 0);
+        indicator2.transform.position = selected.position - new Vector3(selected.localScale.x - (indicateOffset + 4), 0);
     }
 
     public void PauseTrigger()
@@ -30,7 +40,6 @@ public class PauseManager : MonoBehaviour
         PauseMenuCanvas.SetActive(isPaused);
 
         GetComponent<HideMouseCursor>().toggleCursorVisibility();
-        print("canPause"); 
     }
 
     public void Replay()
@@ -42,12 +51,15 @@ public class PauseManager : MonoBehaviour
     public void ControlsMenu()
     {
         menu.SetActive(false);
+        events.SetSelectedGameObject(controls.GetComponentInChildren<Button>().gameObject);
         controls.SetActive(true);
     }
 
     public void BackMenu()
     {
         menu.SetActive(true);
+        events.SetSelectedGameObject(events.firstSelectedGameObject);
+
         controls.SetActive(false);
     }
 
