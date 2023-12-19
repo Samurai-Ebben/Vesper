@@ -2,33 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using DG.Tweening;
 
 public class CutsceneTrigger : MonoBehaviour
 {
-    // Objects and their Animator needs to start disabled
-    public List<GameObject> animationObjects;
-    public Transform cutscenePosition;
-    public float animationLength = 4;
+    public Transform targetPosition;
+    public float moveDuration;
 
+    // Objects and their Animator need to start disabled
+    public List<GameObject> animationObjects;
+    public float animationLength;
+
+    Rigidbody2D rb2d;
     bool cutscenePlayed = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !cutscenePlayed)
         {
-            PlayerController.instance.isBouncing = true;
-            PlayerController.player.transform.position = cutscenePosition.position;
-            PlayerController.player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
-            // TODO lerp/DOTween the player towards cutscenePositiono
-
+            rb2d = PlayerController.player.GetComponent<Rigidbody2D>();
+            
+            StopPlayerMovement();
+            MovePlayerToCutscenePosition();
             PlayAnimations(true);
+            StartCoroutine(UnstopPlayerMovement());
+
             cutscenePlayed = true;
-            StartCoroutine(ReEnableMovement());
         }
     }
 
-    IEnumerator ReEnableMovement()
+    private void StopPlayerMovement()
+    {
+        PlayerController.instance.isBouncing = true;
+        rb2d.velocity = Vector2.zero;
+    }
+
+    IEnumerator UnstopPlayerMovement()
     {
         yield return new WaitForSeconds(animationLength);
         PlayerController.instance.isBouncing = false;
@@ -37,6 +46,7 @@ public class CutsceneTrigger : MonoBehaviour
 
     private void PlayAnimations(bool boolean)
     {
+        // Enable animationObjects and their Animator
         foreach (GameObject animationObject in animationObjects)
         {
             animationObject.SetActive(boolean);
@@ -47,5 +57,14 @@ public class CutsceneTrigger : MonoBehaviour
                 animator.enabled = boolean;
             }
         }
+        
+        // Enable Player Animator
+        Animator playerAnimator = PlayerController.player.GetComponent<Animator>();
+        playerAnimator.enabled = boolean;
+    }
+
+    void MovePlayerToCutscenePosition()
+    {
+        rb2d.transform.DOMove(targetPosition.position, moveDuration);
     }
 }

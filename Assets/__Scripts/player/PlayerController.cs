@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxSpeed = 4;
     [SerializeField] float velocityX;
     float speed;
-
-    bool  isFacingRight    =   true;
     
     // Jump
     [Header("Jump Controls")]
@@ -69,14 +67,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerIsGround;
 
     // Players proprties
-    public Sizes currentSize { get; private set; }
-    public Vector2 moveInput{get; private set;}
-    public  Rigidbody2D rb { get; private set; }
+    public Sizes currentSize { get; set; }
+    public Vector2 moveInput { get; private set; }
+    public Rigidbody2D rb { get; private set; }
     public InputActionAsset actions { get; private set; }
     public AudioManager audioManager { get; private set; }
     public RayCastHandler rayCastHandler { get; private set; }
 
-    //player references
+    // Player references
     DevButtons devButtons;
     SizeStats sizeStats;
     PlayerParticleEffect effects;
@@ -129,7 +127,7 @@ public class PlayerController : MonoBehaviour
         rayCastHandler      =     GetComponent<RayCastHandler>();
         rb                  =     GetComponent<Rigidbody2D>();
         screenShake         =     FindAnyObjectByType<ScreenShakeHandler>();
-        playerAudioHandler =      FindAnyObjectByType<PlayerAudioHandler>();
+        playerAudioHandler  =     FindAnyObjectByType<PlayerAudioHandler>();
 
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;

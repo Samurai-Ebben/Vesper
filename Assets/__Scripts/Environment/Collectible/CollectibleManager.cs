@@ -13,7 +13,7 @@ public class CollectibleManager : MonoBehaviour
     List<GameObject> collectedObjects;
 
     int collectedAmount;
-    int totalCollectibleAmount = 12;
+    //int totalCollectibleAmount = 12;
 
     void Start()
     {
