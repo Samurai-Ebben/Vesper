@@ -21,6 +21,7 @@ public class PauseManager : MonoBehaviour
 
     TextMeshProUGUI txt;
     float txtWidth;
+
     private void Start()
     {      
         events = GameManager.Instance.GetComponentInChildren<EventSystem>();
@@ -33,8 +34,10 @@ public class PauseManager : MonoBehaviour
     private void Update()
     {
         var selected = events.currentSelectedGameObject.transform;
-        indicator.transform.position = selected.position - new Vector3(selected.localScale.x + indicateOffset, 0);
-        indicator2.transform.position = selected.position - new Vector3(selected.localScale.x - (indicateOffset + 4), 0);
+        txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
+        txtWidth = txt.preferredWidth;
+        indicator.transform.position = txt.transform.position + new Vector3(txtWidth /2 + indicateOffset, 0);
+        indicator2.transform.position = selected.position - new Vector3(txtWidth / 2 + (indicateOffset), 0);
     }
 
     public void PauseTrigger()
