@@ -38,16 +38,7 @@ public class VentMovement : MonoBehaviour, IReset
         actions = GetComponent<PlayerInput>().actions;
 
         actions["Vent"].performed += OnMove;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         actions["Vent"].canceled += OnMoveCancel;
-
->>>>>>> c41544f3b5564bfb303d2ac953951e5f02f2a7b1
-=======
-        actions["Vent"].canceled += OnMoveCancel;
-
->>>>>>> c41544f3b5564bfb303d2ac953951e5f02f2a7b1
         actions.Enable();
         inputDirection = PlayerController.instance.moveInput;
 
@@ -69,13 +60,7 @@ public class VentMovement : MonoBehaviour, IReset
 
     void OnMove(InputAction.CallbackContext ctx)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Vector2 input = ctx.ReadValue<Vector2>();
         if(canMoveHori && input.x != 0)
-=======
-=======
->>>>>>> c41544f3b5564bfb303d2ac953951e5f02f2a7b1
         input = ctx.ReadValue<Vector2>();
     }
     void OnMoveCancel(InputAction.CallbackContext ctx)
@@ -86,7 +71,6 @@ public class VentMovement : MonoBehaviour, IReset
     void MoveBuffer()
     {
         if (input.x > 0)
->>>>>>> c41544f3b5564bfb303d2ac953951e5f02f2a7b1
         {
             inputDirection.x = input.x;
             inputDirection.y = 0;
@@ -96,8 +80,6 @@ public class VentMovement : MonoBehaviour, IReset
             inputDirection.y = input.y;
             inputDirection.x = 0;
         }
-<<<<<<< HEAD
-=======
 
         if (input.y > 0)
         {
@@ -131,11 +113,6 @@ public class VentMovement : MonoBehaviour, IReset
             }
         }
         return;
-        
-<<<<<<< HEAD
->>>>>>> c41544f3b5564bfb303d2ac953951e5f02f2a7b1
-=======
->>>>>>> c41544f3b5564bfb303d2ac953951e5f02f2a7b1
     }
 
     void Move()
