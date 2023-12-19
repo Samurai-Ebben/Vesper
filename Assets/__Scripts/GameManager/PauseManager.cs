@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,9 +19,12 @@ public class PauseManager : MonoBehaviour
     public GameObject indicator2;
     public float indicateOffset = 50;
 
+    TextMeshProUGUI txt;
+    float txtWidth;
     private void Start()
     {      
         events = GameManager.Instance.GetComponentInChildren<EventSystem>();
+
         isPaused = false;
         controls.SetActive(false);
         PauseMenuCanvas.SetActive(false);
