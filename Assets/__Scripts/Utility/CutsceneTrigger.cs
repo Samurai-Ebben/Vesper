@@ -10,7 +10,7 @@ public class CutsceneTrigger : MonoBehaviour
     // Objects and their Animator need to start disabled
     public List<GameObject> animationObjects;
     public float animationLength;
-    public string playerAnimationName;
+    //public string playerAnimationName;
     
 
     bool cutscenePlayed = false;
@@ -54,9 +54,9 @@ public class CutsceneTrigger : MonoBehaviour
         Animator playerAnimator = PlayerController.player.GetComponent<Animator>();
         playerAnimator.enabled = boolean;
 
-        if (boolean)
-        {
-            playerAnimator.Play(playerAnimationName);
-        }
+        //if (boolean)
+        //{
+        //    playerAnimator.Play(playerAnimationName);
+        //}
     }
 }
