@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class CutsceneTrigger : MonoBehaviour
 {
@@ -21,10 +20,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !cutscenePlayed)
         {
-            PlayerController.instance.currentSize = Sizes.MEDIUM;
             PlayerController.instance.isBouncing = true;
-
-
             PlayerController.player.transform.position = cutscenePosition.position;
             PlayerController.player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-    public EventSystem events;
+    private EventSystem events;
     public bool isPaused = false;
     //PlayerController player;
     public GameObject PauseMenuCanvas;
@@ -18,19 +19,25 @@ public class PauseManager : MonoBehaviour
     public GameObject indicator2;
     public float indicateOffset = 50;
 
+    TextMeshProUGUI txt;
+    float txtWidth;
+
     private void Start()
-    {
+    {      
+        events = GameManager.Instance.GetComponentInChildren<EventSystem>();
+
         isPaused = false;
         controls.SetActive(false);
         PauseMenuCanvas.SetActive(false);
-        //events = GameManager.Instance.GetComponentInChildren<EventSystem>();
     }
 
     private void Update()
     {
         var selected = events.currentSelectedGameObject.transform;
-        indicator.transform.position = selected.position - new Vector3(selected.localScale.x + indicateOffset, 0);
-        indicator2.transform.position = selected.position - new Vector3(selected.localScale.x - (indicateOffset + 4), 0);
+        txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
+        txtWidth = txt.preferredWidth;
+        indicator.transform.position = txt.transform.position + new Vector3(txtWidth /2 + indicateOffset, 0);
+        indicator2.transform.position = selected.position - new Vector3(txtWidth / 2 + (indicateOffset), 0);
     }
 
     public void PauseTrigger()
