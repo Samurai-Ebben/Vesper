@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/Lvl 1.5.unity
     guid: a0b70394bcfb16a4e82b520769643553
   - enabled: 0
-    path: Assets/_Scenes/Lvl 1.2.5 CS small.unity
+    path: Assets/_Scenes/Lvl 1.2.5 Cutscene.unity
     guid: 177934be5c1dbc04caab8f12885a3ee1
   - enabled: 1
     path: Assets/_Scenes/Lvl 2.1 switch ST.unity
