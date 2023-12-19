@@ -9,9 +9,11 @@ using UnityEngine.Profiling;
 public class VentMovement : MonoBehaviour, IReset
 {
     public float moveSpeed = 5f;
-    public bool canMoveHori;
-    public bool canMoveVert;
-    public bool canMove = false;
+    public bool canMoveRight;
+    public bool canMoveUp;
+    public bool canMoveDown;
+    public bool canMoveLeft;
+    //public bool canMove = false;
     public LayerMask wayPoint;
     public Vector2 inputDirection;
 
@@ -21,6 +23,8 @@ public class VentMovement : MonoBehaviour, IReset
     InputActionAsset actions;
     RayCastHandler rayCastHandler;
 
+    public Vector2 bufferedInput;
+    public Vector3 prevPos;
 
     private void Start()
     {
@@ -36,6 +40,7 @@ public class VentMovement : MonoBehaviour, IReset
         actions = GetComponent<PlayerInput>().actions;
 
         actions["Vent"].performed += OnMove;
+        
         actions.Enable();
         inputDirection = PlayerController.instance.moveInput;
 
@@ -55,16 +60,83 @@ public class VentMovement : MonoBehaviour, IReset
     void OnMove(InputAction.CallbackContext ctx)
     {
         Vector2 input = ctx.ReadValue<Vector2>();
-        if(canMoveHori && input.x != 0)
+
+        if (input.x > 0)
         {
-            inputDirection.x = input.x;
-            inputDirection.y = 0;
+            if (canMoveRight)
+            {
+                inputDirection.x = 1;
+                inputDirection.y = 0;
+                bufferedInput = Vector2.zero;
+                return;
+            }
+            else
+            {
+                bufferedInput.x = 1;
+                bufferedInput.y = 0;
+            }
         }
-        if (canMoveVert && input.y !=  0)
+
+        if (input.x < 0)
         {
-            inputDirection.y = input.y;
-            inputDirection.x = 0;
+            if (canMoveLeft)
+            {
+                inputDirection.x = -1;
+                inputDirection.y = 0;
+                bufferedInput = Vector2.zero;
+                return;
+            }
+            else
+            {
+                bufferedInput.x = -1;
+                bufferedInput.y = 0;
+            }
         }
+
+        if (input.y > 0)
+        {
+            if (canMoveUp)
+            {
+                inputDirection.y = 1;
+                inputDirection.x = 0;
+                bufferedInput = Vector2.zero;
+                return;
+            }
+            else
+            {
+                bufferedInput.y = 1;
+                bufferedInput.x = 0;
+            }
+        }
+
+        if (input.y < 0)
+        {
+            if (canMoveDown)
+            {
+                inputDirection.y = -1;
+                inputDirection.x = 0;
+                bufferedInput = Vector2.zero;
+                return;
+            }
+            else
+            {
+                bufferedInput.y = -1;
+                bufferedInput.x = 0;
+            }
+        }
+
+        return;
+
+        // if(canMoveHor && input.x != 0)
+        //{
+        //    inputDirection.x = input.x;
+        //    inputDirection.y = 0;
+        //}
+        // if (canMoveVert && input.y !=  0)
+        //{
+        //    inputDirection.y = input.y;
+        //    inputDirection.x = 0;
+        //}
     }
 
     void Move()
@@ -73,28 +145,33 @@ public class VentMovement : MonoBehaviour, IReset
 
         rb.gravityScale = 0;
 
-        canMoveVert = rayCastHandler.smallDownIsFree || rayCastHandler.smallTopIsFree;
-        canMoveHori = rayCastHandler.rightSide || rayCastHandler.leftSide;
+        canMoveUp = rayCastHandler.smallTopIsFree;
+        canMoveDown = rayCastHandler.smallDownIsFree;
+        canMoveLeft = rayCastHandler.leftSide;
+        canMoveRight = rayCastHandler.rightSide;
 
-        rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
+        if (bufferedInput != Vector2.zero)
+        {
+            if(((canMoveRight || canMoveLeft) && bufferedInput.x != 0) || ((canMoveUp || canMoveDown) && bufferedInput.y != 0))
+            {
+                rb.velocity = new Vector2(bufferedInput.x, bufferedInput.y) * moveSpeed;
+            }
+            else
+            {
+                rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
+            }
+        }
+        else
+        {
+            rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
+        }
+
+        if(Vector3.Distance(transform.position, prevPos) < 0.005)
+        {
+            bufferedInput = Vector2.zero;
+        }
+        prevPos = transform.position;
     }
-
-    //Vector2 playerRelativeDirection()
-    //{
-    //    Vector3 direction = lastPos.position - player.position;
-    //    Vector2 relativePosition = Vector2.zero;
-
-    //    if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-    //    {
-    //        relativePosition.x = (direction.x > 0) ? 1 : -1;
-    //    }
-    //    else
-    //    {
-    //        relativePosition.y = (direction.y > 0) ? 1 : -1;
-    //    }
-
-    //    return relativePosition;
-    //}
 
     public void Reset()
     {
