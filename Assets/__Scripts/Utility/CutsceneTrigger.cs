@@ -5,10 +5,13 @@ using UnityEngine.Animations;
 
 public class CutsceneTrigger : MonoBehaviour
 {
-    // Objects and their Animator needs to start disabled
-    public List<GameObject> animationObjects;
     public Transform cutscenePosition;
-    public float animationLength = 4;
+
+    // Objects and their Animator need to start disabled
+    public List<GameObject> animationObjects;
+    public float animationLength;
+    public string playerAnimationName;
+    
 
     bool cutscenePlayed = false;
 
@@ -20,7 +23,7 @@ public class CutsceneTrigger : MonoBehaviour
             PlayerController.player.transform.position = cutscenePosition.position;
             PlayerController.player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-            // TODO lerp/DOTween the player towards cutscenePositiono
+            // TODO lerp/DOTween the player towards cutscenePosition
 
             PlayAnimations(true);
             cutscenePlayed = true;
@@ -46,6 +49,14 @@ public class CutsceneTrigger : MonoBehaviour
             {
                 animator.enabled = boolean;
             }
+        }
+
+        Animator playerAnimator = PlayerController.player.GetComponent<Animator>();
+        playerAnimator.enabled = boolean;
+
+        if (boolean)
+        {
+            playerAnimator.Play(playerAnimationName);
         }
     }
 }
