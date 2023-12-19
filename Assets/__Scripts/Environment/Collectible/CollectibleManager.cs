@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectibleManager : MonoBehaviour
 {
     public TextMeshProUGUI collectibleDisplay;
 
     List<GameObject> collectedObjects;
-    
+
     int collectedAmount;
     int totalCollectibleAmount = 12;
 
