@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerIsGround;
 
     // Players proprties
-    public Sizes currentSize { get; set; }
-    public Vector2 moveInput { get; private set; }
+    public Sizes currentSize { get; private set; }
+    public Vector2 moveInput{get; private set;}
     public  Rigidbody2D rb { get; private set; }
     public InputActionAsset actions { get; private set; }
     public AudioManager audioManager { get; private set; }

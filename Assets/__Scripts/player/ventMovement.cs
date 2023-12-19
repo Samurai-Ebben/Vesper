@@ -138,7 +138,7 @@ public class VentMovement : MonoBehaviour, IReset
             }
         }
         return;
-        
+
     }
 
     void Move()
@@ -154,7 +154,7 @@ public class VentMovement : MonoBehaviour, IReset
 
         if (bufferedInput != Vector2.zero)
         {
-            if(((canMoveRight || canMoveLeft) && bufferedInput.x != 0) || ((canMoveUp || canMoveDown) && bufferedInput.y != 0))
+            if (((canMoveRight || canMoveLeft) && bufferedInput.x != 0) || ((canMoveUp || canMoveDown) && bufferedInput.y != 0))
             {
                 rb.velocity = new Vector2(bufferedInput.x, bufferedInput.y) * moveSpeed;
             }
@@ -168,7 +168,7 @@ public class VentMovement : MonoBehaviour, IReset
             rb.velocity = new Vector2(inputDirection.x, inputDirection.y) * moveSpeed;
         }
 
-        if(Vector3.Distance(transform.position, prevPos) < 0.005)
+        if (Vector3.Distance(transform.position, prevPos) < 0.005)
         {
             bufferedInput = Vector2.zero;
         }
