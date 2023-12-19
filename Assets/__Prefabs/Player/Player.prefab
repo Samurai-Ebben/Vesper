@@ -175,7 +175,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039357287052551182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3c8b3278c09c214f850cf11a119c2e9, type: 3}
   m_Name: 
@@ -307,6 +307,7 @@ MonoBehaviour:
   layerIsGround:
     serializedVersion: 2
     m_Bits: 8
+  currentSize: 0
   numberOfVelocitiesToRecord: 10
   pausedPressed: 0
 --- !u!114 &4505907170274488285
@@ -428,13 +429,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  canMoveHori: 0
-  canMoveVert: 0
-  canMove: 0
+  canMoveRight: 0
+  canMoveUp: 0
+  canMoveDown: 0
+  canMoveLeft: 0
   wayPoint:
     serializedVersion: 2
     m_Bits: 0
   inputDirection: {x: 0, y: 0}
+  bufferedInput: {x: 0, y: 0}
+  prevPos: {x: 0, y: 0, z: 0}
 --- !u!114 &3735912514214847531
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerIsGround;
 
     // Players proprties
-    public Sizes currentSize { get; private set; }
-    public Vector2 moveInput{get; private set;}
+    public Sizes currentSize { get; set; }
+    public Vector2 moveInput { get; private set; }
     public  Rigidbody2D rb { get; private set; }
     public InputActionAsset actions { get; private set; }
     public AudioManager audioManager { get; private set; }
@@ -170,24 +170,14 @@ public class PlayerController : MonoBehaviour
     }
     private void SwitchSize()
     {
-        //if(currentSize == Sizes.SMALL)
         if (isSmall && smallEnabled)
-        {
-            //superJumpTimer = superJumpTime; // this line should be somewhere else.
             currentSize = Sizes.SMALL;
-        }
 
         if (isBig && bigEnabled && rayCastHandler.largeTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
-        {
-            superJumpTimer = 0;
             currentSize = Sizes.LARGE;
-        }
 
         if ((!isBig && !isSmall) && rayCastHandler.smallTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
-        {
-            superJumpTimer = 0;
             currentSize = Sizes.MEDIUM;
-        }
 
         List<float> statList = sizeStats.ReturnStats(currentSize);
 
@@ -273,21 +263,12 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             inAir = true;
             squishAndSquash.Squash();
-            if (rb.velocity.y >= 0 && superJumpTimer > 0)
-            {
-                superJumpTimer -= Time.deltaTime;
-                print("SuperJump");
-                rb.velocity = Vector2.up * jumpForce * superJumpForce;
-                effects.CreateJumpDust();
-            }
-
         }
+
         else if (!isJumping && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHoldForce);
         }
-
-
         jumpPressed = false;
     }
 

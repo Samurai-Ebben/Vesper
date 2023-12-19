@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 public class FadeSprite : MonoBehaviour
 {
-    public UnityEvent callAfterFadeOut;
     public SpriteRenderer spriteRenderer;
     public float fadeInTime = 1.5f;
     public float fadeOutTime = 1.5f;
+    public UnityEvent actionAfterFadeOut;
     float fadeTime;
 
     private float targetAlpha;
@@ -51,7 +51,7 @@ public class FadeSprite : MonoBehaviour
 
     public void FadeIn()
     {
-        StopCoroutine(CallDisable());
+        StopCoroutine(AfterFadeOut());
 
         originalColor.a = 0;
         timer = 0f;
@@ -69,14 +69,14 @@ public class FadeSprite : MonoBehaviour
         fadeTime = fadeOutTime;
     }
 
-    public void DisableAfterFadeOut()
+    public void CallAfterFadeOut()
     {
-        StartCoroutine(CallDisable());
+        StartCoroutine(AfterFadeOut());
     }
 
-    IEnumerator CallDisable()
+    IEnumerator AfterFadeOut()
     {
         yield return new WaitForSeconds(fadeOutTime);
-        callAfterFadeOut.Invoke();
+        actionAfterFadeOut.Invoke();
     }
 }
