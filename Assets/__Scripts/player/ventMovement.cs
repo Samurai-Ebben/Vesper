@@ -152,6 +152,7 @@ public class VentMovement : MonoBehaviour, IReset
 
         if (bufferedInput != Vector2.zero)
         {
+            print(prevPos);
             if(((canMoveRight || canMoveLeft) && bufferedInput.x != 0) || ((canMoveUp || canMoveDown) && bufferedInput.y != 0))
             {
                 rb.velocity = new Vector2(bufferedInput.x, bufferedInput.y) * moveSpeed;
@@ -171,7 +172,6 @@ public class VentMovement : MonoBehaviour, IReset
             bufferedInput = Vector2.zero;
         }
         prevPos = transform.position;
-        print(prevPos);
     }
 
     public void Reset()
