@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Profiling;
+using UnityEngine.Windows;
 
 public class VentMovement : MonoBehaviour, IReset
 {
@@ -15,6 +16,7 @@ public class VentMovement : MonoBehaviour, IReset
     public bool canMoveLeft;
     //public bool canMove = false;
     public LayerMask wayPoint;
+    Vector2 input;
     public Vector2 inputDirection;
 
     Transform player;
@@ -49,18 +51,23 @@ public class VentMovement : MonoBehaviour, IReset
     private void OnDisable()
     {
         actions["Vent"].performed -= OnMove;
-        inputDirection = Vector2.zero;
+        input = Vector2.zero;
+        //print("Direction" + input)
     }
 
     void Update()
     {
+        MoveBuffer();
         Move();
     }
 
     void OnMove(InputAction.CallbackContext ctx)
     {
-        Vector2 input = ctx.ReadValue<Vector2>();
+        input = ctx.ReadValue<Vector2>();
+    }
 
+    void MoveBuffer()
+    {
         if (input.x > 0)
         {
             if (canMoveRight)
@@ -124,19 +131,8 @@ public class VentMovement : MonoBehaviour, IReset
                 bufferedInput.x = 0;
             }
         }
-
         return;
-
-        // if(canMoveHor && input.x != 0)
-        //{
-        //    inputDirection.x = input.x;
-        //    inputDirection.y = 0;
-        //}
-        // if (canMoveVert && input.y !=  0)
-        //{
-        //    inputDirection.y = input.y;
-        //    inputDirection.x = 0;
-        //}
+        
     }
 
     void Move()
@@ -152,7 +148,6 @@ public class VentMovement : MonoBehaviour, IReset
 
         if (bufferedInput != Vector2.zero)
         {
-            print(prevPos);
             if(((canMoveRight || canMoveLeft) && bufferedInput.x != 0) || ((canMoveUp || canMoveDown) && bufferedInput.y != 0))
             {
                 rb.velocity = new Vector2(bufferedInput.x, bufferedInput.y) * moveSpeed;
