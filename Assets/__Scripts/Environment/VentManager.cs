@@ -24,9 +24,10 @@ public class VentManager : MonoBehaviour
         player.GetComponent<VentMovement>().enabled = false;
         StartCoroutine(DelayMovementDisable());
 
-        /*var rb = player.GetComponent<Rigidbody2D>();
 
-        float absX = Math.Abs( rb.position.x); // Why position instead of velocity?
+        var rb = player.GetComponent<Rigidbody2D>();
+
+        float absX = Math.Abs( rb.velocity.x);
         float absY = Math.Abs( rb.velocity.y);
         if(absX > absY)
         {
@@ -36,7 +37,6 @@ public class VentManager : MonoBehaviour
         {
             rb.velocity = new Vector2(0, exitingSpeedY);
         }
-        */
     }
 
     IEnumerator DelayMovementDisable()
