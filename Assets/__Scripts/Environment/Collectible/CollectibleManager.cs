@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -67,14 +68,19 @@ public class CollectibleManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
-//    private void OnDisable()
-//    {
-//#if UNITY_EDITOR
-//        if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
-//        {
-//            Debug.Log("Exiting Play Mode in Editor");
-//            PlayerPrefs.DeleteAll();
-//        }
-//#endif
-//    }
+    private void OnDestroy()
+    {
+        DOTween.Clear(transform);
+    }
+
+    //    private void OnDisable()
+    //    {
+    //#if UNITY_EDITOR
+    //        if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
+    //        {
+    //            Debug.Log("Exiting Play Mode in Editor");
+    //            PlayerPrefs.DeleteAll();
+    //        }
+    //#endif
+    //    }
 }
