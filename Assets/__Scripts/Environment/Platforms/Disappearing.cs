@@ -45,6 +45,7 @@ public class Disappearing : MonoBehaviour, IReset
         else if (!playerOverlapping)
         {
             platform.SetActive(true);
+
             if (previousActive == false)
             {
                 fadeIn.Invoke();

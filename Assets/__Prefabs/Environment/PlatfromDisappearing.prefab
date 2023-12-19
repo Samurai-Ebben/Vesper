@@ -52,6 +52,36 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4286611711
   platform: {fileID: 2756527826174328144}
+  fadeIn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5412060667250424032}
+        m_TargetAssemblyTypeName: FadeSprite, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fadeOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5412060667250424032}
+        m_TargetAssemblyTypeName: FadeSprite, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2589710850659495412
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +230,7 @@ GameObject:
   - component: {fileID: 2323194306062782538}
   - component: {fileID: 7712078985901082638}
   - component: {fileID: 5587077015069764973}
+  - component: {fileID: 5412060667250424032}
   m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
@@ -383,5 +414,23 @@ MonoBehaviour:
         m_CallState: 2
   exitEventOn: 0
   triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5412060667250424032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756527826174328144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9fea21f2395a8428c4a72832ed662c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8910612093998369637}
+  fadeInTime: 0.5
+  fadeOutTime: 0.5
+  actionAfterFadeOut:
     m_PersistentCalls:
       m_Calls: []
