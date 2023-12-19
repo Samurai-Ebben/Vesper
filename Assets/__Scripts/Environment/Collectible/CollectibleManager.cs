@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 public class CollectibleManager : MonoBehaviour
 {
     public TextMeshProUGUI collectibleDisplay;
-
+    public ParticleSystem alertFx;
+    public Transform imgUI;
     List<GameObject> collectedObjects;
 
     int collectedAmount;
@@ -17,6 +18,8 @@ public class CollectibleManager : MonoBehaviour
 
     void Start()
     {
+        alertFx = GetComponentInChildren<ParticleSystem>();
+        //alertFx.transform.position = imgUI.transform.position;
         collectedObjects = new List<GameObject>();
         collectedAmount = PlayerPrefs.GetInt("collectedAmount");
         UpdateDisplay();
@@ -26,6 +29,7 @@ public class CollectibleManager : MonoBehaviour
     public void CollectibleCollected()
     {
         collectedAmount++;
+        alertFx.Play();
         SaveNewCollectedAmount();
         UpdateDisplay();
     }

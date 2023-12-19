@@ -26,7 +26,7 @@ public class Parallax : MonoBehaviour
     {
         Vector3 delta = cam.position - lastCamPos;
         
-        //if (GameManager.Instance.Dead)
+        //if (GameManager.Instance.IsDead)
         //    cam = Camera.main.transform;
         //else cam = PlayerController.player.transform;
 
