@@ -171,6 +171,7 @@ public class VentMovement : MonoBehaviour, IReset
             bufferedInput = Vector2.zero;
         }
         prevPos = transform.position;
+        print(prevPos);
     }
 
     public void Reset()

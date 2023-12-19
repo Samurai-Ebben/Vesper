@@ -195,7 +195,6 @@ public class PlayerController : MonoBehaviour
         airDecMultiplier        =       statList[11];
         landingSFX              =       statList[12];
 
-
     }
 
     private void MoveX()
@@ -429,6 +428,7 @@ public class PlayerController : MonoBehaviour
 
     private void LandingActions()
     {
+        if(!canMove) return;
         effects.CreateLandDust();
         playerAudioHandler.PlayLandingSound();
         squishAndSquash.Squish();
