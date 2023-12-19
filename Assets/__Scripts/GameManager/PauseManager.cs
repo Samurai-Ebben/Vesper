@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-    public EventSystem events;
+    private EventSystem events;
     public bool isPaused = false;
     //PlayerController player;
     public GameObject PauseMenuCanvas;
@@ -19,11 +19,11 @@ public class PauseManager : MonoBehaviour
     public float indicateOffset = 50;
 
     private void Start()
-    {
+    {      
+        events = GameManager.Instance.GetComponentInChildren<EventSystem>();
         isPaused = false;
         controls.SetActive(false);
         PauseMenuCanvas.SetActive(false);
-        //events = GameManager.Instance.GetComponentInChildren<EventSystem>();
     }
 
     private void Update()

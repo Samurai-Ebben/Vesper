@@ -42,7 +42,8 @@ public class VentMovement : MonoBehaviour, IReset
         actions = GetComponent<PlayerInput>().actions;
 
         actions["Vent"].performed += OnMove;
-        
+        actions["Vent"].canceled += OnMoveCancel;
+
         actions.Enable();
         inputDirection = PlayerController.instance.moveInput;
 
@@ -51,6 +52,7 @@ public class VentMovement : MonoBehaviour, IReset
     private void OnDisable()
     {
         actions["Vent"].performed -= OnMove;
+        actions["Vent"].canceled -= OnMoveCancel;
         input = Vector2.zero;
         //print("Direction" + input)
     }
@@ -64,6 +66,10 @@ public class VentMovement : MonoBehaviour, IReset
     void OnMove(InputAction.CallbackContext ctx)
     {
         input = ctx.ReadValue<Vector2>();
+    }
+    void OnMoveCancel(InputAction.CallbackContext ctx)
+    {
+        input = Vector2.zero;
     }
 
     void MoveBuffer()
