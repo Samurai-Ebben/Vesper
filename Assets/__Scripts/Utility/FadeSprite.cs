@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class FadeSprite : MonoBehaviour
 {
@@ -9,43 +10,16 @@ public class FadeSprite : MonoBehaviour
     public float fadeInTime = 1.5f;
     public float fadeOutTime = 1.5f;
     public UnityEvent actionAfterFadeOut;
-    float fadeTime;
 
-    private float targetAlpha;
-    private float timer = 0f;
-    private Color originalColor;
-    private bool isFading = false;
+    float fadeTime;
+    float targetAlpha;
+    Color startColor;
 
     private void Start()
     {
         if (spriteRenderer != null)
         {
-            originalColor = spriteRenderer.color;
-        }
-    }
-
-    private void Update()
-    {
-        Fade();
-    }
-
-    private void Fade()
-    {
-        if (spriteRenderer == null || !isFading)
-        {
-            return;
-        }
-
-        timer += Time.deltaTime;
-
-        float normalizedTime = Mathf.Clamp01(timer / fadeTime);
-        Color targetColor = originalColor;
-        targetColor.a = Mathf.Lerp(originalColor.a, targetAlpha, normalizedTime);
-        spriteRenderer.color = targetColor;
-
-        if (normalizedTime >= 1f)
-        {
-            isFading = false;
+            startColor = spriteRenderer.color;
         }
     }
 
@@ -53,20 +27,29 @@ public class FadeSprite : MonoBehaviour
     {
         StopCoroutine(AfterFadeOut());
 
-        originalColor.a = 0;
-        timer = 0f;
-        isFading = true;
-        targetAlpha = 1;
         fadeTime = fadeInTime;
+        targetAlpha = 1;
+        
+        startColor.a = 0;
+        spriteRenderer.color = startColor;
+
+        Fade();
     }
     
     public void FadeOut()
-    {
-        originalColor.a = 1;
-        timer = 0f;
-        isFading = true;
-        targetAlpha = 0f;
+    {        
         fadeTime = fadeOutTime;
+        targetAlpha = 0f;
+
+        startColor.a = 1;
+        spriteRenderer.color = startColor;
+
+        Fade();
+    }
+
+    private void Fade()
+    {
+        spriteRenderer.DOFade(targetAlpha, fadeTime);
     }
 
     public void CallAfterFadeOut()

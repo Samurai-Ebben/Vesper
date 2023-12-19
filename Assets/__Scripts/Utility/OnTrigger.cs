@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TriggerBox : MonoBehaviour
+public class OnTrigger : MonoBehaviour
 {
     public UnityEvent triggerEnterEvent;
 
