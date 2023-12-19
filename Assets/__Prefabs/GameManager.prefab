@@ -6188,6 +6188,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ControlsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4086113345679923458, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 090cf1a5f41025e42b50cb90a1fdb2e7, type: 2}
+    - target: {fileID: 4086113345679923458, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4578371399764203571, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6274,6 +6282,14 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 5058124249235270251, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 090cf1a5f41025e42b50cb90a1fdb2e7, type: 2}
+    - target: {fileID: 5058124249235270251, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5113629673494886975, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
@@ -6305,6 +6321,14 @@ PrefabInstance:
     - target: {fileID: 5997854851249207884, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370284531844859043, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 090cf1a5f41025e42b50cb90a1fdb2e7, type: 2}
+    - target: {fileID: 6370284531844859043, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6989554930190646422, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_IsActive
