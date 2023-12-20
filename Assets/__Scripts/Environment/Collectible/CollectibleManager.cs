@@ -64,7 +64,7 @@ public class CollectibleManager : MonoBehaviour
         Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, canvasRectTransform.position);
 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
-        alertFx.transform.position = worldPos;
+        alertFx.transform.position = new Vector3(worldPos.x, worldPos.y/1.05f);
     }
 
     // Utility Functions
