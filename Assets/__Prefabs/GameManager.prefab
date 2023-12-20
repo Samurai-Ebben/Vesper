@@ -5420,7 +5420,7 @@ GameObject:
   - component: {fileID: 2075845257687231932}
   - component: {fileID: 8318274605551188012}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Particle SystemUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10942,8 +10942,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectibleDisplay: {fileID: 9177839384555178927}
-  alertFx: {fileID: 0}
-  imgUI: {fileID: 8843307468695333246}
+  alertFx: {fileID: 2075845257687231932}
+  imgUI: {fileID: 6734508865312294088}
 --- !u!1001 &7211758323979414877
 PrefabInstance:
   m_ObjectHideFlags: 0
