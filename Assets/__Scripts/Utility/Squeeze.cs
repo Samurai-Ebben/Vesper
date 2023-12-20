@@ -2,32 +2,38 @@ using UnityEngine;
 
 public class Squeeze : MonoBehaviour
 {
-    [Range(0, 0.999f)]public float squeezeAmount = 0.8f;
+    [Range(0.00001f, 1f)] public float squeezedMultiplier;
     public float squeezeSpeed = 2.0f;
     public float returnSpeed = 4.0f;
 
     private Vector3 originalScale;
     private Vector3 squeezedScale;
     private Vector3 originalPosition;
-    private bool isSqueezing = false;
-    private bool isReturning = false;
+    private Vector3 targetPosition;
 
-    private void Start()
+    public float deltaY { get; private set; }
+    public bool isSqueezing;
+    public bool isReturning;
+
+    void Start()
     {
         originalScale = transform.localScale;
+
         squeezedScale = originalScale;
-        squeezeAmount *= transform.localScale.y;
-        squeezedScale.y *= squeezeAmount;
+        squeezedScale.y *= squeezedMultiplier;
+        //squeezeAmount *= transform.localScale.y;
         originalPosition = transform.position;
+
+        deltaY = (originalScale.y - squeezedScale.y) / 2;
+        targetPosition = transform.position - (transform.up * deltaY);
     }
 
-    private void Update()
+    void Update()
     {
         if (isSqueezing)
         {
-            float deltaY = (originalScale.y - squeezedScale.y) / 2;
-            transform.localScale = Vector3.Lerp(transform.localScale, squeezedScale, squeezeSpeed * Time.deltaTime);
-            transform.position = originalPosition + transform.up * -deltaY;
+            transform.localScale = Vector3.Lerp(originalScale, squeezedScale, squeezeSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(originalPosition, targetPosition, squeezeSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.localScale, squeezedScale) < 0.01f)
             {
@@ -39,8 +45,8 @@ public class Squeeze : MonoBehaviour
 
         if (isReturning)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, originalScale, returnSpeed * Time.deltaTime);
-            transform.position = Vector3.Lerp(transform.position, originalPosition, returnSpeed * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(squeezedScale, originalScale, returnSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(targetPosition, originalPosition, returnSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.localScale, originalScale) < 0.01f)
             {
@@ -51,20 +57,20 @@ public class Squeeze : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && !isSqueezing)
-        {
-            isSqueezing = true;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        isSqueezing = true;
+    //    }
+    //}
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isSqueezing = false;
-            isReturning = true;
-        }
-    }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        isSqueezing = false;
+    //        isReturning = true;
+    //    }
+    //}
 }

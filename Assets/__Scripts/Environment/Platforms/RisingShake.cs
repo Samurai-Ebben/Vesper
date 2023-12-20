@@ -8,7 +8,6 @@ public class RisingShake : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Rising"))
         {
-            print("shake it off");
             PlayerController.instance.screenShake.PlatformShakeOnTarget();
         }
     }

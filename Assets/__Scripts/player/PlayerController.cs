@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 //using System.Drawing;
 using UnityEngine;
@@ -7,6 +8,10 @@ public enum Sizes { SMALL, MEDIUM, LARGE };
 
 public class PlayerController : MonoBehaviour
 {
+
+    private Gamepad gPad;
+    private Coroutine stopVibrationAfterTimeCoroutine;
+    public float vibrationDuration = .5f;
     // Singleton, reference to player object
     public static GameObject player;
     public static PlayerController instance;
@@ -246,6 +251,7 @@ public class PlayerController : MonoBehaviour
         if (!canMove) return;
         if (!canJump || !jumpPressed) return;
 
+        VibrateController(.2f, .5f, vibrationDuration);
 
         effects.CreateJumpDust();
         effects.StopLandDust();
@@ -382,6 +388,31 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    public void VibrateController(float lowFreq, float highFreq, float duration)
+    {
+        gPad = Gamepad.current;
+        if (gPad != null)
+        {
+            print(gPad.name);
+
+            gPad.SetMotorSpeeds(lowFreq, highFreq);
+            StartCoroutine(StopViberation(duration, gPad));
+
+        }
+    }
+
+    IEnumerator StopViberation(float duration, Gamepad pad)
+    {
+        float elabsedTime = 0;
+        while(elabsedTime < duration)
+        {
+            elabsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        pad.SetMotorSpeeds(0,0);
+    }
+
     private void RecordMagnitude()
     {
         prevMagnitude = currentMagnitude;
@@ -430,7 +461,6 @@ public class PlayerController : MonoBehaviour
         effects.CreateLandDust();
         playerAudioHandler.PlayLandingSound();
         squishAndSquash.Squish();
-
         effects.CreateLandDust();
         startedJump = false;
         squishAndSquash.Squish();
@@ -439,6 +469,8 @@ public class PlayerController : MonoBehaviour
         if (currentSize == Sizes.LARGE)
         {
             screenShake.JumpShake();
+            print("Shake");
+            VibrateController(.2f, .5f, vibrationDuration);
         }
     }
 
