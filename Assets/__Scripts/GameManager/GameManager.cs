@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private Vector2 instantiateCoordinate = new Vector3 (-25, -25);
 
     public float deathTime;
-    public bool Dead {  get; private set; }
+    public bool IsDead {  get; private set; }
     private void Awake()
     {
         if (Instance == null)
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        Dead = false;
+        IsDead = false;
         player.transform.position = currentCheckpoint;
         ResettableManager.Instance.ResetAllObjects();
         GetComponent<CollectibleManager>().TriggerOnDeath();
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
      
     public void Death()
     {
-        Dead = true;
+        IsDead = true;
         audioManager.PlayingAudio(audioManager.death, audioManager.deathVolume);
         StartCoroutine(DieDelay());
     }
