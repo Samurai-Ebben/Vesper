@@ -21621,6 +21621,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 749132452745693964, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1180278028}
     - target: {fileID: 2262656011936224157, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -24093,6 +24097,11 @@ Transform:
   - {fileID: 78366678}
   m_Father: {fileID: 468548143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1180278028 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8317324379531615490, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
+  m_PrefabInstance: {fileID: 953684991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1210561942
 GameObject:
   m_ObjectHideFlags: 0
