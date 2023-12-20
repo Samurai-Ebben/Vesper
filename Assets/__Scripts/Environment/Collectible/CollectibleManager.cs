@@ -82,10 +82,10 @@ public class CollectibleManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
-    private void OnDestroy()
-    {
-        DOTween.Clear(transform);
-    }
+    //private void OnDestroy()
+    //{
+    //    DOTween.Clear(transform);
+    //}
 
     //    private void OnDisable()
     //    {
