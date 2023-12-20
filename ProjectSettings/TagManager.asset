@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Trampoline
   - Corner
+  - Rising
   layers:
   - Default
   - TransparentFX
@@ -48,4 +49,7 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 1688531763
+    locked: 0
+  - name: Vignette
+    uniqueID: 2119804571
     locked: 0

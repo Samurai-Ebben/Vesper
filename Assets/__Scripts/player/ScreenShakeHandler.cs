@@ -8,12 +8,14 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     public float destructionDuration = 0.04f;
     public float jumpDuration = 0.07f;
     public float deathDuration = 0.04f;
+    public float platformsDuration = 0.04f;
     public float cornerDuration = 0.01f;
 
     [Header("Strength")]
     public float strengthForDestruction = 0.1f;
     public float strengthForJump = 0.01f;
     public float strengthForDeath = 0.04f;
+    public float strengthForPlatforms = 0.04f;
     public float strengthCorner = 0.01f;
 
     public bool vertical;
@@ -57,6 +59,13 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
         vertical = false;
         horizontal = false;
         StartCoroutine(ShakeScreen(strengthForDeath, deathDuration));
+    }
+
+    public void PlatformShakeOnTarget()
+    {
+        vertical = true;
+        horizontal = true;
+        StartCoroutine(ShakeScreen(strengthForPlatforms, platformsDuration));
     }
 
     IEnumerator ShakeScreen(float strength, float duration)

@@ -10,7 +10,7 @@ public class CollectibleManager : MonoBehaviour
 {
     public TextMeshProUGUI collectibleDisplay;
     public ParticleSystem alertFx;
-    public Transform imgUI;
+    public GameObject imgUI;
     List<GameObject> collectedObjects;
 
     int collectedAmount;
@@ -20,6 +20,7 @@ public class CollectibleManager : MonoBehaviour
     {
         alertFx = GetComponentInChildren<ParticleSystem>();
         //alertFx.transform.position = imgUI.transform.position;
+        ShowParticleEffectAtCanvasObject();
         collectedObjects = new List<GameObject>();
         collectedAmount = PlayerPrefs.GetInt("collectedAmount");
         UpdateDisplay();
@@ -56,6 +57,15 @@ public class CollectibleManager : MonoBehaviour
             obj.SetActive(true);
         }
     }
+    void ShowParticleEffectAtCanvasObject()
+    {
+        // Get the screen position of the canvas object
+        RectTransform canvasRectTransform = imgUI.GetComponent<RectTransform>();
+        Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, canvasRectTransform.position);
+
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
+        alertFx.transform.position = new Vector3(worldPos.x, worldPos.y/1.05f);
+    }
 
     // Utility Functions
     public void UpdateDisplay()
@@ -72,10 +82,10 @@ public class CollectibleManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
-    private void OnDestroy()
-    {
-        DOTween.Clear(transform);
-    }
+    //private void OnDestroy()
+    //{
+    //    DOTween.Clear(transform);
+    //}
 
     //    private void OnDisable()
     //    {
