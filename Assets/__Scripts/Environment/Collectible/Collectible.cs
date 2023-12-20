@@ -50,7 +50,6 @@ public class Collectible : MonoBehaviour
             .Append(transform.DOScale(origiScale, beatingDuration).SetEase(Ease.OutBounce))
             .AppendInterval(beatingDuration / 2)
             .SetLoops(-1);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
