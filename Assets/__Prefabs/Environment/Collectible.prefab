@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8344a1537f1a7b4392e463240cab6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondColor: {r: 0, g: 0, b: 0, a: 0}
+  secondColor: {r: 1, g: 1, b: 1, a: 1}
   duration: 1
 --- !u!61 &1989697198257262694
 BoxCollider2D:
