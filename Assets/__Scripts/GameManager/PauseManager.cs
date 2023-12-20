@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
@@ -72,6 +73,9 @@ public class PauseManager : MonoBehaviour
 
     public void Quit()
     {
+#if UNITY_EDITOR
         print("Back to main menu");
+#endif
+        Application.Quit();
     }
 }
