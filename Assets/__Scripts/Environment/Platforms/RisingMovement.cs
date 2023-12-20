@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.VersionControl.Asset;
 
 public class RisingMovement : MonoBehaviour , IReset
 {
-    public float targetHeight;
-    public float riseSpeed = 2.0f;
-    [Range(0,50)]public float durationOnTarget = 4;
-
-    private Vector3 initialPosition;
-    //private bool isRising = false;
-
     private enum States {DOWN,UP };
+    public float targetHeight;
+    private Vector3 initialPosition;
     private States currentState;
-
     private float timer;
+
+    [Range(1, 10)] public float TimerToTarget = 4; // Represents time to reach target
+    [Range(0, 50)] public float durationOnTarget = 2; // Represents duration at target height
+
+    private float riseSpeed; 
+
 
     void Start()
     {
         initialPosition = transform.position;
         currentState = States.DOWN;
         RegisterSelfToResettableManager();
+
+        riseSpeed = (targetHeight - initialPosition.y) / TimerToTarget;
     }
 
     void Update()
@@ -38,7 +41,7 @@ public class RisingMovement : MonoBehaviour , IReset
                 }
 
                 break;
-          
+
             case States.UP:
                 if (transform.position.y < targetHeight)
                 {
@@ -49,7 +52,7 @@ public class RisingMovement : MonoBehaviour , IReset
         }
         return;
     }
-
+    
     public void Rise()
     {
         currentState = States.UP;

@@ -2802,6 +2802,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 749132452745693964, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 982669395}
     - target: {fileID: 3627516008902076236, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4057,6 +4061,11 @@ PrefabInstance:
       addedObject: {fileID: 1240754738}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
+--- !u!20 &982669395 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8317324379531615490, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
+  m_PrefabInstance: {fileID: 982669394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &999477828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,7 +4180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4183,7 +4192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4195,7 +4204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4954,6 +4963,10 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: TimerToTarget
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: durationOnTarget
       value: 10
       objectReference: {fileID: 0}
@@ -5048,6 +5061,10 @@ PrefabInstance:
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: targetHeight
       value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: TimerToTarget
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: durationOnTarget
@@ -5153,6 +5170,10 @@ PrefabInstance:
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: targetHeight
       value: -2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: TimerToTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: durationOnTarget
@@ -5415,6 +5436,10 @@ PrefabInstance:
     - target: {fileID: 8424815956568163768, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: m_Name
       value: PlatformRising (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: TimerToTarget
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: durationOnTarget
