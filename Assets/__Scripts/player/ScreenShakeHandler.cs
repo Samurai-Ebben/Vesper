@@ -47,7 +47,7 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     public void DestructionShake()
     {
         vertical = true;
-        PlayerController.instance.VibrateController(.5f, 1f, .1f);
+        PlayerController.instance.VibrateController(.5f, 1f, destructionDuration);
 
         StartCoroutine(ShakeScreen(strengthForDestruction, destructionDuration));
     }
