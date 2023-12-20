@@ -31,6 +31,9 @@ public class RayCastHandler : MonoBehaviour
     float offset;
 
 
+    [Header("Reference")]
+    public string playerTag;
+
 
 
     public float sideCheckLength;
@@ -75,13 +78,13 @@ public class RayCastHandler : MonoBehaviour
 
     public bool checkAllToGround;
 
-    float checkGroundOffset = 0.40f;
+    float checkGroundOffset = 0.50f;
 
-    float checkGorundLength = 0.56f;
-
-
+    float checkGorundLength = 0.76f;
 
 
+
+    public bool fullyOnPlatform;
 
 
     public bool diagonalCheck;
@@ -135,24 +138,50 @@ public class RayCastHandler : MonoBehaviour
             helpingPush = false;
         }
 
-        
-            Vector3 center = transform.position;
-            Vector3 right = transform.position;
-            Vector3 left = transform.position;
+        DetectGround(playerTag);
 
-            right.x -= -checkGroundOffset;
-            left.x -= checkGroundOffset;
+    }
 
-            checkAllToGround = Physics2D.Raycast(right, Vector2.down, checkGorundLength, platform) && Physics2D.Raycast(center, Vector2.down, checkGorundLength, platform) && Physics2D.Raycast(left, Vector2.down, checkGorundLength, platform);
-            Debug.DrawRay(right, Vector2.down * checkGorundLength, Color.red);
-            Debug.DrawRay(left, Vector2.down * checkGorundLength, Color.red);
-            Debug.DrawRay(center, Vector2.down * checkGorundLength, Color.red);
+    private void DetectGround(string playerTag)
+    {
+        Vector3 center = transform.position;
+        Vector3 right = transform.position;
+        Vector3 left = transform.position;
 
-        
-        
+        right.x -= -checkGroundOffset;
+        left.x -= checkGroundOffset;
+
+        RaycastHit2D hitFromRight = Physics2D.Raycast(right, Vector2.down, checkGorundLength);
+        RaycastHit2D hitFromLeft = Physics2D.Raycast(left, Vector2.down, checkGorundLength);
+        RaycastHit2D hitFromCenter = Physics2D.Raycast(center, Vector2.down, checkGorundLength);
+
+        checkAllToGround = false;
+
+        if (hitFromRight.collider != null && hitFromLeft.collider != null && hitFromCenter.collider != null)
+        {
+            checkAllToGround = true;
+        }
 
 
 
+        Debug.DrawRay(right, Vector2.down * checkGorundLength, Color.yellow);
+        Debug.DrawRay(left, Vector2.down * checkGorundLength, Color.yellow);
+        Debug.DrawRay(center, Vector2.down * checkGorundLength, Color.yellow);
+
+
+
+
+        if (checkAllToGround)
+        {
+            if (hitFromRight.collider.CompareTag(playerTag) && hitFromLeft.collider.CompareTag(playerTag) && hitFromCenter.collider.CompareTag(playerTag))
+            {
+                fullyOnPlatform = true;
+            }
+        }
+        else
+        {
+            fullyOnPlatform = false;
+        }
     }
 
     private void ResizeTheRaycast()
