@@ -46,6 +46,7 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     public void JumpShake()
     {
         vertical = true;
+        PlayerController.instance.VibrateController(strengthForJump, strengthForJump, jumpDuration);
         StartCoroutine(ShakeScreen(strengthForJump, jumpDuration));
     }
 
@@ -58,6 +59,8 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     {
         vertical = false;
         horizontal = false;
+        PlayerController.instance.VibrateController(.4f, .55f, .1f);
+
         StartCoroutine(ShakeScreen(strengthForDeath, deathDuration));
     }
 
@@ -65,6 +68,7 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     {
         vertical = true;
         horizontal = true;
+        PlayerController.instance.VibrateController(.25f, .55f, platformsDuration);
         StartCoroutine(ShakeScreen(strengthForPlatforms, platformsDuration));
     }
 
