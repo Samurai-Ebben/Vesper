@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Trampoline
   - Corner
+  - Rising
   layers:
   - Default
   - TransparentFX

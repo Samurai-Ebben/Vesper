@@ -428,13 +428,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  canMoveHori: 0
-  canMoveVert: 0
-  canMove: 0
+  canMoveRight: 0
+  canMoveUp: 0
+  canMoveDown: 0
+  canMoveLeft: 0
   wayPoint:
     serializedVersion: 2
     m_Bits: 0
   inputDirection: {x: 0, y: 0}
+  bufferedInput: {x: 0, y: 0}
+  prevPos: {x: 0, y: 0, z: 0}
 --- !u!114 &3735912514214847531
 MonoBehaviour:
   m_ObjectHideFlags: 0

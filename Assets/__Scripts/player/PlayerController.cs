@@ -73,13 +73,13 @@ public class PlayerController : MonoBehaviour
     public InputActionAsset actions { get; private set; }
     public AudioManager audioManager { get; private set; }
     public RayCastHandler rayCastHandler { get; private set; }
+    public ScreenShakeHandler screenShake { get; private set; }
 
     // Player references
     DevButtons devButtons;
     SizeStats sizeStats;
     PlayerParticleEffect effects;
     SquishAndSquash squishAndSquash;
-    ScreenShakeHandler screenShake;
     PlayerAudioHandler playerAudioHandler;
 
     // Velocity Magnitude
