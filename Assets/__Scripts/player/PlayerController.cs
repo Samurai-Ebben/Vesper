@@ -252,12 +252,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove) return;
         if (!canJump || !jumpPressed) return;
-        //gPad.SetMotorSpeeds(.2f, .5f);
-        //StartCoroutine(StopViberation(vibrationDuration, gPad));
-
-
-        //VibrateController(.2f, .5f, vibrationDuration);
-
+        
         effects.CreateJumpDust();
         effects.StopLandDust();
         SquashCollisionHandler();
@@ -271,6 +266,14 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             inAir = true;
             squishAndSquash.Squash();
+            if(rayCastHandler.rightHelpCheck == false && rayCastHandler.leftHelpCheck == true)
+            {
+                rb.velocity =new Vector2(rb.velocity.x + 15, rb.velocity.y);
+            }
+            if (rayCastHandler.rightHelpCheck && !rayCastHandler.leftHelpCheck)
+            {
+                rb.velocity = new Vector2(rb.velocity.x - 15, rb.velocity.y);
+            }
         }
 
         else if (!isJumping && rb.velocity.y > 0)
