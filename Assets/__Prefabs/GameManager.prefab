@@ -10643,7 +10643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51.7, y: -15.6}
+  m_AnchoredPosition: {x: -55.1, y: -15.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &316100225886607867
@@ -10667,7 +10667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.9063735, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10944,6 +10944,8 @@ MonoBehaviour:
   collectibleDisplay: {fileID: 9177839384555178927}
   alertFx: {fileID: 2075845257687231932}
   imgUI: {fileID: 6734508865312294088}
+  img1: {fileID: 21300000, guid: dab4bce5ab0e0ff47a6dfaa2133c88fe, type: 3}
+  img2: {fileID: 21300000, guid: 466d419d75b0dfd49b8e49bdf36cd710, type: 3}
 --- !u!1001 &7211758323979414877
 PrefabInstance:
   m_ObjectHideFlags: 0
