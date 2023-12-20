@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2635662786816088768}
   - component: {fileID: 1643924867283147985}
   m_Layer: 0
-  m_Name: Collectible
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,8 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondColor: {r: 1, g: 1, b: 1, a: 1}
   blinkingDuration: 1
-  beatingDuration: 0.2
   heartBeat: 1
+  beatingDuration: 0.2
+  sizeMulti: 1.21
 --- !u!61 &1989697198257262694
 BoxCollider2D:
   m_ObjectHideFlags: 0

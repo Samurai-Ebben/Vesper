@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Diagnostics;
 
 public class Collectible : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class Collectible : MonoBehaviour
     public Color secondColor;
 
     public float blinkingDuration = 1;
-    public float beatingDuration = 1;
     public bool heartBeat = true;
+
+    public float beatingDuration = 1;
+    [Range(0,2)] public float sizeMulti = 1.02f;
     private void Start()
     {
         collider = GetComponentInChildren<Collider2D>();
@@ -25,6 +28,7 @@ public class Collectible : MonoBehaviour
 
     void ToggleColor()
     {
+        var origiScale = transform.localScale;
         Sequence colorSequence = DOTween.Sequence();
         colorSequence.Append(spriteRenderer.DOColor(origiColor, blinkingDuration).SetEase(Ease.Linear))
             .AppendInterval(0.5f)
@@ -39,10 +43,9 @@ public class Collectible : MonoBehaviour
 
         if (!heartBeat) return;
 
-        var origiScale = transform.localScale;
-       
+        var newScale = origiScale * sizeMulti;
         Sequence scaleSeq = DOTween.Sequence();
-        scaleSeq.Append(transform.DOScale(transform.localScale.x + .2f, beatingDuration).SetEase(Ease.InBounce))
+        scaleSeq.Append(transform.DOScale(newScale, beatingDuration).SetEase(Ease.InBounce))
             .AppendInterval(beatingDuration / 2)
             .Append(transform.DOScale(origiScale, beatingDuration).SetEase(Ease.OutBounce))
             .AppendInterval(beatingDuration / 2)
