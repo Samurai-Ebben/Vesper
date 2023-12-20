@@ -11,7 +11,9 @@ public class Collectible : MonoBehaviour
     Color origiColor;
     public Color secondColor;
 
-    public float duration = 1;
+    public float blinkingDuration = 1;
+    public float beatingDuration = 1;
+    public bool heartBeat = true;
     private void Start()
     {
         collider = GetComponentInChildren<Collider2D>();
@@ -24,15 +26,26 @@ public class Collectible : MonoBehaviour
     void ToggleColor()
     {
         Sequence colorSequence = DOTween.Sequence();
-        colorSequence.Append(spriteRenderer.DOColor(origiColor, duration).SetEase(Ease.Linear))
-            .AppendInterval(0.5f) // Change duration between color transitions
-            .Append(spriteRenderer.DOColor(secondColor, duration).SetEase(Ease.Linear))
-            .AppendInterval(0.5f) // Change duration between color transitions
+        colorSequence.Append(spriteRenderer.DOColor(origiColor, blinkingDuration).SetEase(Ease.Linear))
+            .AppendInterval(0.5f)
+            .Append(spriteRenderer.DOColor(secondColor, blinkingDuration).SetEase(Ease.Linear))
+            .AppendInterval(0.5f)
             .SetLoops(-1);
-        colorSequence.Append(spriteRenderer.DOColor(secondColor, duration).SetEase(Ease.Linear))
-            .AppendInterval(0.5f) // Change duration between color transitions
-            .Append(spriteRenderer.DOColor(origiColor, duration).SetEase(Ease.Linear))
-            .AppendInterval(0.5f) // Change duration between color transitions
+        colorSequence.Append(spriteRenderer.DOColor(secondColor, blinkingDuration).SetEase(Ease.Linear))
+            .AppendInterval(0.5f) 
+            .Append(spriteRenderer.DOColor(origiColor, blinkingDuration).SetEase(Ease.Linear))
+            .AppendInterval(0.5f)
+            .SetLoops(-1);
+
+        if (!heartBeat) return;
+
+        var origiScale = transform.localScale;
+       
+        Sequence scaleSeq = DOTween.Sequence();
+        scaleSeq.Append(transform.DOScale(transform.localScale.x + .2f, beatingDuration).SetEase(Ease.InBounce))
+            .AppendInterval(beatingDuration / 2)
+            .Append(transform.DOScale(origiScale, beatingDuration).SetEase(Ease.OutBounce))
+            .AppendInterval(beatingDuration / 2)
             .SetLoops(-1);
 
     }

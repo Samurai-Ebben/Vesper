@@ -132,7 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondColor: {r: 1, g: 1, b: 1, a: 1}
-  duration: 1
+  blinkingDuration: 1
+  beatingDuration: 0.2
+  heartBeat: 1
 --- !u!61 &1989697198257262694
 BoxCollider2D:
   m_ObjectHideFlags: 0
