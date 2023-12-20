@@ -6,6 +6,8 @@ public class TransformMatcher : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Collider2D>().enabled = true;
+
         if (targetObject != null)
         { 
             transform.position = targetObject.transform.position;
