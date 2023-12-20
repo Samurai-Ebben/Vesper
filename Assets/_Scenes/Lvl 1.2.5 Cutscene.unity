@@ -305,6 +305,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b6fef5a50205de04293ed48e7d08bf99, type: 2}
+    - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
+      propertyPath: bigEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
+      propertyPath: smallEnabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7760,15 +7768,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
       propertyPath: looping
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
       propertyPath: lengthInSec
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: startDelay.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: VelocityModule.radial.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime0
+      value: 49151
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623904125559639860, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1669943979916329908, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
       propertyPath: m_Name
       value: CutsceneTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555568789242908862, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4661071608346735213, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7809,6 +7857,10 @@ PrefabInstance:
     - target: {fileID: 4661071608346735213, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643137041584372433, guid: ed802cae60f9ed14290ace1b26889a81, type: 3}
+      propertyPath: animationLength
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

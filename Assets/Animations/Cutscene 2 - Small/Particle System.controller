@@ -10,8 +10,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 350171706135619494}
-    m_Position: {x: 320, y: 120, z: 0}
+    m_State: {fileID: 7730197735014609748}
+    m_Position: {x: 333.6258, y: 225.91052, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -21,7 +21,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 350171706135619494}
+  m_DefaultState: {fileID: 7730197735014609748}
 --- !u!1109 &-5370599972239425536
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -58,14 +58,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &350171706135619494
+--- !u!1102 &7730197735014609748
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: particle
+  m_Name: particle_cutscene_2_small
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -78,7 +78,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 62b4d116b0b07004f82ecc23c2fe61cb, type: 2}
+  m_Motion: {fileID: 7400000, guid: 24644e0aa196eaf45b379e759e87fcc0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
