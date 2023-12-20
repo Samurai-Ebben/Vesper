@@ -63,10 +63,8 @@ public class CollectibleManager : MonoBehaviour
         RectTransform canvasRectTransform = imgUI.GetComponent<RectTransform>();
         Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, canvasRectTransform.position);
 
-        // Convert screen position to world space
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f)); // Z distance from camera
-        alertFx.transform.position = worldPos;
-        // Instantiate particle effect at the calculated world position
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
+        alertFx.transform.position = new Vector3(worldPos.x, worldPos.y/1.05f);
     }
 
     // Utility Functions
@@ -84,10 +82,10 @@ public class CollectibleManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
-    private void OnDestroy()
-    {
-        DOTween.Clear(transform);
-    }
+    //private void OnDestroy()
+    //{
+    //    DOTween.Clear(transform);
+    //}
 
     //    private void OnDisable()
     //    {
