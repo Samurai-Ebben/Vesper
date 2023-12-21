@@ -15,6 +15,7 @@ public class CollectibleManager : MonoBehaviour
     public GameObject imgUI;
     public Sprite img1;
     public Sprite img2;
+    public float delayAnim = .6f;
     List<GameObject> collectedObjects;
     int collectedAmount;
     //int totalCollectibleAmount = 12;
@@ -81,7 +82,7 @@ public class CollectibleManager : MonoBehaviour
             .AppendInterval(.05f)
             .Append(imgUI.transform.DOScale(origScale, .25f).SetEase(Ease.Linear))
             .AppendInterval(.05f);
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(delayAnim);
         alertFx.Play();
         imgUI.GetComponent<Image>().sprite = collectedAmount<=0 ? img1 : img2;
         
