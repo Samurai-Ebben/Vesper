@@ -23869,6 +23869,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: cooldown
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: sustainTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8910612093998369637, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_Color.b
       value: 0.14117648
