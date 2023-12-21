@@ -61,12 +61,12 @@
                 },
                 {
                     "name": "ControlsMenu",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "7f593fd5-6e2a-4bc9-abd7-286f99ebee9c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -195,17 +195,6 @@
                     "name": "",
                     "id": "3a9d709f-06b9-47fe-be08-c15c4da0099e",
                     "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "35b3d8e8-7672-462b-9b2a-b9fa5eff5df1",
-                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -425,7 +414,7 @@
                 {
                     "name": "",
                     "id": "56cef9e2-bf91-412f-994e-79cc3b51a1a1",
-                    "path": "<Gamepad>/start",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

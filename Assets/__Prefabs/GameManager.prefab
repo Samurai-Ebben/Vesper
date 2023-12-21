@@ -5836,7 +5836,7 @@ MonoBehaviour:
   controls: {fileID: 354285535203004875}
   indicator: {fileID: 2024749915581038651}
   indicator2: {fileID: 4757119288345481434}
-  indicateOffset: 0.5
+  indicateOffset: -0.05
 --- !u!114 &3627516008902076236
 MonoBehaviour:
   m_ObjectHideFlags: 0
