@@ -22,6 +22,7 @@ public class CollectibleManager : MonoBehaviour, IReset
 
     void Start()
     {
+        RegisterSelfToResettableManager();
         alertFx = GetComponentInChildren<ParticleSystem>();
         imgUI.GetComponent<Image>().sprite = img1;
 
@@ -112,6 +113,7 @@ public class CollectibleManager : MonoBehaviour, IReset
 
     public void RegisterSelfToResettableManager()
     {
+        print("reset");
         ResettableManager.Instance.RegisterObject(this);
     }
 
