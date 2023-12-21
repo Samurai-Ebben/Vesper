@@ -10804,11 +10804,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92ecf47a7ac66943a207d8f1e2bbb1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source2: {fileID: 0}
   startLandingSound: 0
   volume: 0
   landingSound: 0
   jumpingVolume: 0
   deathVolume: 0
+  backgroundMusicVolume: 2
   jumpSmall: {fileID: 8300000, guid: 8d5065938b48b4640833685eceb576fb, type: 3}
   jumpBig: {fileID: 8300000, guid: 754b67a76970b434fb5c65b5682ec313, type: 3}
   jumpMedium: {fileID: 8300000, guid: 24f3200dbaaf6ef4097f47e51b254c6a, type: 3}
@@ -10819,6 +10821,7 @@ MonoBehaviour:
   switchToSmall: {fileID: 0}
   switchToMedium: {fileID: 0}
   death: {fileID: 8300000, guid: 3cc4e8e736a9ded4495b9e198b7c05ea, type: 3}
+  backgroundMusic: {fileID: 0}
   clips: []
 --- !u!82 &9171868373564011023
 AudioSource:
@@ -11221,6 +11224,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6473741921991962043, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473741921991962043, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6989554930190646422, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -11259,6 +11270,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7998033718610421304, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_ChildControlWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8736294828668539784, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9121860645484254002, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
