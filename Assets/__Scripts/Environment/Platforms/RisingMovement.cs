@@ -79,24 +79,24 @@ public class RisingMovement : MonoBehaviour , IReset
         timer = durationOnTarget;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        var player = other.transform.parent.GetComponent<PlayerHandler>();
-        if (player != null)
-        {
-            player.SetParent(transform);
-        }
+    //private void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    var player = other.transform.parent.GetComponent<PlayerHandler>();
+    //    if (player != null)
+    //    {
+    //        player.SetParent(transform);
+    //    }
        
-    }
-    private void OnCollisionExit2D(Collision2D other)
-    {
+    //}
+    //private void OnCollisionExit2D(Collision2D other)
+    //{
         
-        var player = other.transform.parent.GetComponent<PlayerHandler>();
-        if (player != null)
-        {
-            player.SetParent(null);
-        }
-    }
+    //    var player = other.transform.parent.GetComponent<PlayerHandler>();
+    //    if (player != null)
+    //    {
+    //        player.SetParent(null);
+    //    }
+    //}
 
     public void Reset()
     {

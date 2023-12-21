@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class AudioManager : MonoBehaviour
 {
     AudioSource source;
+    public AudioSource source2;
     PlayerController player;
 
     public bool startLandingSound;
@@ -14,8 +15,10 @@ public class AudioManager : MonoBehaviour
     public float landingSound = 2;
     public float jumpingVolume = 2;
     public float deathVolume = 2;
+    public float backgroundMusicVolume = 2;
 
-    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death;
+
+    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic;
     public List<AudioClip> clips;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,13 @@ public class AudioManager : MonoBehaviour
         player = PlayerController.instance;
         clips = new List<AudioClip> { jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium };
 
+        PlayingBackgorundM();
+    }
+
+    
+
+    private void Update()
+    {
     }
     public void PlayingAudio(AudioClip clip, float volume)
     {
@@ -31,6 +41,11 @@ public class AudioManager : MonoBehaviour
        source.volume = volume;
         source.PlayOneShot(clip, volume);
 
-
+    }
+    private void PlayingBackgorundM()
+    {
+        source2.clip = backgroundMusic;
+        source2.volume = backgroundMusicVolume;
+        source2.PlayOneShot(backgroundMusic, backgroundMusicVolume);
     }
 }

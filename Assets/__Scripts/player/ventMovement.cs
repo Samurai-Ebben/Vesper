@@ -66,12 +66,19 @@ public class VentMovement : MonoBehaviour, IReset
     void OnMove(InputAction.CallbackContext ctx)
     {
         input = ctx.ReadValue<Vector2>();
-        ClampJoyStick(input.x);
+        MaxInput();
     }
 
-    void ClampJoyStick(float inputAxis)
+    void MaxInput()
     {
-        Mathf.Clamp(inputAxis, 0f, 1f);
+        if(Mathf.Abs(input.x) > Mathf.Abs(input.y))
+        {
+            input.y = 0;
+        }
+        else if (Mathf.Abs(input.y) > Mathf.Abs(input.x))
+        {
+            input.x = 0;
+        }
     }
 
     void OnMoveCancel(InputAction.CallbackContext ctx)

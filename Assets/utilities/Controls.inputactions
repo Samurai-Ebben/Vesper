@@ -390,6 +390,17 @@
                     "action": "Vent",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "32b9ef1a-effe-446c-b41f-7a2b45cf5c6c",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vent",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

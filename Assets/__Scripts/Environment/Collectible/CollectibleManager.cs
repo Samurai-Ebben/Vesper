@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class CollectibleManager : MonoBehaviour
+public class CollectibleManager : MonoBehaviour, IReset
 {
     public TextMeshProUGUI collectibleDisplay;
     public ParticleSystem alertFx;
@@ -22,7 +22,10 @@ public class CollectibleManager : MonoBehaviour
 
     void Start()
     {
+        RegisterSelfToResettableManager();
         alertFx = GetComponentInChildren<ParticleSystem>();
+        imgUI.GetComponent<Image>().sprite = img1;
+
         //alertFx.transform.position = imgUI.transform.position;
         ShowParticleEffectAtCanvasObject();
         collectedObjects = new List<GameObject>();
@@ -101,6 +104,16 @@ public class CollectibleManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    public void Reset()
+    {
+        imgUI.GetComponent<Image>().sprite = img1;
+    }
+
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance.RegisterObject(this);
     }
 
     //private void OnDestroy()
