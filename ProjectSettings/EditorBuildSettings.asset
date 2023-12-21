@@ -56,7 +56,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Lvl 3.3.unity
     guid: 68b5fdd2d9b1d9d469fe081c1d3b7bc5
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Lvl 13 - playtest final.unity
     guid: 8a696a6e6d10c8645a7323c8972c11ca
   - enabled: 0
