@@ -22759,7 +22759,8 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1132305451370515055, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1030930081519515405, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
       insertIndex: -1
