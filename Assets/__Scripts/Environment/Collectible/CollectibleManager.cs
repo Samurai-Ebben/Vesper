@@ -57,7 +57,8 @@ public class CollectibleManager : MonoBehaviour
     {
         foreach (GameObject obj in collectedObjects)
         {
-            obj.SetActive(true);
+            Collectible collectible = obj.GetComponent<Collectible>();
+            collectible.ToggleActive(true);
         }
     }
     void ShowParticleEffectAtCanvasObject()
