@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Rendering.Universal.ShaderGUI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -18,7 +19,7 @@ public class PauseManager : MonoBehaviour
     public GameObject controls;
     public GameObject indicator;
     public GameObject indicator2;
-    public float indicateOffset = 50;
+    public float indicateOffset = .2f;
 
     TextMeshProUGUI txt;
     float txtWidth;
@@ -37,8 +38,8 @@ public class PauseManager : MonoBehaviour
         var selected = events.currentSelectedGameObject.transform;
         txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
         txtWidth = txt.preferredWidth;
-        indicator.transform.position = txt.transform.position + new Vector3(txtWidth /2 + indicateOffset, 0);
-        indicator2.transform.position = selected.position - new Vector3(txtWidth / 2 + (indicateOffset), 0);
+        indicator.transform.position = selected.position + new Vector3(txtWidth /75 + indicateOffset, 0);
+        indicator2.transform.position = selected.position - new Vector3(txtWidth / 75 + indicateOffset, 0);
     }
 
     public void PauseTrigger()
@@ -49,6 +50,7 @@ public class PauseManager : MonoBehaviour
 
         GetComponent<HideMouseCursor>().toggleCursorVisibility();
     }
+
 
     public void Replay()
     {
