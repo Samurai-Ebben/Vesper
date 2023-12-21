@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2935969089187967873}
   - component: {fileID: 7903789465927275645}
   - component: {fileID: 5615836757186749024}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: RisingPlatShakeTrigger
   m_TagString: Corner
   m_Icon: {fileID: 0}
