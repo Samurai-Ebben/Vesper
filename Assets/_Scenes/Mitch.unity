@@ -25799,9 +25799,6 @@ MonoBehaviour:
   yVelocityMultiplier: 0.1
   maxBounceForce: 30
   bounceDelay: 0.1
-  MoveDistanceY: 0
-  squeezeDuration: 0
-  returnDuration: 0
   bounceForce: 0
 --- !u!60 &217831738
 PolygonCollider2D:
@@ -26372,11 +26369,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6823699174650878128, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.59
+      value: 0.596
       objectReference: {fileID: 0}
     - target: {fileID: 6823699174650878128, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.31
+      value: 0.369
       objectReference: {fileID: 0}
     - target: {fileID: 6837686976041134658, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_Enabled
@@ -43483,9 +43480,6 @@ MonoBehaviour:
   yVelocityMultiplier: 0.1
   maxBounceForce: 30
   bounceDelay: 0.1
-  MoveDistanceY: 0
-  squeezeDuration: 0
-  returnDuration: 0
   bounceForce: 10
 --- !u!212 &713936238
 SpriteRenderer:
@@ -45168,9 +45162,6 @@ MonoBehaviour:
   yVelocityMultiplier: 0.1
   maxBounceForce: 30
   bounceDelay: 0.1
-  MoveDistanceY: 0
-  squeezeDuration: 0
-  returnDuration: 0
   bounceForce: 10
 --- !u!212 &1000758221
 SpriteRenderer:
@@ -50633,11 +50624,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 156910820568942843, guid: d865087c389b19149850ed7c4254005d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8127887
+      value: 0.852
       objectReference: {fileID: 0}
     - target: {fileID: 156910820568942843, guid: d865087c389b19149850ed7c4254005d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0086422
+      value: -0.069
       objectReference: {fileID: 0}
     - target: {fileID: 156910820568942843, guid: d865087c389b19149850ed7c4254005d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50674,18 +50665,6 @@ PrefabInstance:
     - target: {fileID: 236323281712716555, guid: d865087c389b19149850ed7c4254005d, type: 3}
       propertyPath: m_Name
       value: Trampoline
-      objectReference: {fileID: 0}
-    - target: {fileID: 2953443212025774701, guid: d865087c389b19149850ed7c4254005d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6061827318481875582, guid: d865087c389b19149850ed7c4254005d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6891712619523752513, guid: d865087c389b19149850ed7c4254005d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

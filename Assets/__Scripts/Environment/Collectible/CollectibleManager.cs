@@ -57,7 +57,8 @@ public class CollectibleManager : MonoBehaviour
     {
         foreach (GameObject obj in collectedObjects)
         {
-            obj.SetActive(true);
+            Collectible collectible = obj.GetComponent<Collectible>();
+            collectible.ToggleActive(true);
         }
     }
     void ShowParticleEffectAtCanvasObject()
@@ -82,21 +83,14 @@ public class CollectibleManager : MonoBehaviour
             .AppendInterval(.05f);
         yield return new WaitForSeconds(.6f);
         alertFx.Play();
+        imgUI.GetComponent<Image>().sprite = collectedAmount<=0 ? img1 : img2;
+        
     }
     // Utility Functions
     public void UpdateDisplay()
     {
         collectibleDisplay.text = " X " + collectedAmount.ToString();
-        if(collectedAmount <= 0)
-        {
-            //leave the img as is
-            imgUI.GetComponent<Image>().sprite = img1;
-        }
-        else
-        {
-            //Change to snd img
-            imgUI.GetComponent<Image>().sprite = img2;
-        }
+        
     }
     public void RegisterSelfAsCollected(GameObject collectible)
     {

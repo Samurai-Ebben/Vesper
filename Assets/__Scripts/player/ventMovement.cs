@@ -66,9 +66,14 @@ public class VentMovement : MonoBehaviour, IReset
     void OnMove(InputAction.CallbackContext ctx)
     {
         input = ctx.ReadValue<Vector2>();
-        //Round the values of the stick
-        //TODO: if an axis is bigger than the other than take:
+        ClampJoyStick(input.x);
     }
+
+    void ClampJoyStick(float inputAxis)
+    {
+        Mathf.Clamp(inputAxis, 0f, 1f);
+    }
+
     void OnMoveCancel(InputAction.CallbackContext ctx)
     {
         input = Vector2.zero;

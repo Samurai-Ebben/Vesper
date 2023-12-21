@@ -1,4 +1,3 @@
-using DG.Tweening.Core.Easing;
 using System.Collections;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ public class Trampoline : MonoBehaviour
     
     [HideInInspector]
     public float bounceForce;
-    
+
     PlayerController player;
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -59,5 +58,4 @@ public class Trampoline : MonoBehaviour
         yield return new WaitForSeconds(bounceDelay);
         player.isBouncing = false;
     }
-
 }
