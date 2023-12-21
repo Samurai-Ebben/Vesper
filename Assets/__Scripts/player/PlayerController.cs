@@ -377,7 +377,12 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.GetComponent<PauseManager>().PauseTrigger();
     }
- 
+
+    public void OnControls(InputAction.CallbackContext ctx)
+    {
+        GameManager.Instance.GetComponent<PauseManager>().ControlsMenu();
+
+    }
     private void OnDisable()
     {
         actions["Move"].performed -= Move;
