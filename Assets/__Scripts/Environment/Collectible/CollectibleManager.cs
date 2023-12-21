@@ -83,16 +83,8 @@ public class CollectibleManager : MonoBehaviour
             .AppendInterval(.05f);
         yield return new WaitForSeconds(.6f);
         alertFx.Play();
-        if (collectedAmount <= 0)
-        {
-            //leave the img as is
-            imgUI.GetComponent<Image>().sprite = img1;
-        }
-        else
-        {
-            //Change to snd img
-            imgUI.GetComponent<Image>().sprite = img2;
-        }
+        imgUI.GetComponent<Image>().sprite = collectedAmount<=0 ? img1 : img2;
+        
     }
     // Utility Functions
     public void UpdateDisplay()
