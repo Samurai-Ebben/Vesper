@@ -31,6 +31,9 @@ public class RayCastHandler : MonoBehaviour
     float offset;
 
 
+    [Header("Reference")]
+    public string playerTag;
+
 
 
     public float sideCheckLength;
@@ -75,7 +78,7 @@ public class RayCastHandler : MonoBehaviour
 
     public bool checkAllToGround;
 
-    float checkGroundOffset = 0.40f;
+    float checkGroundOffset = 0.50f;
 
     float checkGorundLength = 0.76f;
 
@@ -135,7 +138,12 @@ public class RayCastHandler : MonoBehaviour
             helpingPush = false;
         }
 
-        
+        DetectGround(playerTag);
+
+    }
+
+    private void DetectGround(string playerTag)
+    {
         Vector3 center = transform.position;
         Vector3 right = transform.position;
         Vector3 left = transform.position;
@@ -155,49 +163,25 @@ public class RayCastHandler : MonoBehaviour
         }
 
 
-        //checkAllToGround = hitFromRight && hitFromLeft && hitFromCenter;
 
         Debug.DrawRay(right, Vector2.down * checkGorundLength, Color.yellow);
         Debug.DrawRay(left, Vector2.down * checkGorundLength, Color.yellow);
         Debug.DrawRay(center, Vector2.down * checkGorundLength, Color.yellow);
 
-        //Collider2D rightCollider = Physics2D.Raycast(right, Vector2.down, checkGorundLength).collider;
-        //Collider2D leftCollider = Physics2D.Raycast(left, Vector2.down, checkGorundLength).collider;
-        //Collider2D centerCollider = Physics2D.Raycast(center, Vector2.down, checkGorundLength).collider;
 
 
 
-       
-            if (checkAllToGround)
+        if (checkAllToGround)
+        {
+            if (hitFromRight.collider.CompareTag(playerTag) && hitFromLeft.collider.CompareTag(playerTag) && hitFromCenter.collider.CompareTag(playerTag))
             {
-                if (hitFromRight.collider.CompareTag("Destructible") && hitFromLeft.collider.CompareTag("Destructible") && hitFromCenter.collider.CompareTag("Destructible"))
-                {
-                    fullyOnPlatform = true;
-                }
+                fullyOnPlatform = true;
             }
-            else
-            {
-                fullyOnPlatform = false;
-            }
-
-      
-
-        //else
-        //{
-        //    fullyOnPlatform = false;
-
-        //}
-
-
-
-        //else if(!checkAllToGround)
-        //{
-        //    Debug.Log("Nothing");
-        //}
-
-
-
-
+        }
+        else
+        {
+            fullyOnPlatform = false;
+        }
     }
 
     private void ResizeTheRaycast()

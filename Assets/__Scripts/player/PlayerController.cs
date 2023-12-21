@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 {
 
     private Gamepad gPad;
-    private Coroutine stopVibrationAfterTimeCoroutine;
     public float vibrationDuration = .5f;
     // Singleton, reference to player object
     public static GameObject player;
@@ -106,6 +105,8 @@ public class PlayerController : MonoBehaviour
         actions = GetComponent<PlayerInput>().actions;
         sizeStats = GetComponent<SizeStats>();
 
+        gPad = Gamepad.current;
+
         actions["Move"].performed += Move;
         actions["Move"].canceled += Move;
 
@@ -151,6 +152,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         JuiceFx();
         SwitchSize();
     }
@@ -250,9 +252,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove) return;
         if (!canJump || !jumpPressed) return;
-
-        VibrateController(.2f, .5f, vibrationDuration);
-
+        
         effects.CreateJumpDust();
         effects.StopLandDust();
         SquashCollisionHandler();
@@ -266,6 +266,14 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             inAir = true;
             squishAndSquash.Squash();
+            //if(rayCastHandler.rightHelpCheck == false && rayCastHandler.leftHelpCheck == true)
+            //{
+            //    rb.velocity =new Vector2(rb.velocity.x + 15, rb.velocity.y);
+            //}
+            //if (rayCastHandler.rightHelpCheck && !rayCastHandler.leftHelpCheck)
+            //{
+            //    rb.velocity = new Vector2(rb.velocity.x - 15, rb.velocity.y);
+            //}
         }
 
         else if (!isJumping && rb.velocity.y > 0)
@@ -390,7 +398,7 @@ public class PlayerController : MonoBehaviour
 
     public void VibrateController(float lowFreq, float highFreq, float duration)
     {
-        gPad = Gamepad.current;
+        //gPad = Gamepad.current;
         if (gPad != null)
         {
             print(gPad.name);
@@ -469,8 +477,7 @@ public class PlayerController : MonoBehaviour
         if (currentSize == Sizes.LARGE)
         {
             screenShake.JumpShake();
-            print("Shake");
-            VibrateController(.2f, .5f, vibrationDuration);
+            VibrateController(.2f, .2f, vibrationDuration);
         }
     }
 

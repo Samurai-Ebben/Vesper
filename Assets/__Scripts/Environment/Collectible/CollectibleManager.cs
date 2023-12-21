@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class CollectibleManager : MonoBehaviour
@@ -11,8 +13,9 @@ public class CollectibleManager : MonoBehaviour
     public TextMeshProUGUI collectibleDisplay;
     public ParticleSystem alertFx;
     public GameObject imgUI;
+    public Sprite img1;
+    public Sprite img2;
     List<GameObject> collectedObjects;
-
     int collectedAmount;
     //int totalCollectibleAmount = 12;
 
@@ -30,7 +33,7 @@ public class CollectibleManager : MonoBehaviour
     public void CollectibleCollected()
     {
         collectedAmount++;
-        alertFx.Play();
+        StartCoroutine(PlayGemUIFX());
         SaveNewCollectedAmount();
         UpdateDisplay();
     }
@@ -64,13 +67,36 @@ public class CollectibleManager : MonoBehaviour
         Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, canvasRectTransform.position);
 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
-        alertFx.transform.position = new Vector3(worldPos.x, worldPos.y/1.05f);
+        alertFx.transform.position = new Vector3(worldPos.x / 1.025f, worldPos.y/ 1.045f);
     }
 
+    IEnumerator PlayGemUIFX()
+    {
+
+        var origScale = imgUI.transform.localScale;
+        var newScale = origScale * 1.2f;
+        Sequence scaleSeq = DOTween.Sequence();
+        scaleSeq.Append(imgUI.transform.DOScale(newScale, .25f).SetEase(Ease.Linear))
+            .AppendInterval(.05f)
+            .Append(imgUI.transform.DOScale(origScale, .25f).SetEase(Ease.Linear))
+            .AppendInterval(.05f);
+        yield return new WaitForSeconds(.6f);
+        alertFx.Play();
+    }
     // Utility Functions
     public void UpdateDisplay()
     {
         collectibleDisplay.text = " X " + collectedAmount.ToString();
+        if(collectedAmount <= 0)
+        {
+            //leave the img as is
+            imgUI.GetComponent<Image>().sprite = img1;
+        }
+        else
+        {
+            //Change to snd img
+            imgUI.GetComponent<Image>().sprite = img2;
+        }
     }
     public void RegisterSelfAsCollected(GameObject collectible)
     {

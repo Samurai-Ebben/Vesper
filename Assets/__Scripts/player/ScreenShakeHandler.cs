@@ -31,12 +31,6 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
         origPos = transform.position;
     }
 
-    void Update()
-    {
-
-
-    }
-
     public void CornerShake()
     {
         vertical = false;
@@ -46,18 +40,23 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     public void JumpShake()
     {
         vertical = true;
+        PlayerController.instance.VibrateController(strengthForJump * 10, 1f, jumpDuration * 10);
         StartCoroutine(ShakeScreen(strengthForJump, jumpDuration));
     }
 
     public void DestructionShake()
     {
         vertical = true;
+        PlayerController.instance.VibrateController(.5f, 1f, destructionDuration);
+
         StartCoroutine(ShakeScreen(strengthForDestruction, destructionDuration));
     }
     public void DeathShake()
     {
         vertical = false;
         horizontal = false;
+        PlayerController.instance.VibrateController(.4f, .55f, .1f);
+
         StartCoroutine(ShakeScreen(strengthForDeath, deathDuration));
     }
 
@@ -65,6 +64,7 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     {
         vertical = true;
         horizontal = true;
+        PlayerController.instance.VibrateController(.25f, .55f, platformsDuration);
         StartCoroutine(ShakeScreen(strengthForPlatforms, platformsDuration));
     }
 
