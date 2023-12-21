@@ -440,6 +440,9 @@ MonoBehaviour:
   totalDownRaycast: 3
   helpOffset: 0.23
   edgeOffset: 1.5
+  centerOneOffset: 0.1
+  centerTwoOffset: 0
+  centerThreeOffset: -0.1
   playerTag: Destructible
   sideCheckLength: 0.5
   diagonalLength: 0.5
@@ -471,6 +474,8 @@ MonoBehaviour:
   anySideHelpCheck: 0
   helpingPush: 0
   checkAllToGround: 0
+  centerIsFree: 0
+  totalRaycastHelpTop: 3
   fullyOnPlatform: 0
   diagonalCheck: 0
 --- !u!114 &3028978548451914271

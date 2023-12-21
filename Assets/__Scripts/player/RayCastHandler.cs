@@ -29,6 +29,10 @@ public class RayCastHandler : MonoBehaviour
     public float helpOffset = 0.23f;
     public float edgeOffset = 1.5f;
     float offset;
+    public float centerOneOffset = 0.2f;
+    public float centerTwoOffset = 0.2f;
+    public float centerThreeOffset = 0.2f;
+
 
 
     [Header("Reference")]
@@ -82,6 +86,10 @@ public class RayCastHandler : MonoBehaviour
 
     float checkGorundLength = 0.76f;
 
+    public bool centerIsFree;
+
+    public int totalRaycastHelpTop = 3;
+
 
 
     public bool fullyOnPlatform;
@@ -103,6 +111,9 @@ public class RayCastHandler : MonoBehaviour
     {
         ResizeTheRaycast();
 
+
+
+
         smallTopIsFree = RayCastGenerator(smallRaycastLength, Vector2.up, totalTopRaycast);
         largeTopIsFree = RayCastGenerator(largeRaycastLength, Vector2.up, totalTopRaycast);
         mediumTopIsFree = RayCastGenerator(mediumRaycastLength, Vector2.up, totalTopRaycast);
@@ -120,6 +131,8 @@ public class RayCastHandler : MonoBehaviour
         leftHelpCheck = RayCastForHelper(helperCheckLength, -helpOffset);
         anySideHelpCheck = rightHelpCheck || leftHelpCheck;
 
+        centerIsFree = RayCastForHelper(helperCheckLength, centerOneOffset) && RayCastForHelper(helperCheckLength, centerTwoOffset) && RayCastForHelper(helperCheckLength, centerThreeOffset);
+
 
         rightTop = RayCastGenerator(diagonalLength, new Vector2(1, 1), totalDiagonalRaycast);
         rightDown = RayCastGenerator(diagonalLength, new Vector2(1, -1), totalDiagonalRaycast);
@@ -127,7 +140,7 @@ public class RayCastHandler : MonoBehaviour
         leftTop = RayCastGenerator(diagonalLength, new Vector2(-1, 1), totalDiagonalRaycast);
         diagonalTop = rightTop || leftTop;
 
-        //checkAllToGround = RayCastGenerator(smallRaycastLength, Vector2.down, totalDownRaycast, true);
+        checkAllToGround = RayCastGenerator(smallRaycastLength, Vector2.down, totalDownRaycast, true);
 
         if (!smallTopIsFree)
         {
@@ -291,32 +304,6 @@ public class RayCastHandler : MonoBehaviour
         Debug.DrawRay(new Vector2(originPos.x, originPos.y), Vector2.up * rayLength, Color.black);
 
         return rightCheck;
-
-        //new Vector2(col.bounds.size.x * offsetHelp, transform.position.y);
-
-
-        //helpOffset = col.bounds.size 
-        //float leftOffset = transform.position.x - drawRay;
-
-        //Vector3 center = transform.position;
-        //Vector3 right = transform.position;
-        //Vector3 left = transform.position;
-
-        //center.x = 0;
-        //right.x -= -helpOffset;
-        //left.x -= helpOffset;
-
-
-        //leftCheck = Physics2D.Raycast(left, Vector2.up);
-        //Debug.DrawRay(left, Vector2.up * helperCheckLength, Color.black);
-
-        //centerCheck = Physics2D.Raycast(center, Vector2.up);
-        //Debug.DrawRay(center, Vector2.up * helperCheckLength, Color.black);
-
-
-
-
-
 
     }
 }
