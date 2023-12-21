@@ -42,6 +42,7 @@ public class AudioManager : MonoBehaviour
         source.PlayOneShot(clip, volume);
 
     }
+
     private void PlayingBackgorundM()
     {
         source2.clip = backgroundMusic;

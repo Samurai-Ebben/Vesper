@@ -33122,6 +33122,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4450143601000759526, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1767448725}
     - target: {fileID: 5594029240579729494, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: startPoint
       value: 
@@ -40244,7 +40248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: -0.004, y: -0.025}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &868756715 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2702735996382199472, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
@@ -41977,7 +41981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: -0.007, y: -0.01}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1001 &1430126910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42137,7 +42141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: -0.001, y: -0.005}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1001 &1460831652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42883,7 +42887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: -0.005, y: -0.007}
+  parallaxMult: {x: 0, y: 0}
 --- !u!4 &1655983566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
@@ -44100,7 +44104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: -0.0009, y: -0.003}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &2008085822
 GameObject:
   m_ObjectHideFlags: 0

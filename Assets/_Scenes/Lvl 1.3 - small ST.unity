@@ -14629,6 +14629,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4450143601000759526, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 887550021}
     - target: {fileID: 5594029240579729494, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: startPoint
       value: 
@@ -20581,7 +20585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.01}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &551234259
 GameObject:
   m_ObjectHideFlags: 0
@@ -22131,7 +22135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.003}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &895934408
 GameObject:
   m_ObjectHideFlags: 0
@@ -22262,7 +22266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.005}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &967923441
 GameObject:
   m_ObjectHideFlags: 0
@@ -23584,7 +23588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.025}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1001 &1237813137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24227,7 +24231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.003}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &1424832686
 GameObject:
   m_ObjectHideFlags: 0
@@ -24325,7 +24329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1168a7dd374a1654abb401a4c66f3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxMult: {x: 0, y: -0.007}
+  parallaxMult: {x: 0, y: 0}
 --- !u!1 &1425407252
 GameObject:
   m_ObjectHideFlags: 0
