@@ -82,12 +82,7 @@ public class CollectibleManager : MonoBehaviour
             .AppendInterval(.05f);
         yield return new WaitForSeconds(.6f);
         alertFx.Play();
-    }
-    // Utility Functions
-    public void UpdateDisplay()
-    {
-        collectibleDisplay.text = " X " + collectedAmount.ToString();
-        if(collectedAmount <= 0)
+        if (collectedAmount <= 0)
         {
             //leave the img as is
             imgUI.GetComponent<Image>().sprite = img1;
@@ -97,6 +92,12 @@ public class CollectibleManager : MonoBehaviour
             //Change to snd img
             imgUI.GetComponent<Image>().sprite = img2;
         }
+    }
+    // Utility Functions
+    public void UpdateDisplay()
+    {
+        collectibleDisplay.text = " X " + collectedAmount.ToString();
+        
     }
     public void RegisterSelfAsCollected(GameObject collectible)
     {
