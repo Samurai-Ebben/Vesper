@@ -40,7 +40,7 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
     public void JumpShake()
     {
         vertical = true;
-        PlayerController.instance.VibrateController(strengthForJump, strengthForJump, jumpDuration);
+        PlayerController.instance.VibrateController(strengthForJump * 10, 1f, jumpDuration * 10);
         StartCoroutine(ShakeScreen(strengthForJump, jumpDuration));
     }
 
