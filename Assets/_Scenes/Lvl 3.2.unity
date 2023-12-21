@@ -20637,6 +20637,7 @@ GameObject:
   - component: {fileID: 582891315}
   - component: {fileID: 582891314}
   - component: {fileID: 582891316}
+  - component: {fileID: 582891317}
   m_Layer: 3
   m_Name: left
   m_TagString: Untagged
@@ -21173,6 +21174,47 @@ PolygonCollider2D:
       - {x: -3.585, y: 2.935}
       - {x: -3.5249999, y: 2.975}
   m_UseDelaunayMesh: 0
+--- !u!68 &582891317
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582891313}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -3.9051914, y: 2.4973433}
+  - {x: -4.1913576, y: 7.3126626}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &597066688
 GameObject:
   m_ObjectHideFlags: 0
@@ -21352,11 +21394,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6256694413383269448, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.9
+      value: 18.74
       objectReference: {fileID: 0}
     - target: {fileID: 6256694413383269448, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.1
+      value: 8.35
       objectReference: {fileID: 0}
     - target: {fileID: 6823699174650878128, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22493,7 +22535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6949115
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalPosition.y
