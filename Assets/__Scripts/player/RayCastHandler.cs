@@ -300,7 +300,7 @@ public class RayCastHandler : MonoBehaviour
 
         Vector2 originPos = new Vector2(transform.position.x + offset, transform.position.y);
 
-        rightCheck = Physics2D.Raycast(new Vector2(originPos.x, originPos.y), Vector2.up * rayLength);
+        rightCheck = Physics2D.Raycast(new Vector2(originPos.x, originPos.y), Vector2.up, rayLength, mask);
         Debug.DrawRay(new Vector2(originPos.x, originPos.y), Vector2.up * rayLength, Color.black);
 
         return rightCheck;
