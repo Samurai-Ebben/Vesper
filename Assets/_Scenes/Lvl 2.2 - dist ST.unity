@@ -21126,7 +21126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3876244959254546230, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
       propertyPath: m_Size.y
-      value: 0.9280157
+      value: 1.9425129
       objectReference: {fileID: 0}
     - target: {fileID: 3876244959254546230, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
       propertyPath: m_Offset.x
@@ -21134,7 +21134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3876244959254546230, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
       propertyPath: m_Offset.y
-      value: 0.035992146
+      value: -0.47125655
       objectReference: {fileID: 0}
     - target: {fileID: 5064754009248611746, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23122,7 +23122,8 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1132305451370515055, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1030930081519515405, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
       insertIndex: -1
