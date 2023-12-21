@@ -5910,6 +5910,14 @@ PrefabInstance:
       propertyPath: m_VolumeTrigger
       value: 
       objectReference: {fileID: 1664209997}
+    - target: {fileID: 6031250103025697467, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031250103025697467, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8317324379531615490, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
       propertyPath: orthographic size
       value: 10
