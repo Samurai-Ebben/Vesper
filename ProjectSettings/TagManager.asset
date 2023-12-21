@@ -42,8 +42,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Bgr
+  - name: BGR Flat
     uniqueID: 3080501151
+    locked: 0
+  - name: BGR 1
+    uniqueID: 1904827319
+    locked: 0
+  - name: BGR 2
+    uniqueID: 2691098515
     locked: 0
   - name: Default
     uniqueID: 0
@@ -51,6 +57,24 @@ TagManager:
   - name: player
     uniqueID: 1688531763
     locked: 0
+  - name: FGR
+    uniqueID: 332504031
+    locked: 0
   - name: Vignette
     uniqueID: 2119804571
+    locked: 0
+  - name: BGR 7
+    uniqueID: 4251341269
+    locked: 0
+  - name: BGR 6
+    uniqueID: 3312070449
+    locked: 0
+  - name: BGR 5
+    uniqueID: 3514135359
+    locked: 0
+  - name: BGR 4
+    uniqueID: 1136386485
+    locked: 0
+  - name: BGR 3
+    uniqueID: 2583005945
     locked: 0

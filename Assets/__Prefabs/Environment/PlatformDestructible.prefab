@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4986762722744561313}
   m_Layer: 3
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 98dff4be57da577498fb5df948890a50, type: 3}
-  m_Color: {r: 0.12746531, g: 0.19235553, b: 0.31132078, a: 1}
+  m_Color: {r: 0.1764706, g: 0.06666667, b: 0.17254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cfb8a0a6da7e44d9785e354ff6a96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakForce: 0
+  breakForce: 15
   DisableSelf:
     m_PersistentCalls:
       m_Calls:
@@ -5045,7 +5045,7 @@ GameObject:
   - component: {fileID: 3006795969496910298}
   m_Layer: 9
   m_Name: PlatformDestructible
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
