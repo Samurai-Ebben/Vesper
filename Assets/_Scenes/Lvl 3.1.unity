@@ -33130,6 +33130,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -11.55
       objectReference: {fileID: 0}
+    - target: {fileID: 4450143601000759526, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2133317504}
     - target: {fileID: 4800198132503767271, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -37062,6 +37066,11 @@ PrefabInstance:
 --- !u!4 &2133317503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030930081519515405, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
+  m_PrefabInstance: {fileID: 2133317502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &2133317504 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8317324379531615490, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
   m_PrefabInstance: {fileID: 2133317502}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3745865649907114806
