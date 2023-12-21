@@ -65,6 +65,8 @@ public class GameManager : MonoBehaviour
     {
         IsDead = true;
         audioManager.PlayingAudio(audioManager.death, audioManager.deathVolume);
+        PlayerController.instance.VibrateController(.4f, .75f, .1f);
+
         StartCoroutine(DieDelay());
     }
 
