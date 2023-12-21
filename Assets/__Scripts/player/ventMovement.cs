@@ -28,6 +28,8 @@ public class VentMovement : MonoBehaviour, IReset
     public Vector2 bufferedInput;
     public Vector3 prevPos;
 
+
+    public float deadZoneY = 0.9f;
     private void Start()
     {
         rayCastHandler = GetComponent<RayCastHandler>();
@@ -67,6 +69,7 @@ public class VentMovement : MonoBehaviour, IReset
     {
         input = ctx.ReadValue<Vector2>();
         MaxInput();
+        print(input);
     }
 
     void MaxInput()
@@ -88,7 +91,7 @@ public class VentMovement : MonoBehaviour, IReset
 
     void MoveBuffer()
     {
-        if (input.x > 0)
+        if (input.x > deadZoneY)
         {
             if (canMoveRight)
             {
@@ -104,7 +107,7 @@ public class VentMovement : MonoBehaviour, IReset
             }
         }
 
-        if (input.x < 0)
+        if (input.x < -deadZoneY)
         {
             if (canMoveLeft)
             {
@@ -120,7 +123,7 @@ public class VentMovement : MonoBehaviour, IReset
             }
         }
 
-        if (input.y > 0)
+        if (input.y > deadZoneY)
         {
             if (canMoveUp)
             {
@@ -136,7 +139,7 @@ public class VentMovement : MonoBehaviour, IReset
             }
         }
 
-        if (input.y < 0)
+        if (input.y < -deadZoneY)
         {
             if (canMoveDown)
             {
