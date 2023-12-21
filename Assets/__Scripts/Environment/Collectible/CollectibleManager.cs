@@ -23,6 +23,8 @@ public class CollectibleManager : MonoBehaviour, IReset
     void Start()
     {
         alertFx = GetComponentInChildren<ParticleSystem>();
+        imgUI.GetComponent<Image>().sprite = img1;
+
         //alertFx.transform.position = imgUI.transform.position;
         ShowParticleEffectAtCanvasObject();
         collectedObjects = new List<GameObject>();
