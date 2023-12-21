@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public bool isJumping              =       false;
     public bool jumpPressed            =       false;
     bool canJump                       =       true;
+    public float platformAvoidOnJumpOffset = 10;
 
     float coyoteTimer;
     float jumpBufferTimer;
@@ -266,13 +267,13 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             inAir = true;
             squishAndSquash.Squash();
-            if (rayCastHandler.rightHelpCheck == false && rayCastHandler.leftHelpCheck == true)
+            if (!rayCastHandler.rightHelpCheck  && rayCastHandler.leftHelpCheck && rayCastHandler.centerIsFree)
             {
-                rb.velocity = new Vector2(rb.velocity.x + 15, rb.velocity.y);
+                rb.velocity = new Vector2(rb.velocity.x + platformAvoidOnJumpOffset, rb.velocity.y);
             }
-            if (rayCastHandler.rightHelpCheck && !rayCastHandler.leftHelpCheck)
+            if (rayCastHandler.rightHelpCheck && !rayCastHandler.leftHelpCheck && rayCastHandler.centerIsFree)
             {
-                rb.velocity = new Vector2(rb.velocity.x - 15, rb.velocity.y);
+                rb.velocity = new Vector2(rb.velocity.x - platformAvoidOnJumpOffset, rb.velocity.y);
             }
         }
 
