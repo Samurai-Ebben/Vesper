@@ -113,7 +113,6 @@ public class CollectibleManager : MonoBehaviour, IReset
 
     public void RegisterSelfToResettableManager()
     {
-        print("reset");
         ResettableManager.Instance.RegisterObject(this);
     }
 

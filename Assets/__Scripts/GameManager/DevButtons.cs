@@ -118,9 +118,9 @@ public class DevButtons : MonoBehaviour
             Time.timeScale += 0.25f;
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            sceneHandler.Exit();
-        }
+        //if (Input.GetKeyUp(KeyCode.Escape))
+        //{
+        //    sceneHandler.Exit();
+        //}
     }
 }
