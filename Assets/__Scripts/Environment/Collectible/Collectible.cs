@@ -9,6 +9,7 @@ public class Collectible : MonoBehaviour
     ParticleSystem caughtEffect;
     Collider2D collider;
     SpriteRenderer spriteRenderer;
+    GameObject spriteObject;
     Color origiColor;
     public Color secondColor;
 
@@ -22,6 +23,7 @@ public class Collectible : MonoBehaviour
         collider = GetComponentInChildren<Collider2D>();
         caughtEffect = GetComponentInChildren<ParticleSystem>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteObject = gameObject.GetComponentInChildren<SpriteRenderer>().gameObject;
         origiColor = spriteRenderer.color;
         ToggleColor();
     }
@@ -63,17 +65,16 @@ public class Collectible : MonoBehaviour
 
             // TODO Animation/Particles
             caughtEffect.Play();
-            Taken();
+            ToggleActive(false);
         }
     }
 
-    void Taken()
+    public void ToggleActive(bool boolean)
     {
-        var sprite = gameObject.GetComponentInChildren<SpriteRenderer>().gameObject;
-        if (sprite != null)
+        if (spriteObject != null)
         {
-            sprite.SetActive(false);
-            collider.enabled = false;
+            spriteObject.SetActive(boolean);
+            collider.enabled = boolean;
         }
     }
 
