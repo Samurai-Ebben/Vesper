@@ -98,8 +98,14 @@ public class RisingMovement : MonoBehaviour , IReset
     //    }
     //}
 
+    public void ResetTimer()
+    {
+        timer = 0;
+    }
+
     public void Reset()
     {
+        timer = 0;
         transform.position = initialPosition;
         currentState = States.DOWN;
     }
