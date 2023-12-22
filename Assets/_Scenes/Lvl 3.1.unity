@@ -32119,6 +32119,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2009837325}
     m_Modifications:
+    - target: {fileID: 526344244324780434, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2572436534385835626, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.325598
@@ -32174,6 +32178,10 @@ PrefabInstance:
     - target: {fileID: 6514664690295535586, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
       propertyPath: m_SortingOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100710172394142431, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8783587950400707718, guid: b1d4d1ed07313e241a67dbb79bbc5a83, type: 3}
       propertyPath: m_Name
@@ -32400,6 +32408,14 @@ PrefabInstance:
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: targetHeight
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: TimerToTarget
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: durationOnTarget
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
