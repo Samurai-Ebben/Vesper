@@ -19,6 +19,11 @@ public class Collectible : MonoBehaviour
 
     public float beatingDuration = 1;
     [Range(0,2)] public float sizeMulti = 1.02f;
+
+    private void OnEnable()
+    {
+        
+    }
     private void Start()
     {
         
@@ -34,15 +39,10 @@ public class Collectible : MonoBehaviour
     {
         var origiScale = transform.localScale;
         Sequence colorSequence = DOTween.Sequence();
-        colorSequence.Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.Linear))
-            .AppendInterval(delayBetweenColors)
-            .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.Linear))
-            .AppendInterval(delayBetweenColors)
-            .SetLoops(-1);
-        colorSequence.Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.Linear))
-            .AppendInterval(delayBetweenColors) 
-            .Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.Linear))
-            .AppendInterval(delayBetweenColors)
+        colorSequence.Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.InSine))
+            .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.InSine))
+            .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.InSine))
+            .Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.InSine))
             .SetLoops(-1);
 
         if (!heartBeat) return;
@@ -50,9 +50,7 @@ public class Collectible : MonoBehaviour
         var newScale = origiScale * sizeMulti;
         Sequence scaleSeq = DOTween.Sequence();
         scaleSeq.Append(transform.DOScale(newScale, beatingDuration).SetEase(Ease.InBounce))
-            .AppendInterval(beatingDuration / 2)
             .Append(transform.DOScale(origiScale, beatingDuration).SetEase(Ease.OutBounce))
-            .AppendInterval(beatingDuration / 2)
             .SetLoops(-1);
     }
 
@@ -65,7 +63,6 @@ public class Collectible : MonoBehaviour
             collectibleManager.CollectibleCollected();
             collectibleManager.RegisterSelfAsCollected(gameObject);
 
-            // TODO Animation/Particles
             caughtEffect.Play();
             ToggleActive(false);
         }
