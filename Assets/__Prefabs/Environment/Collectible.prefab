@@ -133,9 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondColor: {r: 0.76792455, g: 0.9825148, b: 1, a: 1}
   delayBetweenColors: 0.1
-  onColorDuration: 0.4
+  onColorDuration: 0.5
   heartBeat: 1
-  beatingDuration: 0.2
+  beatingDuration: 0.75
   sizeMulti: 1.25
 --- !u!61 &1989697198257262694
 BoxCollider2D:
