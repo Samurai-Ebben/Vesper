@@ -13,7 +13,7 @@ public class Collectible : MonoBehaviour
     GameObject spriteObject;
     Color origiColor;
     public Color secondColor;
-    public float delayBetweenColors = 0.1f;
+    [Range(0,.9f)]public float delayBetweenColors = 0.1f;
     public float onColorDuration = 1;
     public bool heartBeat = true;
 
@@ -80,9 +80,9 @@ public class Collectible : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        DOTween.Clear(transform);
-    }
+    //private void OnDestroy()
+    //{
+    //    DOTween.Clear(transform);
+    //}
 
 }
