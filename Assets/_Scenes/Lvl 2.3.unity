@@ -7537,6 +7537,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1250944784}
+        m_TargetAssemblyTypeName: RisingButton, Assembly-CSharp
+        m_MethodName: DescendPlatformsPromptly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   exitEventOn: 0
   triggerExitEvent:
     m_PersistentCalls:
@@ -7573,7 +7585,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.3483119}
+  m_Offset: {x: -0.49802208, y: 1.3483119}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7584,7 +7596,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.3058062}
+  m_Size: {x: 1.9960442, y: 3.3058062}
   m_EdgeRadius: 0
 --- !u!1 &915616602
 GameObject:
@@ -8655,6 +8667,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5219338404478537163, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
   m_PrefabInstance: {fileID: 1250944782}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1250944784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5301150344331725060, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+  m_PrefabInstance: {fileID: 1250944782}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7859554358c0fab41935045fe60d4231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1263254084
 GameObject:
   m_ObjectHideFlags: 0
