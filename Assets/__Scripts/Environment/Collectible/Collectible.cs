@@ -33,14 +33,14 @@ public class Collectible : MonoBehaviour
         var origiScale = transform.localScale;
         Sequence colorSequence = DOTween.Sequence();
         colorSequence.Append(spriteRenderer.DOColor(origiColor, blinkingDuration).SetEase(Ease.Linear))
-            .AppendInterval(0.5f)
+            .AppendInterval(0.1f)
             .Append(spriteRenderer.DOColor(secondColor, blinkingDuration).SetEase(Ease.Linear))
-            .AppendInterval(0.5f)
+            .AppendInterval(0.1f)
             .SetLoops(-1);
         colorSequence.Append(spriteRenderer.DOColor(secondColor, blinkingDuration).SetEase(Ease.Linear))
-            .AppendInterval(0.5f) 
+            .AppendInterval(0) 
             .Append(spriteRenderer.DOColor(origiColor, blinkingDuration).SetEase(Ease.Linear))
-            .AppendInterval(0.5f)
+            .AppendInterval(0)
             .SetLoops(-1);
 
         if (!heartBeat) return;
