@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Diagnostics;
+using UnityEngine.SceneManagement;
 
 public class Collectible : MonoBehaviour
 {
@@ -12,14 +13,15 @@ public class Collectible : MonoBehaviour
     GameObject spriteObject;
     Color origiColor;
     public Color secondColor;
-
-    public float blinkingDuration = 1;
+    public float delayBetweenColors = 0.1f;
+    public float onColorDuration = 1;
     public bool heartBeat = true;
 
     public float beatingDuration = 1;
     [Range(0,2)] public float sizeMulti = 1.02f;
     private void Start()
     {
+        
         collider = GetComponentInChildren<Collider2D>();
         caughtEffect = GetComponentInChildren<ParticleSystem>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -32,15 +34,15 @@ public class Collectible : MonoBehaviour
     {
         var origiScale = transform.localScale;
         Sequence colorSequence = DOTween.Sequence();
-        colorSequence.Append(spriteRenderer.DOColor(origiColor, blinkingDuration).SetEase(Ease.Linear))
-            .AppendInterval(0.1f)
-            .Append(spriteRenderer.DOColor(secondColor, blinkingDuration).SetEase(Ease.Linear))
-            .AppendInterval(0.1f)
+        colorSequence.Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.Linear))
+            .AppendInterval(delayBetweenColors)
+            .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.Linear))
+            .AppendInterval(delayBetweenColors)
             .SetLoops(-1);
-        colorSequence.Append(spriteRenderer.DOColor(secondColor, blinkingDuration).SetEase(Ease.Linear))
-            .AppendInterval(0) 
-            .Append(spriteRenderer.DOColor(origiColor, blinkingDuration).SetEase(Ease.Linear))
-            .AppendInterval(0)
+        colorSequence.Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.Linear))
+            .AppendInterval(delayBetweenColors) 
+            .Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.Linear))
+            .AppendInterval(delayBetweenColors)
             .SetLoops(-1);
 
         if (!heartBeat) return;
