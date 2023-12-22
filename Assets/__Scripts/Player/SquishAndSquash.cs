@@ -17,6 +17,10 @@ public class SquishAndSquash : MonoBehaviour
         screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
     }
 
+    // TODO squash upon colliding with wall
+    // Detect collision
+    // Input values depending on velocity in SquishSquashOverTime()
+
     // Jump
     public void Squash()
     {

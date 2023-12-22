@@ -477,7 +477,6 @@ public class PlayerController : MonoBehaviour
         squishAndSquash.Squish();
         effects.CreateLandDust();
         startedJump = false;
-        squishAndSquash.Squish();
         inAir = false;
 
         if (currentSize == Sizes.LARGE)
