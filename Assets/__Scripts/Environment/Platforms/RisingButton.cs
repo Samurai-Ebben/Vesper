@@ -112,6 +112,15 @@ public class RisingButton : MonoBehaviour, IReset
         }
     }
 
+    public void DescendPlatformsPromptly()
+    {
+        foreach (var platform in platforms)
+        {
+            platform.Descend();
+            platform.ResetTimer();
+        }
+    }
+
     public void Reset()
     {
         stopPos = Vector3.zero;
