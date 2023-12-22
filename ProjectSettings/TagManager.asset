@@ -78,3 +78,6 @@ TagManager:
   - name: Vignette
     uniqueID: 2119804571
     locked: 0
+  - name: Pause Menu
+    uniqueID: 33469093
+    locked: 0
