@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5642577, g: 0.915861, b: 0.9433962, a: 1}
+  m_Color: {r: 0.27725163, g: 0.790286, b: 0.8301887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -131,11 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8344a1537f1a7b4392e463240cab6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondColor: {r: 1, g: 1, b: 1, a: 1}
+  secondColor: {r: 0.76792455, g: 0.9825148, b: 1, a: 1}
   blinkingDuration: 1
   heartBeat: 1
-  beatingDuration: 0.2
-  sizeMulti: 1.21
+  beatingDuration: 0.75
+  sizeMulti: 1.25
 --- !u!61 &1989697198257262694
 BoxCollider2D:
   m_ObjectHideFlags: 0
