@@ -21701,15 +21701,15 @@ PrefabInstance:
       objectReference: {fileID: 1977509601}
     - target: {fileID: 5506880699504329650, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_Color.b
-      value: 0.32156864
+      value: 0.5377358
       objectReference: {fileID: 0}
     - target: {fileID: 5506880699504329650, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_Color.g
-      value: 0.23921569
+      value: 0.5241913
       objectReference: {fileID: 0}
     - target: {fileID: 5506880699504329650, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_Color.r
-      value: 0.4627451
+      value: 0.52082586
       objectReference: {fileID: 0}
     - target: {fileID: 5506880699504329650, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_SortingOrder
