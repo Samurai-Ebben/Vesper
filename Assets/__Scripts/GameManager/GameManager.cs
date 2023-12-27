@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject startPoint;
     public GameObject playerHolderPrefab;
     private GameObject player;
+    public GameObject Fade;
     AudioManager audioManager;
     private Vector2 instantiateCoordinate = new Vector3 (-25, -25);
 
     public float deathTime;
     public bool IsDead {  get; private set; }
+
     private void Awake()
     {
         if (Instance == null)
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
         {
             SpawnPlayer();
         }
+        Fade.SetActive(false);
 
         currentCheckpoint = startPoint.transform.position;
         RespawnPlayer();
@@ -60,9 +63,10 @@ public class GameManager : MonoBehaviour
         ResettableManager.Instance.ResetAllObjects();
         GetComponent<CollectibleManager>().TriggerOnDeath();
     }
-     
+    
     public void Death()
     {
+        Fade.SetActive(true);
         IsDead = true;
         audioManager.PlayingAudio(audioManager.death, audioManager.deathVolume);
         PlayerController.instance.VibrateController(.4f, .75f, .1f);

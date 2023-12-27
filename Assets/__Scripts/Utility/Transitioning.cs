@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Transitioning : MonoBehaviour
 {
-
-    public void GoToScene(int sceneNumber)
+    public void GoToScene(bool loadOtherLevel = false)
     {
-        SceneManager.LoadScene(sceneNumber);
+        int currentLvl = SceneManager.GetActiveScene().buildIndex;  
+        if(loadOtherLevel)
+        SceneManager.LoadScene(1);
+        else
+            SceneManager.LoadScene(currentLvl);
+
     }
 }
