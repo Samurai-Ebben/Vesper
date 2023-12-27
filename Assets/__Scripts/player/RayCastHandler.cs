@@ -33,6 +33,11 @@ public class RayCastHandler : MonoBehaviour
     public float centerTwoOffset = 0.2f;
     public float centerThreeOffset = 0.2f;
 
+    public float smallSideCheck = 0.1f;
+    public float mediumSideCheck = 0.2f;
+    public float largeSideCheck = 0.3f;
+
+
 
 
     [Header("Reference")]
@@ -90,6 +95,8 @@ public class RayCastHandler : MonoBehaviour
 
     public int totalRaycastHelpTop = 3;
 
+    float sideCheckOffset;
+
 
 
     public bool fullyOnPlatform;
@@ -121,6 +128,7 @@ public class RayCastHandler : MonoBehaviour
 
         rightSide = RayCastGenerator(sideCheckLength, Vector2.right, totalSideRaycast);
         leftSide = RayCastGenerator(sideCheckLength, Vector2.left, totalSideRaycast);
+
         anySide = leftSide || rightSide;
 
         smallDownIsFree = RayCastGenerator(smallRaycastLength, Vector2.down, totalDownRaycast);
@@ -203,17 +211,30 @@ public class RayCastHandler : MonoBehaviour
         {
             helpOffset = 0.11f;
             helperCheckLength = 0.22f;
+            sideCheckLength = 0.12f;
+
+            sideCheckLength = smallSideCheck;
 
         }
         else if (controller.currentSize == Sizes.LARGE)
         {
             helpOffset = 0.48f;
             helperCheckLength = 0.88f;
+            sideCheckLength = 0.5f;
+
+            sideCheckLength = largeSideCheck;
+
+
         }
         else if (controller.currentSize == Sizes.MEDIUM)
         {
             helpOffset = 0.23f;
             helperCheckLength = 0.5f;
+            sideCheckLength = 0.25f;
+
+            sideCheckLength = mediumSideCheck;
+
+
         }
     }
 

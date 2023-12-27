@@ -5853,19 +5853,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source2: {fileID: 3191521953304344452}
   startLandingSound: 0
-  volume: 0
-  landingSound: 0
-  jumpingVolume: 0
+  volume: 1
+  landingSound: 1
+  jumpingVolume: 1
   deathVolume: 0
   backgroundMusicVolume: 2
-  jumpSmall: {fileID: 8300000, guid: 8d5065938b48b4640833685eceb576fb, type: 3}
-  jumpBig: {fileID: 8300000, guid: 754b67a76970b434fb5c65b5682ec313, type: 3}
-  jumpMedium: {fileID: 8300000, guid: 24f3200dbaaf6ef4097f47e51b254c6a, type: 3}
-  landingSmall: {fileID: 8300000, guid: e2eb84e39ae5a7340adc7896720a1f17, type: 3}
-  landingMedium: {fileID: 8300000, guid: 35dc0134a737d25458b28178a5631df0, type: 3}
-  landingBig: {fileID: 8300000, guid: b3bd5804710bfc446b27cf691f35c4d9, type: 3}
-  switchToLarge: {fileID: 0}
-  switchToSmall: {fileID: 0}
+  jumpSmall: {fileID: 8300000, guid: 83d2cd3abe30e7441988044349ca1040, type: 3}
+  jumpBig: {fileID: 8300000, guid: 6164b89cef2c7a847b21d7c30b81f0c1, type: 3}
+  jumpMedium: {fileID: 8300000, guid: 59947a534a5e9e3429bfbc61639b0ba0, type: 3}
+  landingSmall: {fileID: 8300000, guid: 0208971954be1554cb6d1411dce99751, type: 3}
+  landingMedium: {fileID: 8300000, guid: d535fca619dc5f648a32952bf80b78df, type: 3}
+  landingBig: {fileID: 8300000, guid: 59f92e0ebff1b024d81ca51d200f28fb, type: 3}
+  switchToLarge: {fileID: 8300000, guid: 515b4def6d5b197429950279ddd0ecd7, type: 3}
+  switchToSmall: {fileID: 8300000, guid: 9565ff38af4642b4581462d6880a7424, type: 3}
   switchToMedium: {fileID: 0}
   death: {fileID: 8300000, guid: 3cc4e8e736a9ded4495b9e198b7c05ea, type: 3}
   backgroundMusic: {fileID: 8300000, guid: ba4913dffed95b84ca6a8b8a6c86595b, type: 3}

@@ -449,6 +449,9 @@ MonoBehaviour:
   centerOneOffset: 0.1
   centerTwoOffset: 0
   centerThreeOffset: -0.1
+  smallSideCheck: 0.13
+  mediumSideCheck: 0.26
+  largeSideCheck: 0.54
   playerTag: Destructible
   sideCheckLength: 0.5
   diagonalLength: 0.5
