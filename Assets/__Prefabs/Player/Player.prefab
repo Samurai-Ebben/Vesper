@@ -297,6 +297,7 @@ MonoBehaviour:
   velocityX: 0
   isJumping: 0
   jumpPressed: 0
+  platformAvoidOnJumpOffset: 10
   isBouncing: 0
   canMove: 1
   startedJump: 0
@@ -391,6 +392,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7a13183d-d199-4080-8c01-482ce824b2ed
     m_ActionName: Player/Vent[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7f593fd5-6e2a-4bc9-abd7-286f99ebee9c
+    m_ActionName: Player/ControlsMenu[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -419,6 +424,7 @@ MonoBehaviour:
   inputDirection: {x: 0, y: 0}
   bufferedInput: {x: 0, y: 0}
   prevPos: {x: 0, y: 0, z: 0}
+  deadZoneY: 0.9
 --- !u!114 &3735912514214847531
 MonoBehaviour:
   m_ObjectHideFlags: 0
