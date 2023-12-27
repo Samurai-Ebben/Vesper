@@ -6287,6 +6287,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3201607993457309254, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f769555d6dfa81949804a17d7baa571e, type: 2}
     - target: {fileID: 3659888394624184735, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -6389,7 +6393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6868898498921238885, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6993640121089094921, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: Fade
@@ -7410,8 +7414,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1904827319
-  m_SortingLayer: -7
+  m_SortingLayerID: -1214466145
+  m_SortingLayer: -8
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 32ddf797e5915e643a151b9ca6556140, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
