@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public float landingSound = 2;
     public float jumpingVolume = 2;
     public float deathVolume = 2;
+    public float switchVolume = 1;
     public float backgroundMusicVolume = 2;
 
 
@@ -25,7 +26,7 @@ public class AudioManager : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         player = PlayerController.instance;
-        clips = new List<AudioClip> { jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium };
+        clips = new List<AudioClip> { jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium};
 
         PlayingBackgorundM();
     }
