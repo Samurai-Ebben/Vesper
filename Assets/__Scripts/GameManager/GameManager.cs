@@ -58,7 +58,9 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        IsDead = false;
+        IsDead = false; 
+        PlayerController.instance.canMove = true;
+        PlayerController.instance.GetComponentInChildren<SpriteRenderer>().enabled = true;
         player.transform.position = currentCheckpoint;
         ResettableManager.Instance.ResetAllObjects();
         GetComponent<CollectibleManager>().TriggerOnDeath();
@@ -67,6 +69,8 @@ public class GameManager : MonoBehaviour
     public void Death()
     {
         Fade.SetActive(true);
+        PlayerController.instance.canMove = false;
+        PlayerController.instance.GetComponentInChildren<SpriteRenderer>().enabled = false;
         IsDead = true;
         audioManager.PlayingAudio(audioManager.death, audioManager.deathVolume);
         PlayerController.instance.VibrateController(.4f, .75f, .1f);

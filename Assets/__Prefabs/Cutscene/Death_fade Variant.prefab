@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Death_fade Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2920952159695342336, guid: 93d2f8c82ce650540bfa681be20686e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3838726419891835511, guid: 93d2f8c82ce650540bfa681be20686e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6607926104067271715, guid: 93d2f8c82ce650540bfa681be20686e7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f769555d6dfa81949804a17d7baa571e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

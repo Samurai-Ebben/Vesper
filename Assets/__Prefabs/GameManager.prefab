@@ -6145,10 +6145,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Death_fade
       objectReference: {fileID: 0}
-    - target: {fileID: 6821249900395810659, guid: cb35f21ee08d4ef42b5d627c5de29cfb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
