@@ -19,28 +19,42 @@ public class PauseManager : MonoBehaviour
     public GameObject indicator;
     public GameObject indicator2;
     public float indicateOffset = .2f;
-
-    TextMeshProUGUI txt;
     float txtWidth;
 
+    public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
+    TextMeshProUGUI txt;
+    Color buttonOrigiColor;
     private void Start()
-    {      
+    {   
         events = GameManager.Instance.GetComponentInChildren<EventSystem>();
 
         isPaused = false;
         controls.SetActive(false);
         PauseMenuCanvas.SetActive(false);
+
+        for (int i = 0; i < menuTxts.Count; i++)
+        {
+            buttonOrigiColor = menuTxts[i].color;
+        }
     }
 
     private void Update()
     {
+
         var selected = events.currentSelectedGameObject.transform;
         txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
         txtWidth = txt.preferredWidth;
-        float canvasScaleFactor = PauseMenuCanvas.GetComponent<Canvas>().scaleFactor; 
-        float scaledTxtWidth = txtWidth / canvasScaleFactor;
-        indicator.transform.position = selected.position + new Vector3(scaledTxtWidth /75 + indicateOffset, 0);
+        for (int i = 0; i < menuTxts.Count; i++)
+        {
+            menuTxts[i].color = buttonOrigiColor;
+        }
+        txt.color = Color.white;
+
+
+        float scaledTxtWidth = txtWidth;
+        indicator.transform.position = selected.position + new Vector3(scaledTxtWidth / 75 + indicateOffset, 0);
         indicator2.transform.position = selected.position - new Vector3(scaledTxtWidth / 75 + indicateOffset, 0);
+
     }
 
     public void PauseTrigger()

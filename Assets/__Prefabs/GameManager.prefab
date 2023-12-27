@@ -5839,6 +5839,11 @@ MonoBehaviour:
   indicator: {fileID: 2024749915581038651}
   indicator2: {fileID: 4757119288345481434}
   indicateOffset: 2.2
+  menuTxts:
+  - {fileID: 2527330274323346894}
+  - {fileID: 2027821413338271508}
+  - {fileID: 6304663998048436574}
+  - {fileID: 5066307523139785511}
 --- !u!114 &3627516008902076236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5857,6 +5862,7 @@ MonoBehaviour:
   landingSound: 1
   jumpingVolume: 1
   deathVolume: 0
+  switchVolume: 1
   backgroundMusicVolume: 2
   jumpSmall: {fileID: 8300000, guid: 83d2cd3abe30e7441988044349ca1040, type: 3}
   jumpBig: {fileID: 8300000, guid: 6164b89cef2c7a847b21d7c30b81f0c1, type: 3}
@@ -6211,10 +6217,6 @@ PrefabInstance:
     - target: {fileID: 1231039496458342643, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Name
       value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231039496458342643, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1257129710451863342, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
@@ -6678,6 +6680,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8650311723573030246, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
   m_PrefabInstance: {fileID: 7211758323979414877}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2027821413338271508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8660715827306635849, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+  m_PrefabInstance: {fileID: 7211758323979414877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2513585716413159266 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5113629673494886975, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
@@ -6689,11 +6702,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2527330274323346894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5118251375131646099, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+  m_PrefabInstance: {fileID: 7211758323979414877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4757119288345481434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2743221268567276935, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
   m_PrefabInstance: {fileID: 7211758323979414877}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5066307523139785511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2475409855614074490, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+  m_PrefabInstance: {fileID: 7211758323979414877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5447133390602952345 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3426488389007619012, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
@@ -6708,6 +6743,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6304663998048436574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3705307442890763267, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+  m_PrefabInstance: {fileID: 7211758323979414877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &6601410069848569198 stripped

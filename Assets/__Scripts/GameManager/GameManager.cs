@@ -59,8 +59,7 @@ public class GameManager : MonoBehaviour
     public void RespawnPlayer()
     {
         IsDead = false; 
-        PlayerController.instance.canMove = true;
-        PlayerController.instance.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        
         player.transform.position = currentCheckpoint;
         ResettableManager.Instance.ResetAllObjects();
         GetComponent<CollectibleManager>().TriggerOnDeath();
