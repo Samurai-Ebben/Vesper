@@ -17,42 +17,75 @@ public class Collectible : MonoBehaviour
     public float onColorDuration = 1;
     public bool heartBeat = true;
 
+    private float colorTimer = 0f;
+    private bool isColorChange = false;
+    private bool isSizeChange = false;
+    Vector3 origiScale;
     public float beatingDuration = 1;
     [Range(0,2)] public float sizeMulti = 1.02f;
 
-    private void OnEnable()
-    {
-        
-    }
+
     private void Start()
     {
-        
+        origiScale = transform.localScale;
         collider = GetComponentInChildren<Collider2D>();
         caughtEffect = GetComponentInChildren<ParticleSystem>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteObject = gameObject.GetComponentInChildren<SpriteRenderer>().gameObject;
         origiColor = spriteRenderer.color;
-        ToggleColor();
+    }
+
+    void Update()
+    {
+        colorTimer += Time.deltaTime;
+
+        if (colorTimer >= onColorDuration && !isColorChange && !isSizeChange)
+        {
+            isColorChange = true;
+            isSizeChange = true;
+            ToggleColor();
+            colorTimer = 0f;
+        }
     }
 
     void ToggleColor()
     {
-        var origiScale = transform.localScale;
+        var origiColor = spriteRenderer.color;
+
         Sequence colorSequence = DOTween.Sequence();
-        colorSequence.Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.InSine))
-            .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.InSine))
-            .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.InSine))
-            .Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.InSine))
-            .SetLoops(-1);
+        colorSequence.Append(spriteRenderer.DOColor(secondColor, onColorDuration / 2).SetEase(Ease.InSine))
+            .Append(spriteRenderer.DOColor(origiColor, onColorDuration / 2).SetEase(Ease.InSine))
+            .OnComplete(() => isColorChange = false);
 
         if (!heartBeat) return;
 
+
         var newScale = origiScale * sizeMulti;
-        Sequence scaleSeq = DOTween.Sequence();
-        scaleSeq.Append(transform.DOScale(newScale, beatingDuration).SetEase(Ease.InBounce))
-            .Append(transform.DOScale(origiScale, beatingDuration).SetEase(Ease.OutBounce))
-            .SetLoops(-1);
+        Sequence sizeSeq = DOTween.Sequence();
+        sizeSeq.Append(transform.DOScale(newScale, beatingDuration / 2).SetEase(Ease.InSine))
+            .Append(transform.DOScale(origiScale, beatingDuration / 2).SetEase(Ease.InSine))
+            .OnComplete(() => isSizeChange = false);
     }
+
+
+    //void ToggleColor()
+    //{
+    //    var origiScale = transform.localScale;
+    //    Sequence colorSequence = DOTween.Sequence();
+    //    colorSequence.Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.InSine))
+    //        .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.InSine))
+    //        .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.InSine))
+    //        .Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.InSine))
+    //        .SetLoops(-1);
+
+    //    if (!heartBeat) return;
+
+    //    var newScale = origiScale * sizeMulti;
+    //    Sequence scaleSeq = DOTween.Sequence();
+    //    scaleSeq.Append(transform.DOScale(newScale, beatingDuration).SetEase(Ease.InBounce))
+    //        .Append(transform.DOScale(origiScale, beatingDuration).SetEase(Ease.OutBounce))
+    //        .SetLoops(-1);        
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -74,12 +107,8 @@ public class Collectible : MonoBehaviour
         {
             spriteObject.SetActive(boolean);
             collider.enabled = boolean;
+            //DOTween.Clear();
         }
     }
-
-    //private void OnDestroy()
-    //{
-    //    DOTween.Clear(transform);
-    //}
 
 }

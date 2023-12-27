@@ -37,8 +37,10 @@ public class PauseManager : MonoBehaviour
         var selected = events.currentSelectedGameObject.transform;
         txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
         txtWidth = txt.preferredWidth;
-        indicator.transform.position = selected.position + new Vector3(txtWidth /75 + indicateOffset, 0);
-        indicator2.transform.position = selected.position - new Vector3(txtWidth / 75 + indicateOffset, 0);
+        float canvasScaleFactor = PauseMenuCanvas.GetComponent<Canvas>().scaleFactor; 
+        float scaledTxtWidth = txtWidth / canvasScaleFactor;
+        indicator.transform.position = selected.position + new Vector3(scaledTxtWidth /75 + indicateOffset, 0);
+        indicator2.transform.position = selected.position - new Vector3(scaledTxtWidth / 75 + indicateOffset, 0);
     }
 
     public void PauseTrigger()

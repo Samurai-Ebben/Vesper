@@ -57,6 +57,7 @@ public class CollectibleManager : MonoBehaviour, IReset
 
         collectedObjects.Clear();
     }
+
     public void RespawnCollectibles()
     {
         foreach (GameObject obj in collectedObjects)
@@ -65,6 +66,7 @@ public class CollectibleManager : MonoBehaviour, IReset
             collectible.ToggleActive(true);
         }
     }
+
     void ShowParticleEffectAtCanvasObject()
     {
         // Get the screen position of the canvas object
@@ -87,7 +89,7 @@ public class CollectibleManager : MonoBehaviour, IReset
             .AppendInterval(.05f);
         yield return new WaitForSeconds(delayAnim);
         alertFx.Play();
-        imgUI.GetComponent<Image>().sprite = collectedAmount<=0 ? img1 : img2;
+        imgUI.GetComponent<Image>().sprite = collectedAmount <= 0 ? img1 : img2;
         
     }
     // Utility Functions
