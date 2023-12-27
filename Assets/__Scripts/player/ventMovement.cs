@@ -69,7 +69,6 @@ public class VentMovement : MonoBehaviour, IReset
     {
         input = ctx.ReadValue<Vector2>();
         MaxInput();
-        print(input);
     }
 
     void MaxInput()

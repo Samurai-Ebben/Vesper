@@ -475,7 +475,7 @@ public class PlayerController : MonoBehaviour
         effects.CreateLandDust();
         playerAudioHandler.PlayLandingSound();
         squishAndSquash.Squish();
-        effects.CreateLandDust();
+        effects.CreateLandDust(); //Why two?
         startedJump = false;
         inAir = false;
 
