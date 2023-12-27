@@ -5,16 +5,20 @@ public class SquishAndSquash : MonoBehaviour
 {
     public float squashAmount = 0.2f;
     public float stretchAmount = 0.2f;
+
     public float squishSquashDuration = 0.2f;
     public float revertScaleDuration = 0.1f;
 
     private Vector3 originalScale;
 
     ScreenShakeHandler screenShakeHandler;
-    private void Start()
+    RayCastHandler rayCastHandler;
+    
+    void Start()
     {
         originalScale = transform.localScale;
         screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
+        rayCastHandler = GetComponentInParent<RayCastHandler>();
     }
 
     // TODO squash upon colliding with wall
@@ -22,13 +26,13 @@ public class SquishAndSquash : MonoBehaviour
     // Input values depending on velocity in SquishSquashOverTime()
 
     // Jump
-    public void Squash()
+    public void JumpSquash()
     {
         StartCoroutine(SquishSquashOverTime(originalScale.x - stretchAmount, originalScale.y + stretchAmount));
     }
 
     // Land
-    public void Squish()
+    public void LandSquish()
     {
         StartCoroutine(SquishSquashOverTime(originalScale.x + squashAmount, originalScale.y - squashAmount));
     }

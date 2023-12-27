@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 //using System.Drawing;
@@ -91,9 +92,14 @@ public class PlayerController : MonoBehaviour
     private float currentMagnitude;
     private float prevMagnitude;
 
-    private List<float> yVelocities = new List<float>();
+    private List<float> yVelocities = new();
+    private List<float> xVelocities = new();
     public int numberOfVelocitiesToRecord = 10;
 
+    private float deltaPosThreshold = 0.01f;
+    private Vector3 prevPos;
+    private bool prevRaycastLeft;
+    private bool prevRaycastRight;
 
     public bool pausedPressed = false;
 
@@ -147,8 +153,7 @@ public class PlayerController : MonoBehaviour
         CoyoteTime();
         RecordYVelocity();
         RecordMagnitude();
-
-        
+        SquashWallCollision();
     }
 
     void Update()
@@ -160,19 +165,16 @@ public class PlayerController : MonoBehaviour
 
     private void JuiceFx()
     {
-
         if (!IsGrounded())
         {
             timer += Time.deltaTime;
         }
+
         if(timer > landingSFX && IsGrounded())
         {
-
             timer = 0;
             LandingActions();
         }
-
-        
     }
     private void SwitchSize()
     {
@@ -200,7 +202,6 @@ public class PlayerController : MonoBehaviour
         airAccMultiplier        =       statList[10];
         airDecMultiplier        =       statList[11];
         landingSFX              =       statList[12];
-
     }
 
     private void MoveX()
@@ -256,7 +257,7 @@ public class PlayerController : MonoBehaviour
         
         effects.CreateJumpDust();
         effects.StopLandDust();
-        SquashCollisionHandler();
+        SquashInTightSpaces();
         playerAudioHandler.PlayJumpingSound();
 
 
@@ -266,7 +267,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferTimer = 0;
             isJumping = true;
             inAir = true;
-            squishAndSquash.Squash();
+            squishAndSquash.JumpSquash();
             if (!rayCastHandler.rightHelpCheck  && rayCastHandler.leftHelpCheck && rayCastHandler.centerIsFree)
             {
                 rb.velocity = new Vector2(rb.velocity.x + platformAvoidOnJumpOffset, rb.velocity.y);
@@ -284,16 +285,31 @@ public class PlayerController : MonoBehaviour
         jumpPressed = false;
     }
 
+    private void SquashWallCollision()
+    {
+        if (Math.Abs(transform.position.x - prevPos.x) > deltaPosThreshold &&
+            (!rayCastHandler.rightSide || !rayCastHandler.leftSide))
+        {
+            if ((prevRaycastLeft && !rayCastHandler.leftSide && rb.velocity.x < 0) || 
+                (prevRaycastRight && !rayCastHandler.rightSide && rb.velocity.x > 0))
+            {
+                squishAndSquash.JumpSquash();
+            }
+        }
+
+        prevRaycastRight = rayCastHandler.rightSide;
+        prevRaycastLeft = rayCastHandler.leftSide;
+        prevPos = transform.position;
+    }
     /// <summary>
     /// Checks for small spaces when in the current size to limit the stretch and make the player able 
     /// to fit easily through the gaps.
     /// </summary>
-    private void SquashCollisionHandler()
+    private void SquashInTightSpaces()
     {
-        //Colliosion handlar in tight spaces.
         float originalStretchAmount = squishAndSquash.stretchAmount;
 
-        if (currentSize== Sizes.SMALL && !rayCastHandler.mediumTopIsFree)
+        if (currentSize == Sizes.SMALL && !rayCastHandler.mediumTopIsFree)
             squishAndSquash.stretchAmount = 0.0f;
         else
             squishAndSquash.stretchAmount = originalStretchAmount;
@@ -439,6 +455,7 @@ public class PlayerController : MonoBehaviour
         else return currentMagnitude;
     }
 
+
     internal float GetAbsoluteYVelocity()
     {
         for (int i = yVelocities.Count - 1; i >= 0; i--)
@@ -462,19 +479,39 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(groundCheck.position, groundCheckSize);
-        Gizmos.color = Color.red;
-    }
+
+    // -- FOLLOWING CODE DOESNT WORK BECAUSE INPUT SETS NEW VELOCITY EACH FRAME --
+
+    //public bool XVeloctiyStopped()
+    //{
+    //    for (int i = xVelocities.Count - 1; i >= 0; i--)
+    //    {
+    //        if (i == 0) 
+    //            return false;
+
+    //        if (xVelocities[i] < 0.0001 && xVelocities[i-1] > 0.1)
+    //            return true;
+    //    }
+
+    //    return false;
+    //}
+
+    //void RecordXVelocity()
+    //{
+    //    xVelocities.Add(Mathf.Abs(rb.velocity.x));
+
+    //    if (xVelocities.Count > 2)
+    //    {
+    //        xVelocities.RemoveAt(0);
+    //    }
+    //}
 
     private void LandingActions()
     {
         if(!canMove) return;
         effects.CreateLandDust();
         playerAudioHandler.PlayLandingSound();
-        squishAndSquash.Squish();
+        squishAndSquash.LandSquish();
         effects.CreateLandDust(); //Why two?
         startedJump = false;
         inAir = false;
@@ -484,6 +521,13 @@ public class PlayerController : MonoBehaviour
             screenShake.JumpShake();
             VibrateController(.2f, .2f, vibrationDuration);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(groundCheck.position, groundCheckSize);
+        Gizmos.color = Color.red;
     }
 
     private void OnDestroy()
