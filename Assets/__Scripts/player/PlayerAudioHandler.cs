@@ -53,4 +53,14 @@ public class PlayerAudioHandler : MonoBehaviour
         }
     }
 
+    public void PlaySwitchToLarge()
+    {
+            audioManager.PlayingAudio(audioManager.switchToLarge, audioManager.switchVolume);
+    }
+
+    public void PlaySwitchToSmall()
+    {
+            audioManager.PlayingAudio(audioManager.switchToSmall, audioManager.switchVolume);
+    }
+
 }

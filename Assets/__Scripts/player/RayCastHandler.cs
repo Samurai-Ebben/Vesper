@@ -16,14 +16,24 @@ public class RayCastHandler : MonoBehaviour
     public float smallRaycastLength = 0.25f;
     public float mediumRaycastLength = 0.50f;
     public float largeRaycastLength = 0.75f;
-
     public float helperCheckLength = 0.5f;
+    public float smallSideCheck = 0.1f;
+    public float mediumSideCheck = 0.2f;
+    public float largeSideCheck = 0.3f;
+    public float sideCheckLength;
+    public float diagonalLength = 0.5f;
+    public float drawRayForMedium;
+    public float drawRayForLarge;
+    public float drawRayForSmall;
+    float checkGroundOffset = 0.50f;
+    float checkGorundLength = 0.76f;
 
     [Header("Total Raycast")]
     public int totalTopRaycast = 3;
     public int totalSideRaycast = 3;
     public int totalDownRaycast = 3;
     int totalDiagonalRaycast = 1;
+    public int totalRaycastHelpTop = 3;
 
     [Header("Offset")]
     public float helpOffset = 0.23f;
@@ -32,78 +42,48 @@ public class RayCastHandler : MonoBehaviour
     public float centerOneOffset = 0.2f;
     public float centerTwoOffset = 0.2f;
     public float centerThreeOffset = 0.2f;
-
-    public float smallSideCheck = 0.1f;
-    public float mediumSideCheck = 0.2f;
-    public float largeSideCheck = 0.3f;
-
-
-
+    float sideCheckOffset;
 
     [Header("Reference")]
     public string playerTag;
 
-
-
-    public float sideCheckLength;
-    public float diagonalLength = 0.5f;
-
-    //since this is ground, maybe rename it?
-    public LayerMask mask;
-
-    public LayerMask platform;
-
-
-    RaycastHit2D centerRaycast;
-    RaycastHit2D helperRaycast;
-
-    public float drawRayForMedium;
-    public float drawRayForLarge;
-    public float drawRayForSmall;
-
+    [Header("Bools")]
+    //check Top For Size
     public bool mediumTopIsFree;
     public bool largeTopIsFree;
     public bool smallTopIsFree;
-
+    //check sides
     public bool rightSide;
     public bool leftSide;
     public bool anySide;
-
+    //check diagonal
     public bool rightTop;
     public bool rightDown;
     public bool leftDown;
     public bool leftTop;
     public bool diagonalTop;
-
+    //check down
     public bool smallDownIsFree;
     public bool mediumDownIsFree;
     public bool largeDownIsFree;
-
+    public bool checkAllToGround;
+    public bool fullyOnPlatform;
+    //check for helpers
     public bool rightHelpCheck;
     public bool leftHelpCheck;
     public bool anySideHelpCheck;
-
     public bool helpingPush;
-
-    public bool checkAllToGround;
-
-    float checkGroundOffset = 0.50f;
-
-    float checkGorundLength = 0.76f;
-
     public bool centerIsFree;
 
-    public int totalRaycastHelpTop = 3;
+    [Header("Mask")]
+    public LayerMask mask;
+    public LayerMask platform;
 
-    float sideCheckOffset;
-
-
-
-    public bool fullyOnPlatform;
+    //since this is ground, maybe rename it?
 
 
-    public bool diagonalCheck;
-
+    RaycastHit2D centerRaycast;
+    RaycastHit2D helperRaycast;
 
     // Start is called before the first frame update
     void Start()
@@ -150,20 +130,11 @@ public class RayCastHandler : MonoBehaviour
 
         checkAllToGround = RayCastGenerator(smallRaycastLength, Vector2.down, totalDownRaycast, true);
 
-        if (!smallTopIsFree)
-        {
-            helpingPush = true;
-        }
-        else
-        {
-            helpingPush = false;
-        }
-
         DetectGround(playerTag);
 
     }
 
-    private void DetectGround(string playerTag)
+    private void DetectGround(string compareGroundToTag)
     {
         Vector3 center = transform.position;
         Vector3 right = transform.position;
@@ -194,7 +165,7 @@ public class RayCastHandler : MonoBehaviour
 
         if (checkAllToGround)
         {
-            if (hitFromRight.collider.CompareTag(playerTag) && hitFromLeft.collider.CompareTag(playerTag) && hitFromCenter.collider.CompareTag(playerTag))
+            if (hitFromRight.collider.CompareTag(compareGroundToTag) && hitFromLeft.collider.CompareTag(compareGroundToTag) && hitFromCenter.collider.CompareTag(compareGroundToTag))
             {
                 fullyOnPlatform = true;
             }
@@ -240,10 +211,6 @@ public class RayCastHandler : MonoBehaviour
 
     bool RayCastGenerator(float characterSize, Vector2 direction, int totalRaycast, bool allOfThem = false)
     {
-
-        
-        
-
         Vector3 center = new Vector3(transform.position.x, transform.position.y);
 
         bool canChangeSize = true;
@@ -291,27 +258,6 @@ public class RayCastHandler : MonoBehaviour
         }
             return canChangeSize;
 
-    
-
-    //private void DirectionHandler(float characterSize, Vector2 direction, int totalRaycast, Vector3 center, int i)
-    //{
-    //    Vector3 offsetBetweenRay = Vector2.zero;
-
-    //    if (direction == Vector2.up || direction == Vector2.down)
-    //    {
-    //        offset = (col.bounds.size.x * edgeOffset) / totalRaycast;
-    //        offsetBetweenRay = new Vector2((i - (totalRaycast - 1) / 2f) * offset, 0);
-    //    }
-    //    else if (direction == Vector2.right || direction == Vector2.left)
-    //    {
-    //        offset = (col.bounds.size.y * edgeOffset) / totalRaycast;
-    //        offsetBetweenRay = new Vector2(0, ((i - totalRaycast - 1) / 2f) * offset);
-    //    }
-
-
-    //    centerRaycast = Physics2D.Raycast(center + offsetBetweenRay, direction, characterSize, mask);
-    //    Debug.DrawRay(center + offsetBetweenRay, direction * characterSize, Color.red);
-    //}
     }
     bool RayCastForHelper(float rayLength, float offset)
     {

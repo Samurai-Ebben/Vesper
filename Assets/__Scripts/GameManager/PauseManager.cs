@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PauseManager : MonoBehaviour
 {
@@ -19,17 +20,26 @@ public class PauseManager : MonoBehaviour
     public GameObject indicator;
     public GameObject indicator2;
     public float indicateOffset = .2f;
-
-    TextMeshProUGUI txt;
     float txtWidth;
 
+    public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
+    TextMeshProUGUI txt;
+    Color buttonOrigiColor;
+    Vector3 btnOrigSize;
     private void Start()
-    {      
+    {   
         events = GameManager.Instance.GetComponentInChildren<EventSystem>();
 
         isPaused = false;
         controls.SetActive(false);
         PauseMenuCanvas.SetActive(false);
+
+        for (int i = 0; i < menuTxts.Count; i++)
+        {
+            buttonOrigiColor = menuTxts[i].color;
+            btnOrigSize = menuTxts[i].transform.localScale;
+            //menuTxts[i].transform.DOScale(menuTxts[i].transform.localScale, 0.2f).SetEase(Ease.InOutBounce);
+        }
     }
 
     private void Update()
@@ -37,10 +47,21 @@ public class PauseManager : MonoBehaviour
         var selected = events.currentSelectedGameObject.transform;
         txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
         txtWidth = txt.preferredWidth;
-        float canvasScaleFactor = PauseMenuCanvas.GetComponent<Canvas>().scaleFactor; 
-        float scaledTxtWidth = txtWidth / canvasScaleFactor;
-        indicator.transform.position = selected.position + new Vector3(scaledTxtWidth /75 + indicateOffset, 0);
-        indicator2.transform.position = selected.position - new Vector3(scaledTxtWidth / 75 + indicateOffset, 0);
+
+        for (int i = 0; i < menuTxts.Count; i++)
+        {
+            menuTxts[i].DOColor(buttonOrigiColor, 0.1f).SetEase(Ease.InSine);
+            menuTxts[i].transform.DOScale(btnOrigSize, 0.1f).SetEase(Ease.InSine);
+        }
+
+        DOTween.defaultTimeScaleIndependent = true;
+        txt.transform.DOScale(btnOrigSize * 1.3f, 0.1f).SetEase(Ease.InSine);
+        txt.DOColor(Color.white, 0.1f).SetEase(Ease.InSine);
+
+        //float scaledTxtWidth = txtWidth;
+        //indicator.transform.position = selected.position + new Vector3(scaledTxtWidth / 75 + indicateOffset, 0);
+        //indicator2.transform.position = selected.position - new Vector3(scaledTxtWidth / 75 + indicateOffset, 0);
+
     }
 
     public void PauseTrigger()
@@ -48,7 +69,10 @@ public class PauseManager : MonoBehaviour
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
         PauseMenuCanvas.SetActive(isPaused);
-
+        for (int i = 0; i < menuTxts.Count; i++)
+        {
+            menuTxts[i].transform.DOScale(menuTxts[i].transform.localScale, 0.2f).SetEase(Ease.InOutBounce);
+        }
         GetComponent<HideMouseCursor>().toggleCursorVisibility();
     }
 
