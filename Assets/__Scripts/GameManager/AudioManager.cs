@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,7 +8,8 @@ public class AudioManager : MonoBehaviour
 {
     AudioSource source;
     public AudioSource source2;
-    PlayerController player;
+    PlayerController player; 
+    public static AudioManager Instance { get; private set; }
 
     public bool startLandingSound;
 
@@ -22,6 +24,20 @@ public class AudioManager : MonoBehaviour
     public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic;
     public List<AudioClip> clips;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         source = GetComponent<AudioSource>();

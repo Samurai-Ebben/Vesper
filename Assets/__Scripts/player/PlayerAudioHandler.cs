@@ -8,10 +8,14 @@ public class PlayerAudioHandler : MonoBehaviour
     AudioManager audioManager;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         playerController = PlayerController.instance;
-        audioManager = FindAnyObjectByType<AudioManager>();
+        //audioManager = FindAnyObjectByType<AudioManager>();
 
     }
 
@@ -25,15 +29,15 @@ public class PlayerAudioHandler : MonoBehaviour
     {
         if (playerController.currentSize == Sizes.SMALL)
         {
-            audioManager.PlayingAudio(audioManager.landingSmall, audioManager.landingSound);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingSmall, AudioManager.Instance.landingSound);
         }
         else if (playerController.currentSize == Sizes.MEDIUM)
         {
-            audioManager.PlayingAudio(audioManager.landingMedium, audioManager.landingSound);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingMedium, AudioManager.Instance.landingSound);
         }
         else if (playerController.currentSize == Sizes.LARGE)
         {
-            audioManager.PlayingAudio(audioManager.landingBig, audioManager.landingSound);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingBig, AudioManager.Instance.landingSound);
         }
     }
 
@@ -41,26 +45,27 @@ public class PlayerAudioHandler : MonoBehaviour
     {
         if (playerController.currentSize == Sizes.SMALL)
         {
-            audioManager.PlayingAudio(audioManager.jumpSmall, audioManager.jumpingVolume);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpSmall, AudioManager.Instance.jumpingVolume);
         }
         else if (playerController.currentSize == Sizes.MEDIUM)
         {
-            audioManager.PlayingAudio(audioManager.jumpMedium, audioManager.jumpingVolume);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpMedium, AudioManager.Instance.jumpingVolume);
         }
         else if (playerController.currentSize == Sizes.LARGE)
         {
-            audioManager.PlayingAudio(audioManager.jumpBig, audioManager.jumpingVolume);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpBig, AudioManager.Instance.jumpingVolume);
         }
     }
 
     public void PlaySwitchToLarge()
     {
-            audioManager.PlayingAudio(audioManager.switchToLarge, audioManager.switchVolume);
+        AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToLarge, AudioManager.Instance.switchVolume);
     }
 
     public void PlaySwitchToSmall()
     {
-            audioManager.PlayingAudio(audioManager.switchToSmall, audioManager.switchVolume);
+        AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToSmall, AudioManager.Instance.switchVolume);
     }
+
 
 }

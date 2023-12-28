@@ -67,11 +67,12 @@ public class GameManager : MonoBehaviour
     
     public void Death()
     {
+        //Debug.Log(AudioManager.Instance);
+        AudioManager.Instance.PlayingAudio(AudioManager.Instance.death, AudioManager.Instance.deathVolume);
         Fade.SetActive(true);
         PlayerController.instance.canMove = false;
         PlayerController.instance.GetComponentInChildren<SpriteRenderer>().enabled = false;
         IsDead = true;
-        audioManager.PlayingAudio(audioManager.death, audioManager.deathVolume);
         PlayerController.instance.VibrateController(.4f, .75f, .1f);
 
         StartCoroutine(DieDelay());
