@@ -31,7 +31,7 @@ public class Collectible : MonoBehaviour
         collider = GetComponentInChildren<Collider2D>();
         caughtEffect = GetComponentInChildren<ParticleSystem>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        spriteObject = gameObject.GetComponentInChildren<SpriteRenderer>().gameObject;
+        spriteObject = GetComponentInChildren<SpriteRenderer>().gameObject;
         origiColor = spriteRenderer.color;
     }
 
@@ -110,5 +110,4 @@ public class Collectible : MonoBehaviour
             //DOTween.Clear();
         }
     }
-
 }
