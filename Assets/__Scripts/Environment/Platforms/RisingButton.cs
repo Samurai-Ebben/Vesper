@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class RisingButton : MonoBehaviour, IReset
 {
-    //Takes in the moving platforms
+    // Takes in the moving platforms
     public List<RisingMovement> platforms;
    
-    //  Animator anim;
+    // Animator anim;
     public float pressedDistance;
     private float timer;
     private bool playerIsLarge;
@@ -22,46 +22,7 @@ public class RisingButton : MonoBehaviour, IReset
         stopPos = Vector3.zero;
         RegisterSelfToResettableManager();
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if(onMe == false)
-            {
-                timer = 0;
-                onMe = true;
-            }
-        
-            foreach (var platform in platforms)
-            {
-                if(playerIsLarge)
-                {
-                    platform.Rise();
-                }
-                else
-                {
-                    platform.Descend();
-
-                }
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if(onMe == true)
-            {
-                onMe = false;
-                timer = 0;
-                stopPos = box.transform.localPosition;
-            }
-            foreach (var platform in platforms)
-                platform.Descend();
-        }
-    }
-
+    
     public void Update()
     {
         timer += Time.deltaTime;
@@ -93,6 +54,30 @@ public class RisingButton : MonoBehaviour, IReset
             timer = 0;
         }
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (onMe == false)
+            {
+                timer = 0;
+                onMe = true;
+            }
+
+            foreach (var platform in platforms)
+            {
+                if (playerIsLarge)
+                {
+                    platform.Rise();
+                }
+                else
+                {
+                    platform.Descend();
+
+                }
+            }
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -109,6 +94,21 @@ public class RisingButton : MonoBehaviour, IReset
                     platform.Descend();
                 }
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (onMe == true)
+            {
+                onMe = false;
+                timer = 0;
+                stopPos = box.transform.localPosition;
+            }
+            foreach (var platform in platforms)
+                platform.Descend();
         }
     }
 
