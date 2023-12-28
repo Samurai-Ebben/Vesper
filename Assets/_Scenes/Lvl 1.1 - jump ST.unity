@@ -8058,6 +8058,10 @@ PrefabInstance:
       propertyPath: sizeMulti
       value: 1.18
       objectReference: {fileID: 0}
+    - target: {fileID: 7532729373682513107, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
+      propertyPath: m_Name
+      value: Particle System 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.25
