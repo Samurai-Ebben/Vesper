@@ -67,7 +67,8 @@ public class PauseManager : MonoBehaviour
     public void PauseTrigger()
     {
         isPaused = !isPaused;
-        Time.timeScale = isPaused ? 0 : 1;
+        float timeNeeded = 0.01f;
+        Time.timeScale = isPaused ? timeNeeded : 1;
         PauseMenuCanvas.SetActive(isPaused);
         for (int i = 0; i < menuTxts.Count; i++)
         {

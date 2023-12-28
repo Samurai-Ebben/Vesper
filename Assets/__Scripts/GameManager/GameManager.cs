@@ -69,22 +69,22 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log(AudioManager.Instance);
         AudioManager.Instance.PlayingAudio(AudioManager.Instance.death, AudioManager.Instance.deathVolume);
-        Fade.SetActive(true);
         PlayerController.instance.canMove = false;
+        PlayerController.instance.effects.enabled = true;
+
         PlayerController.instance.GetComponentInChildren<SpriteRenderer>().enabled = false;
         IsDead = true;
         PlayerController.instance.VibrateController(.4f, .75f, .1f);
-
         StartCoroutine(DieDelay());
     }
 
     public IEnumerator DieDelay()
     {
         PlayerController.player.GetComponent<PlayerParticleEffect>().DeathParticle();
-
+        PlayerController.instance.effects.enabled = false;
         PlayerController.instance.rb.velocity = Vector2.zero;
-
         yield return new WaitForSeconds(deathTime);
+        Fade.SetActive(true);
         RespawnPlayer();
     }
 }

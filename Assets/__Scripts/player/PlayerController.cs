@@ -82,11 +82,11 @@ public class PlayerController : MonoBehaviour
     public AudioManager audioManager { get; private set; }
     public RayCastHandler rayCastHandler { get; private set; }
     public ScreenShakeHandler screenShake { get; private set; }
-
+    public PlayerParticleEffect effects { get; private set; }
+    
     // Player references
     DevButtons devButtons;
     SizeStats sizeStats;
-    PlayerParticleEffect effects;
     SquishAndSquash squishAndSquash;
     PlayerAudioHandler playerAudioHandler;
 
@@ -159,7 +159,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
         JuiceFx();
         SwitchSize();
     }
