@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
 
     // Size
     private bool isBig = false;
+    private bool wasBigLastFrame = false;
     private bool isSmall = false;
+    private bool wasSmallLastFrame = false;
 
     public float landingSFX = 0.05f;
 
@@ -179,13 +181,32 @@ public class PlayerController : MonoBehaviour
     private void SwitchSize()
     {
         if (isSmall && smallEnabled)
+        {
             currentSize = Sizes.SMALL;
+            
+            if(wasSmallLastFrame != isSmall)
+            {
+                playerAudioHandler.PlaySwitchToSmall();
+            }
+        }
 
         if (isBig && bigEnabled && rayCastHandler.largeTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
+        {
             currentSize = Sizes.LARGE;
 
+            if (wasBigLastFrame != isBig)
+            {
+                playerAudioHandler.PlaySwitchToLarge();
+            }
+        }
+
         if ((!isBig && !isSmall) && rayCastHandler.smallTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
+        {
             currentSize = Sizes.MEDIUM;
+        }
+
+        wasSmallLastFrame = isSmall;
+        wasBigLastFrame = isBig; 
 
         List<float> statList = sizeStats.ReturnStats(currentSize);
 
