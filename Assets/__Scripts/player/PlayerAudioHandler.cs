@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAudioHandler : MonoBehaviour
@@ -22,11 +23,15 @@ public class PlayerAudioHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(audioManager);
+        Debug.Log(AudioManager.Instance);
     }
 
     public void PlayLandingSound()
     {
+        if (AudioManager.Instance == null)
+        {
+            return;
+        }
         if (playerController.currentSize == Sizes.SMALL)
         {
             AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingSmall, AudioManager.Instance.landingSound);
@@ -43,6 +48,7 @@ public class PlayerAudioHandler : MonoBehaviour
 
     public void PlayJumpingSound()
     {
+        if (AudioManager.Instance == null) return;
         if (playerController.currentSize == Sizes.SMALL)
         {
             AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpSmall, AudioManager.Instance.jumpingVolume);
@@ -59,11 +65,13 @@ public class PlayerAudioHandler : MonoBehaviour
 
     public void PlaySwitchToLarge()
     {
+        if (AudioManager.Instance == null) return;
         AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToLarge, AudioManager.Instance.switchVolume);
     }
 
     public void PlaySwitchToSmall()
     {
+        if (AudioManager.Instance == null) return;
         AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToSmall, AudioManager.Instance.switchVolume);
     }
 
