@@ -308,6 +308,8 @@ public class PlayerController : MonoBehaviour
 
     private void SquashWallCollision()
     {
+        if (!canMove) return;
+
         if (Math.Abs(transform.position.x - prevPos.x) > deltaPosThreshold &&
             (!rayCastHandler.rightSide || !rayCastHandler.leftSide))
         {
