@@ -179,6 +179,7 @@ public class PlayerController : MonoBehaviour
     }
     private void SwitchSize()
     {
+        if (GameManager.Instance.GetComponent<PauseManager>().isPaused) return;
         if (isSmall && smallEnabled)
         {
             currentSize = Sizes.SMALL;
