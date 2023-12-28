@@ -6344,6 +6344,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -55.100006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.600006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9061,6 +9069,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 67796931}
+  - {fileID: 978465831}
   - {fileID: 746682927}
   - {fileID: 534208626}
   - {fileID: 468548143}
@@ -9080,4 +9089,3 @@ SceneRoots:
   - {fileID: 1665125106}
   - {fileID: 2009019775}
   - {fileID: 1047917730}
-  - {fileID: 978465831}
