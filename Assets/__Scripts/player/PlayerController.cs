@@ -136,7 +136,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         devButtons          =     GameManager.Instance.gameObject.GetComponent<DevButtons>();
-        playerAudioHandler  =     GetComponent<PlayerAudioHandler>();    
         squishAndSquash     =     GetComponentInChildren<SquishAndSquash>();
         effects             =     GetComponent<PlayerParticleEffect>();
         rayCastHandler      =     GetComponent<RayCastHandler>();
@@ -180,6 +179,7 @@ public class PlayerController : MonoBehaviour
     }
     private void SwitchSize()
     {
+        if (GameManager.Instance.GetComponent<PauseManager>().isPaused) return;
         if (isSmall && smallEnabled)
         {
             currentSize = Sizes.SMALL;
