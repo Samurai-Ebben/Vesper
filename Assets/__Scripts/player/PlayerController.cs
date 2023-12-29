@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Gamepad gPad;
     public float vibrationDuration = .5f;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool wallCollisionSquash;
     
     // Singleton, reference to player object

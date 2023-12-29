@@ -5,7 +5,6 @@ using TMPro;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class CollectibleManager : MonoBehaviour, IReset
