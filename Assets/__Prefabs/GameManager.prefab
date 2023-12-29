@@ -5790,7 +5790,7 @@ MonoBehaviour:
   startPoint: {fileID: 2702735996382199472}
   playerHolderPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
   Fade: {fileID: 6868898498921238885}
-  deathTime: 0
+  deathTime: 0.3
 --- !u!114 &4704372139927105350
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public class PowerUp : MonoBehaviour
 
     [Header("Sprite effects")]
     public bool spriteFade = true;
+    public bool outlineFx = true;
+    public float outlineSpawnDelay;
+    public int numberOfOutlines;
+    public GameObject outline;
+
 
     [Header("Movement")]
     public bool stopPlayerMovement = true;
@@ -43,6 +48,7 @@ public class PowerUp : MonoBehaviour
         if (collision.CompareTag("Player") && !cutscenePlayed)
         {
             SpriteFade();
+            OutlineFx();
             StopPlayerMovement();
             MovePlayerToCutscenePosition();
             PlayObjectsAnimations(true);
@@ -60,6 +66,20 @@ public class PowerUp : MonoBehaviour
         fadeSprite.FadeOut();
     }
 
+    void OutlineFx()
+    {
+        if (!outlineFx) return;
+        StartCoroutine(TriggerOutlineFx());
+    }
+    IEnumerator TriggerOutlineFx()
+    {
+        for (int i = 0; i < numberOfOutlines; i++)
+        {
+            Instantiate(outline, transform.position, Quaternion.identity);            
+            yield return new WaitForSeconds(outlineSpawnDelay);
+        }
+    }
+
     void StopPlayerMovement()
     {
         if (!stopPlayerMovement) return;
@@ -70,7 +90,6 @@ public class PowerUp : MonoBehaviour
         PlayerController.instance.bigEnabled = false;
         PlayerController.instance.smallEnabled = false;
     }
-
     IEnumerator UnstopMovementAndStopAnimations()
     {
         yield return new WaitForSeconds(animationDuration);
