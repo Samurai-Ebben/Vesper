@@ -8,21 +8,13 @@ public class AudioManager : MonoBehaviour
 {
     AudioSource source;
     public AudioSource source2;
-    PlayerController player; 
+    public AudioSource source3;
     public static AudioManager Instance { get; private set; }
 
     public bool startLandingSound;
 
-    public float volume = 1;
-    public float landingSound = 1;
-    public float jumpingVolume = 1;
-    public float deathVolume = 1;
-    public float switchVolume = 1;
-    public float backgroundMusicVolume = 1;
-    public float collectibleVolume = 1;
 
-
-    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible;
+    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible, pauseMenu;
     public List<AudioClip> clips;
     // Start is called before the first frame update
 
@@ -42,8 +34,6 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
-        player = PlayerController.instance;
-
         PlayingBackgorundM();
     }
 
@@ -52,18 +42,22 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
     }
-    public void PlayingAudio(AudioClip clip, float volume)
+    public void PlayingAudio(AudioClip clip)
     {
        source.clip = clip;
-       source.volume = volume;
-        source.PlayOneShot(clip, volume);
+        source.PlayOneShot(clip, 1);
 
     }
 
     private void PlayingBackgorundM()
     {
         source2.clip = backgroundMusic;
-        source2.volume = backgroundMusicVolume;
-        source2.PlayOneShot(backgroundMusic, backgroundMusicVolume);
+        source2.PlayOneShot(backgroundMusic, 1);
+    }
+
+    public void MenuSFX(AudioClip clip)
+    {
+        source3.clip = clip;
+        source3.PlayOneShot(clip);
     }
 }
