@@ -76,6 +76,7 @@ public class PowerUp : MonoBehaviour
         yield return new WaitForSeconds(animationDuration);
         PlayerController.instance.canMove = true;
         PlayObjectsAnimations(false);
+        PlayPlayerAnimation(false);
 
         EnableSize();
     }
