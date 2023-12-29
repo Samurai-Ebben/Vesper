@@ -13,15 +13,16 @@ public class AudioManager : MonoBehaviour
 
     public bool startLandingSound;
 
-    public float volume = 2;
-    public float landingSound = 2;
-    public float jumpingVolume = 2;
-    public float deathVolume = 2;
+    public float volume = 1;
+    public float landingSound = 1;
+    public float jumpingVolume = 1;
+    public float deathVolume = 1;
     public float switchVolume = 1;
-    public float backgroundMusicVolume = 2;
+    public float backgroundMusicVolume = 1;
+    public float collectibleVolume = 1;
 
 
-    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic;
+    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible;
     public List<AudioClip> clips;
     // Start is called before the first frame update
 
@@ -42,7 +43,6 @@ public class AudioManager : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         player = PlayerController.instance;
-        clips = new List<AudioClip> { jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium};
 
         PlayingBackgorundM();
     }
