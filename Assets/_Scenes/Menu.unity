@@ -406,6 +406,14 @@ PrefabInstance:
     - target: {fileID: 658082895724071487, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 310714527}
+    - target: {fileID: 658082895724071487, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 658082895724071487, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1231039496458342643, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Name
@@ -434,6 +442,14 @@ PrefabInstance:
     - target: {fileID: 1257129710451863342, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 310714527}
+    - target: {fileID: 1257129710451863342, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257129710451863342, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2475409855614074490, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_fontColor.b
@@ -514,6 +530,14 @@ PrefabInstance:
     - target: {fileID: 3149962362864054803, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 310714527}
+    - target: {fileID: 3149962362864054803, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149962362864054803, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3426488389007619012, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Name
@@ -578,6 +602,14 @@ PrefabInstance:
     - target: {fileID: 3974928665976015292, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 310714527}
+    - target: {fileID: 3974928665976015292, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ControlsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974928665976015292, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4298687144890644644, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Pivot.x
