@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
         actions["Move"].canceled += Move;
 
         actions["Pause"].performed += OnPause;
+        actions["Navigate"].performed += OnNavigate;
 
         actions["Jump"].performed += OnJumpStarted;
         actions["Jump"].canceled += OnJumpCanceled;
@@ -419,7 +420,12 @@ public class PlayerController : MonoBehaviour
     public void OnControls(InputAction.CallbackContext ctx)
     {
         GameManager.Instance.GetComponent<PauseManager>().ControlsMenu();
+    }
 
+    public void OnNavigate(InputAction.CallbackContext ctx)
+    {
+        //TODO: Set sound effects.
+        print("Moved ");
     }
     private void OnDisable()
     {
@@ -428,6 +434,7 @@ public class PlayerController : MonoBehaviour
 
         actions["Jump"].performed -= OnJumpStarted;
         actions["Jump"].canceled -= OnJumpCanceled;
+        actions["Navigate"].performed -= Move;
 
         #region switchControls
         actions["Smaller"].started -= Smaller;
