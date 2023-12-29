@@ -4560,6 +4560,7 @@ GameObject:
   - component: {fileID: 640332278}
   - component: {fileID: 640332277}
   - component: {fileID: 640332276}
+  - component: {fileID: 640332279}
   m_Layer: 0
   m_Name: Cam Zoom Trigger
   m_TagString: Untagged
@@ -4582,17 +4583,17 @@ MonoBehaviour:
   triggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 640332279}
+        m_TargetAssemblyTypeName: ActiveToggleAnimator, Assembly-CSharp
+        m_MethodName: ToggleAnimator
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   exitEventOn: 0
   triggerExitEvent:
@@ -4658,6 +4659,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &640332279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640332275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9343f1243a9e95c42be3b872eb477f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationObjects:
+  - {fileID: 1820112820}
 --- !u!1 &714860881
 GameObject:
   m_ObjectHideFlags: 0
