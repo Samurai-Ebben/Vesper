@@ -437,7 +437,6 @@ public class PlayerController : MonoBehaviour
     public void OnNavigate(InputAction.CallbackContext ctx)
     {
         //TODO: Set sound effects.
-        print("Moved ");
     }
     private void OnDisable()
     {
