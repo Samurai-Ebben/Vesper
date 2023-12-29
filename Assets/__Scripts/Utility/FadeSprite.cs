@@ -17,6 +17,10 @@ public class FadeSprite : MonoBehaviour
 
     private void Start()
     {
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
         if (spriteRenderer != null)
         {
             startColor = spriteRenderer.color;
