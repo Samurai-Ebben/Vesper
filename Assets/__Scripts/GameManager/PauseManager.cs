@@ -26,6 +26,7 @@ public class PauseManager : MonoBehaviour
     TextMeshProUGUI txt;
     Color buttonOrigiColor;
     Vector3 btnOrigSize;
+
     private void Start()
     {   
         events = GameManager.Instance.GetComponentInChildren<EventSystem>();
@@ -38,7 +39,6 @@ public class PauseManager : MonoBehaviour
         {
             buttonOrigiColor = menuTxts[i].color;
             btnOrigSize = menuTxts[i].transform.localScale;
-            //menuTxts[i].transform.DOScale(menuTxts[i].transform.localScale, 0.2f).SetEase(Ease.InOutBounce);
         }
     }
 
@@ -57,11 +57,6 @@ public class PauseManager : MonoBehaviour
         DOTween.defaultTimeScaleIndependent = true;
         txt.transform.DOScale(btnOrigSize * 1.3f, 0.1f).SetEase(Ease.InSine);
         txt.DOColor(Color.white, 0.1f).SetEase(Ease.InSine);
-
-        //float scaledTxtWidth = txtWidth;
-        //indicator.transform.position = selected.position + new Vector3(scaledTxtWidth / 75 + indicateOffset, 0);
-        //indicator2.transform.position = selected.position - new Vector3(scaledTxtWidth / 75 + indicateOffset, 0);
-
     }
 
     public void PauseTrigger()
