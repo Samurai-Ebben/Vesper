@@ -203,6 +203,10 @@ MonoBehaviour:
   enableLargeSize: 1
   enableSmallSize: 1
   spriteFade: 1
+  outlineFx: 1
+  outlineSpawnDelay: 0.3
+  numberOfOutlines: 5
+  outline: {fileID: 4505048470471943349, guid: 9784f4fdab08c184187bf6941fceadd2, type: 3}
   stopPlayerMovement: 1
   movePlayerToPosition: 1
   targetPosition: {fileID: 3643770166302833470}

@@ -14,7 +14,7 @@ public class PowerUp : MonoBehaviour
     public bool spriteFade = true;
     public bool outlineFx = true;
     public float outlineSpawnDelay;
-    private int numberOfOutlines;
+    public int numberOfOutlines;
     public GameObject outline;
 
 
@@ -69,14 +69,13 @@ public class PowerUp : MonoBehaviour
     void OutlineFx()
     {
         if (!outlineFx) return;
-        
         StartCoroutine(TriggerOutlineFx());
     }
     IEnumerator TriggerOutlineFx()
     {
         for (int i = 0; i < numberOfOutlines; i++)
         {
-            Instantiate(outline);
+            Instantiate(outline, transform.position, Quaternion.identity);            
             yield return new WaitForSeconds(outlineSpawnDelay);
         }
     }

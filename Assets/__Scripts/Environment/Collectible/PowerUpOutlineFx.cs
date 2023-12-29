@@ -11,13 +11,13 @@ public class PowerUpOutlineFx : MonoBehaviour//, IReset
     public Ease ease;
     bool playing;
 
-    private Vector3 originalScale;
+    //private Vector3 originalScale;
 
     private void Start()
     {
         TriggerEffect();
 
-        originalScale = transform.localScale;
+        //originalScale = transform.localScale;
     }
     private void Update()
     {
@@ -32,26 +32,26 @@ public class PowerUpOutlineFx : MonoBehaviour//, IReset
         playing = true;
         transform.DOScale(targetScale, growDuration).SetEase(ease);
         StartCoroutine(TriggerFade());
-        StartCoroutine(DELETEME());
-    }
-
-    IEnumerator DELETEME()
-    {
-        yield return new WaitForSeconds(growDuration);
-        playing = false;
-        Reset();
+        //StartCoroutine(DELETEME());
     }
 
     IEnumerator TriggerFade()
     {
         yield return new WaitForSeconds(fadeDelay);
-        //GetComponent<FadeSprite>().FadeOut();
+        GetComponent<FadeSprite>().FadeOut();
     }
 
-    public void Reset()
-    {
-        transform.DOScale(originalScale, 0);
-    }
+    //IEnumerator DELETEME()
+    //{
+    //    yield return new WaitForSeconds(growDuration);
+    //    playing = false;
+    //    Reset();
+    //}
+
+    //public void Reset()
+    //{
+    //    transform.DOScale(originalScale, 0);
+    //}
 
     //public void RegisterSelfToResettableManager()
     //{
