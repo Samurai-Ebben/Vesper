@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     
     public void Death()
     {
-        AudioManager.Instance.PlayingAudio(AudioManager.Instance.death, AudioManager.Instance.deathVolume);
+        AudioManager.Instance.PlayingAudio(AudioManager.Instance.death);
         PlayerController.instance.canMove = false;
         PlayerController.instance.effects.enabled = true;
 

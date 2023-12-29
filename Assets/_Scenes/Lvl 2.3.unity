@@ -6498,10 +6498,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5407917196614130988, guid: 064fed658bc371c428016d1887279352, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -5799581521007988380, guid: 6900c8f7ed46bc64da148ac855048ace, type: 2}
     - target: {fileID: 6582465641054110912, guid: 064fed658bc371c428016d1887279352, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3281924
@@ -6542,10 +6538,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7906245812062074329, guid: 064fed658bc371c428016d1887279352, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -6546046560189447808, guid: 6900c8f7ed46bc64da148ac855048ace, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

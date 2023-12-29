@@ -33,15 +33,15 @@ public class PlayerAudioHandler : MonoBehaviour
         }
         if (playerController.currentSize == Sizes.SMALL)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingSmall, AudioManager.Instance.landingSound);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingSmall);
         }
         else if (playerController.currentSize == Sizes.MEDIUM)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingMedium, AudioManager.Instance.landingSound);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingMedium);
         }
         else if (playerController.currentSize == Sizes.LARGE)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingBig, AudioManager.Instance.landingSound);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingBig);
         }
     }
 
@@ -50,28 +50,28 @@ public class PlayerAudioHandler : MonoBehaviour
         if (AudioManager.Instance == null) return;
         if (playerController.currentSize == Sizes.SMALL)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpSmall, AudioManager.Instance.jumpingVolume);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpSmall);
         }
         else if (playerController.currentSize == Sizes.MEDIUM)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpMedium, AudioManager.Instance.jumpingVolume);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpMedium);
         }
         else if (playerController.currentSize == Sizes.LARGE)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpBig, AudioManager.Instance.jumpingVolume);
+            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpBig);
         }
     }
 
     public void PlaySwitchToLarge()
     {
         if (AudioManager.Instance == null) return;
-        AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToLarge, AudioManager.Instance.switchVolume);
+        AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToLarge);
     }
 
     public void PlaySwitchToSmall()
     {
         if (AudioManager.Instance == null) return;
-        AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToSmall, AudioManager.Instance.switchVolume);
+        AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToSmall);
     }
 
 

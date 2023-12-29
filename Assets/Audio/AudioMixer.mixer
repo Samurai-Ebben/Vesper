@@ -73,6 +73,7 @@ AudioMixerController:
     - a876347b82637fd49bdb91021e9624b3
     - 18a7d7b370ed34041bab9747a836e3f7
     - 46a238d9c0277fd40982334e4f46a6a7
+    - 8cb99b7058887054d85f697a3d627c6d
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -88,6 +89,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -5799581521007988380}
   - {fileID: -6546046560189447808}
+  - {fileID: 2376702303431439599}
   m_Volume: 801740984c0b7f24b93f49d0faa30559
   m_Pitch: 62c25b15d7387f845b9cc5a27d7ed388
   m_Send: 00000000000000000000000000000000
@@ -131,6 +133,25 @@ AudioMixerSnapshotController:
     19a6aaabfe3f9bc40999c5bb12d5ad3d: 0
     acbdc20c9e08ee543b5b3908d6678460: 4.455
   m_TransitionOverrides: {}
+--- !u!243 &2376702303431439599
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MenuSFX
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 8cb99b7058887054d85f697a3d627c6d
+  m_Children: []
+  m_Volume: 450651057de265440b142b371169d385
+  m_Pitch: 1163f7590fc37de47a0fdf3c35287a2c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 5198828971948380537}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &4996323295224270462
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -141,6 +162,20 @@ AudioMixerEffectController:
   m_EffectID: 363a8fa37cd4d1e49a5483c847460c09
   m_EffectName: Attenuation
   m_MixLevel: 411cac859e8ee424aad15b751ccf2741
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &5198828971948380537
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8850d3e40a8815146985fa2e2b6926c2
+  m_EffectName: Attenuation
+  m_MixLevel: 35686938b646e89489410c216799cf8d
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

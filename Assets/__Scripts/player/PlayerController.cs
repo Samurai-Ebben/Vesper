@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
 
     private Gamepad gPad;
     public float vibrationDuration = .5f;
+
+    //[HideInInspector]
+    public bool wallCollisionSquash;
+    
     // Singleton, reference to player object
     public static GameObject player;
     public static PlayerController instance;
@@ -146,6 +150,8 @@ public class PlayerController : MonoBehaviour
 
         currentSize = Sizes.MEDIUM;
         jumpBufferTimer = 0;
+
+        wallCollisionSquash = true;
     }
 
     void FixedUpdate()
@@ -155,7 +161,7 @@ public class PlayerController : MonoBehaviour
         CoyoteTime();
         RecordYVelocity();
         RecordMagnitude();
-        SquashWallCollision();
+        WallCollisionSquash();
     }
 
     void Update()
@@ -306,9 +312,9 @@ public class PlayerController : MonoBehaviour
         jumpPressed = false;
     }
 
-    private void SquashWallCollision()
+    private void WallCollisionSquash()
     {
-        if (!canMove) return;
+        if (!canMove || !wallCollisionSquash) return;
 
         if (Math.Abs(transform.position.x - prevPos.x) > deltaPosThreshold &&
             (!rayCastHandler.rightSide || !rayCastHandler.leftSide))
@@ -324,6 +330,12 @@ public class PlayerController : MonoBehaviour
         prevRaycastLeft = rayCastHandler.leftSide;
         prevPos = transform.position;
     }
+
+    public void ToggleWallCollisionSquash()
+    {
+        wallCollisionSquash = !wallCollisionSquash;
+    }
+
     /// <summary>
     /// Checks for small spaces when in the current size to limit the stretch and make the player able 
     /// to fit easily through the gaps.
