@@ -16940,6 +16940,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CutsceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7441584291900500118, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: numberOfOutlines
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441584291900500118, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: outlineSpawnDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

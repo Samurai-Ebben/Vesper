@@ -331,7 +331,8 @@ GameObject:
   m_Component:
   - component: {fileID: 72916839}
   - component: {fileID: 72916838}
-  m_Layer: 0
+  - component: {fileID: 72916840}
+  m_Layer: 3
   m_Name: mountain_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,12 +400,76 @@ Transform:
   m_GameObject: {fileID: 72916837}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.3, y: -5.24, z: 0}
+  m_LocalPosition: {x: 18.45, y: -5.06, z: 0}
   m_LocalScale: {x: 2.1260927, y: 2.1260927, z: 2.1260927}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &72916840
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72916837}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -3.2539384, y: -2.6160924}
+  - {x: -3.3925076, y: -2.6119726}
+  - {x: -3.2631946, y: -2.1439946}
+  - {x: -3.1942253, y: -1.6715239}
+  - {x: -3.0039506, y: -1.4365203}
+  - {x: -2.975158, y: -1.2791309}
+  - {x: -2.818386, y: -1.1237952}
+  - {x: -2.5391006, y: -0.42721862}
+  - {x: -2.368006, y: -0.41681528}
+  - {x: -2.0651264, y: -0.1401797}
+  - {x: -1.8779889, y: -0.13007617}
+  - {x: -1.8398099, y: -0.061465085}
+  - {x: -1.7402638, y: -0.056424424}
+  - {x: -1.643245, y: 0.0014163591}
+  - {x: -1.537132, y: 0.26134813}
+  - {x: -0.11190379, y: 2.3068497}
+  - {x: 1.0883014, y: 2.4773507}
+  - {x: 1.7532722, y: 1.9739403}
+  - {x: 1.8272107, y: 1.68926}
+  - {x: 2.0304809, y: 1.6747854}
+  - {x: 2.4181013, y: 1.3347996}
+  - {x: 2.5767524, y: 0.5922021}
+  - {x: 2.9724069, y: 0.31777707}
+  - {x: 3.106855, y: -0.87523246}
+  - {x: 3.6202312, y: -2.533071}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &160736978
 GameObject:
   m_ObjectHideFlags: 0
