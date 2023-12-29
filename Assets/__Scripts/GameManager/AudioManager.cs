@@ -43,6 +43,7 @@ public class AudioManager : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         PlayingBackgorundM();
+        source2.loop = true;
     }
 
     
@@ -54,14 +55,19 @@ public class AudioManager : MonoBehaviour
     {
         source.clip = clip;
         source.volume = volume; 
-        source.PlayOneShot(clip, 1);
+        source.PlayOneShot(clip, volume);
 
     }
 
     private void PlayingBackgorundM()
     {
+        if(!source2.isPlaying)
+        {
+            source2.clip = backgroundMusic;
+            source2.Play();
+        }
         source2.clip = backgroundMusic;
-        source2.PlayOneShot(backgroundMusic, 1);
+        source2.Play(); 
     }
 
     public void MenuSFX(AudioClip clip, float volume = 1)
