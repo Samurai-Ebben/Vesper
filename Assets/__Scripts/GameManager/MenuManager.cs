@@ -1,26 +1,22 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEditor;
+using UnityEditor.PackageManager;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using DG.Tweening;
 
-public class PauseManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     private EventSystem events;
-    public bool isPaused = false;
-    //PlayerController player;
-    public GameObject PauseMenuCanvas;
+
+    public GameObject MenuCanvas;
     public GameObject menu;
     public GameObject controls;
-    public GameObject indicator;
-    public GameObject indicator2;
-    public float indicateOffset = .2f;
-    float txtWidth;
 
     public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
     TextMeshProUGUI txt;
@@ -28,12 +24,11 @@ public class PauseManager : MonoBehaviour
     Vector3 btnOrigSize;
 
     private void Start()
-    {   
-        events = GameManager.Instance.GetComponentInChildren<EventSystem>();
+    {
+        events = Camera.main.GetComponentInChildren<EventSystem>();
 
-        isPaused = false;
         controls.SetActive(false);
-        PauseMenuCanvas.SetActive(false);
+        MenuCanvas.SetActive(true);
 
         for (int i = 0; i < menuTxts.Count; i++)
         {
@@ -41,17 +36,19 @@ public class PauseManager : MonoBehaviour
             btnOrigSize = menuTxts[i].transform.localScale;
         }
     }
-
-    private void Update()
+    void Update()
     {
         NavigateBtns();
     }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void NavigateBtns()
     {
         var selected = events.currentSelectedGameObject.transform;
         txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
-        txtWidth = txt.preferredWidth;
 
         for (int i = 0; i < menuTxts.Count; i++)
         {
@@ -62,27 +59,6 @@ public class PauseManager : MonoBehaviour
         DOTween.defaultTimeScaleIndependent = true;
         txt.transform.DOScale(btnOrigSize * 1.3f, 0.1f).SetEase(Ease.InSine);
         txt.DOColor(Color.white, 0.1f).SetEase(Ease.InSine);
-    }
-
-    public void PauseTrigger()
-    {
-        AudioManager.Instance.MenuSFX(AudioManager.Instance.pauseMenu, AudioManager.Instance.pauseMenuVolume);
-        isPaused = !isPaused;
-        float timeNeeded = 0.01f;
-        Time.timeScale = isPaused ? timeNeeded : 1;
-        PauseMenuCanvas.SetActive(isPaused);
-        for (int i = 0; i < menuTxts.Count; i++)
-        {
-            menuTxts[i].transform.DOScale(menuTxts[i].transform.localScale, 0.2f).SetEase(Ease.InOutBounce);
-        }
-        GetComponent<HideMouseCursor>().toggleCursorVisibility();
-    }
-
-
-    public void Replay()
-    {
-        PauseTrigger();
-        GameManager.Instance.RespawnPlayer();
     }
 
     public void ControlsMenu()
