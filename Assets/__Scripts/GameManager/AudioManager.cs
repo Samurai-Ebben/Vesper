@@ -13,8 +13,16 @@ public class AudioManager : MonoBehaviour
 
     public bool startLandingSound;
 
+    public float landingVolume = 0.5f;
+    public float jumpingVolume = 0.5f;
+    public float deathVolume = 0.5f;
+    public float switchVolume = 0.5f;
+    public float collectibleVolume = 0.5f;
+    public float pauseMenuVolume = 0.5f;
 
-    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible, pauseMenu;
+    public float backgroundMusicVolume = 1;
+
+    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible, pauseMenu, clickInMenu;
     public List<AudioClip> clips;
     // Start is called before the first frame update
 
@@ -42,9 +50,10 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
     }
-    public void PlayingAudio(AudioClip clip)
+    public void PlayingAudio(AudioClip clip, float volume = 1)
     {
-       source.clip = clip;
+        source.clip = clip;
+        source.volume = volume; 
         source.PlayOneShot(clip, 1);
 
     }
@@ -55,9 +64,10 @@ public class AudioManager : MonoBehaviour
         source2.PlayOneShot(backgroundMusic, 1);
     }
 
-    public void MenuSFX(AudioClip clip)
+    public void MenuSFX(AudioClip clip, float volume = 1)
     {
         source3.clip = clip;
+        source3.volume = volume;
         source3.PlayOneShot(clip);
     }
 }

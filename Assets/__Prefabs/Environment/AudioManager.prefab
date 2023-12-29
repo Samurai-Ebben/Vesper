@@ -50,6 +50,13 @@ MonoBehaviour:
   source2: {fileID: 7906245812062074329}
   source3: {fileID: 143294754772271265}
   startLandingSound: 0
+  landingVolume: 0.5
+  jumpingVolume: 0.5
+  deathVolume: 0.5
+  switchVolume: 0.5
+  collectibleVolume: 0.5
+  pauseMenuVolume: 0.5
+  backgroundMusicVolume: 0.5
   jumpSmall: {fileID: 8300000, guid: 52895feaca5b7524197b8137fff9524b, type: 3}
   jumpBig: {fileID: 8300000, guid: 500756b47420fc446800599ef2e5de2b, type: 3}
   jumpMedium: {fileID: 8300000, guid: cdc3741bf0638b24b8c04b1d82a56456, type: 3}
@@ -63,6 +70,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 8300000, guid: ba4913dffed95b84ca6a8b8a6c86595b, type: 3}
   collectible: {fileID: 8300000, guid: 5690f5a9d3b78fc4fb24437bb3362013, type: 3}
   pauseMenu: {fileID: 8300000, guid: c2b775c5d3ba28f4687c2e2dbfd9d904, type: 3}
+  clickInMenu: {fileID: 8300000, guid: 12f3def9468b3e24c9613c0f2d949da5, type: 3}
   clips: []
 --- !u!82 &5407917196614130988
 AudioSource:

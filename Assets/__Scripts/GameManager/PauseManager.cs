@@ -61,7 +61,7 @@ public class PauseManager : MonoBehaviour
 
     public void PauseTrigger()
     {
-        AudioManager.Instance.MenuSFX(AudioManager.Instance.pauseMenu);
+        AudioManager.Instance.MenuSFX(AudioManager.Instance.pauseMenu, AudioManager.Instance.pauseMenuVolume);
         isPaused = !isPaused;
         float timeNeeded = 0.01f;
         Time.timeScale = isPaused ? timeNeeded : 1;
