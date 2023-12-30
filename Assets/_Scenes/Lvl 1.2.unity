@@ -5532,6 +5532,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -55.100006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.600006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6504,7 +6512,7 @@ MonoBehaviour:
   m_Intensity: 1.33
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 9fb79cb7b75b897193e766a0f98af599b5e1bb4333f3a464df9bd1139ba6597ea5b2fe01
+  m_ApplyToSortingLayers: 9fb79cb7b75b897193e766a0f98af599b5e1bb4333f3a464df9bd1139ba6597ea5b2fe013f7375d1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
