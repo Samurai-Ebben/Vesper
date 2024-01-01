@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     //[HideInInspector]
     public bool wallCollisionSquash;
     
-    // Singleton, reference to player object
+    // Singleton, reference to player object (Really shouldn't be two "singeltons" in one object)
     public static GameObject player;
     public static PlayerController instance;
 
@@ -31,9 +31,9 @@ public class PlayerController : MonoBehaviour
     [Header("Size Switch")]
     public bool bigEnabled = true;
     public bool smallEnabled = true;
-    public float superJumpTime = 1.3f;
-    public float superJumpTimer;
-    [Range(1,2f)]public float superJumpForce = 1.2f;
+    //public float superJumpTime = 1.3f;
+    //public float superJumpTimer;
+    //[Range(1,2f)]public float superJumpForce = 1.2f;
 
 
     // Player Controls

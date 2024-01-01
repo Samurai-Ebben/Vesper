@@ -32,6 +32,7 @@ public class Moving : MonoBehaviour, IReset
         {
             percentageDistance += Time.deltaTime * speed;
             transform.position = Vector3.Lerp(start.position, end.position, percentageDistance);
+            PlayerController.instance.rb.velocity += Vector2.up * speed;
         }
 
         if (percentageDistance >= 1)
