@@ -66,11 +66,11 @@ MonoBehaviour:
   switchToLarge: {fileID: 8300000, guid: 3a920d653fa880a45bebf8da9aef1b0a, type: 3}
   switchToSmall: {fileID: 8300000, guid: 02d36486db702d042953d35089c746a9, type: 3}
   switchToMedium: {fileID: 0}
-  death: {fileID: 8300000, guid: 236849250b96f9149b7fe1253eb86255, type: 3}
+  death: {fileID: 8300000, guid: 2c43b8b29767baf478d608f9a779e258, type: 3}
   backgroundMusic: {fileID: 8300000, guid: ba4913dffed95b84ca6a8b8a6c86595b, type: 3}
-  collectible: {fileID: 8300000, guid: 5690f5a9d3b78fc4fb24437bb3362013, type: 3}
+  collectible: {fileID: 8300000, guid: bb8f916366601d94abf0b714e2164323, type: 3}
   pauseMenu: {fileID: 8300000, guid: c2b775c5d3ba28f4687c2e2dbfd9d904, type: 3}
-  clickInMenu: {fileID: 8300000, guid: 12f3def9468b3e24c9613c0f2d949da5, type: 3}
+  clickInMenu: {fileID: 8300000, guid: 839c6432a7d8fd743a5659ff44c559ba, type: 3}
   clips: []
 --- !u!82 &5407917196614130988
 AudioSource:
