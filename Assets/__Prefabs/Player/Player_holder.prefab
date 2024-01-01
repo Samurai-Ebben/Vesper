@@ -62,7 +62,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5872384473560020091
 Transform:
   m_ObjectHideFlags: 0
@@ -4930,10 +4930,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2001940146935406576, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: bigEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001940146935406576, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: smallEnabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2317494879089971283, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3028978548451914271, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
+      propertyPath: pfx2
+      value: 
+      objectReference: {fileID: 6102649519269867205}
     - target: {fileID: 4826503263846209071, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_SortingLayer
       value: 0

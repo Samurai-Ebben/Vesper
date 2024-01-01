@@ -7,6 +7,7 @@ public class PlayerParticleEffect : MonoBehaviour
 {
     ScreenShakeHandler cam;
     public ParticleSystem pfx;
+    public ParticleSystem pfx2;
     public ParticleSystem trail;
     public ParticleSystem jumpFx;
     public ParticleSystem landFx;
@@ -29,9 +30,12 @@ public class PlayerParticleEffect : MonoBehaviour
     private void ParticleSizeToPlayer()
     {
         ParticleSystem.ShapeModule pfxShape = pfx.shape;
+        ParticleSystem.ShapeModule pfxShape2 = pfx2.shape;
+
         ParticleSystem.ShapeModule trailShape = trail.shape;
         trailShape.scale = player.transform.localScale * trailOffset;
         pfxShape.scale = player.transform.localScale * sizeOffset;
+        pfxShape2.scale = player.transform.localScale * sizeOffset;
     }
 
     public void CreateJumpDust()
