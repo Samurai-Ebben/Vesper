@@ -17499,9 +17499,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platfrom Disappearing (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3144254115502466385, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7538819458152611089, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675305391777370904, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: sustainTime
@@ -18103,7 +18111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -55.100006
+      value: -55.099976
       objectReference: {fileID: 0}
     - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -27512,6 +27520,11 @@ PolygonCollider2D:
       - {x: 0.255, y: -0.5}
       - {x: 0.265, y: -0.48999998}
   m_UseDelaunayMesh: 0
+--- !u!198 &1347594690 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+  m_PrefabInstance: {fileID: 1745179295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1416411346
 GameObject:
   m_ObjectHideFlags: 0
@@ -28721,17 +28734,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platfrom Disappearing (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144254115502466385, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412060667250424032, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: actionAfterFadeOut.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412060667250424032, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: actionAfterFadeOut.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412060667250424032, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: actionAfterFadeOut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1347594690}
+    - target: {fileID: 5412060667250424032, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: actionAfterFadeOut.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412060667250424032, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: actionAfterFadeOut.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412060667250424032, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: actionAfterFadeOut.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.ParticleSystem, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412060667250424032, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: actionAfterFadeOut.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7538819458152611089, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2
       objectReference: {fileID: 0}
-    - target: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
-      propertyPath: sustainTime
-      value: 2
+    - target: {fileID: 8675305391777370904, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
-      propertyPath: onTriggerColor.rgba
-      value: 4286611711
+    - target: {fileID: 8675305391777370904, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8910612093998369637, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_SortingOrder

@@ -22,6 +22,8 @@ public class Disappearing : MonoBehaviour, IReset
     public GameObject platform;
     SpriteRenderer platformSpriteRenderer;
 
+    public UnityEvent disappear;
+    public UnityEvent reappear;
     public UnityEvent fadeIn;
     public UnityEvent fadeOut;
 
@@ -70,12 +72,14 @@ public class Disappearing : MonoBehaviour, IReset
 
         yield return new WaitForSeconds(sustainTime);
         platformActive = false;
-        
+        disappear.Invoke();
         yield return new WaitForSeconds(cooldown);
+        reappear.Invoke();
+        yield return new WaitForSeconds(1);
         platformActive = true;
 
         platformSpriteRenderer.color = defaultColor;
-        
+
         ongoingCoroutine = false;
     }
 
