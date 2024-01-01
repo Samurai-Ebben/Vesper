@@ -28802,6 +28802,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: reapperingParticleDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8910612093998369637, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_SortingOrder
       value: 8

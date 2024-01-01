@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Transitioning : MonoBehaviour
 {
-    public void GoToScene(int loadScene = 2)
+    public void GoToScene(int loadScene = 3)
     {
         int currentLvl = SceneManager.GetActiveScene().buildIndex;  
-        if(loadScene <=1)
-        SceneManager.LoadScene(1);
+        if(loadScene <=2)
+            SceneManager.LoadScene(2);
         else
         {
             PlayerController.instance.canMove = true;
