@@ -13,6 +13,7 @@ public class RisingMovement : MonoBehaviour , IReset
     private float timer;
 
     public GameObject shakeTrigger;
+    [HideInInspector]public ParticleSystem rocks;
 
     [Range(1, 10)] public float TimerToTarget = 4; // Represents time to reach target
     [Range(0, 50)] public float durationOnTarget = 2; // Represents duration at target height
@@ -22,6 +23,7 @@ public class RisingMovement : MonoBehaviour , IReset
 
     void Start()
     {
+        rocks = GetComponentInChildren<ParticleSystem>();
         shakeTrigger.transform.position = new Vector3(transform.position.x,targetHeight);
         shakeTrigger.transform.parent = transform.parent;
         initialPosition = transform.position;
