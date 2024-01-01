@@ -201,8 +201,8 @@ Transform:
   m_GameObject: {fileID: 283783871}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4050}
-  m_LocalScale: {x: 14.9985, y: 14.9985, z: 45}
+  m_LocalPosition: {x: 0, y: 75, z: -4050}
+  m_LocalScale: {x: 20, y: 20, z: 45}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1432591280}
@@ -734,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4298687144890644644, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 52.94
+      value: 47.39
       objectReference: {fileID: 0}
     - target: {fileID: 4298687144890644644, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -742,7 +742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4298687144890644644, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 4578371399764203571, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Pivot.x
@@ -842,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5118251375131646099, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_text
-      value: 'Start
+      value: 'Start Game
 
 '
       objectReference: {fileID: 0}
@@ -1003,7 +1003,7 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 283783873}
     - targetCorrespondingSourceObject: {fileID: 5523298058541189624, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
-      insertIndex: 2
+      insertIndex: -1
       addedObject: {fileID: 1993050420}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1231039496458342643, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA9 2023 Get Good Games: Bedi Koyuncu, Ebben Alhindi, Mitch Nguyen, Milla
+  m_text: "\xA92023 Get Good Games: Bedi Koyuncu, Ebben Alhindi, Mitch Nguyen, Milla
     Schneider, Emilia Andersson & Jon Munter."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 090cf1a5f41025e42b50cb90a1fdb2e7, type: 2}
