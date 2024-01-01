@@ -15,7 +15,7 @@ public class PlayerParticleEffect : MonoBehaviour
     private PlayerController player;
     public float sizeOffset = 1.2f;
     public float trailOffset = 1.2f;
-
+    public float idleOffsetMulti = 1.2f;
     private void Start()
     {
         player  = GetComponent<PlayerController>();      
@@ -35,7 +35,7 @@ public class PlayerParticleEffect : MonoBehaviour
         ParticleSystem.ShapeModule trailShape = trail.shape;
         trailShape.scale = player.transform.localScale * trailOffset;
         pfxShape.scale = player.transform.localScale * sizeOffset;
-        pfxShape2.scale = player.transform.localScale * sizeOffset;
+        pfxShape2.scale = player.transform.localScale * idleOffsetMulti;
     }
 
     public void CreateJumpDust()
