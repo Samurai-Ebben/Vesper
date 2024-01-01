@@ -7623,7 +7623,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.905845
+      value: 6.904
       objectReference: {fileID: 0}
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7664,6 +7664,14 @@ PrefabInstance:
     - target: {fileID: 2450363372204831268, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_Name
       value: PlatfromDisappearing (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7190417952127517634, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
@@ -8679,7 +8687,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.905845
+      value: 4.907
       objectReference: {fileID: 0}
     - target: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8720,6 +8728,14 @@ PrefabInstance:
     - target: {fileID: 2450363372204831268, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_Name
       value: PlatfromDisappearing
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7190417952127517634, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
@@ -13285,7 +13301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986762722744561313, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: breakForce
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8348734347627679538, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Name
@@ -13679,6 +13695,14 @@ PrefabInstance:
     - target: {fileID: 2450363372204831268, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_Name
       value: PlatfromDisappearing (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7190417952127517634, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x

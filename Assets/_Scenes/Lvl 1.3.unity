@@ -17499,9 +17499,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platfrom Disappearing (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3144254115502466385, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7538819458152611089, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
@@ -17509,7 +17517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8675305391777370904, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: sustainTime
@@ -28738,9 +28746,13 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3144254115502466385, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5412060667250424032, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: actionAfterFadeOut.m_PersistentCalls.m_Calls.Array.size
@@ -28774,13 +28786,17 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7538819458152611089, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8675305391777370904, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8675305391777370904, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -29567,6 +29583,14 @@ PrefabInstance:
     - target: {fileID: 2450363372204831268, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_Name
       value: Platfrom Disappearing
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 7538819458152611089, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
