@@ -27,6 +27,7 @@ public class PauseManager : MonoBehaviour
     Color buttonOrigiColor;
     Vector3 btnOrigSize;
 
+    public float fadeTime = 0.1f;
     private void Start()
     {   
         events = GameManager.Instance.GetComponentInChildren<EventSystem>();
@@ -55,13 +56,13 @@ public class PauseManager : MonoBehaviour
 
         for (int i = 0; i < menuTxts.Count; i++)
         {
-            menuTxts[i].DOColor(buttonOrigiColor, 0.1f).SetEase(Ease.InSine);
-            menuTxts[i].transform.DOScale(btnOrigSize, 0.1f).SetEase(Ease.InSine);
+            menuTxts[i].DOColor(buttonOrigiColor, fadeTime).SetEase(Ease.InSine);
+            menuTxts[i].transform.DOScale(btnOrigSize, fadeTime).SetEase(Ease.InSine);
         }
 
         DOTween.defaultTimeScaleIndependent = true;
-        txt.transform.DOScale(btnOrigSize * 1.3f, 0.1f).SetEase(Ease.InSine);
-        txt.DOColor(Color.white, 0.1f).SetEase(Ease.InSine);
+        txt.transform.DOScale(btnOrigSize * 1.3f, fadeTime).SetEase(Ease.InSine);
+        txt.DOColor(Color.white, fadeTime).SetEase(Ease.InSine);
     }
 
     public void PauseTrigger()
