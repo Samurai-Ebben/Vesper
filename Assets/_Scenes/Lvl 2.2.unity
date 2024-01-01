@@ -21453,7 +21453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986762722744561313, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: breakForce
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8348734347627679538, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Name
@@ -22633,7 +22633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986762722744561313, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: breakForce
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5718991416849559801, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -23711,7 +23711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986762722744561313, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: breakForce
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5718991416849559801, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -24403,7 +24403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986762722744561313, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: breakForce
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5718991416849559801, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Size.x
@@ -25030,7 +25030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986762722744561313, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: breakForce
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5718991416849559801, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_Size.x
@@ -25901,7 +25901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986762722744561313, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: breakForce
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5345628628754332995, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}
       propertyPath: m_SortingOrder
