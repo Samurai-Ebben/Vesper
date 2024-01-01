@@ -17021,6 +17021,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7441584291900500118, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: sizeMulti
+      value: 1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441584291900500118, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: beatingDuration
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441584291900500118, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: enableLargeSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441584291900500118, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
       propertyPath: numberOfOutlines
       value: 1
       objectReference: {fileID: 0}
