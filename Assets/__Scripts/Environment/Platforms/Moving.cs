@@ -32,7 +32,6 @@ public class Moving : MonoBehaviour, IReset
         {
             percentageDistance += Time.deltaTime * speed;
             transform.position = Vector3.Lerp(start.position, end.position, percentageDistance);
-            //PlayerController.instance.rb.velocity += Vector2.up * speed;
         }
 
         if (percentageDistance >= 1)
@@ -68,6 +67,7 @@ public class Moving : MonoBehaviour, IReset
         if (other.gameObject.CompareTag("Player"))
         {
             var playerHandler = PlayerController.player.transform.parent.GetComponent<PlayerHandler>();
+            PlayerController.instance.rb.velocity += Vector2.up * speed;
             if (playerHandler != null)
             {
                 playerHandler.SetParent(transform);
