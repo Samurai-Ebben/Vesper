@@ -231,6 +231,7 @@ MonoBehaviour:
   - {fileID: 1122638170}
   - {fileID: 1280378959}
   - {fileID: 1860342527}
+  fadeTime: 0.066
 --- !u!114 &379101256 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1257129710451863342, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}

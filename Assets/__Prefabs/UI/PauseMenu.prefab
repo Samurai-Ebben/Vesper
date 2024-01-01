@@ -6882,6 +6882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: particle_bgr_cave
       objectReference: {fileID: 0}
+    - target: {fileID: 1930473851565287910, guid: e187dd4046e58aa49be1e80c751fc471, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7172021891778106343, guid: e187dd4046e58aa49be1e80c751fc471, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 25
