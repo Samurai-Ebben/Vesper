@@ -9,7 +9,7 @@ public class Disappearing : MonoBehaviour, IReset
 {
     public float sustainTime = 1f;
     public float cooldown = 0.5f;
-
+    public float reapperingParticleDuration = 1f;
     public Color32 onTriggerColor;
     private Color32 defaultColor;
     
@@ -75,7 +75,7 @@ public class Disappearing : MonoBehaviour, IReset
         disappear.Invoke();
         yield return new WaitForSeconds(cooldown);
         reappear.Invoke();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(reapperingParticleDuration);
         platformActive = true;
 
         platformSpriteRenderer.color = defaultColor;
