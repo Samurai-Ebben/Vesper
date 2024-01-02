@@ -440,7 +440,6 @@ public class PlayerController : MonoBehaviour
         if(ctx.performed && MathF.Abs(ctx.ReadValue<Vector2>().y) > 0)
         {
             //TODO: Set sound effects.
-            print("sound");
         }
     }
     private void OnDisable()
