@@ -70,11 +70,11 @@ public class Disappearing : MonoBehaviour, IReset
   
         platformSpriteRenderer.color = onTriggerColor;
 
-        AudioManager.Instance.GameplaySFX(AudioManager.Instance.disappearingPlatformSound, AudioManager.Instance.disappearingPlatformVolume);
 
         yield return new WaitForSeconds(sustainTime);
         platformActive = false;
         disappear.Invoke();
+        AudioManager.Instance.GameplaySFX(AudioManager.Instance.disappearingPlatformSound, AudioManager.Instance.disappearingPlatformVolume);
         yield return new WaitForSeconds(cooldown);
         reappear.Invoke();
         yield return new WaitForSeconds(reapperingParticleDuration);
