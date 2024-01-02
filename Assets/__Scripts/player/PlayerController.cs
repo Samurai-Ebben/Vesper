@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
 
         actions["Pause"].performed += OnPause;
         actions["Navigate"].performed += OnNavigate;
+        actions["Navigate"].started += OnNavigate;
 
         actions["Jump"].performed += OnJumpStarted;
         actions["Jump"].canceled += OnJumpCanceled;
@@ -432,7 +433,7 @@ public class PlayerController : MonoBehaviour
     public void OnNavigate(InputAction.CallbackContext ctx)
     {
         //checks if vertical.
-        if(ctx.performed && MathF.Abs(ctx.ReadValue<Vector2>().y) > 0 && GameManager.Instance.GetComponent<PauseManager>().isPaused)
+        if(MathF.Abs(ctx.ReadValue<Vector2>().y) > 0 && GameManager.Instance.GetComponent<PauseManager>().isPaused)
         {
             AudioManager.Instance.GameplaySFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
         }
