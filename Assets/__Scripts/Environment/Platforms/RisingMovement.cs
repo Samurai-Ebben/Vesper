@@ -7,24 +7,33 @@ public class RisingMovement : MonoBehaviour , IReset
 {
     private enum States {DOWN, UP};
 
+    [Header("Values")]
     public float targetHeight;
     private Vector3 initialPosition;
     private States currentState;
     private float timer;
-
-    public GameObject shakeTrigger;
-    [HideInInspector]public ParticleSystem rocks;
-
     [Range(1, 10)] public float TimerToTarget = 4; // Represents time to reach target
     [Range(0, 50)] public float durationOnTarget = 2; // Represents duration at target height
+    private float riseSpeed;
 
-    private float riseSpeed; 
+    [Header("Shake Trigger")]
+    public GameObject shakeTrigger;
+    public bool useCustomYPos;
+    public float customYPos;
 
+    [HideInInspector]public ParticleSystem rocks;
 
     void Start()
     {
         rocks = GetComponentInChildren<ParticleSystem>();
-        shakeTrigger.transform.position = new Vector3(transform.position.x,targetHeight);
+        if (useCustomYPos)
+        {
+            shakeTrigger.transform.position = new Vector3(transform.position.x, customYPos);
+        }
+        else
+        {
+            shakeTrigger.transform.position = new Vector3(transform.position.x, targetHeight);
+        }
         shakeTrigger.transform.parent = transform.parent;
         initialPosition = transform.position;
         currentState = States.DOWN;
