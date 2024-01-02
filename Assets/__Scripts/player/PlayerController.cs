@@ -436,7 +436,16 @@ public class PlayerController : MonoBehaviour
 
     public void OnNavigate(InputAction.CallbackContext ctx)
     {
-        //TODO: Set sound effects.
+<<<<<<< HEAD
+
+=======
+        //checks if vertical.
+        if(ctx.performed && MathF.Abs(ctx.ReadValue<Vector2>().y) > 0)
+        {
+            //TODO: Set sound effects.
+            print("sound");
+        }
+>>>>>>> cbafd142126ff0f8dd004a0747f9ec64eab4ab1a
     }
     private void OnDisable()
     {

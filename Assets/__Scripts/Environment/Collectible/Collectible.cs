@@ -68,28 +68,9 @@ public class Collectible : MonoBehaviour
     }
 
 
-    //void ToggleColor()
-    //{
-    //    var origiScale = transform.localScale;
-    //    Sequence colorSequence = DOTween.Sequence();
-    //    colorSequence.Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.InSine))
-    //        .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.InSine))
-    //        .Append(spriteRenderer.DOColor(secondColor, onColorDuration).SetEase(Ease.InSine))
-    //        .Append(spriteRenderer.DOColor(origiColor, onColorDuration).SetEase(Ease.InSine))
-    //        .SetLoops(-1);
-
-    //    if (!heartBeat) return;
-
-    //    var newScale = origiScale * sizeMulti;
-    //    Sequence scaleSeq = DOTween.Sequence();
-    //    scaleSeq.Append(transform.DOScale(newScale, beatingDuration).SetEase(Ease.InBounce))
-    //        .Append(transform.DOScale(origiScale, beatingDuration).SetEase(Ease.OutBounce))
-    //        .SetLoops(-1);        
-    //}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioManager.Instance.PlayingAudio(AudioManager.Instance.collectible, AudioManager.Instance.collectibleVolume);
+        AudioManager.Instance.GameplaySFX(AudioManager.Instance.collectible, AudioManager.Instance.collectibleVolume);
         if (collision.CompareTag("Player"))
         {
             var collectibleManager = GameManager.Instance.GetComponent<CollectibleManager>();
