@@ -40833,6 +40833,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatfromDisappearing
       objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2786461292521132119, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987403682184515090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7538819458152611089, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.25

@@ -8728,7 +8728,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419755017170935945, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: ShapeModule.m_Scale.x
-      value: 0.4
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419755017170935945, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.14117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419755017170935945, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419755017170935945, guid: 5f2855be72be101499beb804d87039c6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.12941177
       objectReference: {fileID: 0}
     - target: {fileID: 6642819222144338839, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: m_LocalScale.x
