@@ -21,7 +21,11 @@ public class VentManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        player.GetComponent<VentMovement>().enabled = false;
+        if (player.GetComponent<VentMovement>() != null)
+        {
+           player.GetComponent<VentMovement>().enabled = false;
+        }
+
         StartCoroutine(DelayMovementDisable());
 
 
