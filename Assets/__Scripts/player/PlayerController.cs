@@ -439,7 +439,7 @@ public class PlayerController : MonoBehaviour
         //checks if vertical.
         if(ctx.performed && MathF.Abs(ctx.ReadValue<Vector2>().y) > 0)
         {
-            //TODO: Set sound effects.
+            AudioManager.Instance.GameplaySFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
         }
     }
     private void OnDisable()

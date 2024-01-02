@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
     public float destructiblePlatfromVolume = 0.5f;
     public float disappearingPlatformVolume = 0.5f;
     public float trampolineJumpVolume = 0.5f;
+    public float clickInMenuVolume = 0.5f;
     public float appearingPlatformVolume = 0.5f;
 
 
