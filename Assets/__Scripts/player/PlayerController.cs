@@ -331,11 +331,6 @@ public class PlayerController : MonoBehaviour
         prevPos = transform.position;
     }
 
-    public void ToggleWallCollisionSquash()
-    {
-        wallCollisionSquash = !wallCollisionSquash;
-    }
-
     /// <summary>
     /// Checks for small spaces when in the current size to limit the stretch and make the player able 
     /// to fit easily through the gaps.

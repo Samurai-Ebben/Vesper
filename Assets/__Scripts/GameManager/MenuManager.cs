@@ -19,6 +19,8 @@ public class MenuManager : MonoBehaviour
     public GameObject menu;
     public GameObject controls;
 
+    Transform prevBtn;
+
     public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
     TextMeshProUGUI txt;
     Color buttonOrigiColor;
@@ -45,12 +47,34 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        RemoveAll();
         SceneManager.LoadScene(1);
     }
+
+    private void RemoveAll()
+    {
+        DOTween.Clear();
+    }
+
     public void NavigateBtns()
     {
-        var selected = events.currentSelectedGameObject.transform;
-        txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
+        Transform selected = events.currentSelectedGameObject.transform;
+
+        if(selected != prevBtn)
+        {
+            for (int i = 0; i < menuTxts.Count; i++)
+            {
+                menuTxts[i].DOColor(buttonOrigiColor, fadeTime).SetEase(Ease.InSine);
+                menuTxts[i].transform.DOScale(btnOrigSize, fadeTime).SetEase(Ease.InSine);
+            }
+            txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
+            txt.transform.DOScale(btnOrigSize * 1.3f, fadeTime).SetEase(Ease.InSine);
+            txt.DOColor(Color.white, fadeTime).SetEase(Ease.InSine);
+
+        }
+
+        prevBtn = selected;
+        return;
 
         for (int i = 0; i < menuTxts.Count; i++)
         {

@@ -68,7 +68,6 @@ public class RisingMovement : MonoBehaviour , IReset
     public void Rise()
     {
         currentState = States.UP;
-        Debug.Log("UPP");
         return;
     }
 

@@ -10,7 +10,7 @@ public class RisingButton : MonoBehaviour, IReset
    
     // Animator anim;
     public float pressedDistance;
-    private float timer;
+    public float timer;
     private bool playerIsLarge;
     private bool onMe;
     private bool prevSize;
@@ -34,17 +34,17 @@ public class RisingButton : MonoBehaviour, IReset
             }
             else
             {
-                box.localPosition = Vector3.Lerp(stopPos, Vector3.zero, timer);
+                box.localPosition = Vector3.Lerp(box.localPosition, Vector3.zero, Time.deltaTime * 4);
             }
         }
       
         else
         {
-            box.localPosition = Vector3.Lerp(stopPos, Vector3.zero, timer);
+            box.localPosition = Vector3.Lerp(box.localPosition, Vector3.zero, Time.deltaTime * 4);
         }
 
-        prevSize = playerIsLarge;
         playerIsLarge = PlayerController.instance.currentSize == Sizes.LARGE;
+        
         if(prevSize != playerIsLarge)
         {
             if(playerIsLarge == false)
@@ -53,6 +53,7 @@ public class RisingButton : MonoBehaviour, IReset
             }
             timer = 0;
         }
+        prevSize = playerIsLarge;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
