@@ -70,7 +70,7 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioManager.Instance.PlayingAudio(AudioManager.Instance.collectible, AudioManager.Instance.collectibleVolume);
+        AudioManager.Instance.GameplaySFX(AudioManager.Instance.collectible, AudioManager.Instance.collectibleVolume);
         if (collision.CompareTag("Player"))
         {
             var collectibleManager = GameManager.Instance.GetComponent<CollectibleManager>();

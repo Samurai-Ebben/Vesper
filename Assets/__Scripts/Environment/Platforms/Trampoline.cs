@@ -22,6 +22,7 @@ public class Trampoline : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.GameplaySFX(AudioManager.Instance.trampolineJump, AudioManager.Instance.trampolineJumpVolume);
             player = other.gameObject.GetComponentInParent<PlayerController>();
             var rb2d = player.GetComponent<Rigidbody2D>();
 

@@ -18,11 +18,19 @@ public class AudioManager : MonoBehaviour
     public float deathVolume = 0.5f;
     public float switchVolume = 0.5f;
     public float collectibleVolume = 0.5f;
+    public float destructiblePlatfromVolume = 0.5f;
+    public float disappearingPlatformVolume = 0.5f;
+    public float trampolineJumpVolume = 0.5f;
+    public float clickInMenuVolume = 0.5f;
+    public float appearingPlatformVolume = 0.5f;
+
+
     public float pauseMenuVolume = 0.5f;
 
     public float backgroundMusicVolume = 1;
 
-    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible, pauseMenu, clickInMenu;
+    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible, pauseMenu, clickInMenu
+        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump;
     public List<AudioClip> clips;
     // Start is called before the first frame update
 
@@ -51,7 +59,7 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
     }
-    public void PlayingAudio(AudioClip clip, float volume = 1)
+    public void GameplaySFX(AudioClip clip, float volume = 1)
     {
         source.clip = clip;
         source.volume = volume; 

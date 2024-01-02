@@ -70,6 +70,8 @@ public class Disappearing : MonoBehaviour, IReset
   
         platformSpriteRenderer.color = onTriggerColor;
 
+        AudioManager.Instance.GameplaySFX(AudioManager.Instance.disappearingPlatformSound, AudioManager.Instance.disappearingPlatformVolume);
+
         yield return new WaitForSeconds(sustainTime);
         platformActive = false;
         disappear.Invoke();
@@ -78,6 +80,7 @@ public class Disappearing : MonoBehaviour, IReset
         yield return new WaitForSeconds(reapperingParticleDuration);
         platformActive = true;
 
+        AudioManager.Instance.GameplaySFX(AudioManager.Instance.appearingPlatformSound, AudioManager.Instance.appearingPlatformVolume);
         platformSpriteRenderer.color = defaultColor;
 
         ongoingCoroutine = false;
@@ -86,6 +89,11 @@ public class Disappearing : MonoBehaviour, IReset
     public void SetPlayerOverlapping(bool boolean)
     {
         playerOverlapping = boolean;
+    }
+
+    public void ToggleWallCollisionSquash()
+    {
+        PlayerController.instance.wallCollisionSquash = !PlayerController.instance.wallCollisionSquash;
     }
 
     public void Reset()

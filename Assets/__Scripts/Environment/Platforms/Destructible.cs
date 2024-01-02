@@ -23,6 +23,7 @@ public class Destructible : MonoBehaviour, IReset
     public void TriggerDestroy()
     {
         screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
+        AudioManager.Instance.GameplaySFX(AudioManager.Instance.destructiblePlatfrom, AudioManager.Instance.destructiblePlatfromVolume);
         if (!ongoingCoroutine)
         {
             particles.Play();

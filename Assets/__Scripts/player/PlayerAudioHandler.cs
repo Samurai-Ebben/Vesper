@@ -33,15 +33,15 @@ public class PlayerAudioHandler : MonoBehaviour
         }
         if (playerController.currentSize == Sizes.SMALL)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingSmall, AudioManager.Instance.landingVolume);
+            AudioManager.Instance.GameplaySFX(AudioManager.Instance.landingSmall, AudioManager.Instance.landingVolume);
         }
         else if (playerController.currentSize == Sizes.MEDIUM)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingMedium, AudioManager.Instance.landingVolume);
+            AudioManager.Instance.GameplaySFX(AudioManager.Instance.landingMedium, AudioManager.Instance.landingVolume);
         }
         else if (playerController.currentSize == Sizes.LARGE)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.landingBig, AudioManager.Instance.landingVolume);
+            AudioManager.Instance.GameplaySFX(AudioManager.Instance.landingBig, AudioManager.Instance.landingVolume);
         }
     }
 
@@ -50,28 +50,28 @@ public class PlayerAudioHandler : MonoBehaviour
         if (AudioManager.Instance == null) return;
         if (playerController.currentSize == Sizes.SMALL)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpSmall, AudioManager.Instance.jumpingVolume);
+            AudioManager.Instance.GameplaySFX(AudioManager.Instance.jumpSmall, AudioManager.Instance.jumpingVolume);
         }
         else if (playerController.currentSize == Sizes.MEDIUM)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpMedium, AudioManager.Instance.jumpingVolume);
+            AudioManager.Instance.GameplaySFX(AudioManager.Instance.jumpMedium, AudioManager.Instance.jumpingVolume);
         }
         else if (playerController.currentSize == Sizes.LARGE)
         {
-            AudioManager.Instance.PlayingAudio(AudioManager.Instance.jumpBig, AudioManager.Instance.jumpingVolume);
+            AudioManager.Instance.GameplaySFX(AudioManager.Instance.jumpBig, AudioManager.Instance.jumpingVolume);
         }
     }
 
     public void PlaySwitchToLarge()
     {
         if (AudioManager.Instance == null) return;
-        AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToLarge, AudioManager.Instance.switchVolume);
+        AudioManager.Instance.GameplaySFX(AudioManager.Instance.switchToLarge, AudioManager.Instance.switchVolume);
     }
 
     public void PlaySwitchToSmall()
     {
         if (AudioManager.Instance == null) return;
-        AudioManager.Instance.PlayingAudio(AudioManager.Instance.switchToSmall, AudioManager.Instance.switchVolume);
+        AudioManager.Instance.GameplaySFX(AudioManager.Instance.switchToSmall, AudioManager.Instance.switchVolume);
     }
 
 
