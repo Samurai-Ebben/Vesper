@@ -27,7 +27,9 @@ public class AudioManager : MonoBehaviour
 
     public float pauseMenuVolume = 0.5f;
 
-    public float backgroundMusicVolume = 1;
+    public float backgroundMusicOneVolume = 1;
+    public float backgroundMusicTwoVolume = 1;
+
 
     public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible, pauseMenu, clickInMenu
         , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump;
