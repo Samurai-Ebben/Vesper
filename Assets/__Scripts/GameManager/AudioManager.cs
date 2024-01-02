@@ -22,7 +22,9 @@ public class AudioManager : MonoBehaviour
     public float disappearingPlatformVolume = 0.5f;
     public float trampolineJumpVolume = 0.5f;
     public float clickInMenuVolume = 0.5f;
+    public float risingPlatformVolume = 0.5f;
     public float appearingPlatformVolume = 0.5f;
+    public float powerUpVolume = 0.5f;
 
 
     public float pauseMenuVolume = 0.5f;
@@ -32,7 +34,7 @@ public class AudioManager : MonoBehaviour
 
 
     public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible, pauseMenu, clickInMenu
-        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump;
+        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump, risingPlatformSound, powerUpSound;
     public List<AudioClip> clips;
     // Start is called before the first frame update
 

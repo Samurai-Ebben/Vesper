@@ -62,8 +62,8 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
 
     public void PlatformShakeOnTarget()
     {
-        vertical = true;
-        horizontal = true;
+        vertical = false;
+        horizontal = false;
         PlayerController.instance.VibrateController(.25f, .55f, platformsDuration);
         StartCoroutine(ShakeScreen(strengthForPlatforms, platformsDuration));
     }

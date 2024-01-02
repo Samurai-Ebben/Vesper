@@ -29,6 +29,7 @@ public class FadeSprite : MonoBehaviour
 
     public void FadeIn()
     {
+        
         StopCoroutine(AfterFadeOut());
 
         fadeTime = fadeInTime;
