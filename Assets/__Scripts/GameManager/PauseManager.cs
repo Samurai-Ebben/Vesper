@@ -20,7 +20,6 @@ public class PauseManager : MonoBehaviour
     public GameObject indicator;
     public GameObject indicator2;
     public float indicateOffset = .2f;
-    float txtWidth;
 
     public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
     TextMeshProUGUI txt;
@@ -52,7 +51,7 @@ public class PauseManager : MonoBehaviour
     {
         var selected = events.currentSelectedGameObject.transform;
         txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
-        txtWidth = txt.preferredWidth;
+
 
         for (int i = 0; i < menuTxts.Count; i++)
         {
