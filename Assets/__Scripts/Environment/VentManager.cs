@@ -21,25 +21,25 @@ public class VentManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (player.GetComponent<VentMovement>() != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-           player.GetComponent<VentMovement>().enabled = false;
-        }
+            player.GetComponent<VentMovement>().enabled = false;
+        
+            StartCoroutine(DelayMovementDisable());
 
-        StartCoroutine(DelayMovementDisable());
 
+            var rb = player.GetComponent<Rigidbody2D>();
 
-        var rb = player.GetComponent<Rigidbody2D>();
-
-        float absX = Math.Abs( rb.velocity.x);
-        float absY = Math.Abs( rb.velocity.y);
-        if(absX > absY)
-        {
-            rb.velocity = new Vector2 (exitingSpeedX, 0);
-        }
-        else
-        {
-            rb.velocity = new Vector2(0, exitingSpeedY);
+            float absX = Math.Abs( rb.velocity.x);
+            float absY = Math.Abs( rb.velocity.y);
+            if(absX > absY)
+            {
+                rb.velocity = new Vector2 (exitingSpeedX, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector2(0, exitingSpeedY);
+            }
         }
     }
 
