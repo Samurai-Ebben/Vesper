@@ -65,7 +65,6 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !cutscenePlayed)
         {
-            Debug.Log("Ljud");
             AudioManager.Instance.GameplaySFX(AudioManager.Instance.powerUpSound, AudioManager.Instance.powerUpVolume);
             SpriteFade();
             OutlineFx();
