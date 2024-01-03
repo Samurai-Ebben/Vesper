@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ public class MenuManager : MonoBehaviour
     TextMeshProUGUI txt;
     Color buttonOrigiColor;
     Vector3 btnOrigSize;
+    public UnityEvent ButtonAction;
 
     public float fadeTime = 0.1f;
     private void Start()
@@ -46,6 +48,11 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         RemoveAll();
+        ButtonAction.Invoke();
+    }
+
+    public void LoadIntro()
+    {
         SceneManager.LoadScene(1);
     }
 

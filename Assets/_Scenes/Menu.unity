@@ -203,7 +203,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 75, z: -4050}
   m_LocalScale: {x: 20, y: 20, z: 45}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1432591280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,7 +231,43 @@ MonoBehaviour:
   - {fileID: 1122638170}
   - {fileID: 1280378959}
   - {fileID: 1860342527}
+  ButtonAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 310714528}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MenuFadeOut
+          m_BoolArgument: 0
+        m_CallState: 2
   fadeTime: 0.066
+--- !u!95 &310714528
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310714522}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dee9977b3432b8047b0db769326426b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &379101256 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1257129710451863342, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
@@ -291,8 +327,8 @@ Camera:
   m_GameObject: {fileID: 848682000}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -745,6 +781,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 125
       objectReference: {fileID: 0}
+    - target: {fileID: 4298687144890644644, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4578371399764203571, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1010,6 +1050,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1231039496458342643, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 310714527}
+    - targetCorrespondingSourceObject: {fileID: 1231039496458342643, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 310714528}
   m_SourcePrefab: {fileID: 100100000, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
 --- !u!1 &1902855524 stripped
 GameObject:
@@ -1044,7 +1087,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1432591280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
