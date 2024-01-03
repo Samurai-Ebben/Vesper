@@ -63,7 +63,15 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !cutscenePlayed)
         {
-            AudioManager.Instance.GameplaySFX(AudioManager.Instance.powerUpSound, AudioManager.Instance.powerUpVolume);
+
+            if(gameObject.CompareTag("GetSmaller"))
+            {
+                AudioManager.Instance.GameplaySFX(AudioManager.Instance.powerUpSmallSound, AudioManager.Instance.powerUpSmallVolume);
+            }
+            else if(gameObject.CompareTag("GetLarger"))
+            {
+                AudioManager.Instance.GameplaySFX(AudioManager.Instance.powerUpLargeSound, AudioManager.Instance.powerUpLargeVolume);
+            }
             SpriteFade();
             OutlineFx();
             StopPlayerMovement();

@@ -62,6 +62,8 @@ MonoBehaviour:
   risingPlatformVolume: 0.5
   appearingPlatformVolume: 0.5
   powerUpVolume: 0.5
+  powerUpSmallVolume: 0.5
+  powerUpLargeVolume: 0.5
   pauseMenuVolume: 0.5
   backgroundMusicOneVolume: 1
   backgroundMusicTwoVolume: 1
@@ -102,7 +104,8 @@ MonoBehaviour:
   appearingPlatformSound: {fileID: 8300000, guid: 16070687d46b739409340f982ec9f632, type: 3}
   trampolineJump: {fileID: 8300000, guid: 30bae5be9b80d3b479c0de9872df8c1e, type: 3}
   risingPlatformSound: {fileID: 8300000, guid: b53e90a7b1c14e34384b64a8f00e5433, type: 3}
-  powerUpSound: {fileID: 8300000, guid: 31023b0b6e8aab04c90c132f6d67c8dc, type: 3}
+  powerUpSmallSound: {fileID: 8300000, guid: 31023b0b6e8aab04c90c132f6d67c8dc, type: 3}
+  powerUpLargeSound: {fileID: 8300000, guid: ce86ac6b5c1c825439ec76df1abeadb7, type: 3}
   backgroundMusic: {fileID: 8300000, guid: f269ebe0387ff7448a4563d185d029cb, type: 3}
   backgroundMusic2: {fileID: 8300000, guid: f31845cfb2f79c74aaebdcab7d1f74b6, type: 3}
   clips: []
