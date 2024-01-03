@@ -5575,7 +5575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.600006
+      value: -15.599976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6431,6 +6431,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+--- !u!114 &454416480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+  m_PrefabInstance: {fileID: 454416479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa602c097652e74f93ad076e800c4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &468548142
 GameObject:
   m_ObjectHideFlags: 0
@@ -7415,6 +7426,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+--- !u!114 &754522698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
+  m_PrefabInstance: {fileID: 754522697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa602c097652e74f93ad076e800c4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &762058449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
@@ -8436,17 +8458,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
---- !u!114 &1441844318 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8823329071800335090, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
-  m_PrefabInstance: {fileID: 1441844317}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa602c097652e74f93ad076e800c4fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1450242894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9695,13 +9706,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1441844318}
+      objectReference: {fileID: 754522698}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1441844318}
+      objectReference: {fileID: 454416480}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleWallCollisionSquash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Disappearing, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1217438306078632065, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: m_Name
       value: TriggerBoxWallSquash

@@ -39930,8 +39930,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -39962,7 +39970,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleWallCollisionSquash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ToggleWallCollisionSquash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToggleWallCollisionSquash
       objectReference: {fileID: 0}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
@@ -39970,12 +39986,28 @@ PrefabInstance:
       value: ToggleWallCollisionSquash
       objectReference: {fileID: 0}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Disappearing, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Disappearing, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Disappearing, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: Disappearing, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1053884594477002322, guid: 16a6dccbac5103e4b8cdae2a0bc65aa1, type: 3}
       propertyPath: triggerExitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
