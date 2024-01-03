@@ -117,19 +117,13 @@ public class SizeStats : MonoBehaviour
         UpdateStatValues();
 
         if (size == Sizes.SMALL)
-        {
             return statsSmall;
-        }
 
         if (size == Sizes.LARGE)
-        {
             return statsLarge;
-        }
 
         if (size == Sizes.MEDIUM)
-        {
             return statsMedium;
-        }
 
         return statsMedium;
     }
