@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.01}
+  useOrderInLayer: 0
 --- !u!1 &36617916
 GameObject:
   m_ObjectHideFlags: 0
@@ -5273,6 +5274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0.005}
+  useOrderInLayer: 0
 --- !u!1 &383629647
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,6 +5488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.007}
+  useOrderInLayer: 0
 --- !u!1 &439737856
 GameObject:
   m_ObjectHideFlags: 0
@@ -5701,6 +5704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.007}
+  useOrderInLayer: 0
 --- !u!1 &529814469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,6 +5803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.007}
+  useOrderInLayer: 0
 --- !u!1001 &534208626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6082,6 +6087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.007}
+  useOrderInLayer: 0
 --- !u!1 &733864180
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,6 +6680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.003}
+  useOrderInLayer: 0
 --- !u!4 &914835654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5064754009248611746, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
@@ -6895,6 +6902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.007}
+  useOrderInLayer: 0
 --- !u!1 &970748759
 GameObject:
   m_ObjectHideFlags: 0
@@ -7412,6 +7420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.025}
+  useOrderInLayer: 0
 --- !u!1 &1320545024
 GameObject:
   m_ObjectHideFlags: 0
@@ -7762,6 +7771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.004}
+  useOrderInLayer: 0
 --- !u!1001 &1403768549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9119,6 +9129,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5761335738552715737, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
       propertyPath: targetGameObject
+      value: 
+      objectReference: {fileID: 383629647}
+    - target: {fileID: 5761335738552715737, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
+      propertyPath: targetGameObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761335738552715737, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
+      propertyPath: targetGameObjects.Array.data[0]
       value: 
       objectReference: {fileID: 383629647}
     - target: {fileID: 6487114028865978265, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
