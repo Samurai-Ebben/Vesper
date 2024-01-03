@@ -32,16 +32,15 @@ public class AudioManager : MonoBehaviour
 
     public float pauseMenuVolume = 0.5f;
 
-    public float backgroundMusicOneVolume = 1;
-    public float backgroundMusicTwoVolume = 1;
+    public float backgroundMusicOneVolume = 0.5f;
+    public float backgroundMusicTwoVolume = 0.5f;
 
     public List<string> caveLevels;
     public List<string> surfaceLevels;
 
     public List<string> muteLevels;
 
-
-    bool isInLevelOne;
+    float backgorundVlume = 1;
     public bool isInLevelTwo;
 
     bool sceneIsMuted;
@@ -79,8 +78,8 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
-        MuteScenes();
         SwapMusic();
+        MuteScenes();
 
     }
 
@@ -112,7 +111,7 @@ public class AudioManager : MonoBehaviour
             if (caveLevels[i] == currentScene)
             {
                 source2.clip = backgroundMusic;
-                sceneIsMuted = false;
+                source2.volume = backgroundMusicOneVolume;
             }
         }
 
@@ -120,8 +119,8 @@ public class AudioManager : MonoBehaviour
         {
             if (surfaceLevels[i] == currentScene)
             {
-                sceneIsMuted = false;
                 source2.clip = backgroundMusic2;
+                source2.volume = backgroundMusicTwoVolume;
             }
         }
     }

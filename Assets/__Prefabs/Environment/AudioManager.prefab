@@ -54,10 +54,10 @@ MonoBehaviour:
   jumpingVolume: 0.5
   deathVolume: 0.5
   switchVolume: 0.5
-  collectibleVolume: 0.5
+  collectibleVolume: 0.34
   destructiblePlatfromVolume: 0.5
   disappearingPlatformVolume: 0.5
-  trampolineJumpVolume: 0.5
+  trampolineJumpVolume: 0.83
   clickInMenuVolume: 0.5
   risingPlatformVolume: 0.5
   appearingPlatformVolume: 0.5
@@ -100,8 +100,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 8300000, guid: c2b775c5d3ba28f4687c2e2dbfd9d904, type: 3}
   clickInMenu: {fileID: 8300000, guid: 839c6432a7d8fd743a5659ff44c559ba, type: 3}
   destructiblePlatfrom: {fileID: 8300000, guid: 426401474a2ccb24094dcd6b4c952fce, type: 3}
-  disappearingPlatformSound: {fileID: 8300000, guid: fe417692fd5cd2242bf4cc85a5d32eb5, type: 3}
-  appearingPlatformSound: {fileID: 8300000, guid: 16070687d46b739409340f982ec9f632, type: 3}
+  disappearingPlatformSound: {fileID: 8300000, guid: 235f6c68173c6ea48b6e2741871d5afb, type: 3}
+  appearingPlatformSound: {fileID: 8300000, guid: 89bac851df0ba514aaaf4a8a825ac756, type: 3}
   trampolineJump: {fileID: 8300000, guid: 30bae5be9b80d3b479c0de9872df8c1e, type: 3}
   risingPlatformSound: {fileID: 8300000, guid: b53e90a7b1c14e34384b64a8f00e5433, type: 3}
   powerUpSmallSound: {fileID: 8300000, guid: 31023b0b6e8aab04c90c132f6d67c8dc, type: 3}
