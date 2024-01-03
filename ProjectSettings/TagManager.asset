@@ -8,6 +8,8 @@ TagManager:
   - Corner
   - Rising
   - Destructible
+  - GetLarger
+  - GetSmaller
   layers:
   - Default
   - TransparentFX
