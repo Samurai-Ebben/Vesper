@@ -6166,6 +6166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.002}
+  useOrderInLayer: 0
 --- !u!114 &401972166 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5301150344331725060, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
@@ -6373,6 +6374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.025}
+  useOrderInLayer: 0
 --- !u!1 &429202303
 GameObject:
   m_ObjectHideFlags: 0
@@ -7570,6 +7572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.0005}
+  useOrderInLayer: 0
 --- !u!1 &790575163
 GameObject:
   m_ObjectHideFlags: 0
@@ -7700,6 +7703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.015}
+  useOrderInLayer: 0
 --- !u!1001 &875503816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9494,6 +9498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.008}
+  useOrderInLayer: 0
 --- !u!1001 &1377448167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9876,6 +9881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.025}
+  useOrderInLayer: 0
 --- !u!1001 &1541938637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10977,6 +10983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.0009}
+  useOrderInLayer: 0
 --- !u!1001 &2032201676
 PrefabInstance:
   m_ObjectHideFlags: 0

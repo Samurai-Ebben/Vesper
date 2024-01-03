@@ -21180,6 +21180,14 @@ PrefabInstance:
       propertyPath: targetGameObject
       value: 
       objectReference: {fileID: 1350427870}
+    - target: {fileID: 5761335738552715737, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
+      propertyPath: targetGameObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761335738552715737, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
+      propertyPath: targetGameObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1350427870}
     - target: {fileID: 6487114028865978265, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
       propertyPath: spriteRenderer
       value: 
@@ -23124,6 +23132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.005}
+  useOrderInLayer: 0
 --- !u!1 &921934395
 GameObject:
   m_ObjectHideFlags: 0
@@ -23572,6 +23581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.007}
+  useOrderInLayer: 0
 --- !u!1 &1044743517
 GameObject:
   m_ObjectHideFlags: 0
@@ -24256,6 +24266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.01}
+  useOrderInLayer: 0
 --- !u!1 &1167240548
 GameObject:
   m_ObjectHideFlags: 0
@@ -26695,6 +26706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
+  useOrderInLayer: 0
 --- !u!1 &2036439994
 GameObject:
   m_ObjectHideFlags: 0
@@ -26991,6 +27003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.025}
+  useOrderInLayer: 0
 --- !u!4 &2126151930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1884947779466125009, guid: 30b9a707786f66d47b554d0e1b619c4c, type: 3}

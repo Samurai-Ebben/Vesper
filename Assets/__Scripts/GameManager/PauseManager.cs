@@ -13,13 +13,12 @@ public class PauseManager : MonoBehaviour
 {
     private EventSystem events;
     public bool isPaused = false;
-    //PlayerController player;
+
     public GameObject PauseMenuCanvas;
     public GameObject menu;
     public GameObject controls;
     public GameObject indicator;
     public GameObject indicator2;
-    public float indicateOffset = .2f;
 
     public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
     TextMeshProUGUI txt;
@@ -77,7 +76,6 @@ public class PauseManager : MonoBehaviour
         GetComponent<HideMouseCursor>().toggleCursorVisibility();
     }
 
-
     public void Replay()
     {
         PauseTrigger();
@@ -87,8 +85,9 @@ public class PauseManager : MonoBehaviour
     public void ControlsMenu()
     {
         menu.SetActive(false);
-        events.SetSelectedGameObject(controls.GetComponentInChildren<Button>().gameObject);
         controls.SetActive(true);
+        events.SetSelectedGameObject(controls.GetComponentInChildren<Button>().gameObject);
+
     }
 
     public void BackMenu()
@@ -102,7 +101,7 @@ public class PauseManager : MonoBehaviour
     public void Quit()
     {
 #if UNITY_EDITOR
-        print("Back to main menu");
+        print("Byye");
 #endif
         Application.Quit();
     }
