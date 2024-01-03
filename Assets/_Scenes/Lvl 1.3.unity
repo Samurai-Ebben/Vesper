@@ -24115,6 +24115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
+  useOrderInLayer: 0
 --- !u!1 &551234259
 GameObject:
   m_ObjectHideFlags: 0
@@ -24483,6 +24484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.001}
+  useOrderInLayer: 0
 --- !u!1001 &634425743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24832,6 +24834,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5761335738552715737, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
       propertyPath: targetGameObject
+      value: 
+      objectReference: {fileID: 479136336}
+    - target: {fileID: 5761335738552715737, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
+      propertyPath: targetGameObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761335738552715737, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
+      propertyPath: targetGameObjects.Array.data[0]
       value: 
       objectReference: {fileID: 479136336}
     - target: {fileID: 6487114028865978265, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
@@ -25665,6 +25675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
+  useOrderInLayer: 0
 --- !u!1 &895934408
 GameObject:
   m_ObjectHideFlags: 0
@@ -25796,6 +25807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
+  useOrderInLayer: 0
 --- !u!1 &967923441
 GameObject:
   m_ObjectHideFlags: 0
@@ -27122,6 +27134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
+  useOrderInLayer: 0
 --- !u!1001 &1237813137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27770,6 +27783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
+  useOrderInLayer: 0
 --- !u!1 &1424832686
 GameObject:
   m_ObjectHideFlags: 0
@@ -27868,6 +27882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
+  useOrderInLayer: 0
 --- !u!1 &1425407252
 GameObject:
   m_ObjectHideFlags: 0
