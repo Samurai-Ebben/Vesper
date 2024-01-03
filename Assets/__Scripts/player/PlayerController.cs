@@ -31,10 +31,6 @@ public class PlayerController : MonoBehaviour
     [Header("Size Switch")]
     public bool bigEnabled = true;
     public bool smallEnabled = true;
-    //public float superJumpTime = 1.3f;
-    //public float superJumpTimer;
-    //[Range(1,2f)]public float superJumpForce = 1.2f;
-
 
     // Player Controls
     [SerializeField] float deacceleration = 4;
