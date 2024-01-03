@@ -13,10 +13,6 @@ public class PowerUp : MonoBehaviour
     [Header("Sprite effects")]
     public bool spriteFade = true;
     public bool outlineFx = true;
-    public float outlineSpawnDelay;
-    public int numberOfOutlines;
-    public GameObject outline;
-
 
     [Header("Movement")]
     public bool stopPlayerMovement = true;
@@ -37,6 +33,7 @@ public class PowerUp : MonoBehaviour
     public List<GameObject> animationObjects;
 
     FadeSprite fadeSprite;
+    OutlineFxTrigger outlineFxTrigger;
     Rigidbody2D rb2d;
     bool cutscenePlayed = false;
     Vector3 origiScale;
@@ -46,6 +43,7 @@ public class PowerUp : MonoBehaviour
     {
         origiScale = transform.localScale;
         fadeSprite = GetComponent<FadeSprite>();
+        outlineFxTrigger = GetComponent<OutlineFxTrigger>();
         rb2d = PlayerController.player.GetComponent<Rigidbody2D>();
     }
 
@@ -88,15 +86,7 @@ public class PowerUp : MonoBehaviour
     void OutlineFx()
     {
         if (!outlineFx) return;
-        StartCoroutine(TriggerOutlineFx());
-    }
-    IEnumerator TriggerOutlineFx()
-    {
-        for (int i = 0; i < numberOfOutlines; i++)
-        {
-            Instantiate(outline, transform.position, Quaternion.identity);            
-            yield return new WaitForSeconds(outlineSpawnDelay);
-        }
+        outlineFxTrigger.PlayFx();
     }
 
     void StopPlayerMovement()

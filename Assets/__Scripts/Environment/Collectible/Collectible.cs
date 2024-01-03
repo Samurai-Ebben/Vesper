@@ -7,31 +7,33 @@ using UnityEngine.SceneManagement;
 
 public class Collectible : MonoBehaviour
 {
-    ParticleSystem caughtEffect;
     Collider2D collider;
     SpriteRenderer spriteRenderer;
+    ParticleSystem[] particleSystems;
+    OutlineFxTrigger outlineFxTrigger;
     GameObject spriteObject;
+
     Color origiColor;
     public Color secondColor;
-    [Range(0,.9f)]public float delayBetweenColors = 0.1f;
+    [Range(0, .9f)] public float delayBetweenColors = 0.1f;
     public float onColorDuration = 1;
     public bool heartBeat = true;
 
     private float colorTimer = 0f;
     private bool isColorChange = false;
     private bool isSizeChange = false;
-    Vector3 origiScale;
     public float beatingDuration = 1;
+    Vector3 origiScale;
     [Range(0,2)] public float sizeMulti = 1.02f;
-
 
     private void Start()
     {
         origiScale = transform.localScale;
         collider = GetComponentInChildren<Collider2D>();
-        caughtEffect = GetComponentInChildren<ParticleSystem>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        spriteObject = GetComponentInChildren<SpriteRenderer>().gameObject;
+        particleSystems = GetComponentsInChildren<ParticleSystem>();
+        outlineFxTrigger = GetComponentInChildren<OutlineFxTrigger>();
+        spriteObject = spriteRenderer.gameObject;
         origiColor = spriteRenderer.color;
     }
 
@@ -59,7 +61,6 @@ public class Collectible : MonoBehaviour
 
         if (!heartBeat) return;
 
-
         var newScale = origiScale * sizeMulti;
         Sequence sizeSeq = DOTween.Sequence();
         sizeSeq.Append(transform.DOScale(newScale, beatingDuration / 2).SetEase(Ease.InSine))
@@ -70,15 +71,22 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioManager.Instance.GameplaySFX(AudioManager.Instance.collectible, AudioManager.Instance.collectibleVolume);
         if (collision.CompareTag("Player"))
         {
+            var audioManager = AudioManager.Instance;
+            audioManager.GameplaySFX(audioManager.collectible, audioManager.collectibleVolume);
+            
             var collectibleManager = GameManager.Instance.GetComponent<CollectibleManager>();
-
             collectibleManager.CollectibleCollected();
             collectibleManager.RegisterSelfAsCollected(gameObject);
 
-            caughtEffect.Play();
+            outlineFxTrigger.PlayFx();
+
+            foreach (ParticleSystem particle in particleSystems)
+            {
+                particle.Play();
+            }
+
             ToggleActive(false);
         }
     }
