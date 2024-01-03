@@ -16357,6 +16357,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2047003105683537688, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: m_TagString
+      value: GetSmaller
+      objectReference: {fileID: 0}
     - target: {fileID: 3157046509366391501, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -16411,6 +16415,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1367498602}
+  - {fileID: 806615029}
   - {fileID: 418250684}
   - {fileID: 90832230}
   - {fileID: 1015077531}
@@ -16419,4 +16424,3 @@ SceneRoots:
   - {fileID: 1603591320}
   - {fileID: 1740385899}
   - {fileID: 316852899}
-  - {fileID: 806615029}
