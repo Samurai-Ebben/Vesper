@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     // Wall Collision Squash 
     Coroutine WallSquashEnabler;
-    private bool wallCollisionSquash;
+    public bool wallCollisionSquash;
     private float enableDelayAfterLanding = 0.2f;
     private Vector3 prevPos;
     private float deltaPosThreshold = 0.01f;
