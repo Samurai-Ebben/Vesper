@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 15951634}
   - component: {fileID: 15951633}
   m_Layer: 0
-  m_Name: cloud_1
+  m_Name: cloud_order1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15637,7 +15637,7 @@ GameObject:
   - component: {fileID: 512653230}
   - component: {fileID: 512653231}
   m_Layer: 0
-  m_Name: cloud_6 (1)
+  m_Name: cloud_6_order4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16952,7 +16952,7 @@ GameObject:
   - component: {fileID: 768075533}
   - component: {fileID: 768075534}
   m_Layer: 0
-  m_Name: cloud_6 (2)
+  m_Name: cloud_6_order4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17345,7 +17345,7 @@ GameObject:
   - component: {fileID: 1047225401}
   - component: {fileID: 1047225400}
   m_Layer: 0
-  m_Name: cloud_2
+  m_Name: cloud_order1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17474,7 +17474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1092912387
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17936,7 +17936,7 @@ GameObject:
   - component: {fileID: 1334907125}
   - component: {fileID: 1334907126}
   m_Layer: 0
-  m_Name: cloud_4 (1)
+  m_Name: cloud_4_(1)_order2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18104,7 +18104,7 @@ GameObject:
   - component: {fileID: 1403772894}
   - component: {fileID: 1403772895}
   m_Layer: 0
-  m_Name: cloud_5
+  m_Name: cloud_5_order3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18762,13 +18762,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1983273470}
-  - {fileID: 1403772894}
+  - {fileID: 15951634}
+  - {fileID: 1047225401}
   - {fileID: 1720570198}
   - {fileID: 1334907125}
   - {fileID: 1840815351}
-  - {fileID: 1047225401}
-  - {fileID: 15951634}
+  - {fileID: 1983273470}
+  - {fileID: 1403772894}
   - {fileID: 512653230}
   - {fileID: 768075533}
   m_Father: {fileID: 0}
@@ -18784,7 +18784,7 @@ GameObject:
   - component: {fileID: 1720570198}
   - component: {fileID: 1720570199}
   m_Layer: 0
-  m_Name: cloud_4
+  m_Name: cloud_4_order2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18989,7 +18989,7 @@ GameObject:
   - component: {fileID: 1840815351}
   - component: {fileID: 1840815352}
   m_Layer: 0
-  m_Name: cloud_3
+  m_Name: cloud_3_order2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19214,7 +19214,7 @@ GameObject:
   - component: {fileID: 1983273470}
   - component: {fileID: 1983273469}
   m_Layer: 0
-  m_Name: cloud_6
+  m_Name: cloud_6_order3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
