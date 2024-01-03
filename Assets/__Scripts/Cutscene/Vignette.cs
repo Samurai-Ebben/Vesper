@@ -15,20 +15,23 @@ public class Vignette : MonoBehaviour
     private float originalCameraSize;
     private Vector3 originalScale;
 
+    float timer;
     void Start()
     {
-        if (cam == null)
-        {
+        if (cam == null)        
             cam = GetComponentInParent<Camera>();
-        }
+        if (cam == null)
+            cam = Camera.main;
 
-        originalTargetScaleY = targetScaleY;
         originalScale = transform.localScale;
+        originalTargetScaleY = targetScaleY;
         originalCameraSize = cam.orthographicSize;
     }
 
     void Update()
     {
+        timer += Time.deltaTime;
+
         MatchCameraSize();
         Expand();
     }
@@ -52,7 +55,12 @@ public class Vignette : MonoBehaviour
 
     void Expand()
     {
-        Vector3 targetScale = new Vector3(originalScale.x, targetScaleY, 0);
-        transform.DOScale(targetScale, expandDuration);
+        //Vector3 targetScale = new Vector3(originalScale.x, targetScaleY, 0);
+        //transform.DOScale(targetScale, expandDuration);
+
+        float lerpT = Mathf.Clamp01(timer / expandDuration);
+        float currentScaleY = Mathf.Lerp(originalScale.y, targetScaleY, lerpT);
+
+        transform.localScale = new Vector3(originalScale.x, currentScaleY, 0);
     }
 }
