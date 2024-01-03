@@ -1463,6 +1463,10 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minCurve.m_Curve.Array.data[1].outWeight
       value: 0.33333334
       objectReference: {fileID: 0}
+    - target: {fileID: 2047003105683537688, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: m_TagString
+      value: GetLarger
+      objectReference: {fileID: 0}
     - target: {fileID: 2833968272456412126, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
       propertyPath: m_SortingLayer
       value: 1
