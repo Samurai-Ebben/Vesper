@@ -21,7 +21,8 @@ public class CutsceneTrigger : MonoBehaviour
         if (collision.CompareTag("Player") && !cutscenePlayed)
         {
             rb2d = PlayerController.player.GetComponent<Rigidbody2D>();
-            
+
+            DisablePlayerParticles();
             StopPlayerMovement();
             MovePlayerToCutscenePosition();
             PlayAnimations(true);
@@ -31,17 +32,34 @@ public class CutsceneTrigger : MonoBehaviour
         }
     }
 
+    private void DisablePlayerParticles()
+    {
+        ParticleSystem[] particleSystems = PlayerController.player.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            particleSystem.gameObject.SetActive(false);
+        }
+    }
+
     private void StopPlayerMovement()
     {
-        PlayerController.instance.isBouncing = true;
+        TogglePlayerInputs(false);
         rb2d.velocity = Vector2.zero;
     }
 
     IEnumerator UnstopPlayerMovement()
     {
         yield return new WaitForSeconds(animationLength);
-        PlayerController.instance.isBouncing = false;
+        TogglePlayerInputs(true);
         PlayAnimations(false);
+    }
+
+    private void TogglePlayerInputs(bool boolean)
+    {
+        PlayerController.instance.canMove = boolean;
+        PlayerController.instance.bigEnabled = boolean;
+        PlayerController.instance.smallEnabled = boolean;
     }
 
     private void PlayAnimations(bool boolean)
