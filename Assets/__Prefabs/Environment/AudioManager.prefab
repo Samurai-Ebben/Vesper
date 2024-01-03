@@ -54,10 +54,10 @@ MonoBehaviour:
   jumpingVolume: 0.5
   deathVolume: 0.5
   switchVolume: 0.5
-  collectibleVolume: 0.5
+  collectibleVolume: 0.34
   destructiblePlatfromVolume: 0.5
   disappearingPlatformVolume: 0.5
-  trampolineJumpVolume: 0.5
+  trampolineJumpVolume: 0.83
   clickInMenuVolume: 0.5
   risingPlatformVolume: 0.5
   appearingPlatformVolume: 0.5
