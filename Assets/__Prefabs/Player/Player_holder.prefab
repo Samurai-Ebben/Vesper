@@ -9877,19 +9877,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3213952105269697725, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3213952105269697725, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1688531763
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826503263846209071, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826503263846209071, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1688531763
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5426385368147051587, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_IsActive
@@ -9946,30 +9938,6 @@ PrefabInstance:
     - target: {fileID: 8448520377873944863, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
       propertyPath: m_SortingLayerID
       value: 1688531763
-      objectReference: {fileID: 0}
-    - target: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: NoiseModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: NoiseModule.frequency
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: VelocityModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: NoiseModule.strength.scalar
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: VelocityModule.radial.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9108649020896481588, guid: 4d54e31548ca7284a924b9e1bd31e4e4, type: 3}
-      propertyPath: VelocityModule.radial.minMaxState
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

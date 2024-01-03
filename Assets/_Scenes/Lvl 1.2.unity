@@ -5571,7 +5571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -55.100006
+      value: -55.099976
       objectReference: {fileID: 0}
     - target: {fileID: 8843307468695333246, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7541,6 +7541,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217458944291943161, guid: 30c15560667a95646856058ddb489711, type: 3}
       propertyPath: smallEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184387379806616358, guid: 30c15560667a95646856058ddb489711, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184387379806616358, guid: 30c15560667a95646856058ddb489711, type: 3}
+      propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

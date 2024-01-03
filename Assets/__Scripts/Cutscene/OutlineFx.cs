@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PowerUpOutlineFx : MonoBehaviour//, IReset
+public class OutlineFx : MonoBehaviour//, IReset
 {
     public float growDuration;
     public float targetScale;
