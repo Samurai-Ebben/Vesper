@@ -95,8 +95,9 @@ public class PlayerController : MonoBehaviour
     private int numberOfVelocitiesToRecord = 10;
 
     // Wall Collision Squash 
-    Coroutine WallSquashEnabler;
+    [HideInInspector]
     public bool wallCollisionSquash;
+    Coroutine WallSquashEnabler;
     private float enableDelayAfterLanding = 0.2f;
     private Vector3 prevPos;
     private float deltaPosThreshold = 0.01f;
