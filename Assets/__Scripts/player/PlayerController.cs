@@ -9,7 +9,6 @@ public enum Sizes { SMALL, MEDIUM, LARGE };
 
 public class PlayerController : MonoBehaviour
 {
-
     private Gamepad gPad;
     public float vibrationDuration = .5f;
     
@@ -70,7 +69,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 groundCheckSize;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask layerIsGround;
-    private bool prevIsGrounded;
 
     // Players proprties
     public Sizes currentSize { get; set; }
@@ -97,10 +95,9 @@ public class PlayerController : MonoBehaviour
     private int numberOfVelocitiesToRecord = 10;
 
     // Wall Collision Squash 
-    [Space(10)]
     Coroutine WallSquashEnabler;
-    public bool wallCollisionSquash;
-    public float enableDelayAfterLanding = 0.2f;
+    private bool wallCollisionSquash;
+    private float enableDelayAfterLanding = 0.2f;
     private Vector3 prevPos;
     private float deltaPosThreshold = 0.01f;
     private bool prevRaycastLeft;
@@ -283,6 +280,7 @@ public class PlayerController : MonoBehaviour
         if (!canMove) return;
         if (!canJump || !jumpPressed) return;
 
+        // Disable WallSquash
         if (WallSquashEnabler != null)
         {
             StopCoroutine(WallSquashEnabler);
@@ -292,7 +290,6 @@ public class PlayerController : MonoBehaviour
         effects.CreateJumpDust();
         effects.StopLandDust();
         playerAudioHandler.PlayJumpingSound();
-
 
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
