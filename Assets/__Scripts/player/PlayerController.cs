@@ -281,7 +281,6 @@ public class PlayerController : MonoBehaviour
         
         effects.CreateJumpDust();
         effects.StopLandDust();
-        SquashInTightSpaces();
         playerAudioHandler.PlayJumpingSound();
 
 
@@ -326,20 +325,6 @@ public class PlayerController : MonoBehaviour
         prevRaycastRight = rayCastHandler.rightSide;
         prevRaycastLeft = rayCastHandler.leftSide;
         prevPos = transform.position;
-    }
-
-    /// <summary>
-    /// Checks for small spaces when in the current size to limit the stretch and make the player able 
-    /// to fit easily through the gaps.
-    /// </summary>
-    private void SquashInTightSpaces()
-    {
-        float originalStretchAmount = squishAndSquash.stretchAmount;
-
-        if (currentSize == Sizes.SMALL && !rayCastHandler.mediumTopIsFree)
-            squishAndSquash.stretchAmount = 0.0f;
-        else
-            squishAndSquash.stretchAmount = originalStretchAmount;
     }
 
     void CoyoteTime()
