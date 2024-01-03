@@ -1651,6 +1651,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: GetLarger
       objectReference: {fileID: 0}
+    - target: {fileID: 2651021482116694696, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: outline
+      value: 
+      objectReference: {fileID: 4505048470471943349, guid: 9e7d691374cfd0947bc8df8f817a63a7, type: 3}
     - target: {fileID: 2833968272456412126, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -2071,6 +2075,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 5289693970941199595, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9bf77d21939adf241b552e1fdf2ae7fe, type: 3}
     - target: {fileID: 5454043579346688326, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
       propertyPath: m_Name
       value: CutsceneManager
@@ -2081,7 +2089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441584291900500118, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
       propertyPath: sizeMulti
-      value: 1.82
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7441584291900500118, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
       propertyPath: beatingDuration
