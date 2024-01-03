@@ -418,6 +418,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext ctx)
     {
+        GameManager.Instance.GetComponent<PauseManager>().BackMenu();
         GameManager.Instance.GetComponent<PauseManager>().PauseTrigger();
     }
 
