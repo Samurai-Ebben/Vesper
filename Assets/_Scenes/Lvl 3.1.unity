@@ -33387,7 +33387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: targetHeight
-      value: 4.75
+      value: 4.74
       objectReference: {fileID: 0}
     - target: {fileID: 9196865372957808864, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: TimerToTarget
@@ -42373,6 +42373,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 423816327496315651, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: c617db53cc7f8014092c482c6588c587, type: 2}
     - target: {fileID: 1030930081519515405, guid: ffdc33ef36cd66e47adaf69109b88874, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
