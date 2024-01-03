@@ -9,12 +9,8 @@ public enum Sizes { SMALL, MEDIUM, LARGE };
 
 public class PlayerController : MonoBehaviour
 {
-
     private Gamepad gPad;
     public float vibrationDuration = .5f;
-
-    //[HideInInspector]
-    public bool wallCollisionSquash;
     
     // Singleton, reference to player object (Really shouldn't be two "singeltons" in one object)
     public static GameObject player;
@@ -95,13 +91,18 @@ public class PlayerController : MonoBehaviour
     private float prevMagnitude;
 
     private List<float> yVelocities = new();
-    private List<float> xVelocities = new();
-    public int numberOfVelocitiesToRecord = 10;
+    //private List<float> xVelocities = new();
+    private int numberOfVelocitiesToRecord = 10;
 
-    private float deltaPosThreshold = 0.01f;
+    // Wall Collision Squash 
+    Coroutine WallSquashEnabler;
+    public bool wallCollisionSquash;
+    private float enableDelayAfterLanding = 0.2f;
     private Vector3 prevPos;
+    private float deltaPosThreshold = 0.01f;
     private bool prevRaycastLeft;
     private bool prevRaycastRight;
+
 
     public bool pausedPressed = false;
 
@@ -158,7 +159,7 @@ public class PlayerController : MonoBehaviour
         CoyoteTime();
         RecordYVelocity();
         RecordMagnitude();
-        WallCollisionSquash();
+        WallCollisionSquash();        
     }
 
     void Update()
@@ -278,11 +279,17 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove) return;
         if (!canJump || !jumpPressed) return;
-        
+
+        // Disable WallSquash
+        if (WallSquashEnabler != null)
+        {
+            StopCoroutine(WallSquashEnabler);
+        }
+        wallCollisionSquash = false;
+
         effects.CreateJumpDust();
         effects.StopLandDust();
         playerAudioHandler.PlayJumpingSound();
-
 
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
@@ -531,6 +538,9 @@ public class PlayerController : MonoBehaviour
     private void LandingActions()
     {
         if(!canMove) return;
+
+        WallSquashEnabler = StartCoroutine(EnableWallCollisionSquash());
+
         effects.CreateLandDust();
         playerAudioHandler.PlayLandingSound();
         squishAndSquash.LandSquish();
@@ -543,6 +553,12 @@ public class PlayerController : MonoBehaviour
             screenShake.JumpShake();
             VibrateController(.2f, .2f, vibrationDuration);
         }
+    }
+
+    IEnumerator EnableWallCollisionSquash()
+    {
+        yield return new WaitForSeconds(enableDelayAfterLanding);
+        wallCollisionSquash = true;
     }
 
     private void OnDrawGizmosSelected()
