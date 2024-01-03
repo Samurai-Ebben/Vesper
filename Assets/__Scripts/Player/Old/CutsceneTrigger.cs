@@ -60,6 +60,10 @@ public class CutsceneTrigger : MonoBehaviour
         
         // Enable Player Animator
         Animator playerAnimator = PlayerController.player.GetComponent<Animator>();
+        if (playerAnimator == null)
+        {
+            PlayerController.player.GetComponentInChildren<Animator>();
+        }
         playerAnimator.enabled = boolean;
     }
 
