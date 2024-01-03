@@ -65,6 +65,25 @@ MonoBehaviour:
   pauseMenuVolume: 0.5
   backgroundMusicOneVolume: 1
   backgroundMusicTwoVolume: 1
+  caveLevels:
+  - Lvl 1.0
+  - Lvl 1.1
+  - Lvl 1.2
+  - Lvl 1.3
+  - Lvl 1.4
+  - Lvl 1.5
+  surfaceLevels:
+  - Lvl 2.1
+  - Lvl 2.2
+  - Lvl 2.3
+  - Lvl 2.4
+  - Lvl 2.5
+  - Lvl 3.1
+  muteLevels:
+  - Lvl 1.2.5 Cutscene
+  - Lvl 1.5.5 Cutscene
+  - Lvl 3.3
+  isInLevelTwo: 0
   jumpSmall: {fileID: 8300000, guid: 52895feaca5b7524197b8137fff9524b, type: 3}
   jumpBig: {fileID: 8300000, guid: 500756b47420fc446800599ef2e5de2b, type: 3}
   jumpMedium: {fileID: 8300000, guid: cdc3741bf0638b24b8c04b1d82a56456, type: 3}
@@ -75,7 +94,6 @@ MonoBehaviour:
   switchToSmall: {fileID: 8300000, guid: 02d36486db702d042953d35089c746a9, type: 3}
   switchToMedium: {fileID: 0}
   death: {fileID: 8300000, guid: 2c43b8b29767baf478d608f9a779e258, type: 3}
-  backgroundMusic: {fileID: 8300000, guid: ba4913dffed95b84ca6a8b8a6c86595b, type: 3}
   collectible: {fileID: 8300000, guid: bb8f916366601d94abf0b714e2164323, type: 3}
   pauseMenu: {fileID: 8300000, guid: c2b775c5d3ba28f4687c2e2dbfd9d904, type: 3}
   clickInMenu: {fileID: 8300000, guid: 839c6432a7d8fd743a5659ff44c559ba, type: 3}
@@ -85,6 +103,8 @@ MonoBehaviour:
   trampolineJump: {fileID: 8300000, guid: 30bae5be9b80d3b479c0de9872df8c1e, type: 3}
   risingPlatformSound: {fileID: 8300000, guid: b53e90a7b1c14e34384b64a8f00e5433, type: 3}
   powerUpSound: {fileID: 8300000, guid: 31023b0b6e8aab04c90c132f6d67c8dc, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: f269ebe0387ff7448a4563d185d029cb, type: 3}
+  backgroundMusic2: {fileID: 8300000, guid: f31845cfb2f79c74aaebdcab7d1f74b6, type: 3}
   clips: []
 --- !u!82 &5407917196614130988
 AudioSource:

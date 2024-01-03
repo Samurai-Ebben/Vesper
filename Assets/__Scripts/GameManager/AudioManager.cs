@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -32,9 +33,22 @@ public class AudioManager : MonoBehaviour
     public float backgroundMusicOneVolume = 1;
     public float backgroundMusicTwoVolume = 1;
 
+    public List<string> caveLevels;
+    public List<string> surfaceLevels;
 
-    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, backgroundMusic, collectible, pauseMenu, clickInMenu
-        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump, risingPlatformSound, powerUpSound;
+    public List<string> muteLevels;
+
+
+    bool isInLevelOne;
+    public bool isInLevelTwo;
+
+    bool sceneIsMuted;
+
+    string currentScene;
+
+
+    public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, collectible, pauseMenu, clickInMenu
+        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump, risingPlatformSound, powerUpSound, backgroundMusic, backgroundMusic2;
     public List<AudioClip> clips;
     // Start is called before the first frame update
 
@@ -54,32 +68,79 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
-        PlayingBackgorundM();
+        //PlayingBackgorundM();
         source2.loop = true;
     }
 
-    
+
 
     private void Update()
     {
+        currentScene = SceneManager.GetActiveScene().name;
+        MuteScenes();
+        SwapMusic();
+
     }
+
+    private void MuteScenes()
+    {
+        for (int i = 0; i < muteLevels.Count; i++)
+        {
+            if (muteLevels[i] == currentScene)
+            {
+                source2.Stop();
+            }
+        }
+
+        if (!source2.isPlaying)
+        {
+            source2.Play();
+        }
+        else if (sceneIsMuted == true)
+        {
+            source2.Stop();
+        }
+    }
+
+    private void SwapMusic()
+    {
+
+        for (int i = 0; i < caveLevels.Count; i++)
+        {
+            if (caveLevels[i] == currentScene)
+            {
+                source2.clip = backgroundMusic;
+                sceneIsMuted = false;
+            }
+        }
+
+        for (int i = 0; i < surfaceLevels.Count; i++)
+        {
+            if (surfaceLevels[i] == currentScene)
+            {
+                sceneIsMuted = false;
+                source2.clip = backgroundMusic2;
+            }
+        }
+    }
+
     public void GameplaySFX(AudioClip clip, float volume = 1)
     {
         source.clip = clip;
-        source.volume = volume; 
+        source.volume = volume;
         source.PlayOneShot(clip, volume);
 
     }
 
     private void PlayingBackgorundM()
     {
-        if(!source2.isPlaying)
+        if (!source2.isPlaying)
         {
             source2.clip = backgroundMusic;
             source2.Play();
         }
         source2.clip = backgroundMusic;
-        source2.Play(); 
+        source2.Play();
     }
 
     public void MenuSFX(AudioClip clip, float volume = 1)
