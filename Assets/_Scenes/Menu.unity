@@ -1073,8 +1073,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA92023 Get Good Games: Bedi Koyuncu, Ebben Alhindi, Mitch Nguyen, Milla
-    Schneider, Emilia Andersson & Jon Munter."
+  m_text: '2023 Get Good Games: Bedi Koyuncu, Ebben Alhindi, Mitch Nguyen, Milla
+    Schneider, Emilia Andersson & Jon Munter.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 090cf1a5f41025e42b50cb90a1fdb2e7, type: 2}
   m_sharedMaterial: {fileID: -2017801220081352600, guid: 090cf1a5f41025e42b50cb90a1fdb2e7, type: 2}
