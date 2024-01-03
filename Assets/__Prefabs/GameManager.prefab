@@ -5835,12 +5835,12 @@ MonoBehaviour:
   controls: {fileID: 354285535203004875}
   indicator: {fileID: 2024749915581038651}
   indicator2: {fileID: 4757119288345481434}
-  indicateOffset: 2.2
   menuTxts:
   - {fileID: 2527330274323346894}
   - {fileID: 2027821413338271508}
   - {fileID: 6304663998048436574}
   - {fileID: 5066307523139785511}
+  - {fileID: 2461039938019739446}
   fadeTime: 0.066
 --- !u!114 &5766244006934020170
 MonoBehaviour:
@@ -6183,6 +6183,17 @@ GameObject:
 --- !u!114 &2027821413338271508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8660715827306635849, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+  m_PrefabInstance: {fileID: 7211758323979414877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2461039938019739446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5058124249235270251, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
   m_PrefabInstance: {fileID: 7211758323979414877}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
