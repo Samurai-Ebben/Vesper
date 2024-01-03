@@ -19,7 +19,7 @@ public class VelocityCheck : MonoBehaviour
             if (playerController.GetMagnitude() < breakForce) return;
             if (playerController.currentSize != Sizes.LARGE) return;
             //if (playerController.GetComponent<RayCastHandler>().checkAllToGround) return;
-            if (!rayCastHandler.fullyOnPlatform) return;
+            //if (!rayCastHandler.fullyOnPlatform) return;
 
             DisableSelf.Invoke();
             return;
