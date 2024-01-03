@@ -5841,6 +5841,7 @@ MonoBehaviour:
   - {fileID: 2027821413338271508}
   - {fileID: 6304663998048436574}
   - {fileID: 5066307523139785511}
+  fadeTime: 0.066
 --- !u!114 &5766244006934020170
 MonoBehaviour:
   m_ObjectHideFlags: 0
