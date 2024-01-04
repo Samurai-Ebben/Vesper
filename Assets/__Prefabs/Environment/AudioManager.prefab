@@ -68,8 +68,8 @@ MonoBehaviour:
   pauseMenuVolume: 0.5
   backgroundMusicOneVolume: 0.5
   backgroundMusicTwoVolume: 0.5
-  fadeOutSpeed: 0.0005
-  fadeInSpeed: 0.0005
+  fadeOutSpeed: 0.1
+  fadeInSpeed: 0.1
   timeToStopMusic: 3
   caveLevels:
   - Lvl 1.0
@@ -85,6 +85,7 @@ MonoBehaviour:
   - Lvl 2.4
   - Lvl 2.5
   - Lvl 3.1
+  - Lvl 3.2
   muteLevels:
   - Lvl 1.2.5 Cutscene
   - Lvl 1.5.5 Cutscene
