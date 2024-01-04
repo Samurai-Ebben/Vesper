@@ -64,6 +64,7 @@ MonoBehaviour:
   powerUpVolume: 0.5
   powerUpSmallVolume: 0.5
   powerUpLargeVolume: 0.5
+  startGameVolume: 0.5
   pauseMenuVolume: 0.5
   backgroundMusicOneVolume: 0.5
   backgroundMusicTwoVolume: 0.5
@@ -114,6 +115,7 @@ MonoBehaviour:
   powerUpLargeSound: {fileID: 8300000, guid: ce86ac6b5c1c825439ec76df1abeadb7, type: 3}
   backgroundMusic1: {fileID: 8300000, guid: f269ebe0387ff7448a4563d185d029cb, type: 3}
   backgroundMusic2: {fileID: 8300000, guid: f31845cfb2f79c74aaebdcab7d1f74b6, type: 3}
+  startGameSound: {fileID: 8300000, guid: 237991b265b496044a5b19bb34a7dc41, type: 3}
   clips: []
 --- !u!82 &5407917196614130988
 AudioSource:
