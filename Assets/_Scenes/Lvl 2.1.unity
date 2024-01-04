@@ -7088,6 +7088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 2760812015249484106, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3876244959254546230, guid: b8c029260dd075d489fcc550fbb6f11f, type: 3}
       propertyPath: m_Size.x
       value: 1.3530011
