@@ -15,7 +15,10 @@ public class SceneHandler : MonoBehaviour
     // Next Level
     public void NextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     // Previous Level
@@ -33,8 +36,8 @@ public class SceneHandler : MonoBehaviour
 #endif
     }
 
-    //private void OnDestroy()
-    //{
-    //    DOTween.Clear();
-    //}
+    private void OnDestroy()
+    {
+        DOTween.Clear();
+    }
 }
