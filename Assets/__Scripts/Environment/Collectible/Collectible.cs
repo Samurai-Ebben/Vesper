@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Collectible : MonoBehaviour
 {
-    Collider2D collider;
+    Collider2D myCollider;
     SpriteRenderer spriteRenderer;
     ParticleSystem[] particleSystems;
     OutlineFxTrigger outlineFxTrigger;
@@ -29,7 +29,7 @@ public class Collectible : MonoBehaviour
     private void Start()
     {
         origiScale = transform.localScale;
-        collider = GetComponentInChildren<Collider2D>();
+        myCollider = GetComponentInChildren<Collider2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         particleSystems = GetComponentsInChildren<ParticleSystem>();
         outlineFxTrigger = GetComponentInChildren<OutlineFxTrigger>();
@@ -96,7 +96,7 @@ public class Collectible : MonoBehaviour
         if (spriteObject != null)
         {
             spriteObject.SetActive(boolean);
-            collider.enabled = boolean;
+            myCollider.enabled = boolean;
             //DOTween.Clear();
         }
     }

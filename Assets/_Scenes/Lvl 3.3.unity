@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 15951634}
   - component: {fileID: 15951633}
+  - component: {fileID: 15951635}
   m_Layer: 0
   m_Name: cloud_order1
   m_TagString: Untagged
@@ -207,6 +208,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1716797511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &15951635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15951632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.01
 --- !u!1001 &22049498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15718,6 +15735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 512653230}
   - component: {fileID: 512653231}
+  - component: {fileID: 512653232}
   m_Layer: 0
   m_Name: cloud_6_order4
   m_TagString: Untagged
@@ -15792,6 +15810,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &512653232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512653229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.6
 --- !u!1001 &533716034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17279,6 +17313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 768075533}
   - component: {fileID: 768075534}
+  - component: {fileID: 768075535}
   m_Layer: 0
   m_Name: cloud_6_order4
   m_TagString: Untagged
@@ -17353,6 +17388,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &768075535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768075532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.6
 --- !u!4 &840181455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4491362901676830874, guid: 84aaac7476c004b4e9cca63148fb31ee, type: 3}
@@ -17754,6 +17805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1047225401}
   - component: {fileID: 1047225400}
+  - component: {fileID: 1047225402}
   m_Layer: 0
   m_Name: cloud_order1
   m_TagString: Untagged
@@ -17828,6 +17880,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1716797511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047225402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047225399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.01
 --- !u!1 &1052199251
 GameObject:
   m_ObjectHideFlags: 0
@@ -18427,6 +18495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334907125}
   - component: {fileID: 1334907126}
+  - component: {fileID: 1334907127}
   m_Layer: 0
   m_Name: cloud_4_(1)_order2
   m_TagString: Untagged
@@ -18501,6 +18570,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1334907127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334907124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.4
 --- !u!1 &1381426908
 GameObject:
   m_ObjectHideFlags: 0
@@ -18595,6 +18680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403772894}
   - component: {fileID: 1403772895}
+  - component: {fileID: 1403772896}
   m_Layer: 0
   m_Name: cloud_5_order3
   m_TagString: Untagged
@@ -18669,6 +18755,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1403772896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403772893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.6
 --- !u!1 &1470574579
 GameObject:
   m_ObjectHideFlags: 0
@@ -19357,6 +19459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720570198}
   - component: {fileID: 1720570199}
+  - component: {fileID: 1720570200}
   m_Layer: 0
   m_Name: cloud_4_order2
   m_TagString: Untagged
@@ -19431,6 +19534,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1720570200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720570197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.4
 --- !u!1 &1769471685
 GameObject:
   m_ObjectHideFlags: 0
@@ -19570,6 +19689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1840815351}
   - component: {fileID: 1840815352}
+  - component: {fileID: 1840815353}
   m_Layer: 0
   m_Name: cloud_3_order2
   m_TagString: Untagged
@@ -19644,6 +19764,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1840815353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840815350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.4
 --- !u!1 &1893773563
 GameObject:
   m_ObjectHideFlags: 0
@@ -19795,6 +19931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983273470}
   - component: {fileID: 1983273469}
+  - component: {fileID: 1983273471}
   m_Layer: 0
   m_Name: cloud_6_order3
   m_TagString: Untagged
@@ -19869,6 +20006,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1716797511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1983273471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983273468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d8a9cacbd29214381611668e030232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {x: 0, y: 0, z: 0}
+  cameraStartPosition: {x: -10, y: 0, z: 0}
+  cameraEndPosition: {x: 6.63, y: 0, z: 0}
+  mulitplier: 0.6
 --- !u!1001 &2037944465
 PrefabInstance:
   m_ObjectHideFlags: 0
