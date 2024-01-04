@@ -17973,6 +17973,7 @@ GameObject:
   - component: {fileID: 1092912388}
   - component: {fileID: 1092912387}
   - component: {fileID: 1092912389}
+  - component: {fileID: 1092912390}
   m_Layer: 0
   m_Name: Fade to black
   m_TagString: Untagged
@@ -18068,6 +18069,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1092912390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092912386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d62034fabc30a4094a0c586f338bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1167240548
 GameObject:
   m_ObjectHideFlags: 0
