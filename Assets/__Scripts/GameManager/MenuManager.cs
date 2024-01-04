@@ -42,6 +42,7 @@ public class MenuManager : MonoBehaviour
             btnOrigSize = menuTxts[i].transform.localScale;
         }
     }
+
     void Update()
     {
         NavigateBtns();

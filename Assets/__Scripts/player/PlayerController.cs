@@ -17,74 +17,75 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     // Size
-    private bool isBig = false;
-    private bool wasBigLastFrame = false;
-    private bool isSmall = false;
-    private bool wasSmallLastFrame = false;
+    private     bool    isBig               =   false;
+    private     bool    wasBigLastFrame     =   false;
+    private     bool    isSmall             =   false;
+    private     bool    wasSmallLastFrame   =   false;
 
     public float landingSFX = 0.05f;
 
     [Header("Size Switch")]
-    public bool bigEnabled = true;
-    public bool smallEnabled = true;
+    public      bool    bigEnabled      =   true;
+    public      bool    smallEnabled    =   true;
 
     // Player Controls
-    [SerializeField] float deacceleration = 4;
-    [SerializeField] float acceleration = 20;
-    [SerializeField] float maxSpeed = 4;
-    [SerializeField] float velocityX;
+    [SerializeField] float      deacceleration  =   4;
+    [SerializeField] float      acceleration    =   20;
+    [SerializeField] float      maxSpeed        =   4;
+    [SerializeField] float      velocityX;
     float speed;
     
     // Jump
     [Header("Jump Controls")]
-    float jumpBufferTime        =       0.1f;
-    float jumpHoldForce         =       5f;
-    float coyoteTime            =       0.05f;
-    float jumpCutOff            =       0.1f;
-    float jumpForce             =       6.0f;
+    float       jumpBufferTime         =       0.1f;
+    float       jumpHoldForce          =       5f;
+    float       coyoteTime             =       0.05f;
+    float       jumpCutOff             =       0.1f;
+    float       jumpForce              =       6.0f;
 
+    public float platformAvoidOnJumpOffset =    10;
     public bool isJumping              =       false;
     public bool jumpPressed            =       false;
     bool canJump                       =       true;
-    public float platformAvoidOnJumpOffset = 10;
 
-    float coyoteTimer;
-    float jumpBufferTimer;
-    public bool isBouncing;
-    public bool canMove = true;
+    float       coyoteTimer;
+    float       jumpBufferTimer;
+    public      bool    isBouncing;
+    public      bool    canMove         =       true;
 
-    float timer;
-    public bool startedJump = false;
-    public bool hasLanded   = false;
+    public      bool    startedJump     =       false;
+    public      bool    hasLanded       =       false;
+    float JuiceTimer;
 
     [Header("AirControls")]
-    public bool inAir           =       false;
-    float airSpeedMultiplier    =        .9f;
-    float airAccMultiplier      =        .9f;
-    float airDecMultiplier      =        .9f;
+    public bool inAir                   =       false;
+    float       airSpeedMultiplier      =        .9f;
+    float       airAccMultiplier        =        .9f;
+    float       airDecMultiplier        =        .9f;
 
     // Ground Check
     [Header("Ground Check")]
     public float shortenGroundCheckXValue = 0.1f;
-    [SerializeField] Vector2 groundCheckSize;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask layerIsGround;
+
+    [SerializeField] private    Vector2     groundCheckSize;
+    [SerializeField] private    Transform   groundCheck;
+    [SerializeField] private    LayerMask   layerIsGround;
 
     // Players proprties
-    public Sizes currentSize { get; set; }
-    public Vector2 moveInput { get; private set; }
-    public Rigidbody2D rb { get; private set; }
-    public InputActionAsset actions { get; private set; }
-    public AudioManager audioManager { get; private set; }
-    public RayCastHandler rayCastHandler { get; private set; }
-    public ScreenShakeHandler screenShake { get; private set; }
-    public PlayerParticleEffect effects { get; private set; }
+    public      Sizes               currentSize     { get; set; }
+    public      Vector2             moveInput       { get; private set; }
+    public      Rigidbody2D         rb              { get; private set; }
+    public      InputActionAsset    actions         { get; private set; }
+    public      AudioManager        audioManager    { get; private set; }
+    public      RayCastHandler      rayCastHandler  { get; private set; }
+    public      ScreenShakeHandler  screenShake     { get; private set; }
+    public      PlayerParticleEffect effects        { get; private set; }
     
     // Player references
-    DevButtons devButtons;
-    SizeStats sizeStats;
-    SquishAndSquash squishAndSquash;
-    PlayerAudioHandler playerAudioHandler;
+    DevButtons          devButtons;
+    SizeStats           sizeStats;
+    SquishAndSquash     squishAndSquash;
+    PlayerAudioHandler  playerAudioHandler;
 
     // Velocity Magnitude
     private float currentMagnitude;
@@ -96,13 +97,13 @@ public class PlayerController : MonoBehaviour
 
     // Wall Collision Squash 
     [HideInInspector]
-    public bool wallCollisionSquash;
-    Coroutine WallSquashEnabler;
-    private float enableDelayAfterLanding = 0.2f;
-    private Vector3 prevPos;
-    private float deltaPosThreshold = 0.01f;
-    private bool prevRaycastLeft;
-    private bool prevRaycastRight;
+    public      bool        wallCollisionSquash;
+    private     float       enableDelayAfterLanding = 0.2f;
+    private     Vector3     prevPos;
+    private     float       deltaPosThreshold = 0.01f;
+    private     bool        prevRaycastLeft;
+    private     bool        prevRaycastRight;
+    Coroutine   WallSquashEnabler;
 
 
     public bool pausedPressed = false;
@@ -173,12 +174,12 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsGrounded())
         {
-            timer += Time.deltaTime;
+            JuiceTimer += Time.deltaTime;
         }
 
-        if(timer > landingSFX && IsGrounded())
+        if(JuiceTimer > landingSFX && IsGrounded())
         {
-            timer = 0;
+            JuiceTimer = 0;
             LandingActions();
         }
     }
@@ -299,6 +300,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             inAir = true;
             squishAndSquash.JumpSquash();
+
             if (!rayCastHandler.rightHelpCheck  && rayCastHandler.leftHelpCheck && rayCastHandler.centerIsFree)
             {
                 rb.velocity = new Vector2(rb.velocity.x + platformAvoidOnJumpOffset, rb.velocity.y);
@@ -450,7 +452,6 @@ public class PlayerController : MonoBehaviour
 
     public void VibrateController(float lowFreq, float highFreq, float duration)
     {
-        //gPad = Gamepad.current;
         if (gPad != null)
         {
             print(gPad.name);
