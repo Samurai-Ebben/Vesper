@@ -39,7 +39,7 @@ public class PlayerAudioHandler : MonoBehaviour
         {
             AudioManager.Instance.GameplaySFX(AudioManager.Instance.landingMedium, AudioManager.Instance.landingVolume);
         }
-        else if (playerController.currentSize == Sizes.LARGE)
+        else if (playerController.currentSize == Sizes.BIG)
         {
             AudioManager.Instance.GameplaySFX(AudioManager.Instance.landingBig, AudioManager.Instance.landingVolume);
         }
@@ -56,7 +56,7 @@ public class PlayerAudioHandler : MonoBehaviour
         {
             AudioManager.Instance.GameplaySFX(AudioManager.Instance.jumpMedium, AudioManager.Instance.jumpingVolume);
         }
-        else if (playerController.currentSize == Sizes.LARGE)
+        else if (playerController.currentSize == Sizes.BIG)
         {
             AudioManager.Instance.GameplaySFX(AudioManager.Instance.jumpBig, AudioManager.Instance.jumpingVolume);
         }

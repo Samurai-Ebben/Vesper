@@ -114,16 +114,16 @@ public class SizeStats : MonoBehaviour
 
     public List<float> ReturnStats(Sizes size)
     {
-        UpdateStatValues();
 
         if (size == Sizes.SMALL)
             return statsSmall;
 
-        if (size == Sizes.LARGE)
+        else if (size == Sizes.BIG)
             return statsLarge;
 
-        if (size == Sizes.MEDIUM)
+        else if (size == Sizes.MEDIUM)
             return statsMedium;
+        UpdateStatValues();
 
         return statsMedium;
     }
@@ -132,8 +132,7 @@ public class SizeStats : MonoBehaviour
     {
         groundCheckSizeSmallX   =   sizeSmall;
         groundCheckSizeMediumX  =   sizeMedium;
-        groundCheckSizeLargeX   =   sizeLarge;
-
+        groundCheckSizeLargeX   =   sizeLarge;        
         groundCheckSizeSmallY   =   0.007f;
         groundCheckSizeMediumY  =   0.01f;
         groundCheckSizeLargeY   =   0.009f;

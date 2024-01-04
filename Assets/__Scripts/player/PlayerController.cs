@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum Sizes { SMALL, MEDIUM, LARGE };
+public enum Sizes { SMALL, MEDIUM, BIG };
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IReset
 {
     private Gamepad gPad;
     public float vibrationDuration = .5f;
@@ -152,13 +152,14 @@ public class PlayerController : MonoBehaviour
         jumpBufferTimer = 0;
 
         wallCollisionSquash = true;
+        RegisterSelfToResettableManager();
     }
 
     void FixedUpdate()
     {
         MoveX();
         Jump();
-        CoyoteTime();
+        CoyoteEffect();
         RecordYVelocity();
         RecordMagnitude();
         WallCollisionSquash();        
@@ -198,7 +199,7 @@ public class PlayerController : MonoBehaviour
 
         if (isBig && bigEnabled && rayCastHandler.largeTopIsFree && (rayCastHandler.anySide) && rayCastHandler.diagonalTop)
         {
-            currentSize = Sizes.LARGE;
+            currentSize = Sizes.BIG;
 
             if (wasBigLastFrame != isBig)
             {
@@ -337,7 +338,7 @@ public class PlayerController : MonoBehaviour
         prevPos = transform.position;
     }
 
-    void CoyoteTime()
+    void CoyoteEffect()
     {
         if (IsGrounded())
         {
@@ -511,7 +512,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // -- FOLLOWING CODE DOESNT WORK BECAUSE INPUT SETS NEW VELOCITY EACH FRAME --
+    #region -- CODE DOESNT WORK BECAUSE INPUT SETS NEW VELOCITY EACH FRAME --
 
     //public bool XVeloctiyStopped()
     //{
@@ -536,6 +537,7 @@ public class PlayerController : MonoBehaviour
     //        xVelocities.RemoveAt(0);
     //    }
     //}
+    #endregion
 
     private void LandingActions()
     {
@@ -550,7 +552,7 @@ public class PlayerController : MonoBehaviour
         startedJump = false;
         inAir = false;
 
-        if (currentSize == Sizes.LARGE)
+        if (currentSize == Sizes.BIG)
         {
             screenShake.JumpShake();
             VibrateController(.2f, .2f, vibrationDuration);
@@ -573,6 +575,16 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         actions["Pause"].performed -= OnPause;
+    }
+
+    public void Reset()
+    {
+        currentSize = Sizes.MEDIUM;
+    }
+
+    public void RegisterSelfToResettableManager()
+    {
+        ResettableManager.Instance?.RegisterObject(this);
     }
 }
 
