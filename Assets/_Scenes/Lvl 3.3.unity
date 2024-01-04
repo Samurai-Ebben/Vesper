@@ -16764,7 +16764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topVignette: 1
   expandDuration: 3
-  targetScaleY: 5
+  targetScaleY: 8
   cam: {fileID: 2133317504}
 --- !u!212 &685957501
 SpriteRenderer:
@@ -19158,7 +19158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topVignette: 0
   expandDuration: 3
-  targetScaleY: 5
+  targetScaleY: 8
   cam: {fileID: 2133317504}
 --- !u!212 &1544199680
 SpriteRenderer:
