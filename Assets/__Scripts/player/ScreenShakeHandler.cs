@@ -84,7 +84,7 @@ public class ScreenShakeHandler : MonoBehaviour, IReset
 
         if (!horizontal && !vertical)
         {
-            RandomPosition = Random.insideUnitCircle * 1;
+            RandomPosition = Random.insideUnitCircle;
         }
         float timeElapsed = 0;
 

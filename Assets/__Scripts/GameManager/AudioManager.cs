@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     AudioSource source;
     public AudioSource source2;
     public AudioSource source3;
+    public AudioSource source4;
+
     public static AudioManager Instance { get; private set; }
 
     public bool startLandingSound;
@@ -133,8 +135,12 @@ public class AudioManager : MonoBehaviour
             MenuVolumeFadeOut();
 
         }
-        source2.clip = menuMusicSound;
-        source2.volume = menuVolumeStarter;
+        source4.clip = menuMusicSound;
+        source4.volume = menuVolumeStarter;
+        if(!source4.isPlaying)
+        {
+            source4.Play();
+        }
     }
 
     private void MenuVolumeFadeOut()
@@ -240,10 +246,6 @@ public class AudioManager : MonoBehaviour
 
     public void GameplaySFX(AudioClip clip, float volume = 1, bool audioVariaion = false, float variationRange = 0.5f)
     {
-        if (audioVariaion)
-        {
-
-        }
         source.clip = clip;
         source.volume = volume;
         source.PlayOneShot(clip, volume);
