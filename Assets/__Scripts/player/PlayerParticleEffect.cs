@@ -31,7 +31,7 @@ public class PlayerParticleEffect : MonoBehaviour
     {
         ParticleSystem.ShapeModule pfxShape = pfx.shape;
         ParticleSystem.ShapeModule pfxShape2 = pfx2.shape;
-        print(pfxShape.scale);
+        
         ParticleSystem.ShapeModule trailShape = trail.shape;
         trailShape.scale = player.transform.localScale * trailOffset;
         pfxShape.scale = player.transform.localScale * sizeOffset;
