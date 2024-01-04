@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -35,6 +37,12 @@ public class AudioManager : MonoBehaviour
     public float backgroundMusicOneVolume = 0.5f;
     public float backgroundMusicTwoVolume = 0.5f;
 
+    public float fadeOutSpeed = 0.005f;
+    public float fadeInSpeed = 0.005f;
+    public float timeToStopMusic = 3;
+
+
+
     public List<string> caveLevels;
     public List<string> surfaceLevels;
 
@@ -45,11 +53,21 @@ public class AudioManager : MonoBehaviour
 
     bool sceneIsMuted;
 
+    public bool fadingIn;
+    public bool fadingOut;
+
+    float fadeTest;
+
+    float volume = 0;
+    float backgroundMusicVolume;
+
     string currentScene;
+
+    float timer;
 
 
     public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, collectible, pauseMenu, clickInMenu
-        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump, risingPlatformSound, powerUpSmallSound, powerUpLargeSound, backgroundMusic, backgroundMusic2;
+        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump, risingPlatformSound, powerUpSmallSound, powerUpLargeSound, backgroundMusic1, backgroundMusic2;
     public List<AudioClip> clips;
     // Start is called before the first frame update
 
@@ -71,6 +89,8 @@ public class AudioManager : MonoBehaviour
         source = GetComponent<AudioSource>();
         //PlayingBackgorundM();
         source2.loop = true;
+
+        source2.volume = 0;
     }
 
 
@@ -78,29 +98,25 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
+
+        //backgroundMusicTwoVolume = Mathf.Lerp(backgroundMusicTwoVolume, 0.5f, 0.001f);
+        //source2.volume = backgroundMusicTwoVolume;
+
+
         SwapMusic();
         MuteScenes();
+        if (fadingOut)
+        {
+            StopAllCoroutines();
+            FakeFadeOut();
+        }
 
     }
 
-    private void MuteScenes()
+    private void FakeFadeOut()
     {
-        for (int i = 0; i < muteLevels.Count; i++)
-        {
-            if (muteLevels[i] == currentScene)
-            {
-                source2.Stop();
-            }
-        }
-
-        if (!source2.isPlaying)
-        {
-            source2.Play();
-        }
-        else if (sceneIsMuted == true)
-        {
-            source2.Stop();
-        }
+        backgroundMusicVolume -= 0.1f * Time.deltaTime;
+        source2.volume = backgroundMusicVolume;
     }
 
     private void SwapMusic()
@@ -110,8 +126,18 @@ public class AudioManager : MonoBehaviour
         {
             if (caveLevels[i] == currentScene)
             {
-                source2.clip = backgroundMusic;
-                source2.volume = backgroundMusicOneVolume;
+                timer = 0;
+                backgroundMusicVolume = backgroundMusicOneVolume;
+                source2.clip = backgroundMusic1;
+
+                fadingIn = true;
+                fadingOut = false;
+
+                if (fadingIn)
+                {
+                    StartCoroutine(FadeIn(backgroundMusicVolume, 0, fadeInSpeed));
+                }
+
             }
         }
 
@@ -119,14 +145,64 @@ public class AudioManager : MonoBehaviour
         {
             if (surfaceLevels[i] == currentScene)
             {
+                timer = 0;
+                backgroundMusicVolume = backgroundMusicTwoVolume;
                 source2.clip = backgroundMusic2;
-                source2.volume = backgroundMusicTwoVolume;
+                fadingIn = true;
+                fadingOut = false;
+                if (fadingIn)
+                {
+                    StartCoroutine(FadeIn(backgroundMusicVolume, 0, fadeInSpeed));
+                }
+                Debug.Log(backgroundMusicVolume);
             }
         }
     }
 
-    public void GameplaySFX(AudioClip clip, float volume = 1)
+    private void MuteScenes()
     {
+        for (int i = 0; i < muteLevels.Count; i++)
+        {
+            if (muteLevels[i] == currentScene)
+            {
+                fadingIn = false;
+                fadingOut = true;
+
+                Debug.Log(backgroundMusicVolume);
+                if (fadingOut)
+                {
+                    ////StopCoroutine(FadeIn(backgroundMusicVolume, 0, fadeInSpeed));
+                    //StopAllCoroutines();    
+                    //StartCoroutine(FadeOut(backgroundMusicVolume, fadeOutSpeed));
+
+
+                }
+
+
+                //if (timer >= timeToStopMusic)
+                //{
+                //    source2.Stop();
+                //}
+
+            }
+        }
+
+        if (!source2.isPlaying)
+        {
+            //source2.volume = backgroundMusicVolume;
+            source2.Play();
+        }
+
+    }
+
+
+
+    public void GameplaySFX(AudioClip clip, float volume = 1, bool audioVariaion = false, float variationRange = 0.5f)
+    {
+        if (audioVariaion)
+        {
+
+        }
         source.clip = clip;
         source.volume = volume;
         source.PlayOneShot(clip, volume);
@@ -137,10 +213,10 @@ public class AudioManager : MonoBehaviour
     {
         if (!source2.isPlaying)
         {
-            source2.clip = backgroundMusic;
+            source2.clip = backgroundMusic1;
             source2.Play();
         }
-        source2.clip = backgroundMusic;
+        source2.clip = backgroundMusic1;
         source2.Play();
     }
 
@@ -150,4 +226,37 @@ public class AudioManager : MonoBehaviour
         source3.volume = volume;
         source3.PlayOneShot(clip);
     }
+    IEnumerator FadeOut(float startVolume = 0.5f, float fadeOutSPeed = 0.0005f)
+    {
+        fadingIn = false;
+        fadingOut = true;
+        while (startVolume > 0)
+        {
+            Debug.Log("While FadeOut");
+            startVolume -= fadeOutSPeed;
+            source2.volume = startVolume;
+
+            yield return null;
+
+        }
+
+    }
+
+    IEnumerator FadeIn(float targetvolume = 0.5f, float currentVolume = 0f, float fadeInSpeed = 0)
+    {
+        fadingIn = true;
+        fadingOut = false;
+        while (currentVolume < targetvolume)
+        {
+            currentVolume += fadeInSpeed;
+            source2.volume = currentVolume;
+
+            backgroundMusicVolume = currentVolume;
+
+            yield return null;
+        }
+
+    }
+
+
 }

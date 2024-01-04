@@ -1978,6 +1978,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 5183891905054436808, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
+      propertyPath: m_TagString
+      value: GetSmaller
+      objectReference: {fileID: 0}
     - target: {fileID: 5454043579346688326, guid: 11e03872bf29ec9468ffdaa4c7cab64f, type: 3}
       propertyPath: m_Name
       value: CutsceneManager

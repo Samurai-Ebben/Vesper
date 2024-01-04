@@ -38862,6 +38862,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580706953751692428, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1308068701923209304, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_Name
       value: Collectable
@@ -39171,14 +39175,6 @@ PrefabInstance:
     - target: {fileID: 6582465641054110912, guid: 064fed658bc371c428016d1887279352, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7153697244148923057, guid: 064fed658bc371c428016d1887279352, type: 3}
-      propertyPath: backgroundMusicOneVolume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7153697244148923057, guid: 064fed658bc371c428016d1887279352, type: 3}
-      propertyPath: backgroundMusicTwoVolume
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
