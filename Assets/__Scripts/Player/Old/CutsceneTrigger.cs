@@ -22,7 +22,7 @@ public class CutsceneTrigger : MonoBehaviour
         {
             rb2d = PlayerController.player.GetComponent<Rigidbody2D>();
          
-            DisableSpriteObject();
+            DisableSprite();
             DisablePlayerParticles();
             StopPlayerMovement();
             MovePlayerToCutscenePosition();
@@ -33,9 +33,10 @@ public class CutsceneTrigger : MonoBehaviour
         }
     }
 
-    private static void DisableSpriteObject()
+    private static void DisableSprite()
     {
-        PlayerController.player.GetComponentInChildren<SquishAndSquash>().gameObject.SetActive(false);
+        PlayerController.player.GetComponentInChildren<SquishAndSquash>().
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void DisablePlayerParticles()
