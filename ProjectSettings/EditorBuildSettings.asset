@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Lvl 3.3.unity
     guid: 68b5fdd2d9b1d9d469fe081c1d3b7bc5
+  - enabled: 1
+    path: Assets/_Scenes/CREDIT ROLL.unity
+    guid: de3e5041253c3a445a395000392b126f
   m_configObjects: {}

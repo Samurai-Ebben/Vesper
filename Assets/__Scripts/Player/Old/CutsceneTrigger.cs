@@ -59,7 +59,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(animationLength);
         TogglePlayerInputs(true);
-        PlayAnimations(false);
+        //PlayAnimations(false);
     }
 
     private void TogglePlayerInputs(bool boolean)
