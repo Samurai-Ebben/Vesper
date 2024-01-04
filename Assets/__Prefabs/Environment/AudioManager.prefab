@@ -50,16 +50,16 @@ MonoBehaviour:
   source2: {fileID: 7906245812062074329}
   source3: {fileID: 143294754772271265}
   startLandingSound: 0
-  landingVolume: 0.5
-  jumpingVolume: 0.5
-  deathVolume: 0.5
-  switchVolume: 0.5
+  landingVolume: 0.35
+  jumpingVolume: 0.45
+  deathVolume: 0.6
+  switchVolume: 0.4
   collectibleVolume: 0.34
-  destructiblePlatfromVolume: 0.5
+  destructiblePlatfromVolume: 0.25
   disappearingPlatformVolume: 0.5
-  trampolineJumpVolume: 0.83
+  trampolineJumpVolume: 0.5
   clickInMenuVolume: 0.5
-  risingPlatformVolume: 0.5
+  risingPlatformVolume: 0.4
   appearingPlatformVolume: 0.5
   powerUpVolume: 0.5
   powerUpSmallVolume: 0.5
@@ -70,7 +70,6 @@ MonoBehaviour:
   backgroundMusicTwoVolume: 0.5
   fadeOutSpeed: 0.1
   fadeInSpeed: 0.1
-  timeToStopMusic: 3
   caveLevels:
   - Lvl 1.0
   - Lvl 1.1
