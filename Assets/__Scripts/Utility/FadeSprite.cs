@@ -26,27 +26,29 @@ public class FadeSprite : MonoBehaviour
             startColor = spriteRenderer.color;
         }
     }
+    
+    public void FadeOut()
+    {
+        //print("Fade out triggered");
+
+        fadeTime = fadeOutTime;
+        targetAlpha = 0f;
+
+        startColor.a = 1;
+        spriteRenderer.color = startColor;
+
+        Fade();
+    }
 
     public void FadeIn()
     {
-        
+        //print("Fade in triggered");
         StopCoroutine(AfterFadeOut());
 
         fadeTime = fadeInTime;
         targetAlpha = 1;
         
         startColor.a = 0;
-        spriteRenderer.color = startColor;
-
-        Fade();
-    }
-    
-    public void FadeOut()
-    {        
-        fadeTime = fadeOutTime;
-        targetAlpha = 0f;
-
-        startColor.a = 1;
         spriteRenderer.color = startColor;
 
         Fade();

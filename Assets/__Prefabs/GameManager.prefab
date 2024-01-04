@@ -5789,7 +5789,7 @@ MonoBehaviour:
   currentCheckpoint: {x: 0, y: 0, z: 0}
   startPoint: {fileID: 2702735996382199472}
   playerHolderPrefab: {fileID: 583103637283588153, guid: 30c15560667a95646856058ddb489711, type: 3}
-  Fade: {fileID: 6868898498921238885}
+  fade: {fileID: 6868898498921238885}
   deathTime: 0.3
 --- !u!114 &4704372139927105350
 MonoBehaviour:
