@@ -54,7 +54,7 @@ MonoBehaviour:
   startLandingSound: 0
   landingVolume: 0.35
   jumpingVolume: 0.45
-  deathVolume: 0.6
+  deathVolume: 0.5
   switchVolume: 0.4
   collectibleVolume: 0.34
   destructiblePlatfromVolume: 0.25
