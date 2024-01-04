@@ -256,12 +256,12 @@ MonoBehaviour:
   destructionDuration: 0.02
   jumpDuration: 0.02
   deathDuration: 0.06
-  platformsDuration: 0.01
+  platformsDuration: 0.001
   cornerDuration: 0.01
   strengthForDestruction: 0.04
   strengthForJump: 0.005
   strengthForDeath: 0.04
-  strengthForPlatforms: 0.1
+  strengthForPlatforms: 0.15
   strengthCorner: 0.03
   vertical: 1
   horizontal: 0
