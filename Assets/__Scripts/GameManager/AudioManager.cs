@@ -177,7 +177,7 @@ public class AudioManager : MonoBehaviour
                 }
 
 
-                //if (timer >= timeToStopMusic)
+                //if (JuiceTimer >= timeToStopMusic)
                 //{
                 //    source2.Stop();
                 //}
