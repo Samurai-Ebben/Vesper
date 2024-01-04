@@ -26153,11 +26153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 643648274654413330, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 643648274654413330, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: m_SortingLayerID
-      value: 332504031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5709059658764225920, guid: 5f2855be72be101499beb804d87039c6, type: 3}
       propertyPath: m_Size.x
