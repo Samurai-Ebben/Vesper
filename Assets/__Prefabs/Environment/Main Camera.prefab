@@ -262,6 +262,6 @@ MonoBehaviour:
   strengthForJump: 0.005
   strengthForDeath: 0.04
   strengthForPlatforms: 0.1
-  strengthCorner: 0.02
+  strengthCorner: 0.03
   vertical: 1
   horizontal: 0
