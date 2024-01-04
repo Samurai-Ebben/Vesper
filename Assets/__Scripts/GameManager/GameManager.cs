@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject startPoint;
     public GameObject playerHolderPrefab;
     private GameObject player;
-    public GameObject Fade;
+    public GameObject fade;
     AudioManager audioManager;
     private Vector2 instantiateCoordinate = new Vector3 (-25, -25);
 
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         {
             SpawnPlayer();
         }
-        Fade.SetActive(false);
+        fade.SetActive(false);
 
         currentCheckpoint = startPoint.transform.position;
         RespawnPlayer();
@@ -83,7 +83,8 @@ public class GameManager : MonoBehaviour
         PlayerController.instance.effects.enabled = false;
         PlayerController.instance.rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(deathTime);
-        Fade.SetActive(true);
+        fade.SetActive(true);
+        fade.GetComponent<Animator>().SetTrigger("Fade");
         RespawnPlayer();
     }
 }

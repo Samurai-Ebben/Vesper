@@ -91,11 +91,6 @@ public class Disappearing : MonoBehaviour, IReset
         playerOverlapping = boolean;
     }
 
-    public void ToggleWallCollisionSquash(bool boolean)
-    {
-        PlayerController.instance.wallCollisionSquash = boolean;
-    }
-
     public void Reset()
     {
         if (ongoingCoroutine)
