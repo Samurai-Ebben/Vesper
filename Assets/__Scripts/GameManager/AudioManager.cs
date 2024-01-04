@@ -154,7 +154,6 @@ public class AudioManager : MonoBehaviour
                 {
                     StartCoroutine(FadeIn(backgroundMusicVolume, 0, fadeInSpeed));
                 }
-                Debug.Log(backgroundMusicVolume);
             }
         }
     }
