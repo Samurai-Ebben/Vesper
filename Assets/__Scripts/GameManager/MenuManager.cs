@@ -17,16 +17,18 @@ public class MenuManager : MonoBehaviour
     public GameObject MenuCanvas;
     public GameObject menu;
     public GameObject controls;
+    public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
+    public UnityEvent ButtonAction;
+    public float fadeTime = 0.1f;
+
+    bool canNav = false;
 
     Transform prevBtn;
-
-    public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
     TextMeshProUGUI txt;
-    Color buttonOrigiColor;
-    Vector3 btnOrigSize;
-    public UnityEvent ButtonAction;
 
-    public float fadeTime = 0.1f;
+    Vector3 btnOrigSize;
+    Color buttonOrigiColor;
+
     private void Start()
     {
         events = Camera.main.GetComponentInChildren<EventSystem>();
@@ -62,8 +64,14 @@ public class MenuManager : MonoBehaviour
         DOTween.Clear();
     }
 
+    public void StartNavigating()
+    {
+        canNav = true;
+    }
+
     public void NavigateBtns()
     {
+        if (!canNav) return;
         Transform selected = events.currentSelectedGameObject.transform;
 
         if(selected != prevBtn)
@@ -81,16 +89,6 @@ public class MenuManager : MonoBehaviour
 
         prevBtn = selected;
         return;
-
-        for (int i = 0; i < menuTxts.Count; i++)
-        {
-            menuTxts[i].DOColor(buttonOrigiColor, fadeTime).SetEase(Ease.InSine);
-            menuTxts[i].transform.DOScale(btnOrigSize, fadeTime).SetEase(Ease.InSine);
-        }
-
-        DOTween.defaultTimeScaleIndependent = true;
-        txt.transform.DOScale(btnOrigSize * 1.3f, fadeTime).SetEase(Ease.InSine);
-        txt.DOColor(Color.white, fadeTime).SetEase(Ease.InSine);
     }
 
     public void ControlsMenu()
