@@ -48,6 +48,7 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         RemoveAll();
+        AudioManager.Instance.MenuSFX(AudioManager.Instance.startGameSound, AudioManager.Instance.startGameVolume);
         ButtonAction.Invoke();
     }
 
@@ -75,7 +76,7 @@ public class MenuManager : MonoBehaviour
             txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
             txt.transform.DOScale(btnOrigSize * 1.3f, fadeTime).SetEase(Ease.InSine);
             txt.DOColor(Color.white, fadeTime).SetEase(Ease.InSine);
-
+            AudioManager.Instance.MenuSFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
         }
 
         prevBtn = selected;
