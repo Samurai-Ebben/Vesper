@@ -17328,7 +17328,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7229780853740973210, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 784245785}
   m_SourcePrefab: {fileID: 100100000, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
 --- !u!1 &768075532
 GameObject:
@@ -17431,6 +17434,28 @@ MonoBehaviour:
   cameraStartPosition: {x: -10, y: 0, z: 0}
   cameraEndPosition: {x: 6.63, y: 0, z: 0}
   mulitplier: 0.6
+--- !u!1 &784245776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7229780853740973210, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+  m_PrefabInstance: {fileID: 746682927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!320 &784245785
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784245776}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 65a501912b9c37446a1ad7ce93f3e0b3, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!4 &840181455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4491362901676830874, guid: 84aaac7476c004b4e9cca63148fb31ee, type: 3}
