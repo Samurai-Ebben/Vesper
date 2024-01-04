@@ -33288,6 +33288,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4240036094123811288, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4112978
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240036094123811288, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1448969
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240036094123811288, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.005279064
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240036094123811288, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.054114044
+      objectReference: {fileID: 0}
     - target: {fileID: 5219338404478537163, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -42124,6 +42140,22 @@ PrefabInstance:
     - target: {fileID: 3974034664008646628, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_Name
       value: PlatformButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240036094123811288, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Size.x
+      value: 0.43559456
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240036094123811288, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2251489
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240036094123811288, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240036094123811288, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0942401
       objectReference: {fileID: 0}
     - target: {fileID: 5219338404478537163, guid: a7e094abd85762943a3bf0ce134b6aea, type: 3}
       propertyPath: m_LocalScale.x
