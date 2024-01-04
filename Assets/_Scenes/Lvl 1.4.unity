@@ -221,7 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0.0001}
-  useOrderInLayer: 0
 --- !u!4 &23289425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4582076288285838266, guid: 6f6106147a2c45b4795f4a58aca416a1, type: 3}
@@ -33298,7 +33297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0.0001}
-  useOrderInLayer: 0
 --- !u!1001 &217801682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38852,7 +38850,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: -0.0003}
-  useOrderInLayer: 0
 --- !u!1001 &442088645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40459,7 +40456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
-  useOrderInLayer: 0
 --- !u!1 &868756715 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2702735996382199472, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
@@ -41246,7 +41242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773291051604109047, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
       propertyPath: m_Size.x
-      value: 16.451967
+      value: 17.62051
       objectReference: {fileID: 0}
     - target: {fileID: 2773291051604109047, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
       propertyPath: m_Size.y
@@ -41254,7 +41250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773291051604109047, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: -0.5842705
       objectReference: {fileID: 0}
     - target: {fileID: 2773291051604109047, guid: 6f51fee234ea1494abbcc70f9cf496c7, type: 3}
       propertyPath: m_Offset.y
@@ -42209,7 +42205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
-  useOrderInLayer: 0
 --- !u!1001 &1430126910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42370,7 +42365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
-  useOrderInLayer: 0
 --- !u!1001 &1460831652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43117,7 +43111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
-  useOrderInLayer: 0
 --- !u!4 &1655983566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2350422432543548552, guid: 575158ed3927399488bf7374c68b7eb8, type: 3}
@@ -44335,7 +44328,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0}
-  useOrderInLayer: 0
 --- !u!1 &2008085822
 GameObject:
   m_ObjectHideFlags: 0
@@ -45032,7 +45024,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxMult: {x: 0, y: 0.0001}
-  useOrderInLayer: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

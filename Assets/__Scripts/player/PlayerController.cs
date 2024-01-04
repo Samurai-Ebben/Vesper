@@ -9,12 +9,8 @@ public enum Sizes { SMALL, MEDIUM, LARGE };
 
 public class PlayerController : MonoBehaviour
 {
-
     private Gamepad gPad;
     public float vibrationDuration = .5f;
-
-    //[HideInInspector]
-    public bool wallCollisionSquash;
     
     // Singleton, reference to player object (Really shouldn't be two "singeltons" in one object)
     public static GameObject player;
@@ -95,13 +91,19 @@ public class PlayerController : MonoBehaviour
     private float prevMagnitude;
 
     private List<float> yVelocities = new();
-    private List<float> xVelocities = new();
-    public int numberOfVelocitiesToRecord = 10;
+    //private List<float> xVelocities = new();
+    private int numberOfVelocitiesToRecord = 10;
 
-    private float deltaPosThreshold = 0.01f;
+    // Wall Collision Squash 
+    [HideInInspector]
+    public bool wallCollisionSquash;
+    Coroutine WallSquashEnabler;
+    private float enableDelayAfterLanding = 0.2f;
     private Vector3 prevPos;
+    private float deltaPosThreshold = 0.01f;
     private bool prevRaycastLeft;
     private bool prevRaycastRight;
+
 
     public bool pausedPressed = false;
 
@@ -158,7 +160,7 @@ public class PlayerController : MonoBehaviour
         CoyoteTime();
         RecordYVelocity();
         RecordMagnitude();
-        WallCollisionSquash();
+        WallCollisionSquash();        
     }
 
     void Update()
@@ -278,12 +280,17 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove) return;
         if (!canJump || !jumpPressed) return;
-        
+
+        // Disable WallSquash
+        if (WallSquashEnabler != null)
+        {
+            StopCoroutine(WallSquashEnabler);
+        }
+        wallCollisionSquash = false;
+
         effects.CreateJumpDust();
         effects.StopLandDust();
-        SquashInTightSpaces();
         playerAudioHandler.PlayJumpingSound();
-
 
         if (coyoteTimer > 0 && jumpBufferTimer > 0)
         {
@@ -326,20 +333,6 @@ public class PlayerController : MonoBehaviour
         prevRaycastRight = rayCastHandler.rightSide;
         prevRaycastLeft = rayCastHandler.leftSide;
         prevPos = transform.position;
-    }
-
-    /// <summary>
-    /// Checks for small spaces when in the current size to limit the stretch and make the player able 
-    /// to fit easily through the gaps.
-    /// </summary>
-    private void SquashInTightSpaces()
-    {
-        float originalStretchAmount = squishAndSquash.stretchAmount;
-
-        if (currentSize == Sizes.SMALL && !rayCastHandler.mediumTopIsFree)
-            squishAndSquash.stretchAmount = 0.0f;
-        else
-            squishAndSquash.stretchAmount = originalStretchAmount;
     }
 
     void CoyoteTime()
@@ -546,6 +539,9 @@ public class PlayerController : MonoBehaviour
     private void LandingActions()
     {
         if(!canMove) return;
+
+        WallSquashEnabler = StartCoroutine(EnableWallCollisionSquash());
+
         effects.CreateLandDust();
         playerAudioHandler.PlayLandingSound();
         squishAndSquash.LandSquish();
@@ -558,6 +554,12 @@ public class PlayerController : MonoBehaviour
             screenShake.JumpShake();
             VibrateController(.2f, .2f, vibrationDuration);
         }
+    }
+
+    IEnumerator EnableWallCollisionSquash()
+    {
+        yield return new WaitForSeconds(enableDelayAfterLanding);
+        wallCollisionSquash = true;
     }
 
     private void OnDrawGizmosSelected()

@@ -29,7 +29,7 @@ public class VentMovement : MonoBehaviour, IReset
     public Vector3 prevPos;
 
 
-    public float deadZoneY = 0.9f;
+    public float deadZone = 0.9f;
     private void Start()
     {
         rayCastHandler = GetComponent<RayCastHandler>();
@@ -56,7 +56,6 @@ public class VentMovement : MonoBehaviour, IReset
         actions["Vent"].performed -= OnMove;
         actions["Vent"].canceled -= OnMoveCancel;
         input = Vector2.zero;
-        //print("Direction" + input)
     }
 
     void Update()
@@ -90,7 +89,7 @@ public class VentMovement : MonoBehaviour, IReset
 
     void MoveBuffer()
     {
-        if (input.x > deadZoneY)
+        if (input.x > deadZone)
         {
             if (canMoveRight)
             {
@@ -106,7 +105,7 @@ public class VentMovement : MonoBehaviour, IReset
             }
         }
 
-        if (input.x < -deadZoneY)
+        if (input.x < -deadZone)
         {
             if (canMoveLeft)
             {
@@ -122,7 +121,7 @@ public class VentMovement : MonoBehaviour, IReset
             }
         }
 
-        if (input.y > deadZoneY)
+        if (input.y > deadZone)
         {
             if (canMoveUp)
             {
@@ -138,7 +137,7 @@ public class VentMovement : MonoBehaviour, IReset
             }
         }
 
-        if (input.y < -deadZoneY)
+        if (input.y < -deadZone /*&& rb.velocity.y < 0*/)
         {
             if (canMoveDown)
             {
