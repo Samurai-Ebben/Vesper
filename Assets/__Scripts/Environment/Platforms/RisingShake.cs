@@ -15,8 +15,9 @@ public class RisingShake : MonoBehaviour
         if (other.gameObject.CompareTag("Rising"))
         {
             AudioManager.Instance.GameplaySFX(AudioManager.Instance.risingPlatformSound, AudioManager.Instance.risingPlatformVolume);
-            risingMovement.rocks.Play();
             PlayerController.instance.screenShake.PlatformShakeOnTarget();
+            if (risingMovement.rocks == null) return;
+            risingMovement.rocks.Play();
         }
     }
 }
