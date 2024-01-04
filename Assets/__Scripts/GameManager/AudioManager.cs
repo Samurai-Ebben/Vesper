@@ -5,6 +5,8 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+
 using static UnityEngine.Rendering.DebugUI;
 
 public class AudioManager : MonoBehaviour
@@ -32,6 +34,8 @@ public class AudioManager : MonoBehaviour
     public float powerUpLargeVolume = 0.5f;
     public float startGameVolume = 0.5f;
 
+    public float menuMusicVolume = 0.5f;
+
 
     public float pauseMenuVolume = 0.5f;
 
@@ -56,7 +60,7 @@ public class AudioManager : MonoBehaviour
     public bool fadingIn;
     public bool fadingOut;
 
-    float fadeTest;
+    public bool fadeOutVolumeInMenu = false;
 
     float volume = 0;
     float backgroundMusicVolume;
@@ -65,9 +69,12 @@ public class AudioManager : MonoBehaviour
 
     float timer;
 
+    float menuVolumeStarter;
+    bool overLimit = false;
+
 
     public AudioClip jumpSmall, jumpBig, jumpMedium, landingSmall, landingMedium, landingBig, switchToLarge, switchToSmall, switchToMedium, death, collectible, pauseMenu, clickInMenu
-        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump, risingPlatformSound, powerUpSmallSound, powerUpLargeSound, backgroundMusic1, backgroundMusic2, startGameSound;
+        , destructiblePlatfrom, disappearingPlatformSound, appearingPlatformSound, trampolineJump, risingPlatformSound, powerUpSmallSound, powerUpLargeSound, backgroundMusic1, backgroundMusic2, startGameSound, menuMusicSound;
     public List<AudioClip> clips;
     // Start is called before the first frame update
 
@@ -91,26 +98,48 @@ public class AudioManager : MonoBehaviour
         source2.loop = true;
 
         source2.volume = 0;
+
     }
 
 
 
     private void Update()
     {
-        currentScene = SceneManager.GetActiveScene().name;
+        MenuVolumeFadeInAndOut();
 
         //backgroundMusicTwoVolume = Mathf.Lerp(backgroundMusicTwoVolume, 0.5f, 0.001f);
         //source2.volume = backgroundMusicTwoVolume;
 
 
         SwapMusic();
-        MuteScenes();
+        MuteScenesAndPlay();
         if (fadingOut)
         {
             StopAllCoroutines();
             FakeFadeOut();
         }
 
+    }
+
+    private void MenuVolumeFadeInAndOut()
+    {
+        currentScene = SceneManager.GetActiveScene().name;
+        if (!overLimit && !fadeOutVolumeInMenu)
+        {
+            MenuVolumeFadeIn();
+        }
+        else if (fadeOutVolumeInMenu == true)
+        {
+            MenuVolumeFadeOut();
+
+        }
+        source2.clip = menuMusicSound;
+        source2.volume = menuVolumeStarter;
+    }
+
+    private void MenuVolumeFadeOut()
+    {
+        menuVolumeStarter -= 0.1f * Time.deltaTime;
     }
 
     private void FakeFadeOut()
@@ -158,7 +187,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void MuteScenes()
+    private void MenuVolumeFadeIn()
+    {
+
+        if (currentScene == "Menu")
+        {
+            menuVolumeStarter += 0.1f * Time.deltaTime;
+
+            if (menuVolumeStarter >= menuMusicVolume)
+            {
+                overLimit = true;
+            }
+        }
+    }
+
+    private void MuteScenesAndPlay()
     {
         for (int i = 0; i < muteLevels.Count; i++)
         {

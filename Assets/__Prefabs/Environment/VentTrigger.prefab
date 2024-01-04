@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3705752337025181029}
   - component: {fileID: 2773291051604109047}
   - component: {fileID: 5567816711676006796}
+  - component: {fileID: 2648091392622533944}
   m_Layer: 0
   m_Name: VentTrigger
   m_TagString: Untagged
@@ -90,3 +91,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c283b400acf6a4c862a77d4a84d7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitingSpeedX: 2
+  exitingSpeedY: 5
+--- !u!114 &2648091392622533944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45015251647070485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1c396c7aa142f43873b7ec5a26c9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1501317446213061023, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+        m_TargetAssemblyTypeName: SquishAndSquashToggle, Assembly-CSharp
+        m_MethodName: ToggleSquishAndSquash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  exitEventOn: 0
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1501317446213061023, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+        m_TargetAssemblyTypeName: SquishAndSquashToggle, Assembly-CSharp
+        m_MethodName: ToggleSquishAndSquash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2

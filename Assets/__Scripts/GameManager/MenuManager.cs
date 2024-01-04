@@ -50,8 +50,9 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        RemoveAll();
         AudioManager.Instance.MenuSFX(AudioManager.Instance.startGameSound, AudioManager.Instance.startGameVolume);
+        AudioManager.Instance.fadeOutVolumeInMenu = true; 
+        RemoveAll();
         ButtonAction.Invoke();
     }
 

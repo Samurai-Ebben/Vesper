@@ -13,9 +13,12 @@ public class SquishAndSquash : MonoBehaviour
 
     ScreenShakeHandler screenShakeHandler;
     RayCastHandler rayCastHandler;
-    
+
+    public bool squishAndSquashEnabled;
+
     void Start()
     {
+        squishAndSquashEnabled = true;
         originalScale = transform.localScale;
         screenShakeHandler = Camera.main.GetComponent<ScreenShakeHandler>();
         rayCastHandler = GetComponentInParent<RayCastHandler>();
@@ -24,13 +27,20 @@ public class SquishAndSquash : MonoBehaviour
     // Jump
     public void JumpSquash()
     {
+        if (!squishAndSquashEnabled) return;
         StartCoroutine(SquishSquashOverTime(originalScale.x - stretchAmount, originalScale.y + stretchAmount));
     }
 
     // Land
     public void LandSquish()
     {
+        if (!squishAndSquashEnabled) return;
         StartCoroutine(SquishSquashOverTime(originalScale.x + squashAmount, originalScale.y - squashAmount));
+    }
+
+    public void ToggleEnabled(bool boolean)
+    {
+        squishAndSquashEnabled = boolean;
     }
 
     IEnumerator SquishSquashOverTime(float targetX, float targetY)
@@ -72,7 +82,7 @@ public class SquishAndSquash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Corner")
+        if (other.gameObject.tag == "Corner")
         {
             screenShakeHandler.CornerShake();
         }
