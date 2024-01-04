@@ -6965,6 +6965,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -194.30078
       objectReference: {fileID: 0}
+    - target: {fileID: 6823699174650878128, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.078
+      objectReference: {fileID: 0}
     - target: {fileID: 6993640121089094921, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: Fade
       value: 
@@ -10839,7 +10843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2078082099
 Transform:
   m_ObjectHideFlags: 0
