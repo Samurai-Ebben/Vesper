@@ -21,7 +21,8 @@ public class CutsceneTrigger : MonoBehaviour
         if (collision.CompareTag("Player") && !cutscenePlayed)
         {
             rb2d = PlayerController.player.GetComponent<Rigidbody2D>();
-
+         
+            DisableSpriteObject();
             DisablePlayerParticles();
             StopPlayerMovement();
             MovePlayerToCutscenePosition();
@@ -30,6 +31,11 @@ public class CutsceneTrigger : MonoBehaviour
 
             cutscenePlayed = true;
         }
+    }
+
+    private static void DisableSpriteObject()
+    {
+        PlayerController.player.GetComponentInChildren<SquishAndSquash>().gameObject.SetActive(false);
     }
 
     private void DisablePlayerParticles()

@@ -33,8 +33,8 @@ public class SceneHandler : MonoBehaviour
 #endif
     }
 
-    //private void OnDestroy()
-    //{
-    //    DOTween.Clear();
-    //}
+    private void OnDestroy()
+    {
+        DOTween.Clear();
+    }
 }
