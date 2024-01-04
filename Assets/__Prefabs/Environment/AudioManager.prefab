@@ -68,8 +68,8 @@ MonoBehaviour:
   pauseMenuVolume: 0.5
   backgroundMusicOneVolume: 0.5
   backgroundMusicTwoVolume: 0.5
-  fadeOutSpeed: 0.0005
-  fadeInSpeed: 0.0005
+  fadeOutSpeed: 0.1
+  fadeInSpeed: 0.1
   timeToStopMusic: 3
   caveLevels:
   - Lvl 1.0

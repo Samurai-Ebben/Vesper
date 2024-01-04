@@ -38,8 +38,8 @@ public class AudioManager : MonoBehaviour
     public float backgroundMusicOneVolume = 0.5f;
     public float backgroundMusicTwoVolume = 0.5f;
 
-    public float fadeOutSpeed = 0.005f;
-    public float fadeInSpeed = 0.005f;
+    public float fadeOutSpeed = 0.1f;
+    public float fadeInSpeed = 0.1f;
     public float timeToStopMusic = 3;
 
 
@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
 
     private void FakeFadeOut()
     {
-        backgroundMusicVolume -= 0.1f * Time.deltaTime;
+        backgroundMusicVolume -= fadeOutSpeed * Time.deltaTime;
         source2.volume = backgroundMusicVolume;
     }
 
@@ -247,7 +247,7 @@ public class AudioManager : MonoBehaviour
         fadingOut = false;
         while (currentVolume < targetvolume)
         {
-            currentVolume += fadeInSpeed;
+            currentVolume += fadeInSpeed * Time.deltaTime;
             source2.volume = currentVolume;
 
             backgroundMusicVolume = currentVolume;
