@@ -17,7 +17,7 @@ public class VelocityCheck : MonoBehaviour
             RayCastHandler rayCastHandler = other.GetComponentInParent<RayCastHandler>();
 
             if (playerController.GetMagnitude() < breakForce) return;
-            if (playerController.currentSize != Sizes.LARGE) return;
+            if (playerController.currentSize != Sizes.BIG) return;
             //if (playerController.GetComponent<RayCastHandler>().checkAllToGround) return;
             //if (!rayCastHandler.fullyOnPlatform) return;
 

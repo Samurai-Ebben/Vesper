@@ -43,7 +43,7 @@ public class RisingButton : MonoBehaviour, IReset
             box.localPosition = Vector3.Lerp(box.localPosition, Vector3.zero, Time.deltaTime * 4);
         }
 
-        playerIsLarge = PlayerController.instance.currentSize == Sizes.LARGE;
+        playerIsLarge = PlayerController.instance.currentSize == Sizes.BIG;
         
         if(prevSize != playerIsLarge)
         {

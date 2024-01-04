@@ -23,7 +23,7 @@ public class SizeChangeAnimation : MonoBehaviour
             ChangingAnimation("small");
         }
 
-        if (playerController.currentSize == Sizes.LARGE)
+        if (playerController.currentSize == Sizes.BIG)
         {
             ChangingAnimation("large");
         }

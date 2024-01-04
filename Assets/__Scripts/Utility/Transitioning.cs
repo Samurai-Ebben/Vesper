@@ -15,6 +15,8 @@ public class Transitioning : MonoBehaviour
         {
             PlayerController.instance.canMove = true;
             PlayerController.instance.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            PlayerController.instance.effects.enabled = true;
+
             //SceneManager.LoadScene(currentLvl);
         }
 

@@ -187,7 +187,7 @@ public class RayCastHandler : MonoBehaviour
             sideCheckLength = smallSideCheck;
 
         }
-        else if (controller.currentSize == Sizes.LARGE)
+        else if (controller.currentSize == Sizes.BIG)
         {
             helpOffset = 0.48f;
             helperCheckLength = 0.88f;
