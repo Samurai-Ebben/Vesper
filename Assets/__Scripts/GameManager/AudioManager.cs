@@ -168,7 +168,6 @@ public class AudioManager : MonoBehaviour
                 fadingIn = false;
                 fadingOut = true;
 
-                Debug.Log(backgroundMusicVolume);
                 if (fadingOut)
                 {
                     ////StopCoroutine(FadeIn(backgroundMusicVolume, 0, fadeInSpeed));
