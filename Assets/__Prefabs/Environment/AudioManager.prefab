@@ -52,8 +52,8 @@ MonoBehaviour:
   source3: {fileID: 143294754772271265}
   source4: {fileID: 7680976012898344679}
   startLandingSound: 0
-  landingVolume: 0.35
-  jumpingVolume: 0.45
+  landingVolume: 0.3
+  jumpingVolume: 0.4
   deathVolume: 0.5
   switchVolume: 0.4
   collectibleVolume: 0.34
