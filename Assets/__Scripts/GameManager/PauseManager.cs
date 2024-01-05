@@ -100,9 +100,6 @@ public class PauseManager : MonoBehaviour
 
     public void Quit()
     {
-#if UNITY_EDITOR
-        print("Byye");
-#endif
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }

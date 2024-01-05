@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
     {
         events = Camera.main.GetComponentInChildren<EventSystem>();
 
+        Time.timeScale = 1;
         controls.SetActive(false);
         MenuCanvas.SetActive(true);
 

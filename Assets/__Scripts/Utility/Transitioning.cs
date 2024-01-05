@@ -8,7 +8,6 @@ public class Transitioning : MonoBehaviour
 {
     public void GoToScene(int loadScene = 3)
     {
-        //int currentLvl = SceneManager.GetActiveScene().buildIndex;
         if (loadScene <= 2)
             SceneManager.LoadScene(2);
         else
@@ -17,7 +16,6 @@ public class Transitioning : MonoBehaviour
             PlayerController.instance.GetComponentInChildren<SpriteRenderer>().enabled = true;
             PlayerController.instance.effects.enabled = true;
 
-            //SceneManager.LoadScene(currentLvl);
         }
 
     }
