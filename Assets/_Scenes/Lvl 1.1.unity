@@ -6969,6 +6969,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -13.078
       objectReference: {fileID: 0}
+    - target: {fileID: 6868898498921238885, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6993640121089094921, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: Fade
       value: 
@@ -7361,7 +7365,7 @@ GameObject:
   - component: {fileID: 449838732}
   - component: {fileID: 449838731}
   - component: {fileID: 449838733}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pillar_tall_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
