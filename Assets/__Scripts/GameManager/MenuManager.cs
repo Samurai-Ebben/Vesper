@@ -59,6 +59,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadIntro()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(1);
     }
 
@@ -112,8 +113,13 @@ public class MenuManager : MonoBehaviour
     public void Quit()
     {
 #if UNITY_EDITOR
-        print("Back to main menu");
+        UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
