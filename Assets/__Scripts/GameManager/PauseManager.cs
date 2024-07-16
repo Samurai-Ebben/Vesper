@@ -71,7 +71,6 @@ public class PauseManager : MonoBehaviour
     private void UpdateIndicators(Transform selected) {
         RectTransform selectedRectTransform = selected.GetComponent<RectTransform>();
         float width = selectedRectTransform.rect.width;
-        float height = selectedRectTransform.rect.height;
 
         Vector3 leftIndicatorPosition = selected.position - new Vector3(width /indicatorSpaceing, 0, 0);
         Vector3 rightIndicatorPosition = selected.position + new Vector3(width / indicatorSpaceing, 0, 0);
