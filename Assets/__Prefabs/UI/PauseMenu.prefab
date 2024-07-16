@@ -120,7 +120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4578371399764203571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4287401100
   m_fontColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -733,7 +733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5129495511097682124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1956,7 +1956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4785351953327984507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6889,6 +6889,10 @@ PrefabInstance:
     - target: {fileID: 7172021891778106343, guid: e187dd4046e58aa49be1e80c751fc471, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593148290207938664, guid: e187dd4046e58aa49be1e80c751fc471, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8593148290207938664, guid: e187dd4046e58aa49be1e80c751fc471, type: 3}
       propertyPath: m_SortingOrder

@@ -20,6 +20,8 @@ public class PauseManager : MonoBehaviour
     public GameObject indicator;
     public GameObject indicator2;
 
+    public float indicatorSpaceing = 20;
+
     public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
     TextMeshProUGUI txt;
     Color buttonOrigiColor;
@@ -61,6 +63,21 @@ public class PauseManager : MonoBehaviour
         DOTween.defaultTimeScaleIndependent = true;
         txt.transform.DOScale(btnOrigSize * 1.3f, fadeTime).SetEase(Ease.InSine);
         txt.DOColor(Color.white, fadeTime).SetEase(Ease.InSine);
+        Transform textsLen = events.currentSelectedGameObject.gameObject.GetComponentInChildren<TextMeshProUGUI>().transform;
+
+        UpdateIndicators(textsLen);
+    }
+
+    private void UpdateIndicators(Transform selected) {
+        RectTransform selectedRectTransform = selected.GetComponent<RectTransform>();
+        float width = selectedRectTransform.rect.width;
+        float height = selectedRectTransform.rect.height;
+
+        Vector3 leftIndicatorPosition = selected.position - new Vector3(width /indicatorSpaceing, 0, 0);
+        Vector3 rightIndicatorPosition = selected.position + new Vector3(width / indicatorSpaceing, 0, 0);
+
+        indicator.transform.position = leftIndicatorPosition;
+        indicator2.transform.position = rightIndicatorPosition;
     }
 
     public void PauseTrigger()
