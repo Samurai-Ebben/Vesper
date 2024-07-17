@@ -5836,7 +5836,7 @@ MonoBehaviour:
   controls: {fileID: 354285535203004875}
   indicator: {fileID: 2024749915581038651}
   indicator2: {fileID: 4757119288345481434}
-  indicatorSpaceing: 10
+  indicatorSpaceing: 22
   menuTxts:
   - {fileID: 2527330274323346894}
   - {fileID: 2027821413338271508}
@@ -6135,6 +6135,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4785351953327984507, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785351953327984507, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785351953327984507, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785351953327984507, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -6142,6 +6154,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2645581391340601248}
+    - target: {fileID: 5129495511097682124, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129495511097682124, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129495511097682124, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 5129495511097682124, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0

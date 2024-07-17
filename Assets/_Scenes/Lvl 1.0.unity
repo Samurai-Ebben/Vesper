@@ -15177,9 +15177,17 @@ PrefabInstance:
       propertyPath: VelocityModule.radial.minCurve.m_Curve.Array.data[0].outWeight
       value: 0.118006565
       objectReference: {fileID: 0}
+    - target: {fileID: 2101142670626569941, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2645581391340601248, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: indicateOffset
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645581391340601248, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: indicatorSpaceing
+      value: 47.8
       objectReference: {fileID: 0}
     - target: {fileID: 3974961901352097553, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchorMax.y

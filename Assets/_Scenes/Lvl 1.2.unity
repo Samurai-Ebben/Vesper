@@ -5772,6 +5772,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 786468879}
+    - target: {fileID: 2645581391340601248, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: indicatorSpaceing
+      value: 34.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4450143601000759526, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_Camera
       value: 

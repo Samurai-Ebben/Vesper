@@ -7727,6 +7727,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 2645581391340601248, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: indicatorSpaceing
+      value: 33.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3627516008902076236, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_Enabled
       value: 1
