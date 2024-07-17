@@ -5980,6 +5980,7 @@ GameObject:
   - component: {fileID: 4704372139927105350}
   - component: {fileID: 7688715490172628815}
   - component: {fileID: 2645581391340601248}
+  - component: {fileID: 4417459265808901622}
   - component: {fileID: 5766244006934020170}
   - component: {fileID: 3234205652056624834}
   - component: {fileID: 1501317446213061023}
@@ -6078,10 +6079,53 @@ MonoBehaviour:
   menuTxts:
   - {fileID: 2527330274323346894}
   - {fileID: 2027821413338271508}
+  - {fileID: 1996408431054410466}
   - {fileID: 6304663998048436574}
   - {fileID: 5066307523139785511}
   - {fileID: 2461039938019739446}
   fadeTime: 0.066
+--- !u!114 &4417459265808901622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7229780853740973210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271a7bb271daa13489fa8db3241560c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 0
+  levels:
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
+  - entered: 0
+    collectibleCollected: 0
 --- !u!114 &5766244006934020170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6378,15 +6422,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4785351953327984507, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.08
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4785351953327984507, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.08
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4785351953327984507, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.08
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4785351953327984507, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6402,15 +6446,15 @@ PrefabInstance:
       objectReference: {fileID: 2645581391340601248}
     - target: {fileID: 5129495511097682124, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.08
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 5129495511097682124, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.08
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 5129495511097682124, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.08
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 5129495511097682124, guid: fabbe7193ea40f9409eb94d76db5f91e, type: 3}
       propertyPath: m_AnchoredPosition.x

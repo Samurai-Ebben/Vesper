@@ -811,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 922588034}
     - target: {fileID: 2645581391340601248, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: indicatorSpaceing
-      value: 50.2
+      value: 42.6
       objectReference: {fileID: 0}
     - target: {fileID: 3401855725287368401, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_IsActive

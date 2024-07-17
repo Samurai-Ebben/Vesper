@@ -20280,7 +20280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2645581391340601248, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: indicatorSpaceing
-      value: 32.9
+      value: 28.1
       objectReference: {fileID: 0}
     - target: {fileID: 2953204091030816468, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_IsActive
@@ -20313,6 +20313,10 @@ PrefabInstance:
     - target: {fileID: 3974961901352097553, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417459265808901622, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: levelIndex
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4450143601000759526, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_Camera
@@ -21273,6 +21277,10 @@ PrefabInstance:
     - target: {fileID: 1308068701923209304, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_Name
       value: Collectible
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760477998667876184, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
+      propertyPath: levelIndex
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7771497801233779651, guid: 76270c0c88726e249b42e1d2a562464d, type: 3}
       propertyPath: m_LocalPosition.x
