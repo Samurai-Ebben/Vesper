@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     //Singleton
     public static GameManager Instance;
-
+    public float timesPlayed;
     [SerializeField]
     Vector3 currentCheckpoint;
 
@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
         if (PlayerController.player != null) 
         {
             player = PlayerController.player;
+            timesPlayed++;
+            PlayerPrefs.SetFloat("HavePlayed", timesPlayed);
         }
         else
         {

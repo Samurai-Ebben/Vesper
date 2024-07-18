@@ -105,7 +105,7 @@ public class CollectibleManager : MonoBehaviour, IReset
 
     private void OnApplicationQuit()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
     }
 
     public void Reset()

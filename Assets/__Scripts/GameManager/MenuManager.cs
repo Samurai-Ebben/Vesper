@@ -17,6 +17,8 @@ public class MenuManager : MonoBehaviour
     public GameObject MenuCanvas;
     public GameObject menu;
     public GameObject controls;
+    public TextMeshProUGUI lvlsTxt;
+    public GameObject lvlBtn;
     public List<TextMeshProUGUI> menuTxts = new List<TextMeshProUGUI>();
     public UnityEvent ButtonAction;
     public float fadeTime = 0.1f;
@@ -36,6 +38,11 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1;
         controls.SetActive(false);
         MenuCanvas.SetActive(true);
+
+        if(PlayerPrefs.GetFloat("HavePlayed") > 0) {
+            lvlBtn.SetActive(true);
+            menuTxts.Add(lvlsTxt);
+        }
 
         for (int i = 0; i < menuTxts.Count; i++)
         {
@@ -57,9 +64,12 @@ public class MenuManager : MonoBehaviour
         ButtonAction.Invoke();
     }
 
+    public void LoadLevels() {
+        SceneManager.LoadScene(19);
+    }
     public void LoadIntro()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(1);
     }
 
@@ -120,6 +130,6 @@ public class MenuManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
     }
 }

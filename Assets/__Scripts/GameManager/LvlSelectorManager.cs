@@ -46,9 +46,13 @@ public class LvlSelectorManager : MonoBehaviour
         SceneManager.LoadScene(levelNum);
     }
 
+    public void BackToMenu() {
+        SceneManager.LoadScene(1);
+    }
 }
     [System.Serializable]
     public class LevelState {
         public bool entered;
         public bool collectibleCollected;
     }
+
