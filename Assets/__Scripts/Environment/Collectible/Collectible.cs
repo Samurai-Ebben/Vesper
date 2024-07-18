@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Collectible : MonoBehaviour
 {
+    public int levelIndex;
+
     Collider2D myCollider;
     SpriteRenderer spriteRenderer;
     ParticleSystem[] particleSystems;
@@ -77,8 +79,11 @@ public class Collectible : MonoBehaviour
             audioManager.GameplaySFX(audioManager.collectible, audioManager.collectibleVolume);
             
             var collectibleManager = GameManager.Instance.GetComponent<CollectibleManager>();
-            collectibleManager.CollectibleCollected();
+            collectibleManager.CollectibleCollected(levelIndex);
             collectibleManager.RegisterSelfAsCollected(gameObject);
+
+            LvlSelectorManager.Instance.levels[levelIndex].collectibleCollected = true;
+            LvlSelectorManager.Instance.SaveLevelStates();
 
             outlineFxTrigger.PlayFx();
 

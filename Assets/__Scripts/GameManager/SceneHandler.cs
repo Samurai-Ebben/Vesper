@@ -27,6 +27,10 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
+    public void LevelSelector() {
+        SceneManager.LoadScene(19);
+    }
+
     public void Exit()
     {
 #if UNITY_EDITOR

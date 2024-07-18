@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/CREDIT ROLL.unity
     guid: de3e5041253c3a445a395000392b126f
+  - enabled: 1
+    path: Assets/_Scenes/LvlSelector.unity
+    guid: 24de6a82dae11c14fbb80578ef392a86
   m_configObjects: {}
