@@ -47,7 +47,7 @@ public class LvlSelectorManager : MonoBehaviour
     }
 
     public void BackToMenu() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
     [System.Serializable]

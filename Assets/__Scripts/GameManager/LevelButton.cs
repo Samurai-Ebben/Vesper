@@ -24,7 +24,7 @@ public class LevelButton : MonoBehaviour
 
     public void UpdateButton() {
         LevelState state = LvlSelectorManager.Instance.levels[levelIndex];
-
+        var levels = LvlSelectorManager.Instance.levels;
         if (!state.entered) {
             button.interactable = false;
         }
