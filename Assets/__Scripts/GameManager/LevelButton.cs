@@ -20,8 +20,6 @@ public class LevelButton : MonoBehaviour
         UpdateButton();
     }
 
-
-
     public void UpdateButton() {
         LevelState state = LvlSelectorManager.Instance.levels[levelIndex];
         var levels = LvlSelectorManager.Instance.levels;
@@ -37,4 +35,5 @@ public class LevelButton : MonoBehaviour
             button.interactable = true;
         }
     }
+
 }

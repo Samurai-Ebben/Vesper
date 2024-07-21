@@ -67,7 +67,6 @@ public class LvlSelectorManager : MonoBehaviour
 
     public void NavigateBtns() {
         Transform selected = events.currentSelectedGameObject.transform;
-
         if (selected != prevBtn) {
             AudioManager.Instance.MenuSFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
         }
