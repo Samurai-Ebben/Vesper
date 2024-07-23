@@ -50,7 +50,6 @@ public class LvlSelectorManager : MonoBehaviour
         }
     }
 
-    // Method to load the level states from player preferences
     public void LoadLevelStates() {
         for (int i = 0; i < levels.Count; i++) {
             levels[i].entered = PlayerPrefs.GetInt("Level" + i, 0) == 1;
@@ -80,6 +79,10 @@ public class LvlSelectorManager : MonoBehaviour
 
         prevBtn = selected;
         return;
+    }
+
+    public void SetCollectedGem(bool  collectedGem) {
+        levels[levelIndex].collectibleCollected = collectedGem;
     }
 }
     [System.Serializable]

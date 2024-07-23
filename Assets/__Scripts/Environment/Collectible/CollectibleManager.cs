@@ -33,19 +33,18 @@ public class CollectibleManager : MonoBehaviour, IReset
     }
 
     // Save Collection Amount
-    public void CollectibleCollected(int levelIndex)
-    {
+    public void CollectibleCollected(int levelIndex) {
         if (!LvlSelectorManager.Instance.levels[levelIndex].collectibleCollected) {
             collectedAmount++;
             SaveNewCollectedAmount();
-            LvlSelectorManager.Instance.levels[levelIndex].collectibleCollected = true;
+            LvlSelectorManager.Instance.SetCollectedGem(true);
+
             LvlSelectorManager.Instance.SaveLevelStates();
         }
-        else
-            LvlSelectorManager.Instance.levels[levelIndex].collectibleCollected = false;
-            UpdateDisplay();
+        UpdateDisplay();
         StartCoroutine(PlayGemUIFX());
     }
+
     private void SaveNewCollectedAmount()
     {
         PlayerPrefs.SetInt("collectedAmount", collectedAmount);
@@ -55,11 +54,10 @@ public class CollectibleManager : MonoBehaviour, IReset
     public void TriggerOnDeath()
     {
         collectedAmount -= collectedObjects.Count;
-
         SaveNewCollectedAmount();
         RespawnCollectibles();
         UpdateDisplay();
-
+        LvlSelectorManager.Instance.SaveLevelStates();
         collectedObjects.Clear();
     }
 

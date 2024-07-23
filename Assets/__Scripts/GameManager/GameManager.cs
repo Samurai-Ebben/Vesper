@@ -65,10 +65,13 @@ public class GameManager : MonoBehaviour
         player.transform.position = currentCheckpoint;
         ResettableManager.Instance.ResetAllObjects();
         GetComponent<CollectibleManager>().TriggerOnDeath();
+        
     }
     
     public void Death()
     {
+        LvlSelectorManager.Instance.SetCollectedGem(false);
+        LvlSelectorManager.Instance.SaveLevelStates();
         AudioManager.Instance.GameplaySFX(AudioManager.Instance.death, AudioManager.Instance.deathVolume);
         PlayerController.instance.canMove = false;
         PlayerController.instance.effects.enabled = true;

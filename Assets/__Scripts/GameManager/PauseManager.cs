@@ -96,6 +96,7 @@ public class PauseManager : MonoBehaviour
     {
         PauseTrigger();
         GameManager.Instance.RespawnPlayer();
+
     }
 
     public void ControlsMenu()
@@ -116,6 +117,8 @@ public class PauseManager : MonoBehaviour
 
     public void Quit()
     {
+        GameManager.Instance.RespawnPlayer();
+
         SceneManager.LoadScene(0);
     }
 }

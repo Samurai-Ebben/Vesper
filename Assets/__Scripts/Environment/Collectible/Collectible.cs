@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Collectible : MonoBehaviour
 {
     public int levelIndex;
+    private bool isCollected = false;
 
     Collider2D myCollider;
     SpriteRenderer spriteRenderer;
