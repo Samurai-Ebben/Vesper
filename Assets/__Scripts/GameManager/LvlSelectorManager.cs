@@ -28,13 +28,13 @@ public class LvlSelectorManager : MonoBehaviour
         else {
             Destroy(gameObject);
         }
-
+        //PlayerPrefs.DeleteAll();
         LoadLevelStates();
     }
+
     private void Start() {
         events = EventSystem.current;
         Time.timeScale = 1.0f;
-
         LvlSelectorManager.Instance.levels[levelIndex].entered = true;
         LvlSelectorManager.Instance.SaveLevelStates();
     }
@@ -57,6 +57,7 @@ public class LvlSelectorManager : MonoBehaviour
             levels[i].collectibleCollected = PlayerPrefs.GetInt("Collectible" + i, 0) == 1;
         }
     }
+
     public void GoToLevel(int levelNum) {
         SceneManager.LoadScene(levelNum);
     }
@@ -67,7 +68,13 @@ public class LvlSelectorManager : MonoBehaviour
 
     public void NavigateBtns() {
         Transform selected = events.currentSelectedGameObject.transform;
+        var selectedBtn = events.currentSelectedGameObject;
+        LvlSelectorManager.Instance.levels[levelIndex].selected = true;
+
+        selectedBtn.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         if (selected != prevBtn) {
+            LvlSelectorManager.Instance.levels[levelIndex].selected = false;
+
             AudioManager.Instance.MenuSFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
         }
 
@@ -78,6 +85,7 @@ public class LvlSelectorManager : MonoBehaviour
     [System.Serializable]
     public class LevelState {
         public bool entered;
+        public bool selected;
         public bool collectibleCollected;
     }
 

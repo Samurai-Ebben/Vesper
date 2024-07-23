@@ -431,6 +431,7 @@ public class PlayerController : MonoBehaviour, IReset
             AudioManager.Instance.GameplaySFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
         }
     }
+
     private void OnDisable()
     {
         actions["Move"].performed -= Move;

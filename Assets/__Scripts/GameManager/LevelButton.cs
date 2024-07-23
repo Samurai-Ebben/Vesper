@@ -17,18 +17,21 @@ public class LevelButton : MonoBehaviour
         button = GetComponent<Button>();
         lvlTxt = GetComponentInChildren<TextMeshProUGUI>();
         buttonImage = GetComponent<Image>();
+    }
+    private void Update() {
+        
         UpdateButton();
     }
 
     public void UpdateButton() {
         LevelState state = LvlSelectorManager.Instance.levels[levelIndex];
-        var levels = LvlSelectorManager.Instance.levels;
         if (!state.entered) {
             button.interactable = false;
         }
         else if (state.collectibleCollected) {
             button.interactable = true;
-            lvlTxt.color = Color.black;
+            if(!state.selected)
+                lvlTxt.color = Color.black;
             buttonImage.sprite = collectibleSprite;
         }
         else {

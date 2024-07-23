@@ -35,11 +35,16 @@ public class CollectibleManager : MonoBehaviour, IReset
     // Save Collection Amount
     public void CollectibleCollected(int levelIndex)
     {
-        if(!LvlSelectorManager.Instance.levels[levelIndex].collectibleCollected)
+        if (!LvlSelectorManager.Instance.levels[levelIndex].collectibleCollected) {
             collectedAmount++;
+            SaveNewCollectedAmount();
+            LvlSelectorManager.Instance.levels[levelIndex].collectibleCollected = true;
+            LvlSelectorManager.Instance.SaveLevelStates();
+        }
+        else
+            LvlSelectorManager.Instance.levels[levelIndex].collectibleCollected = false;
+            UpdateDisplay();
         StartCoroutine(PlayGemUIFX());
-        SaveNewCollectedAmount();
-        UpdateDisplay();
     }
     private void SaveNewCollectedAmount()
     {
