@@ -4934,7 +4934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa602c097652e74f93ad076e800c4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sustainTime: 2
+  sustainTime: 2.5
   cooldown: 0.5
   reapperingParticleDuration: 1
   onTriggerColor:

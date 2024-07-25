@@ -20996,79 +20996,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4582076288285838266, guid: 6f6106147a2c45b4795f4a58aca416a1, type: 3}
   m_PrefabInstance: {fileID: 499115846}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &505874983
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1953827760}
-    m_Modifications:
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.508
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.597
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514664690295535586, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_Color.b
-      value: 0.27450982
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514664690295535586, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_Color.g
-      value: 0.18039216
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514664690295535586, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_Color.r
-      value: 0.13333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514664690295535586, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_SortingOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8783587950400707718, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-      propertyPath: m_Name
-      value: Spike 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
 --- !u!1001 &555869709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22991,11 +22918,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1355494752 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2572436534385835626, guid: 1d81995f772e8ad44b71b7132ec20f46, type: 3}
-  m_PrefabInstance: {fileID: 505874983}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1388392012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24709,7 +24631,6 @@ Transform:
   - {fileID: 1462753804}
   - {fileID: 1781542268}
   - {fileID: 193714488}
-  - {fileID: 1355494752}
   - {fileID: 1989902242}
   - {fileID: 889903749}
   - {fileID: 1909661483}
