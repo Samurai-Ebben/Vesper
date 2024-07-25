@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -27,15 +28,18 @@ public class LevelButton : MonoBehaviour
         LevelState state = LvlSelectorManager.Instance.levels[levelIndex];
         if (!state.entered) {
             button.interactable = false;
+
         }
         else if (state.collectibleCollected) {
             button.interactable = true;
             if(!state.selected)
-                lvlTxt.color = Color.black;
+
+                lvlTxt.color = Color.grey;
             buttonImage.sprite = collectibleSprite;
         }
         else {
             button.interactable = true;
+
         }
     }
 
