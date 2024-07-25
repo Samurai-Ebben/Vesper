@@ -28,7 +28,7 @@ public class LvlSelectorManager : MonoBehaviour
         else {
             Destroy(gameObject);
         }
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         LoadLevelStates();
     }
 
