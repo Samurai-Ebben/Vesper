@@ -81,11 +81,11 @@ public class LvlSelectorManager : MonoBehaviour
                 LvlSelectorManager.Instance.levels[levelIndex].selected = false;
                 prevBtn.gameObject.transform.localScale = Vector3.one; // Reset the scale
             }
+        AudioManager.Instance.MenuSFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
 
             prevBtn = selected;
         }
 
-        AudioManager.Instance.MenuSFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
         return;
     }
 
