@@ -426,6 +426,9 @@ public class PlayerController : MonoBehaviour, IReset
     public void OnNavigate(InputAction.CallbackContext ctx)
     {
         //checks if vertical.
+        if (GameManager.Instance == null) return;
+        if (GameManager.Instance.GetComponent<PauseManager>() == null) return;
+
         if(MathF.Abs(ctx.ReadValue<Vector2>().y) > 0 && GameManager.Instance.GetComponent<PauseManager>().isPaused)
         {
             AudioManager.Instance.MenuSFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
