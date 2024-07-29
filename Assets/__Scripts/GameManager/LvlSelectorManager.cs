@@ -70,9 +70,7 @@ public class LvlSelectorManager : MonoBehaviour
         LvlSelectorManager.Instance.levels[levelIndex].selected = true;
 
         selectedBtn.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
-
-        // Scale up the newly selected button
-        selectedBtn.gameObject.transform.localScale = Vector3.one * 1.2f;
+        selectedBtn.gameObject.transform.localScale = Vector3.one * 0.65f;
 
         // Revert the previous button to its original size
         if (selected != prevBtn) {

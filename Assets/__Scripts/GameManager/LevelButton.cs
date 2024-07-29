@@ -34,7 +34,7 @@ public class LevelButton : MonoBehaviour
             button.interactable = true;
             if(!state.selected)
 
-                lvlTxt.color = Color.grey;
+                lvlTxt.color = new Color(0.3113208f, 0.3113208f, 0.3113208f, 1);
             buttonImage.sprite = collectibleSprite;
         }
         else {
