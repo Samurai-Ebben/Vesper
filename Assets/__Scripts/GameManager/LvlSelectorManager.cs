@@ -69,20 +69,24 @@ public class LvlSelectorManager : MonoBehaviour
         var selectedBtn = events.currentSelectedGameObject;
         LvlSelectorManager.Instance.levels[levelIndex].selected = true;
 
-        selectedBtn.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+        TextMeshProUGUI textComponent = selectedBtn.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        textComponent.color = Color.white;
+
         selectedBtn.gameObject.transform.localScale = Vector3.one * 0.65f;
+        textComponent.transform.localScale = Vector3.one / 0.65f;
 
         // Revert the previous button to its original size
         if (selected != prevBtn) {
             if (prevBtn != null) {
                 LvlSelectorManager.Instance.levels[levelIndex].selected = false;
+                prevBtn.gameObject.GetComponentInChildren<TextMeshProUGUI>().transform.localScale = Vector3.one;             
                 prevBtn.gameObject.transform.localScale = Vector3.one; // Reset the scale
+
             }
-        AudioManager.Instance.MenuSFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
+            AudioManager.Instance.MenuSFX(AudioManager.Instance.clickInMenu, AudioManager.Instance.clickInMenuVolume);
 
             prevBtn = selected;
         }
-
         return;
     }
 
