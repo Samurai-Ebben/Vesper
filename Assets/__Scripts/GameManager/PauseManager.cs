@@ -51,7 +51,6 @@ public class PauseManager : MonoBehaviour
     public void NavigateBtns()
     {
         var selected = events.currentSelectedGameObject.transform;
-        txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
 
 
         for (int i = 0; i < menuTxts.Count; i++)
@@ -60,12 +59,13 @@ public class PauseManager : MonoBehaviour
             menuTxts[i].transform.DOScale(btnOrigSize, fadeTime).SetEase(Ease.InSine);
         }
 
+        txt = (TextMeshProUGUI)selected.GetComponentInChildren(typeof(TextMeshProUGUI));
         DOTween.defaultTimeScaleIndependent = true;
         txt.transform.DOScale(btnOrigSize * 1.3f, fadeTime).SetEase(Ease.InSine);
         txt.DOColor(Color.white, fadeTime).SetEase(Ease.InSine);
-        Transform textsLen = events.currentSelectedGameObject.gameObject.GetComponentInChildren<TextMeshProUGUI>().transform;
+        //Transform textsLen = events.currentSelectedGameObject.gameObject.GetComponentInChildren<TextMeshProUGUI>().transform;
 
-        UpdateIndicators(textsLen);
+        //UpdateIndicators(textsLen);
     }
 
     private void UpdateIndicators(Transform selected) {

@@ -2333,6 +2333,10 @@ PrefabInstance:
       value: -11.49
       objectReference: {fileID: 0}
     - target: {fileID: 4417459265808901622, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
+      propertyPath: canNav
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417459265808901622, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: levels.Array.data[0].entered
       value: 1
       objectReference: {fileID: 0}

@@ -6141,6 +6141,7 @@ MonoBehaviour:
   - entered: 0
     selected: 0
     collectibleCollected: 0
+  canNav: 0
 --- !u!114 &5766244006934020170
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class LvlSelectorManager : MonoBehaviour
     public List<LevelState> levels;
 
     private EventSystem events;
-
+    public bool canNav = false;
     Transform prevBtn;
 
     void Awake() {
@@ -65,6 +65,8 @@ public class LvlSelectorManager : MonoBehaviour
     }
 
     public void NavigateBtns() {
+        if (!canNav) return;
+
         Transform selected = events.currentSelectedGameObject.transform;
         var selectedBtn = events.currentSelectedGameObject;
         LvlSelectorManager.Instance.levels[levelIndex].selected = true;
