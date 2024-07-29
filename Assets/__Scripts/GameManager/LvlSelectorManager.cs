@@ -74,8 +74,14 @@ public class LvlSelectorManager : MonoBehaviour
         TextMeshProUGUI textComponent = selectedBtn.gameObject.GetComponentInChildren<TextMeshProUGUI>();
         textComponent.color = Color.white;
 
-        selectedBtn.gameObject.transform.localScale = Vector3.one * 0.65f;
-        textComponent.transform.localScale = Vector3.one / 0.65f;
+        if(selectedBtn.tag == "LSQBtn") {
+            selectedBtn.gameObject.transform.localScale = Vector3.one * 1.2f;
+        }
+        else {
+
+            selectedBtn.gameObject.transform.localScale = Vector3.one * 0.65f;
+            textComponent.transform.localScale = Vector3.one / 0.65f;
+        }
 
         // Revert the previous button to its original size
         if (selected != prevBtn) {

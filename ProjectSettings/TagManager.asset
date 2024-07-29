@@ -11,6 +11,7 @@ TagManager:
   - GetLarger
   - GetSmaller
   - Stuck
+  - LSQBtn
   layers:
   - Default
   - TransparentFX
