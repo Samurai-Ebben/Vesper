@@ -13,7 +13,7 @@ public class LvlSelectorManager : MonoBehaviour
 
     public static LvlSelectorManager Instance;
     public int levelIndex;
-
+    // List to store the state of each level
     public List<LevelState> levels;
 
     private EventSystem events;

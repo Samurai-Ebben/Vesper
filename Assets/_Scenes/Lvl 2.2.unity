@@ -20316,7 +20316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4417459265808901622, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4417459265808901622, guid: a1d0cf4ced8b9d143979f5b1a3961f31, type: 3}
       propertyPath: levelIndex
